@@ -87,7 +87,7 @@ private JDBCUtil jdbcUtil = null;
 	}
 	
 	/* policy ���� ���� */
-	public int deletePolicy(String policyId) throws SQLException {
+	public int deletePolicy(int policyId) throws SQLException {
 		
 		String sql = "DELETE Policy "
 					+ "WHERE policyId=?";
@@ -106,10 +106,32 @@ private JDBCUtil jdbcUtil = null;
 		}
 		return 0;
 	}
+	
+	/* �־��� ��å ID�� �ش��ϴ� ��å�� �����ϴ��� �˻� */
+	public boolean existingPolicy (int policyId) throws SQLException {
+		String sql = "SELECT count(*) "
+				   + "FROM Policy "
+				   + "WHERE policyId=?";
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {policyId});
+		
+		try {
+			ResultSet rs = jdbcUtil.executeQuery();		// query ����
+			if (rs.next()) {
+				int count = rs.getInt(1);
+				return (count == 1 ? true : false);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.close();		// resource ��ȯ
+		}
+		return false;
+	}
+	
 
 	/* ���ϴ� �������� ��å �˻��Ͽ� List�� ���� �� ��ȯ */
-	public List<Policy> findPolicyList(String category, int income, String local, int age) throws SQLException {
-        String sql = "SELECT policyId, name "
+	public List<Policy> searchPolicyList(String category, int income, String local, int age) throws SQLException {
+        String sql = "SELECT policyId, name, category "
         		   + "FROM Policy "
         		   + "WHERE category=?, income=?, local=?, age=? "
         		   + "ORDER BY policyId"; 
@@ -124,7 +146,9 @@ private JDBCUtil jdbcUtil = null;
 			while (rs.next()) {
 				Policy pol = new Policy (			// Policy ��ü�� �����Ͽ� ���� ���� ������ ����
 						rs.getInt("policyId"),
-						rs.getString("name"));
+						rs.getString("name"),
+						rs.getString("category")
+						);
 				polList.add(pol);				// List�� Policy ��ü ����
 			}		
 			return polList;					
@@ -137,11 +161,41 @@ private JDBCUtil jdbcUtil = null;
 		return null;
 	}
 	
+	/* ��ü ��å List ��ȯ */
+	public List<Policy> findPolicyList() throws SQLException {
+		String sql = "SELECT policyId, name, category "
+				   + "FROM Policy "
+				   + "ORDER BY policyId";
+		
+		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil�� query�� ����
+		
+		try {
+			ResultSet rs = jdbcUtil.executeQuery();			// query ����			
+			List<Policy> polList = new ArrayList<Policy>();	// Community���� ����Ʈ ����
+			while (rs.next()) {
+				Policy pol = new Policy(			// Community ��ü�� �����Ͽ� ���� ���� ������ ����
+						rs.getInt("policyId"),
+						rs.getString("name"),
+						rs.getString("category")
+						);
+				polList.add(pol);				// List�� Community ��ü ����
+			}		
+			return polList;					
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.close();		// resource ��ȯ
+		}
+		return null;
+	}
+	
+	
 	 /* policyId�� policy ã�Ƽ� ��ȯ 
 	  	�־���  ID�� �ش��ϴ� ��å ������ �����ͺ��̽����� ã�� PolicyDetails ������ Ŭ������
 	  	�����Ͽ� ��ȯ.
 	   */
-	   public Policy findPolicyList(int policyId) throws SQLException {
+	   public Policy findPolicy(int policyId) throws SQLException {
 	        String sql = "SELECT name, contents, category, period, policySummary, qualificationForApplication, howToApply, local, age, income "
 	                 + "FROM Policy "
 	                 + "WHERE policyId=? ";   

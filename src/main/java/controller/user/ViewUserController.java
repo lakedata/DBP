@@ -9,7 +9,7 @@ import model.service.UserNotFoundException;
 import model.User;
 
 public class ViewUserController implements Controller {
-	//사용자 정보 검색 이 필요한가 ????
+	//사용자 정보 검색 아마도 mypage -> user/view
 	
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {			

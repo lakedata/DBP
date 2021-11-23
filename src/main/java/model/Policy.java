@@ -16,12 +16,14 @@ public class Policy implements Serializable {
 	private String local = null;	 // ��å ����
 	private int age = 20; 	 // ��å ���� ���� ����
 	private int income = 0; // �ҵ����
+	private boolean scrap = false; // ��ũ�� ����
 	
 	
-	public Policy(int policyId, String name) {
-		super();
+	public Policy(int policyId, String name, String category) {
+		
 		this.policyId = policyId;
 		this.name = name;
+		this.category = category;
 	}
 	
 	public Policy(String name, String contents, String category, String period, String policySummary, 
@@ -36,10 +38,25 @@ public class Policy implements Serializable {
 	      this.local = local;
 	      this.income = income;
 	      this.age = age;
-	   }
+	}
 
+	public Policy(int policyId, String name, String contents, String category, String period, String policySummary,
+			String qualificationForApplication, String howToApply, String local, int age, int income) {
+		
+		this.policyId = policyId;
+		this.name = name;
+		this.contents = contents;
+		this.category = category;
+		this.period = period;
+		this.policySummary = policySummary;
+		this.qualificationForApplication = qualificationForApplication;
+		this.howToApply = howToApply;
+		this.local = local;
+		this.age = age;
+		this.income = income;
+	}
 	
-
+	
 	public int getPolicyId() {
 		return policyId;
 	}
