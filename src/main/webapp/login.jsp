@@ -38,11 +38,11 @@ h5 span {
 p {
 	text-align: center;
 }
-
+ 
 i {
 	color: lightgray;
 }
-
+  
 input {
 	border: 1px solid lightgray;
 	border-radius: 3px;
