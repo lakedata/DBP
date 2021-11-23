@@ -6,7 +6,7 @@
 
 <%  // DAO를 사용한 트랜젝션
 int arr[] = null;
-%>
+%>    
 
 	<!DOCTYPE html>
 	<html>
