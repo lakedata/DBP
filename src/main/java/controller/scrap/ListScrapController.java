@@ -9,7 +9,7 @@ import controller.Controller;
 import model.Scrap;
 import model.service.ScrapManager;
 
-public class GetScrapController implements Controller {
+public class ListScrapController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
