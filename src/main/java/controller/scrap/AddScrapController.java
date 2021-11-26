@@ -7,7 +7,7 @@ import controller.Controller;
 import model.Scrap;
 import model.service.ScrapManager;
 
-public class AddScrapController implements Controller{
+public class AddScrapController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
