@@ -46,7 +46,7 @@
 		font-size: 15px;
 	}
 	
-	</style> 
+	</style>  
 	<script>
 	
 	

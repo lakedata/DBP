@@ -84,7 +84,7 @@ int arr[] = null;
 	<b>지원대상</b><br><br>
 	<table>
 	<tr>
-	<th>자격 요건</th> 
+	<th>자격 요건</th>  
 	<td>${policy.qualificationForApplication}</td>
 	</tr>
 	<tr>
