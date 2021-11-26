@@ -94,7 +94,7 @@
 	      form.action = targetUri;
 	      form.submit();
 	}  
-	</script>
+	</script> 
 	
 	
 </head>
