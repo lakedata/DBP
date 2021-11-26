@@ -18,7 +18,7 @@ public class AddScrapController implements Controller{
 				);
 		
 		try {
-			
+		
 			ScrapManager scMan = ScrapManager.getInstance();
 			scMan.add(scrap);
 			

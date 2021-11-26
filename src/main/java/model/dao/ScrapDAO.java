@@ -58,6 +58,7 @@ public class ScrapDAO {
 		
 		try {
 			int result = jdbcUtil.executeUpdate();
+			
 			return result;
 		} catch (Exception e) {
 			jdbcUtil.rollback();

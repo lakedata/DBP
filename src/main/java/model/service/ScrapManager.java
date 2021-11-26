@@ -33,4 +33,6 @@ public class ScrapManager {
 	public int cancel(String userId) throws SQLException {
 		return scrapDAO.cancelScrap(userId);
 	}
+	
+	// 사용자가 스크랩한 리스트 가져오기
 }
