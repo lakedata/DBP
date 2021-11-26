@@ -15,24 +15,9 @@ int arr[] = null;
 	<title>정책 상세보기</title>
 	<style>
 		#detail {
-			padding-left: 200px;
+			padding-left: 150px;
 			width: 80%;
 
-		}
-		#navMenu {
-		
-			height: 50px;
-			width: 100%;
-			background: linear-gradient( to bottom, #635BFF, #C548AB );
-			padding: 5px;
-		}
-		
-		nav {
-			width: 150px;
-			background-color: white;
-			border-right: 1px solid #ddd;
-			position: fixed;
-			height: 100%;
 		}
 		
 		#policyTypeMenu {
@@ -85,25 +70,10 @@ int arr[] = null;
 	</script>
 	<body>
 	
-	<div id="navMenu">
-		<div id="navMenu2">
-		<img src="./images/logo.png" style="width: '180px' height: 'auto'"/>
-		</div>
-	</div>
+<!-- header -->
+ <jsp:include page="/header.jsp"/>
 	
-	<div id="policyTypeMenu">
-	<nav>
-	<br>
-	<center style="color: blue; font-weight: bold">정책게시판</center><br><hr>
-	<ul>
-		<li>취업 지원</li><br>
-		<li>창업 지원</li><br>
-		<li>주거/금융</li><br>
-		<li>생활/복지</li><br>
-		<li>정책참여</li>
-	</ul>
-	</nav>
-	</div>		
+
 				
 	<div id="detail">
 	<h3>
