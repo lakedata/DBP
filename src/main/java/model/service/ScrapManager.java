@@ -24,7 +24,7 @@ public class ScrapManager {
 		return scMan;
 	}
 
-	// ½ºÅ©·¦
+	// ½ºÅ©·¦ Ãß°¡
 	public Scrap add(Scrap sc) throws SQLException {
 		return scrapDAO.addScrap(sc);
 	}

@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Scrap implements Serializable{
+public class Scrap implements Serializable {
 	private String userId;
 	private int policyId;
 	

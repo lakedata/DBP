@@ -69,7 +69,7 @@ public class ScrapDAO {
 		return 0;
 	}
 	
-	/* 사용자가 스크랩한 정책들 불러오기 */
+	/* 사용자가 스크랩한 정책 리스트 불러오기 */
 	public List<Scrap> getScrapList(String userId) throws SQLException {
 		
 		String sql = "SELECT * "
