@@ -29,7 +29,6 @@ private JDBCUtil jdbcUtil = null;
 		Object[] param = new Object[] {pol.getName(), pol.getContents(), pol.getCategory(), pol.getPolicySummary(),
 				pol.getQualificationForApplication(), pol.getHowToApply(), pol.getLocal(), pol.getAge(), 
 				pol.getPeriod(), pol.getIncome()};	
-		
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
 		String key[] = {"policyId"};

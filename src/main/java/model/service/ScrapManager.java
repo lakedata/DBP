@@ -25,8 +25,8 @@ public class ScrapManager {
 	}
 
 	// Ω∫≈©∑¶
-	public List<Scrap> add(Scrap sc) throws SQLException {
-		return scrapDAO.addScrap(sc.getUserId(), sc.getPolicyId());
+	public Scrap add(Scrap sc) throws SQLException {
+		return scrapDAO.addScrap(sc);
 	}
 	
 	// Ω∫≈©∑¶ √Îº“

@@ -16,32 +16,35 @@ public class ScrapDAO {
 		jdbcUtil = new JDBCUtil();	
 	}
 	
-	/* ½ºÅ©·¦ÇÑ Á¤Ã¥ ¸®½ºÆ®¿¡ Ãß°¡ */
-	public List<Scrap> addScrap(String userId, int policyId) {
+	/* Á¤Ã¥ ½ºÅ©·¦ÇÏ±â */
+	public Scrap addScrap(Scrap scrap) {
+		int generatedKey1, generatedKey2;
 		
 		String sql = "INSERT INTO Scrap VALUES (?, ?) ";
-				
-		
-		Object[] param = new Object[] {userId, policyId};
+
+		Object[] param = new Object[] {scrap.getUserId(), scrap.getPolicyId()};
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
+		String key[] = {"userId", "policyId"};
+		
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();			// query ï¿½ï¿½ï¿½ï¿½			
-			List<Scrap> scrapList = new ArrayList<Scrap>();	// Policyï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+			jdbcUtil.executeUpdate();
 			
-			while (rs.next()) {
-				Scrap scrap = new Scrap (			// Policy ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-						rs.getString("userId"),
-						rs.getInt("policyId")
-						);
-				scrapList.add(scrap);				// Listï¿½ï¿½ Policy ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
-			}		
-			return scrapList;					
+			ResultSet rs = jdbcUtil.getGeneratedKeys();
+			if(rs.next()) {
+				generatedKey1 = rs.getInt(1);
+				scrap.setPolicyId(generatedKey1);
+				generatedKey2 = rs.getInt(2);
+				scrap.setPolicyId(generatedKey2);
+			}
+			return scrap;				
 			
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			jdbcUtil.rollback();
+			e.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource ï¿½ï¿½È¯
+			jdbcUtil.commit();
+			jdbcUtil.close();		
 		}
 		return null;
 	}
@@ -64,6 +67,37 @@ public class ScrapDAO {
 			jdbcUtil.close();
 		}
 		return 0;
+	}
+	
+	/* »ç¿ëÀÚ°¡ ½ºÅ©·¦ÇÑ Á¤Ã¥µé ºÒ·¯¿À±â */
+	public List<Scrap> getScrapList(String userId) throws SQLException {
+		
+		String sql = "SELECT * "
+				   + "FROM Scrap"
+				   + "WHERE userId=? ";
+		
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});
+		
+		try {
+			ResultSet rs = jdbcUtil.executeQuery();					
+			List<Scrap> scrapList = new ArrayList<Scrap>();
+			
+			while (rs.next()) {
+				Scrap scrap = new Scrap (	
+						rs.getString("userId"),
+						rs.getInt("policyId")
+						);
+				scrapList.add(scrap);				
+			}		
+			return scrapList;		
+			
+		} catch (Exception e){
+			e.printStackTrace();
+		} finally {
+			jdbcUtil.close();		
+		}
+		
+		return null;
 	}
 
 	
