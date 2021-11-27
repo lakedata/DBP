@@ -1,4 +1,4 @@
-package controller.user;
+rpackage controller.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,26 +20,26 @@ public class LoginController implements Controller {
 		String password = request.getParameter("password");
 		
 		try {
-			// ¸ğµ¨¿¡ ·Î±×ÀÎ Ã³¸®¸¦ À§ÀÓ
+			// å ìœë¸ìš¸ì˜™ å ì‹¸ê¹ì˜™å ì™ì˜™ ì²˜å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™
 			UserManager manager = UserManager.getInstance();
 			manager.login(userId, password);
 			
 			User user = userDAO.findUser(userId);
 			if(user == null) {
-				throw new UserNotFoundException(userId + "»ç¿ëÀÚ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ");
+				throw new UserNotFoundException(userId + "ï¿½ë’— è­°ëŒì˜±ï¿½ë¸¯ï§ï¿½ ï¿½ë¸¡ï¿½ë’— ï¿½ë¸˜ï¿½ì” ï¿½ëµ’ï¿½ì—¯ï¿½ë•²ï¿½ë–. ");
 			}
 			if(!user.matchPassword(password)) {
-				throw new PasswordMismatchException("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+				throw new PasswordMismatchException("é®ê¾¨ï¿½è¸°ëŠìƒ‡åª›ï¿½ ï¿½ì”ªç§»ì„‘ë¸¯ï§ï¿½ ï¿½ë¸¡ï¿½ë’¿ï¿½ë•²ï¿½ë–.");
 			}
 	
-			//¼¼¼Ç¿¡ »ç¿ëÀÚ ÀÌÀÌµğ ÀúÀå
+			//ï¿½ê½­ï¿½ë€¡ï¿½ë¿‰ userid ï¿½ï¿½ï¿½ì˜£ 
 			HttpSession session = request.getSession();
             session.setAttribute(UserSessionUtils.USER_SESSION_KEY, userId);
             
             return "redirect:/user/list";			
 		} catch (Exception e) {
-			/* UserNotFoundExceptionÀÌ³ª PasswordMismatchException ¹ß»ı ½Ã
-			 * ´Ù½Ã login formÀ» »ç¿ëÀÚ¿¡°Ô Àü¼ÛÇÏ°í ¿À·ù ¸Ş¼¼Áöµµ Ãâ·Â
+			/* UserNotFoundExceptionå ì‹±ë†‚ì˜™ PasswordMismatchException å ìŒ©ì‚¼ì˜™ å ì™ì˜™
+			 * å ìŒ•ì™ì˜™ login formå ì™ì˜™ å ì™ì˜™å ì™ì˜™æ‚¶å ì™ì˜™å ï¿½ å ì™ì˜™å ì™ì˜™å ì‹¹ê³¤ì˜™ å ì™ì˜™å ì™ì˜™ å ìŒ¨ì‡½ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ï¿½
 			 */
             request.setAttribute("loginFailed", true);
 			request.setAttribute("exception", e);

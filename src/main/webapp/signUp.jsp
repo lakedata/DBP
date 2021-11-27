@@ -63,7 +63,7 @@
 		}
 	   if (form.userId.value == "") {
 	      alert("사용자 ID를 입력하십시오.");
-	      form.userId.focus();
+	      form.userId.focus();;
 	      return false;
 	   } 
 	   if (form.password.value == "") {
