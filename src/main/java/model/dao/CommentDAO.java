@@ -51,56 +51,5 @@ import java.sql.SQLException;
 		}		
 		return null;			
 	}
-	
-	// ´ñ±Û ¼öÁ¤
-	public int updateComment(Comment comm) throws SQLException {
-		
-		String sql = "UPDATE Comment "
-				   + "SET agree=?, commentContent=? "
-				   + "WHERE postNum=?";
-				
-		char agree = comm.getAgree();
-		String commentContent = comm.getContent();
-		
-		if (commentContent.equals("")) commentContent = null;
-		
-		Object[] param = new Object[] {agree, commentContent, comm.getPostNum()};		
-		jdbcUtil.setSqlAndParameters(sql, param);
-		
-		try {		
-			int result = jdbcUtil.executeUpdate();
-			return result;
-		} catch (Exception ex) {
-			jdbcUtil.rollback();
-			ex.printStackTrace();
-		}
-		finally {
-			jdbcUtil.commit();
-			jdbcUtil.close();
-		}		
-		return 0;
-	}
-	
-	// ´ñ±Û »èÁ¦
-	public int deleteComment(int postNum) throws SQLException {
-		String sql = "DELETE FROM Comment "
-				   + "WHERE postNum=?";	
-
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {postNum});
-		
-		try {		
-			int result = jdbcUtil.executeUpdate();
-			return result;
-		} catch (Exception ex) {
-			jdbcUtil.rollback();
-			ex.printStackTrace();
-		}
-		finally {
-			jdbcUtil.commit();
-			jdbcUtil.close();
-		}
-		return 0;
-	}
-	
 
 }

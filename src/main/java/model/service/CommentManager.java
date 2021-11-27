@@ -23,7 +23,7 @@ public class CommentManager {
 		return commMan;
 	}
 	
-	public Comment Create(Comment comm) throws SQLException {
+	public Comment create(Comment comm) throws SQLException {
 		return commDAO.createComment(comm);
 		
 	}
