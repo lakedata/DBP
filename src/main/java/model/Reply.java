@@ -6,14 +6,14 @@ public class Reply implements Serializable {
 	
 	private int postNum;
 	private char agree; // Âù¹Ý
-	private String content; // ´ñ±Û ³»¿ë
+	private String replyContent; // ´ñ±Û ³»¿ë
 	
 	public Reply() { }
 	
-	public Reply(int postNum, char agree, String content) {
+	public Reply(int postNum, char agree, String replyContent) {
 		this.postNum = postNum;
 		this.agree = agree;
-		this.content = content;
+		this.replyContent = replyContent;
 	}
 	
 	public int getPostNum() {
@@ -30,11 +30,11 @@ public class Reply implements Serializable {
 		this.agree = agree;
 	}
 	
-	public String getContent() {
-		return content;
+	public String getReplyContent() {
+		return replyContent;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setReplyContent(String replyContent) {
+		this.replyContent = replyContent;
 	}
 
 }

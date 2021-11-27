@@ -26,7 +26,7 @@ import java.sql.SQLException;
 		int generatedKey;
 		
 		String sql = "INSERT INTO Reply VALUES (?, ?, ?)";		
-		Object[] param = new Object[] {re.getPostNum(), re.getContent(), re.getAgree()};		
+		Object[] param = new Object[] {re.getPostNum(), re.getReplyContent(), re.getAgree()};		
 	
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
