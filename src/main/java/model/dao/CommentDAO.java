@@ -41,7 +41,7 @@ import java.sql.SQLException;
 				comm.setPostNum(generatedKey);
 			}
 			
-			return comm
+		
 		} catch (Exception ex) {
 			jdbcUtil.rollback();
 			ex.printStackTrace();
@@ -49,7 +49,7 @@ import java.sql.SQLException;
 			jdbcUtil.commit();
 			jdbcUtil.close();	
 		}		
-		return 0;			
+		return null;			
 	}
 	
 	// ´ñ±Û ¼öÁ¤
