@@ -106,7 +106,7 @@
 	    <center>정책 등록<hr/></center>
 	    
  <div id="div1">
-	<form name="form" method="POST" action="<c:url value='/policy/create' />">
+	<form name="form" method="POST" action="<c:url value='/policy/insert' />">
 	<table id= tableStyle>
 	<tr>
 	<td id = textStyle>정책이름</td> 
