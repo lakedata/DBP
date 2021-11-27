@@ -8,7 +8,6 @@
 
 <title>회원가입</title>
 <style>
-
 	 input {
 	 	width: 150px;
 	 	height: 40px;
@@ -23,6 +22,7 @@
 		border: none;
 		border-radius: 25px;
 	 }
+	 
 	 button:hover {
 	 	background-color:  #8080FF;
 	 	color: white;

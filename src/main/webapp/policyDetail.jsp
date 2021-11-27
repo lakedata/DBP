@@ -7,7 +7,6 @@
 <%  // DAO를 사용한 트랜젝션
 int arr[] = null;
 %>    
-
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -17,9 +16,7 @@ int arr[] = null;
 		#detail {
 			padding-left: 150px;
 			width: 80%;
-
 		}
-		
 		#policyTypeMenu {
 			
 			width: 100px;
@@ -73,13 +70,10 @@ int arr[] = null;
 <!-- header -->
  <jsp:include page="/header.jsp"/>
 	
-
-				
 	<div id="detail">
 	<h3>
 	${policy.name} </h3>
 	${policy.contents} <br><br>
-	
 	
 	<b>지원대상</b><br><br>
 	<table>
@@ -113,7 +107,6 @@ int arr[] = null;
 	<th>지원방법</th>
 	<td>
 	${viewItem.howToApply} </td>
-	
 	
 	</table>
 	
