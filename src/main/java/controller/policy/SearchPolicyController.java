@@ -20,7 +20,8 @@ public class SearchPolicyController implements Controller {
 		String category = request.getParameter("category");
 		int income = Integer.parseInt(request.getParameter("income"));
 		String local = request.getParameter("local");
-		int age = Integer.parseInt(request.getParameter("age"));
+		int startAge = Integer.parseInt(request.getParameter("startAge"));
+		int endAge = Integer.parseInt(request.getParameter("endAge"));
 		
     	String currentPageStr = request.getParameter("currentPage");	
 		int currentPage = 1;
@@ -29,7 +30,7 @@ public class SearchPolicyController implements Controller {
 		}		
     	
 		
-		List<Policy> searchPolList = polMan.searchPolicyList(category, income, local, age, currentPage, countPerPage);
+		List<Policy> searchPolList = polMan.searchPolicyList(category, income, local, startAge, endAge, currentPage, countPerPage);
 		
 		request.setAttribute("searchPolList", searchPolList);
 		return "/policy/policyList.jsp";

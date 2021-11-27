@@ -54,9 +54,9 @@ public class PolicyManager {
 	}
 	
 	/* 정책 조건 검색 */
-	public List<Policy> searchPolicyList(String category, int income, String local, int age, int currentPage, int countPerPage) throws SQLException {
+	public List<Policy> searchPolicyList(String category, int income, String local, int startAge, int endAge, int currentPage, int countPerPage) throws SQLException {
 		
-		return polDAO.searchPolicyList(category, income, local, age, currentPage, countPerPage);
+		return polDAO.searchPolicyList(category, income, local, startAge, endAge, currentPage, countPerPage);
 	}
 	
 	/* 정책 찾기 */

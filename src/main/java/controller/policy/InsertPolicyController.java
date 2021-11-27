@@ -17,12 +17,14 @@ public class InsertPolicyController implements Controller {
 				request.getParameter("name"),
 				request.getParameter("contents"),
 				request.getParameter("category"),
-				request.getParameter("period"),
+				request.getParameter("startDate"),
+				request.getParameter("endDate"),
 				request.getParameter("policySummary"),
 				request.getParameter("qualificationForApplication"),
 				request.getParameter("howToApply"),
 				request.getParameter("local"),
-				Integer.parseInt(request.getParameter("age")),
+				Integer.parseInt(request.getParameter("startAge")),
+				Integer.parseInt(request.getParameter("endAge")),
 				Integer.parseInt(request.getParameter("income"))
 				);
 		
