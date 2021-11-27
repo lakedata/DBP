@@ -5,18 +5,18 @@ import java.io.Serializable;
 
 public class Policy implements Serializable {
 	
-	private int policyId = 0;		// ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½Ìµï¿½
-	private String name = null;		// ï¿½ï¿½Ã¥ ï¿½Ì¸ï¿½
-	private String contents = null;		// ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½
-	private String category = null; 	// ï¿½ï¿½Ã¥ ï¿½Ð·ï¿½ Ä«ï¿½×°ï¿½
-	private String period = null;	// ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½ ï¿½â°£
-	private String policySummary = null;	// ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½
-	private String qualificationForApplication = null;	  // ï¿½ï¿½Ã¥ ï¿½ï¿½Ã» ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½
-	private String howToApply = null;	  // ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
-	private String local = null;	 // ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½
-	private int age = 20; 	 // ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-	private int income = 0; // ï¿½Òµï¿½ï¿½ï¿½ï¿½
-	private boolean scrap = false; // ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private int policyId = 0;		
+	private String name = null;		
+	private String contents = null;		
+	private String category = null; 	
+	private String period = null;	
+	private String policySummary = null;	
+	private String qualificationForApplication = null;	  
+	private String howToApply = null;	 
+	private String local = null;	
+	private int age = 20; // ½ÃÀÛ age, ³¡ age ¼öÁ¤ ÇØ¾ß ÇÔ 
+	private int income = 0; 
+	private boolean scrap = false; 
 	
 	
 	public Policy(int policyId, String name, String category) {
@@ -54,6 +54,22 @@ public class Policy implements Serializable {
 		this.local = local;
 		this.age = age;
 		this.income = income;
+	}
+	public Policy(int policyId, String name, String contents, String category, String period, String policySummary,
+			String qualificationForApplication, String howToApply, String local, int age, int income, boolean scrap) {
+		
+		this.policyId = policyId;
+		this.name = name;
+		this.contents = contents;
+		this.category = category;
+		this.period = period;
+		this.policySummary = policySummary;
+		this.qualificationForApplication = qualificationForApplication;
+		this.howToApply = howToApply;
+		this.local = local;
+		this.age = age;
+		this.income = income;
+		this.scrap = scrap;
 	}
 	
 	
@@ -133,4 +149,11 @@ public class Policy implements Serializable {
 	public void setIncome(int income) {
 		this.income = income;
 	}
+	public boolean getScrap() {
+		return scrap;
+	}
+	public void setScrap(boolean scrap) {
+		this.scrap = scrap;
+	}
+	
 }

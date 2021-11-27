@@ -19,7 +19,7 @@ public class ViewPolicyController implements Controller {
 		pol = polMan.findPolicy(policyId);
 		
 		request.setAttribute("Policy", pol);
-		return "/policy/viewPolicy.jsp";
+		return "/policy/PolicyDetail.jsp";
 	}
 
 }

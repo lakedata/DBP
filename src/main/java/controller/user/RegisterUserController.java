@@ -17,13 +17,13 @@ public class RegisterUserController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
        	if (request.getMethod().equals("GET")) {	
-    		// GET request: íšŒå ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ï¿½ form å ì™ì˜™ì²­	
+    		// GET request: È¸¿øÁ¤º¸ µî·Ï form ¿äÃ»	
     		log.debug("RegisterForm Request");
-			return "/user/registerForm.jsp";   // å ì‹¯ì‚¼ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ï¿½ å ì™ì˜™å ì™ì˜™å ì™ì˜™ update formå ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™     	
+			return "/user/signUp.jsp";   //°Ë»öÇÑ »ç¿ëÀÚ Á¤º¸¸¦ update formÀ¸·Î Àü¼Û 
 	    }	
        
 
-    	// POST request (íšŒå ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™ parameterå ì™ì˜™ å ì™ì˜™å ìŒœë“¸ì˜™)
+    	// POST request (È¸¿øÁ¤º¸°¡ parameter·Î Àü¼ÛµÊ)
        	User user = new User(
 			request.getParameter("userId"),
 			request.getParameter("password"),
@@ -37,13 +37,13 @@ public class RegisterUserController implements Controller {
 		try {
 			UserManager manager = UserManager.getInstance();
 			manager.create(user);
-	        return "redirect:/user/list";	// å ì™ì˜™å ì™ì˜™ å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ï¿½ å ì™ì˜™å ì™ì˜™íŠ¸ í™”å ì™ì˜™å ì™ì˜™å ì™ì˜™ redirect
+	        return "redirect:/user/list";	// ¼º°ø ½Ã »ç¿ëÀÚ ¸®½ºÆ® È­¸éÀ¸·Î redirect
 	        
-		} catch (ExistingUserException e) {	// å ì™ì˜™å ì™ì˜™ å ìŒ©ì‚¼ì˜™ å ì™ì˜™ íšŒå ì™ì˜™å ì™ì˜™å ì™ì˜™ formå ì™ì˜™å ì™ì˜™ forwarding
+		} catch (ExistingUserException e) {	// ¿¹¿Ü ¹ß»ı ½Ã È¸¿ø°¡ÀÔ formÀ¸·Î forwarding
             request.setAttribute("registerFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("user", user);
-			return "/user/registerForm.jsp";
+			return "/user/signUp.jsp";
 		}
     }
 }

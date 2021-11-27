@@ -8,7 +8,7 @@ public class ForwardController implements Controller {
 
     public ForwardController(String forwardUrl) {
         if (forwardUrl == null) {
-            throw new NullPointerException("forwardUrl is null. ï¿½Ìµï¿½ï¿½ï¿½ URLï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.");
+            throw new NullPointerException("forwardUrl is null. ÀÌµ¿ÇÒ URLÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
         }
         this.forwardUrl = forwardUrl;
     }

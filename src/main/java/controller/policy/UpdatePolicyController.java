@@ -23,19 +23,19 @@ public class UpdatePolicyController implements Controller{
 			
 			
 			HttpSession session = request.getSession();
-			if(UserSessionUtils.isLoginUser("admin", session)) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			if(UserSessionUtils.isLoginUser("admin", session)) {
 				request.setAttribute("policy", pol);
 				
-				return "/policy/updatePolicyForm.jsp"; // Ã£ï¿½ï¿½ ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½ updatePolicyFormï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				return "/policy/updatePolicyForm.jsp";
 				
 			}
-			else { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½
+			else { // °ü¸®ÀÚ ¾Æ´Ò °æ¿ì
 				request.setAttribute("updateFailed", true);
-				request.setAttribute("exception", new IllegalStateException("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½."));
-				return "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ uri";
+				request.setAttribute("exception", new IllegalStateException("°ü¸®ÀÚ ¿Ü ÀÏ¹Ý »ç¿ëÀÚ´Â Á¤Ã¥ ¼öÁ¤ÀÌ ºÒ°¡´É ÇÕ´Ï´Ù."));
+				return "/policy/list";
 			}
 		}
-		else { // "POST" -> ï¿½Ô·ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½ parameterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		else { // "POST" -> ÀÔ·Â(¼öÁ¤)ÇÑ Á¤Ã¥ Á¤º¸ parameter·Î Àü¼Û
 			Policy updatePol = new Policy(
 					Integer.parseInt(request.getParameter("policyId")),
 					request.getParameter("name"),
@@ -51,8 +51,8 @@ public class UpdatePolicyController implements Controller{
 					
 					);
 			
-		polMan.update(updatePol);
-		return "redirect:/policy/policyList";
+			polMan.update(updatePol);
+			return "redirect:/policy/list";
 	
 		}
 		

@@ -18,7 +18,7 @@ public class ListScrapController implements Controller {
 		List<Scrap> scrapList = scMan.getScrapList(request.getParameter("userId"));
 		
 		request.setAttribute("scrapList", scrapList);
-		return "/scrap/scrapView";
+		return "/scrap/list";
 	}
 	
 

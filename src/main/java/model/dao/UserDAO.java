@@ -5,35 +5,33 @@ import java.sql.SQLException;
 import model.User;
 
 public class UserDAO {
-	//birth string->date 타입 변환 필요 
+	//birth string->date
 	private JDBCUtil jdbcUtil = null;
 	
 	public UserDAO() {			
-		jdbcUtil = new JDBCUtil();	// JDBCUtil ��ü ����
+		jdbcUtil = new JDBCUtil();	// JDBCUtil ��ü ����
 	}
 		
 	public int create(User user) throws SQLException {
 		String sql = "INSERT INTO USER1 VALUES (?, ?, ?, ?, ?, ?)";		
 		Object[] param = new Object[] {user.getUserId(), user.getPassword(), 
 						user.getName(), user.getEmail(), user.getBirth(), user.getPhoneNumber() };				
-		jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil �� insert���� �Ű� ���� ����
+		jdbcUtil.setSqlAndParameters(sql, param);	
 				
 		try {				
-			int result = jdbcUtil.executeUpdate();	// insert �� ����
+			int result = jdbcUtil.executeUpdate();
 			return result;
 		} catch (Exception ex) {
 			jdbcUtil.rollback();
 			ex.printStackTrace();
 		} finally {		
 			jdbcUtil.commit();
-			jdbcUtil.close();	// resource ��ȯ
+			jdbcUtil.close();
 		}		
 		return 0;			
 	}
 
-	/**
-	 * ������ ����� ������ ����.
-	 */
+	
 	public int update(User user) throws SQLException {
 		String sql = "UPDATE USER1 "
 					+ "SET name=?, email=?, password=?, birth=?, phoneNumber=? "
@@ -41,10 +39,10 @@ public class UserDAO {
 		Object[] param = new Object[] {user.getName(), user.getEmail(), 
 					user.getPassword(), user.getBirth(), user.getPhoneNumber(), 
 					user.getUserId()};				
-		jdbcUtil.setSqlAndParameters(sql, param);	// JDBCUtil�� update���� �Ű� ���� ����
+		jdbcUtil.setSqlAndParameters(sql, param);	
 			
 		try {				
-			int result = jdbcUtil.executeUpdate();	// update �� ����
+			int result = jdbcUtil.executeUpdate();	
 			return result;
 		} catch (Exception ex) {
 			jdbcUtil.rollback();
@@ -52,20 +50,17 @@ public class UserDAO {
 		}
 		finally {
 			jdbcUtil.commit();
-			jdbcUtil.close();	// resource ��ȯ
+			jdbcUtil.close();
 		}		
 		return 0;
 	}
 
-	/**
-	 * ����� ID�� �ش��ϴ� ����ڸ� ����.
-	 */
 	public int remove(String userId) throws SQLException {
 		String sql = "DELETE FROM USER1 WHERE user_Id=? ";		
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});	// JDBCUtil�� delete���� �Ű� ���� ����
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});
 
 		try {				
-			int result = jdbcUtil.executeUpdate();	// delete �� ����
+			int result = jdbcUtil.executeUpdate();	
 			return result;
 		} catch (Exception ex) {
 			jdbcUtil.rollback();
@@ -73,7 +68,7 @@ public class UserDAO {
 		}
 		finally {
 			jdbcUtil.commit();
-			jdbcUtil.close();	// resource ��ȯ
+			jdbcUtil.close();	
 		}		
 		return 0;
 	}
@@ -82,12 +77,12 @@ public class UserDAO {
         String sql = "SELECT name, email, password, birth, phoneNumber "
         			+ "FROM USER1 "
         			+ "WHERE user_Id=? ";              
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});	// JDBCUtil�� query���� �Ű� ���� ����
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});
 
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();		// query ����
-			if (rs.next()) {						// �л� ���� �߰�
-				User user = new User(		// User ��ü�� �����Ͽ� �л� ������ ����
+			ResultSet rs = jdbcUtil.executeQuery();		
+			if (rs.next()) {		
+				User user = new User(		
 					userId,
 					rs.getString("name"),
 					rs.getString("email"),
@@ -99,17 +94,17 @@ public class UserDAO {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource ��ȯ
+			jdbcUtil.close();	
 		}
 		return null;
 	}
 	
 	public boolean existingUser(String userId) throws SQLException {
 		String sql = "SELECT count(*) FROM USER1 WHERE user_Id=?";      
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});	// JDBCUtil�� query���� �Ű� ���� ����
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});	
 
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();		// query ����
+			ResultSet rs = jdbcUtil.executeQuery();	
 			if (rs.next()) {
 				int count = rs.getInt(1);
 				return (count == 1 ? true : false);
@@ -117,7 +112,7 @@ public class UserDAO {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource ��ȯ
+			jdbcUtil.close();	
 		}
 		return false;
 	}

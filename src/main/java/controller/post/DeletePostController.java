@@ -18,7 +18,7 @@ public class DeletePostController  implements Controller {
 			
 			postMan.delete(deletePostId);
 			
-			return "redirection:/post/postList";
+			return "redirection:/post/list";
 		} catch (Exception e) {
 			request.setAttribute("deleteFailed", true);
 			request.setAttribute("exception", e);

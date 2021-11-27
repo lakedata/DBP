@@ -5,13 +5,13 @@ import javax.servlet.http.HttpSession;
 public class UserSessionUtils {
     public static final String USER_SESSION_KEY = "userId";
 
-    /* ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+    /* ÇöÀç ·Î±×ÀÎÇÑ »ç¿ëÀÚÀÇ ID¸¦ ±¸ÇÔ */
     public static String getLoginUserId(HttpSession session) {
         String userId = (String)session.getAttribute(USER_SESSION_KEY);
         return userId;
     }
 
-    /* ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ */
+    /* ·Î±×ÀÎÇÑ »óÅÂÀÎÁö¸¦ °Ë»ç */
     public static boolean hasLogined(HttpSession session) {
         if (getLoginUserId(session) != null) {
             return true;
@@ -19,7 +19,7 @@ public class UserSessionUtils {
         return false;
     }
 
-    /* ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IDï¿½ï¿½ userIdï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ */
+    /* ÇöÀç ·Î±×ÀÎÇÑ »ç¿ëÀÚÀÇ ID°¡ userIdÀÎÁö °Ë»ç */
     public static boolean isLoginUser(String userId, HttpSession session) {
         String loginUser = getLoginUserId(session);
         if (loginUser == null) {

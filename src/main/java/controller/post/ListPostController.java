@@ -19,7 +19,7 @@ public class ListPostController implements Controller{
 		List<Post> postList = postMan.findPostList();
 		
 		request.setAttribute("postList", postList);
-		return "/post/postList";
+		return "/post/list";
 	}
 
 }

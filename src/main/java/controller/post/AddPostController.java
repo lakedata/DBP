@@ -29,7 +29,7 @@ public class AddPostController implements Controller {
 			request.setAttribute("exception", e);
 			request.setAttribute("post", post);
 			
-			return "/post/addPostForm.jsp";
+			return "/post/postWrite.jsp";
 		}
 
 	}

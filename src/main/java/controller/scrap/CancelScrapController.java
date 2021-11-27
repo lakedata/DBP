@@ -19,14 +19,14 @@ public class CancelScrapController implements Controller {
 			
 			scMan.cancel(userId);
 			
-			return "redirection:/scrap";
+			return "redirection:/policy/view"; //mypage?
 			
 		} catch (Exception e) {
 			request.setAttribute("cancelFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("scrapCancelUserId", userId);
 			
-			return "/policy/viewPolicy.jsp";
+			return "/policy/plicyDetail.jsp";
 		}
 	}
 

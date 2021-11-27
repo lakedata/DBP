@@ -20,7 +20,32 @@ public class UpdatePostController implements Controller{
 			int postId = Integer.parseInt(request.getParameter("postId"));
 			
 			Post post = postMan.findPost(postId);
+			
+			HttpSession session = request.getSession();
+			if(UserSessionUtils.isLoginUser(request.getParameter("userId"), session)) {
+				request.setAttribute("post", post);
+				
+				return "/post/updatePost.jsp";
+			}
+			else {
+				request.setAttribute("updateFailed", true);
+				request.setAttribute("exception", new IllegalStateException("사용자 본인이 작성한 글만 수정 가능합니다."));
+				return "/post/list";
+			}
+		}
+		else {
+			Post updatePost = new Post(
+					Integer.parseInt(request.getParameter("postNum")),
+					Integer.parseInt(request.getParameter("policyId")),
+					request.getParameter("userId"),
+					request.getParameter("title"),
+					request.getParameter("writeDate"),
+					request.getParameter("content"));
+			postMan.update(updatePost);
+			return "redirect:/post/list";
+			
 		}
 	}
+	
 
 }

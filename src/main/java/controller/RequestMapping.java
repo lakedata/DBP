@@ -8,36 +8,37 @@ import org.slf4j.LoggerFactory;
 import controller.user.*;
 import controller.policy.*;
 import controller.scrap.*;
+import controller.post.*;
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
     
-    // ï¿½ï¿½ ï¿½ï¿½Ã» uriï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ controller ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ HashMap ï¿½ï¿½ï¿½ï¿½
+    // °¢ ¿äÃ» uri¿¡ ´ëÇÑ controller °´Ã¼¸¦ ÀúÀåÇÒ HashMap »ı¼º
     private Map<String, Controller> mappings = new HashMap<String, Controller>();
 
     public void initMapping() {
-    	//policy uri
     	mappings.put("/", null);
     	
-    	// ï¿½ï¿½ uriï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ controller ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    	
+    	
+    	// °¢ uri¿¡ ´ëÀÀµÇ´Â controller °´Ã¼¸¦ »ı¼º ¹× ÀúÀå
         mappings.put("/", new ForwardController("index.jsp"));
-        mappings.put("/user/login/form", new ForwardController("/user/loginForm.jsp"));
+        
+      //main page 
+    	mappings.put("/home", new ForwardController("home.jsp"));
+    	
+        mappings.put("/user/login/form", new ForwardController("/user/login.jsp"));
         mappings.put("/user/login", new LoginController());
         mappings.put("/user/logout", new LogoutController());
         mappings.put("/user/view", new ViewUserController());
         
-        // È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½Â´ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½Ş´ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
-//      mappings.put("/user/register/form", new ForwardController("/user/registerForm.jsp"));
         mappings.put("/user/register", new RegisterUserController());
-
-        // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-//      mappings.put("/user/update/form", new UpdateUserFormController());
-        mappings.put("/user/update", new UpdateUserController());
+        mappings.put("/user/update", new UpdateUserController());     
+        
         mappings.put("/user/delete", new DeleteUserController());
         
         
         //policy
-        mappings.put("/policy/insert/form", new ForwardController("/policy/policyInsertForm.jsp")); //ì •ì±… ë“±ë¡
         mappings.put("/policy/insert", new InsertPolicyController());
         mappings.put("/policy/list", new ListPolicyController()); 
         mappings.put("/policy/view", new ViewPolicyController());
@@ -57,17 +58,17 @@ public class RequestMapping {
         
         
         //post
-//        mappings.put("/post/upload", new UploadPostController());
-//        mappings.put("/post/list", new ListPostController());
-//        mappings.put("/post/view", new ViewPostController());
-//        mappings.put("/post/delete", new DeletePostController());
-       
+        mappings.put("/post/add", new AddPostController());
+        mappings.put("/post/list", new ListPostController());
+        mappings.put("/post/view", new ViewPostController());
+        mappings.put("/post/delete", new DeletePostController());
+        mappings.put("/post/update", new UpdatePostController());
         
         logger.info("Initialized Request Mapping!");
     }
 
     public Controller findController(String uri) {	
-    	// ï¿½Ö¾ï¿½ï¿½ï¿½ uriï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ controller ï¿½ï¿½Ã¼ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½È¯
+    	// ÁÖ¾îÁø uri¿¡ ´ëÀÀµÇ´Â controller °´Ã¼¸¦ Ã£¾Æ ¹İÈ¯
         return mappings.get(uri);
     }
 }

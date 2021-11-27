@@ -18,31 +18,31 @@ public class UpdateUserController implements Controller {
     public String execute(HttpServletRequest request, HttpServletResponse response)	throws Exception {
  
     	if (request.getMethod().equals("GET")) {	
-    		// GET request: ìˆ˜ì • form ìš”ì²­
+    		// GET request: È¸¿øÁ¤º¸ ¼öÁ¤ form ¿äÃ»	
     		String updateId = request.getParameter("userId");
 
     		log.debug("UpdateForm Request : {}", updateId);
     		
     		UserManager manager = UserManager.getInstance();
-			User user = manager.findUser(updateId);	// ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
+			User user = manager.findUser(updateId);	// ¼öÁ¤ÇÏ·Á´Â »ç¿ëÀÚ Á¤º¸ °Ë»ö
 			request.setAttribute("user", user);	
 
 			HttpSession session = request.getSession();
 			if (UserSessionUtils.isLoginUser(updateId, session) ||
 				UserSessionUtils.isLoginUser("admin", session)) {
-				// ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// ÇöÀç ·Î±×ÀÎÇÑ »ç¿ëÀÚ°¡ ¼öÁ¤ ´ë»ó »ç¿ëÀÚÀÌ°Å³ª °ü¸®ÀÚÀÎ °æ¿ì -> ¼öÁ¤ °¡´É
 				
-				return "/user/updateForm.jsp";   // ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ update formï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½     
+				return "/user/updateForm.jsp";   // °Ë»öÇÑ »ç¿ëÀÚ Á¤º¸¸¦ update formÀ¸·Î Àü¼Û      
 			}    
 			
-			// else ë¡œê·¸ì¸ ë˜ì–´ìˆì§€ ì•Šì€ ìƒíƒœì¼ ë•Œ 
+			// else (¼öÁ¤ ºÒ°¡´ÉÇÑ °æ¿ì) »ç¿ëÀÚ º¸±â È­¸éÀ¸·Î ¿À·ù ¸Ş¼¼Áö¸¦ Àü´Ş
 			request.setAttribute("updateFailed", true);
 			request.setAttribute("exception", 
-					new IllegalStateException("ë¡œê·¸ì¸ í›„ ì‚¬ìš© ê°€ëŠ¥í•œ ê¸°ëŠ¥ì…ë‹ˆë‹¤."));            
-			return "/user/view.jsp";	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ (forwarding)
+					new IllegalStateException("Å¸ÀÎÀÇ Á¤º¸´Â ¼öÁ¤ÇÒ ¼ö ¾ø½À´Ï´Ù."));            
+			return "/user/userDetail.jsp";	// »ç¿ëÀÚ º¸±â È­¸éÀ¸·Î ÀÌµ¿ (forwarding)
 	    }	
     	
-    	// POST request (È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ parameterï¿½ï¿½ ï¿½ï¿½ï¿½Ûµï¿½)
+    	// POST request (È¸¿øÁ¤º¸°¡ parameter·Î Àü¼ÛµÊ)
     	User updateUser = new User(
     		request.getParameter("userId"),
     		request.getParameter("password"),

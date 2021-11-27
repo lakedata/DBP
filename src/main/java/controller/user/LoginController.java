@@ -20,26 +20,26 @@ public class LoginController implements Controller {
 		String password = request.getParameter("password");
 		
 		try {
-			// ï¿½ğµ¨¿ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// ¸ğµ¨¿¡ ·Î±×ÀÎ Ã³¸®¸¦ À§ÀÓ
 			UserManager manager = UserManager.getInstance();
 			manager.login(userId, password);
 			
 			User user = userDAO.findUser(userId);
 			if(user == null) {
-				throw new UserNotFoundException(userId + "ëŠ” ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì•„ì´ë””ì…ë‹ˆë‹¤. ");
+				throw new UserNotFoundException(userId + "»ç¿ëÀÚ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ");
 			}
 			if(!user.matchPassword(password)) {
-				throw new PasswordMismatchException("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+				throw new PasswordMismatchException("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
 			}
 	
-			//ì„¸ì…˜ì— userid ì €ì¥ 
+			//¼¼¼Ç¿¡ »ç¿ëÀÚ ÀÌÀÌµğ ÀúÀå
 			HttpSession session = request.getSession();
             session.setAttribute(UserSessionUtils.USER_SESSION_KEY, userId);
             
             return "redirect:/user/list";			
 		} catch (Exception e) {
-			/* UserNotFoundExceptionï¿½Ì³ï¿½ PasswordMismatchException ï¿½ß»ï¿½ ï¿½ï¿½
-			 * ï¿½Ù½ï¿½ login formï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+			/* UserNotFoundExceptionÀÌ³ª PasswordMismatchException ¹ß»ı ½Ã
+			 * ´Ù½Ã login formÀ» »ç¿ëÀÚ¿¡°Ô Àü¼ÛÇÏ°í ¿À·ù ¸Ş¼¼Áöµµ Ãâ·Â
 			 */
             request.setAttribute("loginFailed", true);
 			request.setAttribute("exception", e);
