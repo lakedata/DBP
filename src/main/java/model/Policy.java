@@ -9,12 +9,14 @@ public class Policy implements Serializable {
 	private String name = null;		
 	private String contents = null;		
 	private String category = null; 	
-	private String period = null;	
+	private String startDate = null;
+	private String endDate = null;
 	private String policySummary = null;	
 	private String qualificationForApplication = null;	  
 	private String howToApply = null;	 
-	private String local = null;	
-	private int age = 20; // 시작 age, 끝 age 수정 해야 함 
+	private String local = null;
+	private int startAge = 20; 
+	private int endAge = 50;
 	private int income = 0; 
 	private boolean scrap = false; 
 	
@@ -26,48 +28,37 @@ public class Policy implements Serializable {
 		this.category = category;
 	}
 	
-	public Policy(String name, String contents, String category, String period, String policySummary, 
-	         String qualificationForApplication, String howToApply, String local, int age, int income) {
+	public Policy(String name, String contents, String category, String startDate, String endDate, String policySummary, 
+	         String qualificationForApplication, String howToApply, String local, int startAge, int endAge, int income) {
 	      this.name = name;
 	      this.contents = contents;
 	      this.category = category;
-	      this.period = period;
+	      this.startDate = startDate;
+	      this.endDate = endDate;
 	      this.policySummary = policySummary;
 	      this.qualificationForApplication = qualificationForApplication;
 	      this.howToApply = howToApply;
 	      this.local = local;
+	      this.startAge = startAge;
+	      this.endAge = endAge;
 	      this.income = income;
-	      this.age = age;
 	}
 
-	public Policy(int policyId, String name, String contents, String category, String period, String policySummary,
-			String qualificationForApplication, String howToApply, String local, int age, int income) {
+	public Policy(int policyId, String name, String contents, String category, String startDate, String endDate, String policySummary,
+			String qualificationForApplication, String howToApply, String local, int startAge, int endAge, int income, boolean scrap) {
 		
 		this.policyId = policyId;
 		this.name = name;
 		this.contents = contents;
 		this.category = category;
-		this.period = period;
+		this.startDate = startDate;
+	    this.endDate = endDate;
 		this.policySummary = policySummary;
 		this.qualificationForApplication = qualificationForApplication;
 		this.howToApply = howToApply;
 		this.local = local;
-		this.age = age;
-		this.income = income;
-	}
-	public Policy(int policyId, String name, String contents, String category, String period, String policySummary,
-			String qualificationForApplication, String howToApply, String local, int age, int income, boolean scrap) {
-		
-		this.policyId = policyId;
-		this.name = name;
-		this.contents = contents;
-		this.category = category;
-		this.period = period;
-		this.policySummary = policySummary;
-		this.qualificationForApplication = qualificationForApplication;
-		this.howToApply = howToApply;
-		this.local = local;
-		this.age = age;
+		this.startAge = startAge;
+	    this.endAge = endAge;
 		this.income = income;
 		this.scrap = scrap;
 	}
@@ -101,13 +92,40 @@ public class Policy implements Serializable {
 		this.category = category;
 	}
 	
-	public String getPeriod() {
-		return period;
-	}
-	public void setPeriod(String period) {
-		this.period = period;
-	}
 	
+	
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	public int getStartAge() {
+		return startAge;
+	}
+
+	public void setStartAge(int startAge) {
+		this.startAge = startAge;
+	}
+
+	public int getEndAge() {
+		return endAge;
+	}
+
+	public void setEndAge(int endAge) {
+		this.endAge = endAge;
+	}
+
 	public String getPolicySummary() {
 		return policySummary;
 	}
@@ -134,13 +152,6 @@ public class Policy implements Serializable {
 	}
 	public void setLocal(String local) {
 		this.local = local;
-	}
-	
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
 	}
 	
 	public int getIncome() {
