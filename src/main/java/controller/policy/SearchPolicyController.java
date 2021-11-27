@@ -10,6 +10,8 @@ import model.Policy;
 import model.service.PolicyManager;
 
 public class SearchPolicyController implements Controller {
+	
+	private static final int countPerPage = 10;	// 한 화면에 출력할 사용자 수
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -19,17 +21,15 @@ public class SearchPolicyController implements Controller {
 		int income = Integer.parseInt(request.getParameter("income"));
 		String local = request.getParameter("local");
 		int age = Integer.parseInt(request.getParameter("age"));
-		List<Policy> searchPolList = polMan.searchPolicyList(category, income, local, age);
 		
-		/*
     	String currentPageStr = request.getParameter("currentPage");	
 		int currentPage = 1;
 		if (currentPageStr != null && !currentPageStr.equals("")) {
 			currentPage = Integer.parseInt(currentPageStr);
 		}		
-    	*/
+    	
 		
-		// List<User> userList = manager.findUserList(currentPage, countPerPage);
+		List<Policy> searchPolList = polMan.searchPolicyList(category, income, local, age, currentPage, countPerPage);
 		
 		request.setAttribute("searchPolList", searchPolList);
 		return "/policy/policyList.jsp";

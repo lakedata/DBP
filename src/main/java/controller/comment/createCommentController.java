@@ -23,6 +23,7 @@ public class createCommentController implements Controller {
 			commMan.create(comm);		
 			
 			return "redirection:/policy/view";
+			
 		} catch (Exception e) {
 			request.setAttribute("createCommentFailed", true);
 			request.setAttribute("exception", e);
