@@ -13,10 +13,10 @@ public class PostDAO {
 	private JDBCUtil jdbcUtil = null;
 	
 	public PostDAO() {			
-		jdbcUtil = new JDBCUtil();	// JDBCUtil °´Ã¼ »ı¼º
+		jdbcUtil = new JDBCUtil();	// JDBCUtil ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 	}
 	
-	/* °Ô½Ã±Û µî·Ï */
+	/* ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ */
 	public Post insertPost(Post po) throws SQLException {
 		
 		int generatedKey;
@@ -76,7 +76,7 @@ public class PostDAO {
 		
 	}
 	
-	public int deletePost(String postNum) throws SQLException {
+	public int deletePost(int postNum) throws SQLException {
 		
 		String sql = "DELETE Post "
 					+ "WHERE postNum=?";
@@ -96,34 +96,64 @@ public class PostDAO {
 		return 0;
 	}
 	
-	/* ÀüÃ¼ post Ã£±â */
+	public Post findPost(int postNum) throws SQLException {
+        String sql = "SELECT policyId, userId, title, writeDate, content "
+                 + "FROM Post "
+                 + "WHERE postNum=? ";   
+        
+      jdbcUtil.setSqlAndParameters(sql, new Object[] {postNum});      // JDBCUtilå ì™ì˜™ queryå ì™ì˜™ å ì™ì˜™å ì™ì˜™
+      Post post = null;
+      
+      try {
+         ResultSet rs = jdbcUtil.executeQuery();         // query å ì™ì˜™å ì™ì˜™         
+  
+         if (rs.next()) {
+            post = new Post (
+            		rs.getInt("postNum"),
+            		rs.getInt("policyId"),
+            		rs.getString("userId"),
+            		rs.getString("title"),
+            		rs.getString("writeDate"),
+            		rs.getString("content")
+      		 );  
+         }                    
+         
+      } catch (Exception ex) {
+         ex.printStackTrace();
+      } finally {
+         jdbcUtil.close();      // resource å ì™ì˜™í™˜
+      }
+      return post;
+   }
+	
+	/* ï¿½ï¿½Ã¼ post Ã£ï¿½ï¿½ */
 	public List<Post> findPostList() throws SQLException {
 		
         String sql = "SELECT postNum, policyId, userId, title, writeDate, content "
      		   + "FROM Post "
      		   + "ORDER BY postNum";   
         
-		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil¿¡ query¹® ¼³Á¤
+		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtilï¿½ï¿½ queryï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();			// query ½ÇÇà			
-			List<Post> postList = new ArrayList<Post>();	// CommunityµéÀÇ ¸®½ºÆ® »ı¼º
+			ResultSet rs = jdbcUtil.executeQuery();			// query ï¿½ï¿½ï¿½ï¿½			
+			List<Post> postList = new ArrayList<Post>();	// Communityï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 			while (rs.next()) {
-				Post po = new Post(			// Community °´Ã¼¸¦ »ı¼ºÇÏ¿© ÇöÀç ÇàÀÇ Á¤º¸¸¦ ÀúÀå
+				Post po = new Post(			// Community ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						rs.getInt("postNum"),
 						rs.getInt("policyId"),
 						rs.getString("userId"),
 						rs.getString("title"),
 						rs.getString("writeDate"),
 						rs.getString("content"));
-				postList.add(po);				// List¿¡ Community °´Ã¼ ÀúÀå
+				postList.add(po);				// Listï¿½ï¿½ Community ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 			}		
 			return postList;					
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource ¹İÈ¯
+			jdbcUtil.close();		// resource ï¿½ï¿½È¯
 		}
 		return null;
 	}

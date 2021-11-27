@@ -28,7 +28,7 @@ public class DeletePolicyController implements Controller {
 			request.setAttribute("exception", e);
 			request.setAttribute("deletePolId", deletePolId);
 			
-			return "/policy/deletePolicyForm.jsp";
+			return "/policy/policyDetail.jsp";
 		}
 	}
 

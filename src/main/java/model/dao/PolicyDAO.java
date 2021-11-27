@@ -205,7 +205,7 @@ private JDBCUtil jdbcUtil = null;
 	      try {
 	         ResultSet rs = jdbcUtil.executeQuery();         // query 占쏙옙占쏙옙         
 	  
-	         while (rs.next()) {
+	         if (rs.next()) {
 	            pol = new Policy (   
 	                  // Community 占쏙옙체占쏙옙 占쏙옙占쏙옙占싹울옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
 	                  rs.getString("name"),
