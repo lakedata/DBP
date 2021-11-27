@@ -17,13 +17,13 @@ public class RegisterUserController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
        	if (request.getMethod().equals("GET")) {	
-    		// GET request: ȸ������ ��� form ��û	
+    		// GET request: 회占쏙옙占쏙옙占쏙옙 占쏙옙占� form 占쏙옙청	
     		log.debug("RegisterForm Request");
-			return "/user/registerForm.jsp";   // �˻��� ����� ������ update form���� ����     	
+			return "/user/registerForm.jsp";   // 占싯삼옙占쏙옙 占쏙옙占쏙옙占� 占쏙옙占쏙옙占쏙옙 update form占쏙옙占쏙옙 占쏙옙占쏙옙     	
 	    }	
        
 
-    	// POST request (ȸ�������� parameter�� ���۵�)
+    	// POST request (회占쏙옙占쏙옙占쏙옙占쏙옙 parameter占쏙옙 占쏙옙占쌜듸옙)
        	User user = new User(
 			request.getParameter("userId"),
 			request.getParameter("password"),
@@ -37,9 +37,9 @@ public class RegisterUserController implements Controller {
 		try {
 			UserManager manager = UserManager.getInstance();
 			manager.create(user);
-	        return "redirect:/user/list";	// ���� �� ����� ����Ʈ ȭ������ redirect
+	        return "redirect:/user/list";	// 占쏙옙占쏙옙 占쏙옙 占쏙옙占쏙옙占� 占쏙옙占쏙옙트 화占쏙옙占쏙옙占쏙옙 redirect
 	        
-		} catch (ExistingUserException e) {	// ���� �߻� �� ȸ������ form���� forwarding
+		} catch (ExistingUserException e) {	// 占쏙옙占쏙옙 占쌩삼옙 占쏙옙 회占쏙옙占쏙옙占쏙옙 form占쏙옙占쏙옙 forwarding
             request.setAttribute("registerFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("user", user);
