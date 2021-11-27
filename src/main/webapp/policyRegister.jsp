@@ -23,7 +23,7 @@
 		border-radius: 25px;
 	 }
 	 button:hover {
-	 	background-color:  #8080FF;
+	 	background-color: #8080FF;
 	 	color: white;
 	 }
 
@@ -47,7 +47,6 @@
 
 </style>
 <script>
-	
 	
 	function policyCreate() {
 		if (form.policyName.value == "") {
@@ -99,18 +98,15 @@
 	}  
 	</script>  
 	
-	
 </head>
 <body>
 <!-- header -->
  <jsp:include page="/header.jsp"/>
   <br/><br/>
 	    <center>정책 등록<hr/></center>
-
-	    
 	    
  <div id="div1">
-	<form name="form" method="POST" action="<c:url value='/community/create' />">
+	<form name="form" method="POST" action="<c:url value='/policy/create' />">
 	<table id= tableStyle>
 	<tr>
 	<td id = textStyle>정책이름</td> 

@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>·Î±×ÀÎ</title>
+<title>ë¡œê·¸ì¸</title>
     <style>
 .container {
 	width: 385px;
@@ -52,16 +53,17 @@ input {
 <body>
 	<div class="container">
 
-        	<h5><span>·Î±×ÀÎ</span> ÆäÀÌÁöÀÔ´Ï´Ù.</h5>
+        	<h5><span>ë¡œê·¸ì¸</span> í˜ì´ì§€ì…ë‹ˆë‹¤.</h5>
         <hr />
-        <form action="login.do" method="post">
-            <input type="text" placeholder="¾ÆÀÌµğ" name="id" required style="height:30px; width: 380px" /><br />
-            <input type="password" placeholder="ºñ¹Ğ¹øÈ£" name="pw" required style="height:30px; width: 380px" /><br />
-            <input type="submit" value="·Î±×ÀÎ" class="login" />
+        <form action="login.do" method="post" action="<c:url value='/user/login' />">
+    
+            <input type="text" placeholder="ì•„ì´ë””" name="id" required style="height:30px; width: 380px" /><br />
+            <input type="password" placeholder="ë¹„ë°€ë²ˆí˜¸" name="pw" required style="height:30px; width: 380px" /><br />
+            <input type="submit" value="ë¡œê·¸ì¸" class="login" />
             <button onclick="location.href='main.jsp';" class="login" >HOME</button>
         </form>
         <hr />
-        <p><a href="signup.jsp"><input type="button" value="È¸¿ø°¡ÀÔ" id="signup" /></a></p>
+        <p><a href="signup.jsp"><input type="button" value="íšŒì›ê°€ì…" id="signup" /></a></p>
     </div>
 </body>
 </html>

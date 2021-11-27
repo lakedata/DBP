@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>홈페이지</title>
+<style>
+body {
+   background-image: url("https://ifh.cc/g/op30S6.jpg");
+}
+</style>
 </head>
-<body>
-
+<body >
+ <jsp:include page="/header.jsp"/>
 </body>
 </html>
