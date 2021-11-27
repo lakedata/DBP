@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>홈페이지</title>
 <style>
-body {
+body { 
    background-image: url("https://ifh.cc/g/op30S6.jpg");
 }
 </style>
