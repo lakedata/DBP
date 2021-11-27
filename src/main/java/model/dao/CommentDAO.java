@@ -16,13 +16,12 @@ import java.sql.SQLException;
 	public class CommentDAO {
 		
 		private JDBCUtil jdbcUtil = null;
-		
-		public CommentDAO() {	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
-			jdbcUtil = new JDBCUtil();	// JDBCUtil ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+	
+		public CommentDAO() {	
+			jdbcUtil = new JDBCUtil();	
 		}
 
-	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-	public int createComment(Comment comm) throws SQLException {
+	public Comment createComment(Comment comm) throws SQLException {
 		
 		int generatedKey;
 		
@@ -41,29 +40,31 @@ import java.sql.SQLException;
 				generatedKey = rs.getInt(1);
 				comm.setPostNum(generatedKey);
 			}
+			
+			return comm
 		} catch (Exception ex) {
 			jdbcUtil.rollback();
 			ex.printStackTrace();
 		} finally {		
 			jdbcUtil.commit();
-			jdbcUtil.close();	// resource ï¿½ï¿½È¯
+			jdbcUtil.close();	
 		}		
 		return 0;			
 	}
 	
-	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	// ´ñ±Û ¼öÁ¤
 	public int updateComment(Comment comm) throws SQLException {
 		
 		String sql = "UPDATE Comment "
-					+ "SET agree=?, commentContent=? "
-					+ "WHERE postNum=?";
+				   + "SET agree=?, commentContent=? "
+				   + "WHERE postNum=?";
 				
 		char agree = comm.getAgree();
 		String commentContent = comm.getContent();
 		
 		if (commentContent.equals("")) commentContent = null;
 		
-		Object[] param = new Object[] {comm.getAgree(), comm.getPostNum(), comm.getContent()};		
+		Object[] param = new Object[] {agree, commentContent, comm.getPostNum()};		
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
 		try {		
@@ -80,10 +81,10 @@ import java.sql.SQLException;
 		return 0;
 	}
 	
-	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ´ñ±Û »èÁ¦
 	public int deleteComment(int postNum) throws SQLException {
 		String sql = "DELETE FROM Comment "
-							+ "WHERE postNum=?";	
+				   + "WHERE postNum=?";	
 
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {postNum});
 		

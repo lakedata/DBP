@@ -5,19 +5,15 @@ import java.io.Serializable;
 public class Comment implements Serializable { 
 	
 	private int postNum;
-	private char agree; //ï¿½ï¿½ï¿½ï¿½
-	private String content; // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private char agree; // Âù¹Ý
+	private String content; // ´ñ±Û ³»¿ë
 	
-	public Comment() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public Comment() { }
 	
-	public Comment(char agree, String content) {
-		super();
+	public Comment(int postNum, char agree, String content) {
+		this.postNum = postNum;
 		this.agree = agree;
 		this.content = content;
-	
 	}
 	
 	public int getPostNum() {
@@ -39,13 +35,6 @@ public class Comment implements Serializable {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	
-	
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
 	}
 
 }
