@@ -2,15 +2,15 @@ package model;
 
 import java.io.Serializable;
 
-public class Comment implements Serializable { 
+public class Reply implements Serializable { 
 	
 	private int postNum;
 	private char agree; // 찬반
 	private String content; // 댓글 내용
 	
-	public Comment() { }
+	public Reply() { }
 	
-	public Comment(int postNum, char agree, String content) {
+	public Reply(int postNum, char agree, String content) {
 		this.postNum = postNum;
 		this.agree = agree;
 		this.content = content;

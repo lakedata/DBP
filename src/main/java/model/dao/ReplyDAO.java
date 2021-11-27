@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Comment;
+import model.Reply;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,20 +13,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-	public class CommentDAO {
+	public class ReplyDAO {
 		
 		private JDBCUtil jdbcUtil = null;
 	
-		public CommentDAO() {	
+		public ReplyDAO() {	
 			jdbcUtil = new JDBCUtil();	
 		}
 
-	public Comment createComment(Comment comm) throws SQLException {
+	public Reply createReply(Reply re) throws SQLException {
 		
 		int generatedKey;
 		
-		String sql = "INSERT INTO Comment VALUES (?, ?, ?)";		
-		Object[] param = new Object[] {comm.getPostNum(), comm.getContent(), comm.getAgree()};		
+		String sql = "INSERT INTO Reply VALUES (?, ?, ?)";		
+		Object[] param = new Object[] {re.getPostNum(), re.getContent(), re.getAgree()};		
 	
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
@@ -38,7 +38,7 @@ import java.sql.SQLException;
 			ResultSet rs = jdbcUtil.getGeneratedKeys();
 			if(rs.next()) {
 				generatedKey = rs.getInt(1);
-				comm.setPostNum(generatedKey);
+				re.setPostNum(generatedKey);
 			}
 			
 		

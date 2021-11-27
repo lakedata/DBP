@@ -11,12 +11,12 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 public class ConnectionManager {
-    /*
+    
     private static final String DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
     private static final String DB_URL = "jdbc:oracle:thin:@202.20.119.117:1521:orcl";
-    private static final String DB_USERNAME = "dbp";
-    private static final String DB_PASSWORD = "dbp";
-    */
+    private static final String DB_USERNAME = "dbpro0102";
+    private static final String DB_PASSWORD = "checkkeu2";
+    
 	private static DataSource ds = null;
     
 	
@@ -40,7 +40,7 @@ public class ConnectionManager {
 		} 
 		
 		try {
-    		// DataSource ���� �� ����
+    		// DataSource 占쏙옙占쏙옙 占쏙옙 占쏙옙占쏙옙
 			BasicDataSource bds = new BasicDataSource();
 	        bds.setDriverClassName(prop.getProperty("db.driver"));
 	        bds.setUrl(prop.getProperty("db.url"));
@@ -48,7 +48,7 @@ public class ConnectionManager {
 	        bds.setPassword(prop.getProperty("db.password"));     
 			ds = bds;
 			
-			// ����: WAS�� DataSource�� �̿��� ���: 
+			// 占쏙옙占쏙옙: WAS占쏙옙 DataSource占쏙옙 占싱울옙占쏙옙 占쏙옙占�: 
 			// Context init = new InitialContext();
 			// ds = (DataSource)init.lookup("java:comp/env/jdbc/OracleDS");
 		} catch (Exception ex) {
@@ -75,7 +75,7 @@ public class ConnectionManager {
 		}
 	}
 
-	// ���� Ȱ��ȭ ������ Connection �� ������ ��Ȱ��ȭ ������ Connection ���� ���
+	// 占쏙옙占쏙옙 활占쏙옙화 占쏙옙占쏙옙占쏙옙 Connection 占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙활占쏙옙화 占쏙옙占쏙옙占쏙옙 Connection 占쏙옙占쏙옙 占쏙옙占�
 	public void printDataSourceStats() {
 		try {
 			BasicDataSource bds = (BasicDataSource) ds;
