@@ -21,6 +21,7 @@ public class RegisterUserController implements Controller {
     		log.debug("RegisterForm Request");
 			return "/user/registerForm.jsp";   // �˻��� ����� ������ update form���� ����     	
 	    }	
+       
 
     	// POST request (ȸ�������� parameter�� ���۵�)
        	User user = new User(

@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import model.User;
 
 public class UserDAO {
+	//birth string->date 타입 변환 필요 
 	private JDBCUtil jdbcUtil = null;
 	
 	public UserDAO() {			
@@ -60,7 +61,7 @@ public class UserDAO {
 	 * ����� ID�� �ش��ϴ� ����ڸ� ����.
 	 */
 	public int remove(String userId) throws SQLException {
-		String sql = "DELETE FROM USER1 WHERE user_Id=?";		
+		String sql = "DELETE FROM USER1 WHERE user_Id=? ";		
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});	// JDBCUtil�� delete���� �Ű� ���� ����
 
 		try {				
