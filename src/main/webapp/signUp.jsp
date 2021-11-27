@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <title>회원가입</title>
 <style>
 
@@ -49,7 +50,6 @@
 	</style>  
 	<script>
 	
-	
 	function userCreate() {
 		if (form.name.value == "") {
 		      alert("이름을 입력하십시오.");
@@ -92,7 +92,6 @@
 	}  
 	</script>
 	
-	
 	</head>
 	<body>
 	
@@ -104,7 +103,8 @@
 	    
 	    <br/><br/>
 	<div id="div1">
-	<form name="form" action="signUp_action.jsp" method="POST">
+	<form name="form" method="POST" action="<c:url value='/user/register' />">
+	
 	<table id=tableStyle>
 	<tr>
 	<td id = textStyle>이름</td> 
@@ -128,7 +128,6 @@
 	</table>
 	<br/><br/>
 	 <button type="button" value="회원가입" onClick="userCreate()">회원가입</button>
-	 
 	</form>
 	</div>
 	</body>

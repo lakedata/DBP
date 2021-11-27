@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <title>정책등록</title>
 <style>
 	 input {
@@ -77,7 +80,7 @@
 		      form.income.focus();
 		      return false;
 		   } 
-		   if (form.period.value == "") {
+		if (form.period.value == "") {
 		      alert("지원기간을 입력하십시오.");
 		      form.period.focus();
 		      return false;
@@ -103,9 +106,11 @@
  <jsp:include page="/header.jsp"/>
   <br/><br/>
 	    <center>정책 등록<hr/></center>
+
+	    
 	    
  <div id="div1">
-	<form name="form" action="policySearch.jsp" method="POST">
+	<form name="form" method="POST" action="<c:url value='/community/create' />">
 	<table id= tableStyle>
 	<tr>
 	<td id = textStyle>정책이름</td> 
