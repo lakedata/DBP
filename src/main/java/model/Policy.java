@@ -43,6 +43,24 @@ public class Policy implements Serializable {
 	      this.endAge = endAge;
 	      this.income = income;
 	}
+	
+	public Policy(int policyId, String name, String contents, String category, String startDate, String endDate, String policySummary,
+			String qualificationForApplication, String howToApply, String local, int startAge, int endAge, int income) {
+		
+		this.policyId = policyId;
+		this.name = name;
+		this.contents = contents;
+		this.category = category;
+		this.startDate = startDate;
+	    this.endDate = endDate;
+		this.policySummary = policySummary;
+		this.qualificationForApplication = qualificationForApplication;
+		this.howToApply = howToApply;
+		this.local = local;
+		this.startAge = startAge;
+	    this.endAge = endAge;
+		this.income = income;
+	}
 
 	public Policy(int policyId, String name, String contents, String category, String startDate, String endDate, String policySummary,
 			String qualificationForApplication, String howToApply, String local, int startAge, int endAge, int income, boolean scrap) {
