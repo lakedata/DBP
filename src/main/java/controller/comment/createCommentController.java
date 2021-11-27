@@ -20,8 +20,10 @@ public class createCommentController implements Controller {
 		
 		try {
 			CommentManager commMan = CommentManager.getInstance();
-			commMan.create(comm);			
+			commMan.create(comm);		
+			
 			return "redirection:/policy/view";
+			
 		} catch (Exception e) {
 			request.setAttribute("createCommentFailed", true);
 			request.setAttribute("exception", e);

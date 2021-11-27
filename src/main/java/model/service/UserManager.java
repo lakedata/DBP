@@ -23,7 +23,7 @@ public class UserManager {
 	
 	public int create(User user) throws SQLException, ExistingUserException {
 		if (userDAO.existingUser(user.getUserId()) == true) {
-			throw new ExistingUserException(user.getUserId() + "는 존재하는 아이디입니다.");
+			throw new ExistingUserException(user.getUserId() + "존재하지 않는 사용자입니다.");
 		}
 		return userDAO.create(user);
 	}
@@ -41,7 +41,7 @@ public class UserManager {
 		User user = userDAO.findUser(userId);
 		
 		if (user == null) {
-			throw new UserNotFoundException(userId + "는 존재하지 않는 아이디입니다.");
+			throw new UserNotFoundException(userId + "�뒗 議댁옱�븯吏� �븡�뒗 �븘�씠�뵒�엯�땲�떎.");
 		}		
 		return user;
 	}
@@ -51,7 +51,7 @@ public class UserManager {
 		User user = findUser(userId);
 
 		if (!user.matchPassword(password)) {
-			throw new PasswordMismatchException("비밀번호가 일치하지 않습니다.");
+			throw new PasswordMismatchException("鍮꾨�踰덊샇媛� �씪移섑븯吏� �븡�뒿�땲�떎.");
 		}
 		return true;
 	}

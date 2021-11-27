@@ -129,31 +129,39 @@ private JDBCUtil jdbcUtil = null;
 	
 
 	/* 占쏙옙占싹댐옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙책 占싯삼옙占싹울옙 List占쏙옙 占쏙옙占쏙옙 占쏙옙 占쏙옙환 */
-	public List<Policy> searchPolicyList(String category, int income, String local, int age) throws SQLException {
+	public List<Policy> searchPolicyList(String category, int income, String local, int age, int currentPage, int countPerPage) throws SQLException {
         String sql = "SELECT policyId, name, category "
         		   + "FROM Policy "
         		   + "WHERE category=?, income=?, local=?, age=? "
         		   + "ORDER BY policyId"; 
         
         Object[] param = new Object[] {category, income, local, age};
-		jdbcUtil.setSqlAndParameters(sql, param);		// JDBCUtil占쏙옙 query占쏙옙 占쏙옙占쏙옙
+		jdbcUtil.setSqlAndParameters(sql, param, 
+									ResultSet.TYPE_SCROLL_INSENSITIVE, 
+									ResultSet.CONCUR_READ_ONLY);		// JDBCUtil占쏙옙 query占쏙옙 占쏙옙占쏙옙
 					
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();			// query 占쏙옙占쏙옙			
-			List<Policy> polList = new ArrayList<Policy>();	// Policy占쏙옙占쏙옙 占쏙옙占쏙옙트 占쏙옙占쏙옙
 			
-			while (rs.next()) {
-				Policy pol = new Policy (			// Policy 占쏙옙체占쏙옙 占쏙옙占쏙옙占싹울옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
-						rs.getInt("policyId"),
-						rs.getString("name"),
-						rs.getString("category")
-						);
-				polList.add(pol);				// List占쏙옙 Policy 占쏙옙체 占쏙옙占쏙옙
-			}		
-			return polList;					
+			int start = ((currentPage - 1) * countPerPage) + 1; 
 			
-		} catch (Exception ex) {
-			ex.printStackTrace();
+			if((start >= 0) && rs.absolute(start)) {
+				List<Policy> polList = new ArrayList<Policy>();
+				
+				do {
+					Policy pol = new Policy (			// Policy 占쏙옙체占쏙옙 占쏙옙占쏙옙占싹울옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
+							rs.getInt("policyId"),
+							rs.getString("name"),
+							rs.getString("category")
+							);
+					polList.add(pol);	
+				} while ((rs.next()) && (--countPerPage > 0));
+				return polList;
+			}
+						
+			
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			jdbcUtil.close();		// resource 占쏙옙환
 		}

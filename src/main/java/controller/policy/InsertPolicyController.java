@@ -13,7 +13,7 @@ public class InsertPolicyController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		Policy pol = new Policy (
-				0, // id占쏙옙 sequence占쏙옙 占쌘듸옙 占쏙옙占쏙옙
+				0, // id는 sequence로 자동 생성
 				request.getParameter("name"),
 				request.getParameter("contents"),
 				request.getParameter("category"),
@@ -30,9 +30,9 @@ public class InsertPolicyController implements Controller {
 			PolicyManager polMan = PolicyManager.getInstance();
 			polMan.insert(pol);
 			
-			return "redirection:/policy/view"; // 占쏙옙책 占쏙옙占� 占쏙옙占쏙옙 占쏙옙 占쏙옙책 占쏙옙占쏙옙트 화占쏙옙占쏙옙占쏙옙 redirection
+			return "redirection:/policy/view"; // 정책 등록 성공 시 정책 리스트 화면으로 redirection
 			
-		} catch (Exception e) { // 占쏙옙占쏙옙 占쌩삼옙 占쏙옙 占쌉뤄옙 form占쏙옙占쏙옙 forwarding
+		} catch (Exception e) {  // 예외 발생 시 입력 form으로 forwarding
 			request.setAttribute("insertFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("pol", pol);
