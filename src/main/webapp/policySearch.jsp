@@ -47,7 +47,7 @@ li a:hover:not(.active) {
       <li><a href="<%= request.getContextPath() %>/policySearch.jsp">정책찾기</a></li>
       <li><a href="<%= request.getContextPath() %>/postWrite.jsp">정책제안게시판</a></li>
       <li><a href="<%= request.getContextPath() %>/mypage.jsp">마이페이지</a></li>
-    </ul>
+   </ul>
 	<h2>정책 검색</h2>
 
 	<b>정책유형</b>
@@ -92,7 +92,7 @@ li a:hover:not(.active) {
     <br>
     <div id="board">
         <table id="pList" width="800" border="3" bordercolor="lightgray">
-        <c:forEach var="policy" items="${policylist}">
+        <c:forEach var="policy" items="${polList}">
             <tr heigh="30">
                 <td>정책명</td>
                 <td>유형</td>

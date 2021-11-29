@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!--<%@page import = "model.dto.*" %>-->
-<!--<%@page import = "model.dao.*" %>-->
-<!--<%@page import ="controller.product.*" %>-->
+
 
 <%  // DAO를 사용한 트랜젝션
 int arr[] = null;
@@ -17,24 +15,7 @@ int arr[] = null;
 			padding-left: 150px;
 			width: 80%;
 		}
-		#policyTypeMenu {
-			
-			width: 100px;
-			background-color: lightgray;
-			
-		}
-		#policyTypeMenu li:hover {
-			background-color: #635BFF;
-			color: white;
-		}
-		ul {
-			list-style-type: none;
-		
-		}
-		li {
-
-		display: block;
-		}
+	
 		
 		table {
 			border: 1px solid lightgray;
@@ -86,16 +67,16 @@ int arr[] = null;
 	</tr>
 	<tr>
 	<th>지역</th>
-	<td>${viewItem.local} </td>
+	<td>${policy.local} </td>
 	</tr>
 	<tr>
 	<th>나이</th>
-	<td>${viewItem.age} </td>
+	<td>${policy.startAge} - ${policy.endAge}</td>
 	</tr>
 	<tr>
 	<th>소득분위</th>
 	<td>
-	${viewItem.income} 분위 이하 
+	${policy.income} 분위 이하 
 	</td>
 	</tr>
 	</table>
@@ -104,12 +85,12 @@ int arr[] = null;
 	<table>
 	<tr>
 	<th>지원기간	</th>
-	<td>${viewItem.period} </td>
+	<td>${policy.startDate} - ${policy.endDate} </td>
 	</tr>
 	<tr>
 	<th>지원방법</th>
 	<td>
-	${viewItem.howToApply} </td>
+	${policy.howToApply} </td>
 	
 	</table>
 	

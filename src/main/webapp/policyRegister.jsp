@@ -44,6 +44,9 @@
 		text-align: left;
 		font-size: 15px;
 	}
+	#age, #date {
+		width: 120px;
+	}
 
 </style>
 <script>
@@ -69,9 +72,14 @@
 	      form.local.focus();
 	      return false;
 	   } 
-	   if (form.age.value == "") {
+	   if (form.startAge.value == "") {
 		      alert("나이를 입력하십시오.");
-		      form.age.focus();
+		      form.startAge.focus();
+		      return false;
+		}
+	   if (form.endAge.value == "") {
+		      alert("나이를 입력하십시오.");
+		      form.endAge.focus();
 		      return false;
 		}
 	   if (form.income.value == "") {
@@ -79,12 +87,17 @@
 		      form.income.focus();
 		      return false;
 		   } 
-		if (form.period.value == "") {
+		if (form.startDate.value == "") {
 		      alert("지원기간을 입력하십시오.");
-		      form.period.focus();
+		      form.startDate.focus();
 		      return false;
 		   } 
-		   if (form.howToApply.value == "") {
+		if (form.endDate.value == "") {
+		      alert("지원기간을 입력하십시오.");
+		      form.endDate.focus();
+		      return false;
+		   } 
+		if (form.howToApply.value == "") {
 			      alert("지원방법을 입력하십시오.");
 			      form.howToApply.focus();
 			      return false;
@@ -122,13 +135,14 @@
 	<td id = textStyle>지역 </td> <td><input type="text" name="local"><br/></td>
 	</tr>
 	<tr>
-	<td id = textStyle>나이</td><td> <input type="text" name="age"><br/></td>
+	<td id = textStyle>나이</td><td> <input id="age" type="text" name="startAge"> - <input id="age" type="text" name="endAge"><br/></td>
 	</tr>
+	
 	<tr>
 	<td id = textStyle>소득분위</td><td> <input type="text" name="income"><br/></td>
 	</tr>
 	<tr>
-	<td id = textStyle>지원기간</td><td> <input type="text" name="period"><br/></td>
+	<td id = textStyle>지원기간</td><td> <input id="date" type="text" name="startDate"> - <input id="date" type="text" name="endDate"><br/></td>
 	</tr>
 	<tr>
 	<td id = textStyle>지원방법</td><td> <input type="text" name="howToApply"><br/></td>

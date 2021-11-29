@@ -114,13 +114,13 @@
 	<td id = textStyle>생년월일 </td><td><input type="text" name="birth"></td>
 	</tr>
 	<tr>
-	<td id = textStyle>아이디</td> <td>  <input type="text" name="userId"><br/></td>
+	<td id = textStyle>아이디</td> <td><input type="text" name="userId"><br/></td>
 	</tr>
 	<tr>
 	<td id = textStyle>비밀번호 </td> <td><input type="text" name="password"><br/></td>
 	</tr>
 	<tr>
-	<td id = textStyle>비밀번호 확인 </td><td> <input type="text" name="pw_re"><br/></td>
+	<td id = textStyle>비밀번호 확인 </td><td><input type="text" name="pw_re"><br/></td>
 	</tr>
 	<tr>
 	<td id = textStyle>핸드폰번호<br/><p style="color: gray; font-size: 6px;">ex.010-OOOO-OOOO</p></td> <td><input type="tel" name="phoneNum" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13"><br/>
