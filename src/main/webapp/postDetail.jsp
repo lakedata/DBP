@@ -16,7 +16,7 @@
 			border: 1px solid lightgray;
 			border-collapse: collapse;
 			padding: 10px;
-			width: 90%;
+			width: 90%; 
 		}
 		 th, td {
     		border: 1px solid #EDEDED;
