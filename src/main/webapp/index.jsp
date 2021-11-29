@@ -7,7 +7,7 @@
 <title>홈페이지</title>
 <style>
 body { 
-   background-image: url("https://ifh.cc/g/op30S6.jpg");
+   background-image: url("https://ifh.cc/g/IdXDEh.jpg");
 }
 <style>
 

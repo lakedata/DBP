@@ -69,6 +69,9 @@ int arr[] = null;
 	
 <!-- header -->
  <jsp:include page="/header.jsp"/>
+
+    </br>
+	<input type="button" value="½ºÅ©·¦ÇÏ±â" onclick=" location='scrap.jsp'"/>
 	
 	<div id="detail">
 	<h3>
