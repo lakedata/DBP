@@ -32,7 +32,8 @@ public class InsertPolicyController implements Controller {
 			PolicyManager polMan = PolicyManager.getInstance();
 			polMan.insert(pol);
 			
-			return "redirection:/policy/view"; // redirection
+//			return "redirection:/policy/view"; // redirection
+			return "redirection:/policy/policySearch"; // redirection
 			
 		} catch (Exception e) {  // forwarding
 			request.setAttribute("insertFailed", true);

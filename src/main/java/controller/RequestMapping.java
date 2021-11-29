@@ -37,7 +37,6 @@ public class RequestMapping {
         
         mappings.put("/user/delete", new DeleteUserController());
         
-        
         //policy
         mappings.put("/policy/insert", new InsertPolicyController());
         mappings.put("/policy/list", new ListPolicyController()); 
@@ -60,7 +59,7 @@ public class RequestMapping {
         //post
         mappings.put("/post/add", new AddPostController());
         mappings.put("/post/list", new ListPostController());
-        mappings.put("/post/view", new ViewPostController());
+        mappings.put("/post/view", new ViewPostController()); //이름 변경 필요
         mappings.put("/post/delete", new DeletePostController());
         mappings.put("/post/update", new UpdatePostController());
         
