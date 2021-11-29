@@ -170,8 +170,7 @@ body {
 			<div id="serach_icon_wrap" onclick="location.href ='<%= request.getContextPath() %>/policySearch.jsp'" style="cursor:pointer;">
 				<span>정책 관리</span>
 			</div>
-			<div id="serach_text_wrap">checkkeu에 고객님의 원하는 정책을 검색할 수 있습니다.
-				있습니다.</div>
+			<div id="serach_text_wrap">checkkeu에 고객님의 원하는 정책을 검색할 수 있습니다.</div>
 		</div>
 		<div id="mypage_wrap">
 			<div id="mypage_icon_wrap" onclick="location.href ='<%= request.getContextPath() %>/mypage.jsp'" style="cursor:pointer;">
