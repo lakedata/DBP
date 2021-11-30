@@ -19,7 +19,7 @@ public class RegisterUserController implements Controller {
        	if (request.getMethod().equals("GET")) {	
     		// GET request: 회원정보 등록 form 요청	
     		log.debug("RegisterForm Request");
-			return "/user/signUp.jsp";   //검색한 사용자 정보를 update form으로 전송 
+			return "/user/registerForm.jsp";   //검색한 사용자 정보를 update form으로 전송 
 	    }	
        
 
@@ -43,7 +43,7 @@ public class RegisterUserController implements Controller {
             request.setAttribute("registerFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("user", user);
-			return "/user/signUp.jsp";
+			return "/user/registerForm.jsp";
 		}
     }
 }

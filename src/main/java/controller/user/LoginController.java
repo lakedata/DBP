@@ -36,7 +36,7 @@ public class LoginController implements Controller {
 			HttpSession session = request.getSession();
             session.setAttribute(UserSessionUtils.USER_SESSION_KEY, userId);
             
-            return "redirect:/user/list";			
+            return "redirect:/home";			
 		} catch (Exception e) {
 			/* 
 			 	UserNotFoundException or PasswordMismatchException 
