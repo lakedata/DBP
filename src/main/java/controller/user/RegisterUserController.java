@@ -13,12 +13,16 @@ import model.service.UserManager;
 
 public class RegisterUserController implements Controller {
     private static final Logger log = LoggerFactory.getLogger(RegisterUserController.class);
-
+    
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    	
+    	log.debug("RegisterUserController");
+    	
        	if (request.getMethod().equals("GET")) {	
     		// GET request: 회원정보 등록 form 요청	
     		log.debug("RegisterForm Request");
+    		
 			return "/user/registerForm.jsp";   //검색한 사용자 정보를 update form으로 전송 
 	    }	
 
@@ -32,6 +36,7 @@ public class RegisterUserController implements Controller {
 			request.getParameter("phone"));
 		
         log.debug("Create User : {}", user);
+        
 
 		try {
 			UserManager manager = UserManager.getInstance();
@@ -42,6 +47,7 @@ public class RegisterUserController implements Controller {
             request.setAttribute("registerFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("user", user);
+			System.out.print(e);
 			return "/user/registerForm.jsp";
 		}
     }

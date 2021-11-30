@@ -17,6 +17,8 @@ public class RequestMapping {
     private Map<String, Controller> mappings = new HashMap<String, Controller>();
 
     public void initMapping() {
+    	
+    	logger.debug("RequestMaaping");
     	mappings.put("/", null);
     	
     	

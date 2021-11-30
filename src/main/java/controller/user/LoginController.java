@@ -19,6 +19,11 @@ public class LoginController implements Controller {
     	String userId = request.getParameter("userId");
 		String password = request.getParameter("password");
 		
+		if(request.getMethod().equals("GET")) {
+			return "/user/loginForm.jsp";
+		}
+		
+		
 		try {
 			// 占쎈쐻占쎈＃占쎈쑞占쎌뒻占쎌굲 占쎈쐻占쎈뼢繹먮씮�굲占쎈쐻占쎈짗占쎌굲 筌ｌ꼪�쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
 			UserManager manager = UserManager.getInstance();
