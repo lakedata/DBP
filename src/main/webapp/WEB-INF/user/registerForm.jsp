@@ -140,9 +140,9 @@ td {
 					<td><input type="text" name="password"><br /></td>
 				</tr>
 				<!--  
-				<tr>
-					<td id = textStyle>비밀번호 확인 </td><td><input type="text" name="password"><br/></td>
-				</tr>-->
+	<tr>
+	<td id = textStyle>비밀번호 확인 </td><td><input type="text" name="password"><br/></td>
+	</tr>-->
 				<tr>
 					<td id=textStyle>이름</td>
 					<td><input type="text" name="name"></td>
