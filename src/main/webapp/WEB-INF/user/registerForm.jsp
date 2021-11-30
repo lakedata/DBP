@@ -107,9 +107,8 @@
 		<div class="row col-lg-12">
 			<c:if test="${registerFailed}">
 				<h6 class="text-danger"><c:out value="${exception.getMessage()}"/></h6>
-			</c:if>
+			</c:if> 
 		</div>	 
-		
 		
 	<form name="form" method="POST" action="<c:url value='/user/register'/>">
 	
