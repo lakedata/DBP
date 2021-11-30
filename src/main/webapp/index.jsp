@@ -152,10 +152,14 @@ body {
 
 	<div id="main_wrap">
 		<div id="start_wrap">
-			<div id="start_icon_wrap" onclick="location.href ='<%= request.getContextPath() %>/login.jsp'" style="cursor:pointer;">
-		<!--  		<img class="image" src="https://ifh.cc/g/eOQkpg.png" alr="로그인">-->
-				<span>로그인 시작</span>
-			</div>
+			
+			
+	           <li class="nav-item"><a href='<c:url value="/user/login"></c:url>'>Login</a></li>
+	           <li class="nav-item"><a href='<c:url value="/user/register"></c:url>'>Sign up</a></li>
+         
+
+            
+            
 			<div id="start_text_wrap">시작하기 버튼을 클릭하면 로그인을 할 수 있습니다.
 				사용자 맞춤형 정책 공간에서 자신만의 정책을 찾고 나눠보세요.</div>
 		</div>
