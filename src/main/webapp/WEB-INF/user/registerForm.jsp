@@ -114,6 +114,24 @@ td {
 
 	<br />
 	<br />
+=======
+	      form.action = targetUri;
+	      form.submit();
+	}  
+	
+	</script>
+	
+	</head>
+	<body>
+	
+<!-- header -->
+ <jsp:include page="/header.jsp"/>
+	    
+	    <br/><br/>
+	    <center>JOIN<hr/></center>
+	    
+	    <br/><br/>
+>>>>>>> branch 'develop' of https://github.com/juri123123/DBP.git
 	<div id="div1">
 		<!-- 회원가입이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
 		<div class="row col-lg-12">

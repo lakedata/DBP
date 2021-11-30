@@ -21,6 +21,7 @@ public class RegisterUserController implements Controller {
     	
        	if (request.getMethod().equals("GET")) {	
     		// GET request: 회원정보 등록 form 요청	
+       		
     		log.debug("RegisterForm Request");
     		
 			return "/user/registerForm.jsp";   //검색한 사용자 정보를 update form으로 전송 
@@ -49,6 +50,6 @@ public class RegisterUserController implements Controller {
 			request.setAttribute("user", user);
 			System.out.print(e);
 			return "/user/registerForm.jsp";
-		}
+       	}
     }
 }

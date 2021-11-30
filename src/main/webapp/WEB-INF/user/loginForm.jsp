@@ -60,7 +60,7 @@ input {
             <input type="text" placeholder="아이디" name="id" required style="height:30px; width: 380px" /><br />
             <input type="password" placeholder="비밀번호" name="pw" required style="height:30px; width: 380px" /><br />
             <input type="submit" value="로그인" class="login" />
-            <button onclick="location.href='main.jsp';" class="login" >HOME</button>
+            <button onclick="location.href='../index.jsp';" class="login" >HOME</button>
         </form>
         <hr />
         <p><a href="<c:url value='register'/>"><input type="button" value="회원가입" id="signup" /></a></p>
