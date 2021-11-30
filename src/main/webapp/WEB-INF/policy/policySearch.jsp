@@ -112,7 +112,9 @@ function uncheck(){
        
             <tr>
                 <td>
-                    <a href="<%= request.getContextPath() %>/policyDetail.jsp">
+                    <a href="<c:url value='/policy/view'>
+                    <c:param name='policyId' value='${policy.id}'/>
+                    </c:url>">
                     ${policy.getId()}
                     </a>
                 </td>

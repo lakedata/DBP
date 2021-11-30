@@ -7,6 +7,7 @@ import java.util.List;
 
 import model.Policy;
 import model.Scrap;
+import model.User;
 
 public class ScrapDAO {
 
@@ -17,12 +18,13 @@ public class ScrapDAO {
 	}
 	
 	/* 정책 스크랩하기 */
-	public Scrap addScrap(Scrap scrap) {
-		int generatedKey1, generatedKey2;
+	public Scrap addScrap(Scrap sc) {
+		int generatedKey;
+		Scrap scrap = null;
 		
 		String sql = "INSERT INTO Scrap VALUES (?, ?) ";
 
-		Object[] param = new Object[] {scrap.getUserId(), scrap.getPolicyId()};
+		Object[] param = new Object[] {sc.getUserId(), sc.getPolicyId()};
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
 		String key[] = {"userId", "policyId"};
@@ -32,10 +34,8 @@ public class ScrapDAO {
 			
 			ResultSet rs = jdbcUtil.getGeneratedKeys();
 			if(rs.next()) {
-				generatedKey1 = rs.getInt(1);
-				scrap.setPolicyId(generatedKey1);
-				generatedKey2 = rs.getInt(2);
-				scrap.setPolicyId(generatedKey2);
+				generatedKey = rs.getInt(1);
+				scrap.setPolicyId(generatedKey);
 			}
 			return scrap;				
 			
