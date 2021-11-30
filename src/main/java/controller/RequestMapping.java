@@ -65,7 +65,7 @@ public class RequestMapping {
         mappings.put("/post/update", new UpdatePostController());
         
         //mypage
-        mappings.put("/mypage", new MyPageController());
+        //mappings.put("/mypage", new MyPageController());
         mappings.put("/mypage/scrap/view", new ListScrapController());
         mappings.put("/user/view", new ViewUserController());
         
