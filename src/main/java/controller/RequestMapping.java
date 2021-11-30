@@ -22,8 +22,6 @@ public class RequestMapping {
     	logger.debug("RequestMaaping");
     	mappings.put("/", null);
     	
-    	
-    	
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
         mappings.put("/", new ForwardController("index.jsp"));
     	
@@ -68,6 +66,12 @@ public class RequestMapping {
         //mappings.put("/mypage", new MyPageController());
         mappings.put("/mypage/scrap/view", new ListScrapController());
         mappings.put("/user/view", new ViewUserController());
+        
+        
+        //main page
+        mappings.put("/main", new ForwardController("/main.jsp"));
+        
+        
         
         logger.info("Initialized Request Mapping!");
     }
