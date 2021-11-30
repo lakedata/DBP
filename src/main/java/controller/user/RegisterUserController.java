@@ -16,8 +16,8 @@ public class RegisterUserController implements Controller {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-       	if (request.getMethod().equals("GET")) {	
-    		// GET request: 회원정보 등록 form 요청	
+       	if (request.getMethod().equals("GET")) {
+    		// GET request: 회원정보 등록 form 요청
     		log.debug("RegisterForm Request");
 			return "/user/registerForm.jsp";   //검색한 사용자 정보를 update form으로 전송 
 	    }	
