@@ -157,7 +157,7 @@ body {
 			<li><a id='contact'
 				href="<%= request.getContextPath() %>/postWrite.jsp">¿€º∫¥Ò±€</a></li>
 			<li><a id='link'
-				href="<%= request.getContextPath() %>/scrap.jsp">Ω∫≈©∑¶</a></li>
+				href="<c:url value='post/scrap/list'/>">Ω∫≈©∑¶</a></li>
 		</ul>
 	</label>
 	<div class="flex-container"

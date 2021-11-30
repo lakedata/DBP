@@ -146,7 +146,6 @@ body {
 
 	<div id="main_wrap">
 		<div id="start_wrap">
-	
 				<a id="start_icon_wrap" href="<c:url value='user/login'/>" style="cursor:pointer;">
 				<span>로그인 시작</span></a>
 			</div>
@@ -161,7 +160,6 @@ body {
 				이용할 수 있습니다. 등록한 정보로 접속시 checkkeu에서 자동으로 고객님을 인식합니다.</div>
 	
 		<div id="serach_wrap">
-
 			<a id="serach_icon_wrap" href="<c:url value='policy/search'/>" style="cursor:pointer;">
 				<span>정책 관리</span></a>
 			

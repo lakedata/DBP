@@ -57,7 +57,7 @@ function chkSubmit(){
 <h2>정책제안게시판</h2>
 <%-- 글 내용이 많을수 있기 때문에 POST 방식 사용 --%>
 <form name="frm" method="post" action="<c:url value='/post/create' />">
-<table  style="padding-top:50px" align = center width=700 border=0 cellpadding=2 >
+<table  style="padding-top:50px" alian = center width=700 border=0 cellpadding=2 >
                 <tr>
                 <td height=20 align= center bgcolor=#8080FF><font color=white> 글쓰기</font></td>
                 </tr>
@@ -87,7 +87,7 @@ function chkSubmit(){
  
                         <center>
                         <input type = "submit" value="작성">
-                        <input type="reset" value="초기화"/>
+                        <input type="reset" value="초기화">
                         </center>
                 </td>
                 </tr>
