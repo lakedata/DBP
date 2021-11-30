@@ -4,7 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import controller.Controller;
+import controller.DispatcherServlet;
 import model.User;
 import model.dao.UserDAO;
 import model.service.PasswordMismatchException;
@@ -14,29 +18,40 @@ import model.service.UserNotFoundException;
 public class LoginController implements Controller {
 	
 	private UserDAO userDAO = new UserDAO();
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    	String userId = request.getParameter("userId");
-		String password = request.getParameter("password");
+    	
+    	logger.debug("in LoginController1");
+    	
+    	String userId = request.getParameter("id");
+		String password = request.getParameter("pw");
+		
+		logger.debug("in LoginController1" +userId+ "," +password);
+		
+		if(request.getMethod().equals("GET")) {
+			return "/user/loginForm.jsp";
+		}
+		
 		
 		try {
-			// �뜝�룣�뜽�슱�삕 �뜝�떥源띿삕�뜝�룞�삕 泥섇뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
 			UserManager manager = UserManager.getInstance();
 			manager.login(userId, password);
 			
-			User user = userDAO.findUser(userId);
-			if(user == null) {
-				throw new UserNotFoundException(userId + "user not found");
-			}
-			if(!user.matchPassword(password)) {
-				throw new PasswordMismatchException("password mismatch");
-			}
-	
+//			User user = userDAO.findUser(userId);
+//			if(user == null) {
+//				throw new UserNotFoundException(userId + "user not found");
+//			}
+//			if(!user.matchPassword(password)) {
+//				throw new PasswordMismatchException("password mismatch");
+//			}
+//	
 			// save user ID in session
 			HttpSession session = request.getSession();
             session.setAttribute(UserSessionUtils.USER_SESSION_KEY, userId);
             
-            return "redirect:/home";			
+            return "redirect:/";			
 		} catch (Exception e) {
 			/* 
 			 	UserNotFoundException or PasswordMismatchException 

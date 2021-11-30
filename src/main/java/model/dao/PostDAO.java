@@ -13,17 +13,17 @@ public class PostDAO {
 	private JDBCUtil jdbcUtil = null;
 	
 	public PostDAO() {			
-		jdbcUtil = new JDBCUtil();	// JDBCUtil ��ü ����
+		jdbcUtil = new JDBCUtil();	// JDBCUtil 占쏙옙체 占쏙옙占쏙옙
 	}
 	
-	/* �Խñ� ��� */
+	/* 占쌉시깍옙 占쏙옙占� */
 	public Post insertPost(Post po) throws SQLException {
-		
+			
 		int generatedKey;
 		
-		String sql = "INSERT INTO Post VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO Post VALUES (postNumSeq.nextval, ?, ?, ?, ?, ?)";
 		
-		Object[] param = new Object[] {po.getPostNum(), po.getPolicyId(), po.getUserId(), po.getTitle(), po.getWriteDate(), po.getContent()};	
+		Object[] param = new Object[] { po.getPolicyId(), po.getUserId(), po.getTitle(), po.getWriteDate(), po.getContent()};	
 		
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
@@ -101,11 +101,11 @@ public class PostDAO {
                  + "FROM Post "
                  + "WHERE postNum=? ";   
         
-      jdbcUtil.setSqlAndParameters(sql, new Object[] {postNum});      // JDBCUtil占쏙옙 query占쏙옙 占쏙옙占쏙옙
+      jdbcUtil.setSqlAndParameters(sql, new Object[] {postNum});      // JDBCUtil�뜝�룞�삕 query�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
       Post post = null;
       
       try {
-         ResultSet rs = jdbcUtil.executeQuery();         // query 占쏙옙占쏙옙         
+         ResultSet rs = jdbcUtil.executeQuery();         // query �뜝�룞�삕�뜝�룞�삕         
   
          if (rs.next()) {
             post = new Post (
@@ -121,39 +121,39 @@ public class PostDAO {
       } catch (Exception ex) {
          ex.printStackTrace();
       } finally {
-         jdbcUtil.close();      // resource 占쏙옙환
+         jdbcUtil.close();      // resource �뜝�룞�삕�솚
       }
       return post;
    }
 	
-	/* ��ü post ã�� */
+	/* 占쏙옙체 post 찾占쏙옙 */
 	public List<Post> findPostList() throws SQLException {
 		
         String sql = "SELECT postNum, policyId, userId, title, writeDate, content "
      		   + "FROM Post "
      		   + "ORDER BY postNum";   
         
-		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil�� query�� ����
+		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil占쏙옙 query占쏙옙 占쏙옙占쏙옙
 					
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();			// query ����			
-			List<Post> postList = new ArrayList<Post>();	// Community���� ����Ʈ ����
+			ResultSet rs = jdbcUtil.executeQuery();			// query 占쏙옙占쏙옙			
+			List<Post> postList = new ArrayList<Post>();	// Community占쏙옙占쏙옙 占쏙옙占쏙옙트 占쏙옙占쏙옙
 			while (rs.next()) {
-				Post po = new Post(			// Community ��ü�� �����Ͽ� ���� ���� ������ ����
+				Post po = new Post(			// Community 占쏙옙체占쏙옙 占쏙옙占쏙옙占싹울옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
 						rs.getInt("postNum"),
 						rs.getInt("policyId"),
 						rs.getString("userId"),
 						rs.getString("title"),
 						rs.getString("writeDate"),
 						rs.getString("content"));
-				postList.add(po);				// List�� Community ��ü ����
+				postList.add(po);				// List占쏙옙 Community 占쏙옙체 占쏙옙占쏙옙
 			}		
 			return postList;					
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource ��ȯ
+			jdbcUtil.close();		// resource 占쏙옙환
 		}
 		return null;
 	}
