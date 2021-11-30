@@ -52,10 +52,9 @@
 	
 	function userCreate() {
 		
-		
 	   if (form.userId.value == "") {
 	      alert("사용자 ID를 입력하십시오.");
-	      form.userId.focus();;
+	      form.userId.focus();
 	      return false;
 	   } 
 	   if (form.password.value == "") {
@@ -68,11 +67,7 @@
 		      form.name.focus();
 		      return false;
 		   }
-	   if (form.pw_re.value == "") {
-		      alert("비밀번호 확인을 입력하십시오.");
-		      form.password.focus();
-		      return false;
-		}
+
 	   if (form.email.value == "") {
 		      alert("이메일을 입력하십시오.");
 		      form.email.focus();
@@ -121,7 +116,6 @@
 	<form name="form" method="POST" action="<c:url value='/user/register'/>">
 	
 	<table id=tableStyle>
-	
 	
 	<tr>
 	<td id = textStyle>아이디</td> <td><input type="text" name="userId"><br/></td>

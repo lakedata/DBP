@@ -19,8 +19,6 @@ public class RequestMapping {
     public void initMapping() {
     	mappings.put("/", null);
     	
-    	
-    	
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
         mappings.put("/", new ForwardController("index.jsp"));
         
