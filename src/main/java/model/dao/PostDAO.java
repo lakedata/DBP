@@ -18,12 +18,12 @@ public class PostDAO {
 	
 	/* �Խñ� ��� */
 	public Post insertPost(Post po) throws SQLException {
-		
+			
 		int generatedKey;
 		
-		String sql = "INSERT INTO Post VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO Post VALUES (postNumSeq.nextval, ?, ?, ?, ?, ?)";
 		
-		Object[] param = new Object[] {po.getPostNum(), po.getPolicyId(), po.getUserId(), po.getTitle(), po.getWriteDate(), po.getContent()};	
+		Object[] param = new Object[] { po.getPolicyId(), po.getUserId(), po.getTitle(), po.getWriteDate(), po.getContent()};	
 		
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
