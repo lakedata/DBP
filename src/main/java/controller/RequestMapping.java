@@ -67,6 +67,12 @@ public class RequestMapping {
         mappings.put("/mypage/scrap/view", new ListScrapController());
         mappings.put("/user/view", new ViewUserController());
         
+        
+        //main page
+        mappings.put("/main", new ForwardController("/main.jsp"));
+        
+        
+        
         logger.info("Initialized Request Mapping!");
     }
 

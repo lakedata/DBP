@@ -107,7 +107,7 @@
 	    <br/><br/>
 	<div id="div1">
 	<!-- 회원가입이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
-		<div class="row col-lg-12">
+		<div>
 			<c:if test="${registerFailed}">
 				<h6 class="text-danger"><c:out value="${exception.getMessage()}"/></h6>
 			</c:if> 
