@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,6 +88,7 @@ button:hover {
 	<br>
 	<c:choose>
 		<c:when test="${empty scrapList}">
+		<br><br>
 			결과없음
 	</c:when>
 	</c:choose>

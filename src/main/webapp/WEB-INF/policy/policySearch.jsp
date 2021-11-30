@@ -39,6 +39,11 @@ li a:hover:not(.active) {
     text-align :center;
 }
 </style>
+<script>
+function uncheck(){
+	$(':checkbox:checked').prop('checked',false);
+};
+</script>
 
 <form action = "<%= request.getContextPath() %>/policyDetail.jsp">
 <body>
@@ -74,7 +79,9 @@ li a:hover:not(.active) {
 	<input type="checkbox" name="local" value="강원도">강원도
 	<input type="checkbox" name="local" value="충청도">충청도
 	<input type="checkbox" name="local" value="제주도">제주도
-
+	
+	
+	
 	<hr/><b>나이 </b>
 	<select id="age" name="age">
 		<option value="">살</option>
@@ -87,7 +94,11 @@ li a:hover:not(.active) {
 	<input type="submit" value="검색">
 	<br>
 	<br>
-
+	
+	<input type="button" value="페이지 새로고침" onClick="window.location.reload()">
+	
+	
+</form>
   <!-- 정책 목록 부분 -->
     <br>
     <div id="board">
