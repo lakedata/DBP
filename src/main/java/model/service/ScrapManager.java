@@ -3,7 +3,9 @@ package model.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import model.Policy;
 import model.Scrap;
+import model.User;
 import model.dao.PolicyDAO;
 import model.dao.ScrapDAO;
 
@@ -25,8 +27,8 @@ public class ScrapManager {
 	}
 
 	// Ω∫≈©∑¶ √ﬂ∞°
-	public Scrap add(Scrap sc) throws SQLException {
-		return scrapDAO.addScrap(sc);
+	public Scrap add(Scrap scrap) throws SQLException {
+		return scrapDAO.addScrap(scrap);
 	}
 	
 	// Ω∫≈©∑¶ √Îº“

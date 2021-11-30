@@ -28,12 +28,11 @@ public class SearchPolicyController implements Controller {
 		if (currentPageStr != null && !currentPageStr.equals("")) {
 			currentPage = Integer.parseInt(currentPageStr);
 		}		
-    	
 		
 		List<Policy> searchPolList = polMan.searchPolicyList(category, income, local, startAge, endAge, currentPage, countPerPage);
 		
 		request.setAttribute("searchPolList", searchPolList);
-		return "/policy/policyList.jsp";
+		return "/policy/policySearch.jsp";
 	}
 
 }
