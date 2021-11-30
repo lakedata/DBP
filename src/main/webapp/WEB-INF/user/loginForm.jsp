@@ -55,7 +55,7 @@ input {
 
         	<h5><span>로그인</span> 페이지입니다.</h5>
         <hr />
-        <form action="login.do" method="post" action="<c:url value='/user/login' />">
+        <form method="post" action="<c:url value='/user/login' />">
     
             <input type="text" placeholder="아이디" name="id" required style="height:30px; width: 380px" /><br />
             <input type="password" placeholder="비밀번호" name="pw" required style="height:30px; width: 380px" /><br />

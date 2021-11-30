@@ -18,6 +18,8 @@ public class RequestMapping {
     private Map<String, Controller> mappings = new HashMap<String, Controller>();
 
     public void initMapping() {
+    	
+    	logger.debug("RequestMaaping");
     	mappings.put("/", null);
     	
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
@@ -51,8 +53,6 @@ public class RequestMapping {
         
         //comment
         mappings.put("/post/reply/add", new createReplyController());
-        mappings.put("/post/reply/agree", new UpdatePolicyController());
-        mappings.put("/post/reply/disagree", new UpdatePolicyController());
         
         
         //post
