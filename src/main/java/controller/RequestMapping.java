@@ -53,8 +53,6 @@ public class RequestMapping {
         
         //comment
         mappings.put("/post/reply/add", new createReplyController());
-        mappings.put("/post/reply/agree", new UpdatePolicyController());
-        mappings.put("/post/reply/disagree", new UpdatePolicyController());
         
         
         //post
