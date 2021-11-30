@@ -37,7 +37,7 @@
 	margin: auto;
 		text-align: center;
 	}
-	td {
+	td { 
 		height: 100px;
 		width: 190px;
 	}
@@ -103,7 +103,15 @@
 	    
 	    <br/><br/>
 	<div id="div1">
-	<form name="form" method="POST" action="<c:url value='/user/register' />">
+	<!-- 회원가입이 실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
+		<div class="row col-lg-12">
+			<c:if test="${registerFailed}">
+				<h6 class="text-danger"><c:out value="${exception.getMessage()}"/></h6>
+			</c:if>
+		</div>	 
+		
+		
+	<form name="form" method="POST" action="<c:url value='/user/register'/>">
 	
 	<table id=tableStyle>
 	<tr>
@@ -127,7 +135,7 @@
 	</td></tr>
 	</table>
 	<br/><br/>
-	 <button type="button" value="회원가입" onClick="userCreate()">회원가입</button>
+	 <input type="button" value="회원가입" onClick="userCreate()">  		
 	</form>
 	</div>
 	</body>

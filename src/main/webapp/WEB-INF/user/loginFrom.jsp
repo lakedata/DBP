@@ -63,7 +63,7 @@ input {
             <button onclick="location.href='main.jsp';" class="login" >HOME</button>
         </form>
         <hr />
-        <p><a href="<c:url value='register'/>"><input type="button" value="회원가입" id="signup" /></a></p>
+        <p><a href="registerForm.jsp"><input type="button" value="회원가입" id="signup" /></a></p>
     </div>
 </body>
 </html>
