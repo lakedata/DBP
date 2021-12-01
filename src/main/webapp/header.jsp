@@ -54,7 +54,7 @@
 	      <li><a href="<c:url value="/policy/search"></c:url>">정책찾기</a></li>
 	      <li><a href="<c:url value='/post/list'/>">정책제안게시판</a></li>
 	      
-		<div style="margin-right: 50px;">
+		<div style="margin-right: 50px;"> 
 			<c:choose>
 			<c:when test="${userId=='dbpro0102'}">
 				<li class="nav-left" style="color: red; margin-top: 13px; margin-left: 3px;"><admin>관리자계정<admin><li>

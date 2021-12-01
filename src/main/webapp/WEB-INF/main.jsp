@@ -156,7 +156,7 @@ body {
 		<div id="reg_wrap">
 			<a id="reg_icon_wrap" href="<c:url value='user/register'/>" style="cursor:pointer;">
 				<span>회원등록</span> </a>
-			</div>
+			</div> 
 			<div id="reg_text_wrap">회원가입을 통해 checkkeu에 등록하여 제공되는 서비스를 무료로
 				이용할 수 있습니다. 등록한 정보로 접속시 checkkeu에서 자동으로 고객님을 인식합니다.</div>
 	
