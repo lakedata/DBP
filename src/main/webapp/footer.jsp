@@ -11,7 +11,7 @@
 <body>
 
 <center> 
-    <p style="padding: 20px;margin-bottom: 40px; margin-top: 100px">
+    <p style="padding: 20px; margin-top: 100px; color: gray;">
 		Copyright ¨Ï 2021 All rights reserved by Aurora </p></center>
 </body>
 </html>

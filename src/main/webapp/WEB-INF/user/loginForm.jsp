@@ -10,7 +10,8 @@
 		.container {
 			width: 385px;
 			line-height: 50px;
-			margin: 40px auto;
+			margin: 100px auto;
+			margin-bottom: 100px;
 		}
 		
 		h5 {
@@ -51,6 +52,9 @@
 </style>
 </head>
 <body>
+<!-- header -->
+   <jsp:include page="/header.jsp" />
+   
 	<div class="container">
         	<h5><span>로그인</span> 페이지입니다.</h5>
         <hr/>
@@ -63,5 +67,8 @@
         <hr />
         <p><a href="<c:url value='register'/>"><input type="button" value="회원가입" id="signup" /></a></p>
     </div>
+
+   <!-- footer -->
+		<jsp:include page="/footer.jsp"/>
 </body>
 </html>

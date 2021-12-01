@@ -168,5 +168,8 @@ td {
          <input type="button" value="회원가입" onClick="userCreate()">
       </form>
    </div>
+   
+   <!-- footer -->
+		<jsp:include page="/footer.jsp"/>
 </body>
 </html>
