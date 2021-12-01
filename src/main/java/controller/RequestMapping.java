@@ -28,7 +28,6 @@ public class RequestMapping {
     	
         mappings.put("/user/login/form", new ForwardController("/user/loginForm.jsp"));
         mappings.put("/user/login", new LoginController());
-        
         mappings.put("/user/logout", new LogoutController());
         
        
@@ -76,7 +75,8 @@ public class RequestMapping {
         logger.info("Initialized Request Mapping!");
     }
 
-    public Controller findController(String uri) {	
+    public Controller findController(String uri) {
+    	logger.debug("mappings.get" +mappings.get(uri));
     	// 주어진 uri에 대응되는 controller 객체를 찾아 반환
         return mappings.get(uri);
     }

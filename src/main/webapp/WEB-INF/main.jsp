@@ -131,8 +131,9 @@ body {
 </style>
 
 </head>
-<body >
+<body>
  <jsp:include page="/header.jsp"/>
+ <div style="background-color: white;  opacity: 0.8;">
  <div id="head_wrap">
 		<div id="logo_wrap">
 			<img src="https://ifh.cc/g/eOQkpg.png" class="img-responsive"
@@ -173,6 +174,7 @@ body {
 			<div id="mypage_text_wrap">스크랩한 정책과 글, 댓글, 개인정보를 확인할 수 있습니다.</div>
 		
 		</div>
-	<!-- main_wrap -->
+<jsp:include page="/footer.jsp"/>
+</div>
 </body>
 </html>
