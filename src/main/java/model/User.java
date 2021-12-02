@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 public class User implements Serializable{
 	private String userId;
+	private String password;
 	private String name;
 	private String email;
-	private String password;
 	private String birth;
 	private String phoneNumber;
 
 
 	public User() { }	
 	
-	public User(String userId, String name, String email, String password, String birth, String phone) {
+	public User(String userId, String password, String name, String email, String birth, String phone) {
 		this.userId = userId;
 		this.password = password;
 		this.name = name;
@@ -99,7 +99,7 @@ public class User implements Serializable{
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password + ", birth="
+		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password +", birth="
 				+ birth + ", phoneNumber=" + phoneNumber + "]";
 	}
 

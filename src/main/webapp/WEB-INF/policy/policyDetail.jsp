@@ -15,7 +15,6 @@ int arr[] = null;
 			padding-left: 150px;
 			width: 80%;
 		}
-	
 		
 		table {
 			border: 1px solid lightgray;
@@ -51,7 +50,7 @@ int arr[] = null;
 <!-- header -->
  <jsp:include page="/header.jsp"/>
 
-    </br>
+    <br/>
 	<input type="button" value="½ºÅ©·¦ÇÏ±â" onclick=" location='scrap.jsp'"/>
 	
 	<div id="detail">

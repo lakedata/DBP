@@ -131,8 +131,11 @@ body {
 </style>
 
 </head>
-<body >
+<body>
+<!-- header -->
  <jsp:include page="/header.jsp"/>
+ 
+ <div style="background-color: white;  opacity: 0.8;">
  <div id="head_wrap">
 		<div id="logo_wrap">
 			<img src="https://ifh.cc/g/eOQkpg.png" class="img-responsive"
@@ -146,7 +149,6 @@ body {
 
 	<div id="main_wrap">
 		<div id="start_wrap">
-	
 				<a id="start_icon_wrap" href="<c:url value='user/login'/>" style="cursor:pointer;">
 				<span>로그인 시작</span></a>
 			</div>
@@ -156,12 +158,11 @@ body {
 		<div id="reg_wrap">
 			<a id="reg_icon_wrap" href="<c:url value='user/register'/>" style="cursor:pointer;">
 				<span>회원등록</span> </a>
-			</div>
+			</div> 
 			<div id="reg_text_wrap">회원가입을 통해 checkkeu에 등록하여 제공되는 서비스를 무료로
 				이용할 수 있습니다. 등록한 정보로 접속시 checkkeu에서 자동으로 고객님을 인식합니다.</div>
 	
 		<div id="serach_wrap">
-
 			<a id="serach_icon_wrap" href="<c:url value='policy/search'/>" style="cursor:pointer;">
 				<span>정책 관리</span></a>
 			
@@ -175,6 +176,9 @@ body {
 			<div id="mypage_text_wrap">스크랩한 정책과 글, 댓글, 개인정보를 확인할 수 있습니다.</div>
 		
 		</div>
-	<!-- main_wrap -->
+		
+		<!-- footer -->
+		<jsp:include page="/footer.jsp"/>
+</div>
 </body>
 </html>
