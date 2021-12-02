@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+
+<%
+	String userId = (String)request.getAttribute("userId");
+%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,18 +63,20 @@
 		<div style="margin-right: 50px;"> 
 			<c:choose>
 			<c:when test="${userId=='dbpro0102'}">
-				<li class="nav-left" style="color: red; margin-top: 13px; margin-left: 3px;">관리자계정<li>
 				<li class="nav-left"><a href="<c:url value="/user/logout"></c:url>">Logout</a></li>
 				<li class="nav-left"><a href="<c:url value="/mypage"> <c:param name='user_id' value='${user.userId}'/></c:url>">마이페이지</a></li>
 				<li class="nav-left"><a href="<c:url value="/policy/insert"></c:url>">정책등록</a></li>
+				<li class="nav-left" style="color: red; margin-top: 14px; margin-right: 5px;">관리자계정<li>
 			</c:when>    
 			<c:when test="${userId==NULL}">
 				<li class="nav-left"><a href="<c:url value="/user/login"></c:url>">Login</a></li>
 	            <li class="nav-left"><a href="<c:url value="/user/register"></c:url>">Sign up</a></li>
 			</c:when>
-			<c:when test="${userId!=NULL}">      
+			<c:when test="${userId!=NULL}">    
+				
 	            <li class="nav-left"><a href="<c:url value="/user/logout"></c:url>">Logout</a></li>
 	          	<li class="nav-left"><a href="<c:url value="/mypage"><c:param name='userId' value='${user.userId}'/></c:url>">마이페이지</a></li>
+				<li class="nav-left" style="color: #8080FF; margin-top: 13px; margin-left: 3px;">${user.name }님  </li>  
 			</c:when>
 	        </c:choose> 
 		</div>

@@ -3,17 +3,24 @@ package controller.policy;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import controller.Controller;
+import controller.user.RegisterUserController;
 import model.Policy;
 import model.service.PolicyManager;
 
 public class InsertPolicyController implements Controller {
-
+	  private static final Logger log = LoggerFactory.getLogger(RegisterUserController.class);
+	    
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		log.debug("in RegisterUserController");
 		if (request.getMethod().equals("GET")) {	
-    		
-			return "/policy/policyRegisterForm.jsp";   //검색한 사용자 정보를 update form으로 전송 
+			log.debug("RegisterForm Request");
+			return "/policy/policyRegisterForm.jsp";   
 	    }	
 		
 		
@@ -37,10 +44,11 @@ public class InsertPolicyController implements Controller {
 			PolicyManager polMan = PolicyManager.getInstance();
 			polMan.insert(pol);
 			
-//			return "redirection:/policy/view"; // redirection
-			return "redirection:/policy/policySearch"; // redirection
+			return "redirection:/policy/list"; // redirection -성공시 
+//			return "redirection:/policy/policySearch"; // redirection
+
 			
-		} catch (Exception e) {  // forwarding
+		} catch (Exception e) {  // 예외 발생 시 forwarding
 			request.setAttribute("insertFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("pol", pol);
