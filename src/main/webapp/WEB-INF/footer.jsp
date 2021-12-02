@@ -8,9 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
-    <p>
-		Copyright ¨Ï 2021 All rights reserved by Aurora </p>
+    <p>	Copyright ¨Ï 2021 All rights reserved by Aurora </p>
 </body>
 </html>

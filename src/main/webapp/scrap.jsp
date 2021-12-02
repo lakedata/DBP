@@ -17,7 +17,7 @@ button {
 	border-radius: 20px;
 	box-shadow: 0 4px 16px rgba(0, 79, 255, 0.3);
 	transition: 0.3s;
-	position: absolute;
+	position: relative;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
@@ -75,13 +75,24 @@ button:hover {
 .button-1:hover a {
 	color: #fff;
 }
+
+ #wrapper {
+	position:absoulute;
+	height: 75%;
+	width: 75%;
+	padding: 100px 100px;
+	text-align:center;
+	vertical-align:middle; 
+	border: solid 1px;
+	margin:auto;
+ }
 </style>
 </head>
 <body>
 
 	<div class="button-1">
 		<div class="eff-1"></div>
-		<a href="#"> home </a>
+		<a href="<c:url value='/main'/>"> home </a>
 	</div>
 
 	<!-- 스크랩 목록 부분 -->
@@ -89,32 +100,39 @@ button:hover {
 	<c:choose>
 		<c:when test="${empty scrapList}">
 		<br><br>
-			결과없음
+		<div id="wrapper">
+		<img src="https://ifh.cc/g/0CuWQr.jpg" class="img-responsive"
+				alt="scrapimg" style="width:500px; height:400px;">
+			<h2>스크랩을 추가해보세요.</h2>
+			<h4>스크랩항목이 없습니다.</h4>
+		</div>
 	</c:when>
 	</c:choose>
 
 	<c:choose>
 		<c:when test="${not empty scrap.policyId}">
-
-			<div id="scrapboard">
+			<div id="wrapper">
 				<table id="scrapList" width="800" border="3" bordercolor="lightgray">
 					<c:forEach var="scrap" items="${scrapList}">
-						<tr heigh="30">
+						<tr height="30">
 							<td>정책명</td>
 						</tr>
 
 						<tr>
 							<td><a
-								href="<%=request.getContextPath()%>/policyDetail.jsp"> 정책상세보기
+								href="<c:url value='policy/search'/>">  정책상세보기
 									${scrap.policyId()} </a></td>
 						</tr>
 					</c:forEach>
 				</table>
+				<h4>스크랩을 더 추가해보세요.</h4>
 			</div>
 		</c:when>
 	</c:choose>
-	<button>+ Add</button>
-
-
+	
+	<br><br>
+	<div>
+		<button onclick="location.href='/policy/view' ">+ Add</button>
+	</div>
 </body>
 </html>

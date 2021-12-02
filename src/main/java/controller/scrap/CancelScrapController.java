@@ -26,7 +26,7 @@ public class CancelScrapController implements Controller {
 			request.setAttribute("exception", e);
 			request.setAttribute("scrapCancelUserId", userId);
 			
-			return "/policy/plicyDetail.jsp";
+			return "/policy/policyDetail.jsp";
 		}
 	}
 

@@ -90,10 +90,10 @@ li a:hover:not(.active) {
 	<ul>
 		<li><a class="active"
 			href="<%= request.getContextPath() %>/home.jsp">Home</a></li>
-		<li><a href="<%= request.getContextPath() %>/policySearch.jsp">정책찾기</a></li>
+		<li><a href="<c:url value='policy/search'/>"정책찾기></a></li>
 		<li><a href="<%= request.getContextPath() %>/postWrite.jsp">정책제안게시판</a></li>
 		<li><a href="<%= request.getContextPath() %>/mypage.jsp">마이페이지</a></li>
-	</ul>
+	</ul> 
 
 	<c:choose>
 		<c:when test="${user_id=='admin'}">
