@@ -95,7 +95,7 @@
             form.endAge.focus();
             return false;
       }
-    
+    <!-- 
       if (form.startDate.value == "") {
             alert("지원기간을 입력하십시오.");
             form.startDate.focus();
@@ -106,6 +106,7 @@
             form.endDate.focus();
             return false;
          } 
+      -->
       if (form.howToApply.value == "") {
                alert("지원방법을 입력하십시오.");
                form.howToApply.focus();
@@ -152,7 +153,7 @@
      </tr>
    
    <tr>
-   <td id = textStyle>지원기간</td><td> <input id="date" type="text" name="startDate"> - <input id="date" type="text" name="endDate"><br/></td>
+   <td id = textStyle>지원기간</td><td> <input id="date" type="date" name="startDate"> - <input id="date" type="date" name="endDate"><br/></td>
    </tr>
    <tr>
    <td id = textStyle>정책요약</td> 

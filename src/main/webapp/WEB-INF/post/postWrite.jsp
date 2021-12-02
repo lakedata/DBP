@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,14 @@
    
    <div style=" display: flex; justify-content: center;">
 
- 
+ <!--실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
+	<div>
+		<c:if test="${creationFailed}">
+			<h6><c:out value="${exception.getMessage()}"/></h6>
+		</c:if>
+	</div>	 
+	
+	
     <form class="form" name="form" method="POST" action="<c:url value='/post/add' />">
         <table style="margin-top: 100px;">
                 <tr>
@@ -47,7 +55,8 @@
  
                         <tr>
                         <td>제목</td>
-                        <td><input type="text" name="title" size=60></td>
+                        <td> <input type="text" name="title" size=20
+	            			<c:if test="${creationFailed}"> value="${post.title}"</c:if>>	  </td>
                         </tr>
  
                         <tr>
