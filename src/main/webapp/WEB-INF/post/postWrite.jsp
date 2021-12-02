@@ -62,9 +62,9 @@
                 </tr>
         </table>
         
-    
-	<input type="button" value="등록" onClick="postWrite()"> &nbsp;
-    <input type="reset" value="초기화">
+  
+		<input type="button" value="등록" onClick="postWrite()"> &nbsp;
+	    <input type="reset" value="초기화">
     </form>
 </div>
 
