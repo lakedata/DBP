@@ -81,7 +81,7 @@ function userCreate() {
 <body>
 	
 	<!-- header -->
-   <jsp:include page="/header.jsp" />
+   <jsp:include page="/WEB-INF/home/header.jsp" />
    
    <div class="container">
 		<h5><span>회원가입</span> 페이지입니다.</h5>
@@ -155,6 +155,6 @@ function userCreate() {
 </form>
 </div>
  <!-- footer -->
-		<jsp:include page="/footer.jsp"/>
+		<jsp:include page="/WEB-INF/home/footer.jsp"/>
 </body>
 </html>

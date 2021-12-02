@@ -128,7 +128,7 @@
 </head>
 <body>
 <!-- header -->
- <jsp:include page="/header.jsp"/>
+ <jsp:include page="/WEB-INF/home/header.jsp"/>
   <br/><br/>
 	   <div class="container">
 		<h5><span>정책등록</span> 페이지입니다.</h5>
@@ -175,6 +175,6 @@
 </form>
 </div>
  <!-- footer -->
-		<jsp:include page="/footer.jsp"/>
+		<jsp:include page="/WEB-INF/home/footer.jsp"/>
 </body>
 </html>

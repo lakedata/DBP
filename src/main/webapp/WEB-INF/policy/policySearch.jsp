@@ -48,7 +48,7 @@ function uncheck(){
 <form action = "<%= request.getContextPath() %>/policySearch.jsp">
 <body>
   	<!-- header -->
-   <jsp:include page="/header.jsp" />
+   <jsp:include page="/WEB-INF/home/header.jsp" />
    
 	<h2>정책 검색</h2>
 
@@ -143,6 +143,6 @@ function uncheck(){
         </c:if>
     </div>
      <!-- footer -->
-		<jsp:include page="/footer.jsp"/>
+		<jsp:include page="/WEB-INF/home/footer.jsp"/>
 </body>
 </html>

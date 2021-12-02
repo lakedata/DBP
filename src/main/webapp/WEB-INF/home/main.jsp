@@ -133,7 +133,7 @@ body {
 </head>
 <body>
 <!-- header -->
- <jsp:include page="/header.jsp"/>
+ <jsp:include page="/WEB-INF/home/header.jsp"/>
  
  <div style="background-color: white;  opacity: 0.8;">
  <div id="head_wrap">
@@ -178,7 +178,7 @@ body {
 		</div>
 		
 		<!-- footer -->
-		<jsp:include page="/footer.jsp"/>
+		<jsp:include page="/WEB-INF/home/footer.jsp"/>
 </div>
 </body>
 </html>

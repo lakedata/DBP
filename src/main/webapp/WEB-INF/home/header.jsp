@@ -89,7 +89,7 @@ li a:hover:not(.active) {
 <body>
 	<ul>
 		<li><a class="active"
-			href="<%= request.getContextPath() %>/home.jsp">Home</a></li>
+			href="<%= request.getContextPath() %>/index.jsp">Home</a></li>
 		<li><a href="<c:url value='policy/search'/>"정책찾기></a></li>
 		<li><a href="<%= request.getContextPath() %>/postWrite.jsp">정책제안게시판</a></li>
 		<li><a href="<%= request.getContextPath() %>/mypage.jsp">마이페이지</a></li>
@@ -126,10 +126,11 @@ li a:hover:not(.active) {
 
 		</c:when>
 	</c:choose>
-		  <li><img style="padding-top: 14px; padding-left: 15px; padding-right: 15px;" class ="logo" src="<c:url value='/images/logo_checkkeu.png'/>" height="20px"></li>
-	      <li><a class="active" href="<%= request.getContextPath() %>/index.jsp">Home</a></li>
+		  <!--    <li><img style="padding-top: 14px; padding-left: 15px; padding-right: 15px;" class ="logo" src="<c:url value='/images/logo_checkkeu.png'/>" height="20px"></li>
+	      <li><a class="active" href="">Home</a></li>
 	      <li><a href="<c:url value="/policy/search"></c:url>">정책찾기</a></li>
 	      <li><a href="<c:url value='/post/list'/>">정책제안게시판</a></li>
+	      -->
 
 		<div style="margin-right: 50px;"> 
 			<c:choose>

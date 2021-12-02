@@ -44,10 +44,10 @@ function postRemove() {
 <body>
 	
 <!-- header -->
- <jsp:include page="/header.jsp"/>
+ <jsp:include page="/WEB-INF/home/header.jsp"/>
 	<div id="detail">
-	
-	<center>글 상세보기</center><br><br>
+	<center>글 상세보기</center>
+	<br><br>
 	<table>
     
 	  	  <tr>

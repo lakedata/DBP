@@ -68,7 +68,7 @@ public class RequestMapping {
         
         
         //main page
-        mappings.put("/main", new ForwardController("/main.jsp"));
+        mappings.put("/main", new ForwardController("/home/main.jsp"));
         
         
         

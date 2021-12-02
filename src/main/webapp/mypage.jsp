@@ -141,7 +141,7 @@ body {
 </style>
 </head>
 <body>
-	<jsp:include page="/header.jsp" />
+	<jsp:include page="/WEB-INF/home/header.jsp" />
 	<input type='checkbox' id='mmeennuu'>
 	<label class='menu' for='mmeennuu'>
 

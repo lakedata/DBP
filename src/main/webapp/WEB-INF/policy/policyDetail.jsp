@@ -44,15 +44,31 @@ int arr[] = null;
 	      location.href = "deleteOk.jsp?uid=" + id;
 	   }
 	}
+	
+	function scarpCreate() {
+		if (form.desc.value != null) {
+			${scrap.userId} = ${user.userId}
+			form.desc.focus();
+			return false;
+		}	
+		if (form.policy.name != null) {
+			${scrap.policyId} = ${policy.name}
+			form.name.focus();
+			return false;
+		} 
+		
+		form.submit();	
+	}
 	</script>
 	<body>
 	
 <!-- header -->
- <jsp:include page="/header.jsp"/>
+ <jsp:include page="/WEB-INF/home/header.jsp"/>
 
     <br/>
 	<input type="button" value="스크랩하기" onclick=" location='scrap.jsp'"/>
 	
+	<!-- 상세보기 -->
 	<div id="detail">
 	<h3>
 	${policy.name} </h3>
@@ -90,12 +106,18 @@ int arr[] = null;
 	<th>지원방법</th>
 	<td>
 	${policy.howToApply} </td>
-	
 	</table>
-	
 	<br>
 	</div>
-
+	
+	<!-- 스크랩하기 -->
+	<!-- scrap 데이터에 넣기 -->
+	<input type="button" value="스크랩하기" onClick="scrapCreate()">
+	
+	<form name="form" method="POST" action="<c:url value='/policy/scrap/add' />">
+	
+	
+	</form>
 	
 </body>
 </html>
