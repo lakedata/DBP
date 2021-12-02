@@ -9,6 +9,22 @@
 
 <title>정책등록</title>
 <style>
+		.container {
+			width: 385px;
+			line-height: 50px;
+			margin: 50px auto;
+			margin-bottom: 100px;
+		}
+
+		h5 {
+			text-align: center;
+		}
+		
+		h5 span {
+			color: teal;
+		}
+		
+		
 	 input {
 	 	width: 300px;
 	 	height: 30px;
@@ -27,10 +43,7 @@
 	 	color: white;
 	 }
 
-	#div1 {
-		text-align: center;
-	} 
-	
+
 	#tableStyle {
 		margin: auto;
 		text-align: center;
@@ -50,27 +63,31 @@
 
 </style>
 <script>
-	
+
+	function policyCreate(targetUri) {
+	    form.action = targetUri;
+	    form.submit();
+	}  
 	function policyCreate() {
-		if (form.policyName.value == "") {
+		if (form.name.value == "") {
 		      alert("정책이름을 입력하십시오.");
-		      form.policyName.focus();
+		      form.name.focus();
 		      return false;
 		   }
-		if (form.policyContent.value == "") {
+		if (form.contents.value == "") {
 		      alert("정책내용을 입력하십시오.");
-		      form.policyContent.focus();
+		      form.contents.focus();
 		      return false;
 		}
 	   if (form.qualificationForApplication.value == "") {
-	      alert("자격요건을 입력하십시오.");
-	      form.qualificationForApplication.focus();
-	      return false;
+		      alert("자격요건을 입력하십시오.");
+		      form.qualificationForApplication.focus();
+		      return false;
 	   } 
 	   if (form.local.value == "") {
-	      alert("지역을 입력하십시오.");
-	      form.local.focus();
-	      return false;
+		      alert("지역을 입력하십시오.");
+		      form.local.focus();
+		      return false;
 	   } 
 	   if (form.startAge.value == "") {
 		      alert("나이를 입력하십시오.");
@@ -105,10 +122,7 @@
 	   form.submit();
 	}
 	
-	function policyList(targetUri) {
-	      form.action = targetUri;
-	      form.submit();
-	}  
+	
 	</script>  
 	
 </head>
@@ -116,17 +130,19 @@
 <!-- header -->
  <jsp:include page="/header.jsp"/>
   <br/><br/>
-	    <center>정책 등록<hr/></center>
+	   <div class="container">
+		<h5><span>정책등록</span> 페이지입니다.</h5>
+        <hr/>      
 	    
- <div id="div1">
+ <div>
 	<form name="form" method="POST" action="<c:url value='/policy/insert' />">
 	<table id= tableStyle>
 	<tr>
 	<td id = textStyle>정책이름</td> 
-	<td><input type="text" name="policyName"></td>
+	<td><input type="text" name="name"></td>
 	</tr>
 	<tr>
-	<td id = textStyle>정책내용 </td><td><textarea style="border-radius: 5px; border: 1px solid lightgray;" name="policyContent" rows="5" cols="42.5" ></textarea></td>
+	<td id = textStyle>정책내용 </td><td><textarea style="border-radius: 5px; border: 1px solid lightgray;" name="contents" rows="5" cols="42.5" ></textarea></td>
 	</tr>
 	<tr>
 	<td id = textStyle>자격요건</td> <td>  <input type="text" name="qualificationForApplication"><br/></td>
@@ -149,11 +165,16 @@
 	</tr>
 
 	</table>
-	<br/><br/>
-	 <button type="button" value="등록" onClick="policyCreate()">등록</button>
-	 
-	</form>
-	</div>
-
+	<table align="center">
+		  <tr>
+			<td>
+			<input type="button" value="회원 가입" onClick="policyCreate()"> 
+			</td>
+		  </tr>
+	</table>
+</form>
+</div>
+ <!-- footer -->
+		<jsp:include page="/footer.jsp"/>
 </body>
 </html>

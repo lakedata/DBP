@@ -11,7 +11,7 @@
 		.container {
 			width: 385px;
 			line-height: 50px;
-			margin: 100px auto;
+			margin: 50px auto;
 			margin-bottom: 100px;
 		}
 
