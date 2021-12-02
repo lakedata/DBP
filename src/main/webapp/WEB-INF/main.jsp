@@ -170,8 +170,8 @@ body {
 		</div>
 		<div id="mypage_wrap">
 
-				<a id="mypage_icon_wrap" href="<c:url value='policy/insert'/>" style="cursor:pointer;">
-				<span>마이페이지</span>
+				<a id="mypage_icon_wrap" href="<c:url value='post/view'/>" style="cursor:pointer;">
+				<span>post detail TEST</span>
 			</a>
 			<div id="mypage_text_wrap">스크랩한 정책과 글, 댓글, 개인정보를 확인할 수 있습니다.</div>
 		

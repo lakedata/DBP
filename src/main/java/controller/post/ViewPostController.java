@@ -12,6 +12,13 @@ public class ViewPostController implements Controller{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
+		
+		if (request.getMethod().equals("GET")) {	
+
+			return "/post/postDetail.jsp";  
+	    }
+		
+		
 		PostManager postMan = PostManager.getInstance();
 		int postNum = Integer.parseInt(request.getParameter("postNum"));
 		

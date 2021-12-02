@@ -38,6 +38,16 @@ li a:hover:not(.active) {
 #board, #bList, #pageForm {
     text-align :center;
 }
+
+.policySearch-div {
+	margin-top: 50px;
+	width: 80%;
+	margin-left: 120px;
+
+
+	
+	}
+
 </style>
 <script>
 function uncheck(){
@@ -50,8 +60,7 @@ function uncheck(){
   	<!-- header -->
    <jsp:include page="/header.jsp" />
    
-	<h2>정책 검색</h2>
-
+<div class="policySearch-div">
 	<b>정책유형</b>
 	<input type="checkbox" name="contents" value="취업지원">취업지원
 	<input type="checkbox" name="contents" value="창업지원">창업지원
@@ -142,7 +151,11 @@ function uncheck(){
             <a href='BoardListAction.bo?page=${endPage+1 }'>[다음]</a>
         </c:if>
     </div>
+    
+    
+    </div>
      <!-- footer -->
 		<jsp:include page="/footer.jsp"/>
+		
 </body>
 </html>

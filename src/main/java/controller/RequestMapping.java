@@ -55,6 +55,8 @@ public class RequestMapping {
         
         
         //post
+        mappings.put("/post/write", new ForwardController("/post/postWrite.jsp"));
+        
         mappings.put("/post/add", new AddPostController());
         mappings.put("/post/list", new ListPostController());
         mappings.put("/post/view", new ViewPostController()); //이름 변경 필요
@@ -63,6 +65,7 @@ public class RequestMapping {
         
         //mypage
         //mappings.put("/mypage", new MyPageController());
+        mappings.put("/mypage", new ForwardController("/user/mypage.jsp"));
         mappings.put("/mypage/scrap/view", new ListScrapController());
         mappings.put("/user/view", new ViewUserController());
         

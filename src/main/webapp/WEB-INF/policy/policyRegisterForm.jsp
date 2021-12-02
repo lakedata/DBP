@@ -138,6 +138,20 @@
 	<form name="form" method="POST" action="<c:url value='/policy/insert' />">
 	<table id= tableStyle>
 	<tr>
+	<td id = textStyle>정책유형</td>
+	<td>
+	 <select name="category" style="width: 300px; height: 30px;">
+              <option value="0" > 취업지원 </option>
+              <option value="1"> 창업지원 </option>
+              <option value="2" > 주거금융 </option>
+              <option value="3"> 생활복지 </option>
+              <option value="4" > 정책참여</option>
+           
+            </select> 
+           </td> 
+            
+     </tr>
+	<tr>
 	<td id = textStyle>정책이름</td> 
 	<td><input type="text" name="name"></td>
 	</tr>
@@ -155,7 +169,21 @@
 	</tr>
 	
 	<tr>
-	<td id = textStyle>소득분위</td><td> <input type="text" name="income"><br/></td>
+	<td id = textStyle>소득분위</td>	<td>
+	 <select name="category" style="width: 300px; height: 30px;">
+         
+              <option value="1"> 1분위</option>
+              <option value="2" > 2분위 </option>
+              <option value="3"> 3분위 </option>
+              <option value="4" > 4분위 </option>
+           	  <option value="5" > 5분위 </option>
+              <option value="6"> 6분위 </option>
+              <option value="7" > 7분위 </option>
+              <option value="8"> 8분위 </option>
+              <option value="9" > 9분위 </option>
+              <option value="10" > 10분위 </option>
+            </select> 
+           </td> 
 	</tr>
 	<tr>
 	<td id = textStyle>지원기간</td><td> <input id="date" type="text" name="startDate"> - <input id="date" type="text" name="endDate"><br/></td>
