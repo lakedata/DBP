@@ -11,6 +11,11 @@ public class InsertPolicyController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		if (request.getMethod().equals("GET")) {	
+    		
+			return "/policy/policyRegisterForm.jsp";   //검색한 사용자 정보를 update form으로 전송 
+	    }	
+		
 		
 		Policy pol = new Policy (
 				0, // sequence로 id 지정

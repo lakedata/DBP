@@ -47,12 +47,9 @@ function uncheck(){
 
 <form action = "<%= request.getContextPath() %>/policySearch.jsp">
 <body>
-  <ul>
-      <li><a class="active" href="<%= request.getContextPath() %>/home.jsp">Home</a></li>
-      <li><a href="<%= request.getContextPath() %>/policySearch.jsp">정책찾기</a></li>
-      <li><a href="<%= request.getContextPath() %>/postWrite.jsp">정책제안게시판</a></li>
-      <li><a href="<%= request.getContextPath() %>/mypage.jsp">마이페이지</a></li>
-   </ul>
+  	<!-- header -->
+   <jsp:include page="/header.jsp" />
+   
 	<h2>정책 검색</h2>
 
 	<b>정책유형</b>
@@ -145,6 +142,7 @@ function uncheck(){
             <a href='BoardListAction.bo?page=${endPage+1 }'>[다음]</a>
         </c:if>
     </div>
-    
+     <!-- footer -->
+		<jsp:include page="/footer.jsp"/>
 </body>
 </html>

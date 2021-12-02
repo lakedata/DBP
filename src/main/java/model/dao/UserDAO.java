@@ -14,8 +14,8 @@ public class UserDAO {
 		
 	public int create(User user) throws SQLException {
 		String sql = "INSERT INTO USER1 VALUES (?, ?, ?, ?, ?, ?)";		
-		Object[] param = new Object[] {user.getUserId(), user.getPassword(), 
-						user.getName(), user.getEmail(), user.getBirth(), user.getPhoneNumber() };				
+		Object[] param = new Object[] {user.getUserId(), user.getName(), 
+				user.getEmail(), user.getPassword(), user.getBirth(), user.getPhoneNumber() };
 		jdbcUtil.setSqlAndParameters(sql, param);	
 				
 		try {				
