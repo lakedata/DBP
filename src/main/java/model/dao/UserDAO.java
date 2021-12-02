@@ -34,10 +34,10 @@ public class UserDAO {
 	
 	public int update(User user) throws SQLException {
 		String sql = "UPDATE USER1 "
-					+ "SET name=?, email=?, password=?, birth=?, phoneNumber=? "
+					+ "SET password=?, name=?, email=?, birth=?, phoneNumber=? "
 					+ "WHERE user_Id=?";
-		Object[] param = new Object[] {user.getName(), user.getEmail(), 
-					user.getPassword(), user.getBirth(), user.getPhoneNumber(), 
+		Object[] param = new Object[] {user.getPassword(), user.getName(), user.getEmail(), 
+					user.getBirth(), user.getPhoneNumber(), 
 					user.getUserId()};				
 		jdbcUtil.setSqlAndParameters(sql, param);	
 			
@@ -74,7 +74,7 @@ public class UserDAO {
 	}
 
 	public User findUser(String userId) throws SQLException {
-        String sql = "SELECT name, email, password, birth, phoneNumber "
+        String sql = "SELECT password, name, email, birth, phoneNumber "
         			+ "FROM User1 "
         			+ "WHERE user_Id=? ";              
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});
@@ -84,9 +84,9 @@ public class UserDAO {
 			if (rs.next()) {		
 				User user = new User(		
 					userId,
+					rs.getString("password"),
 					rs.getString("name"),
 					rs.getString("email"),
-					rs.getString("password"),
 					rs.getString("birth"),
 					rs.getString("phoneNumber"));
 				return user;

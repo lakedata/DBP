@@ -45,7 +45,7 @@ function uncheck(){
 };
 </script>
 
-<form action = "<%= request.getContextPath() %>/policyDetail.jsp">
+<form action = "<%= request.getContextPath() %>/policySearch.jsp">
 <body>
   <ul>
       <li><a class="active" href="<%= request.getContextPath() %>/home.jsp">Home</a></li>
@@ -70,7 +70,7 @@ function uncheck(){
 		</c:forEach>
 	</select>
 	<hr/><b>거주지역 </b>
-	<!-- 지역 서울, 경기, 인천,  전라도, 경상도, 충청도, 제주도 -->
+	<!-- 지역 서울, 경기, 인천,  전라도, 경상도, 충청도, 제주도, 강원도 -->
 	<input type="checkbox" name="local" value="서울">서울
 	<input type="checkbox" name="local" value="경기도">경기도
 	<input type="checkbox" name="local" value="인천">인천
@@ -104,7 +104,7 @@ function uncheck(){
     <div id="board">
         <table id="pList" width="800" border="3" bordercolor="lightgray">
         <c:forEach var="policy" items="${polList}">
-            <tr heigh="30">
+            <tr height="30">
                 <td>정책명</td>
                 <td>유형</td>
                 <td>요약</td>
@@ -113,9 +113,9 @@ function uncheck(){
             <tr>
                 <td>
                     <a href="<c:url value='/policy/view'>
-                    <c:param name='policyId' value='${policy.id}'/>
+                    <c:param name='policyId' value='${policy.policyId}'/>
                     </c:url>">
-                    ${policy.getId()}
+                    ${policy.getPolicyId()}
                     </a>
                 </td>
                 <td>${policy.getCategory()}</td>
