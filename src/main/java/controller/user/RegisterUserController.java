@@ -17,7 +17,7 @@ public class RegisterUserController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	
-    	log.debug("RegisterUserController");
+    	log.debug("in RegisterUserController");
     	
        	if (request.getMethod().equals("GET")) {	
     		// GET request: 회원정보 등록 form 요청	

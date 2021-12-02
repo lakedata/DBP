@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class User implements Serializable{
 	private String userId;
+	private String password;
 	private String name;
 	private String email;
-	private String password;
 	private String birth;
 	private String phoneNumber;
 
@@ -99,7 +99,7 @@ public class User implements Serializable{
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password + ", birth="
+		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email + ", birth="
 				+ birth + ", phoneNumber=" + phoneNumber + "]";
 	}
 
