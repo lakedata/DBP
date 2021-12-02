@@ -12,6 +12,11 @@ public class AddPostController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
+		if (request.getMethod().equals("GET")) {
+	
+			return "/post/postWrite.jsp";
+		}
+		
 		Post post = new Post(
 				0,
 				Integer.parseInt(request.getParameter("policyId")),
@@ -23,7 +28,10 @@ public class AddPostController implements Controller {
 			PostManager postMan = PostManager.getInstance();
 			postMan.insert(post);
 			
-			return "redirection:/post/view";
+//			return "redirection:/post/view";
+//			return "redirection:/post/list";
+			return "/post/postList.jsp";
+			
 		} catch (Exception e) {
 			request.setAttribute("insertFailed", true);
 			request.setAttribute("exception", e);

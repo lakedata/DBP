@@ -17,7 +17,7 @@ public class InsertPolicyController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		log.debug("in RegisterUserController");
+		log.debug("in Controller");
 		if (request.getMethod().equals("GET")) {	
 			log.debug("RegisterForm Request");
 			return "/policy/policyRegisterForm.jsp";   
@@ -43,8 +43,9 @@ public class InsertPolicyController implements Controller {
 		try {
 			PolicyManager polMan = PolicyManager.getInstance();
 			polMan.insert(pol);
-			
-			return "redirection:/policy/list"; // redirection -성공시 
+	
+			return "/policy/policySearch.jsp"; //성공 시 
+//			return "redirection:/policy/list"; // redirection -성공시 
 //			return "redirection:/policy/policySearch"; // redirection
 
 			

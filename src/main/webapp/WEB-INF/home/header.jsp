@@ -83,48 +83,10 @@ li a:hover:not(.active) {
 	<ul>
 		<li><a class="active"
 			href="<%= request.getContextPath() %>/index.jsp">Home</a></li>
-		<li><a href="<c:url value='policy/search'/>" 정책찾기></a></li>
-		<li><a href="<%= request.getContextPath() %>/postWrite.jsp">정책제안게시판</a></li>
-		<li><a href="<%= request.getContextPath() %>/mypage.jsp">마이페이지</a></li>
+		<li><a href="<c:url value='policy/search'/>" 정책찾기></a></li> 
+		<li><a href="<c:url value="/post/write"></c:url>">정책제안게시판</a></li>
+		<li><a href="<c:url value="/mypage"></c:url>">마이페이지</a></li>
 	</ul>
-
-	<!--  
-	<c:choose>
-		<c:when test="${user_id=='admin'}">
-			<li class="nav-item"><admin>관리자계정 로그인<admin>
-				<li>
-				<li class="nav-item"><a
-					href="<c:url value="/user/logout"></c:url>"
-					class="nav-link link-dark px-2">Logout</a></li>
-				<li class="nav-item"><a
-					href="<c:url value="/user/mypage"> <c:param name='user_id' value='${user.user_id}'/></c:url>"
-					class="nav-link link-dark px-2">MyPage</a></li>
-		</c:when>
-
-		<c:when test="${user_id==NULL}">
-			<li class="nav-item"><a
-				href="<c:url value="/user/login"></c:url>"
-				class="nav-link link-dark px-2">Login</a></li>
-			<li class="nav-item"><a
-				href="<c:url value="/user/register"></c:url>"
-				class="nav-link link-dark px-2">Sign up</a></li>
-		</c:when>
-		<c:when test="${user_id!=NULL}">
-
-			<li class="nav-item"><a
-				href="<c:url value="/user/logout"></c:url>"
-				class="nav-link link-dark px-2">Logout</a></li>
-			<li class="nav-item"><a
-				href="<c:url value="/user/mypage"> <c:param name='user_id' value='${user.user_id}'/></c:url>"
-				class="nav-link link-dark px-2">MyPage</a></li>
-
-		</c:when>
-	</c:choose>
-		  <!--    <li><img style="padding-top: 14px; padding-left: 15px; padding-right: 15px;" class ="logo" src="<c:url value='/images/logo_checkkeu.png'/>" height="20px"></li>
-	      <li><a class="active" href="">Home</a></li>
-	      <li><a href="<c:url value="/policy/search"></c:url>">정책찾기</a></li>
-	      <li><a href="<c:url value='/post/list'/>">정책제안게시판</a></li>
-	      -->
 
 	<div style="margin-right: 50px;">
 		<c:choose>
