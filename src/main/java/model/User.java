@@ -13,7 +13,7 @@ public class User implements Serializable{
 
 	public User() { }	
 	
-	public User(String userId, String name, String email, String password, String birth, String phone) {
+	public User(String userId, String password, String name, String email, String birth, String phone) {
 		this.userId = userId;
 		this.password = password;
 		this.name = name;
@@ -99,7 +99,7 @@ public class User implements Serializable{
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email + ", birth="
+		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", password=" + password +", birth="
 				+ birth + ", phoneNumber=" + phoneNumber + "]";
 	}
 

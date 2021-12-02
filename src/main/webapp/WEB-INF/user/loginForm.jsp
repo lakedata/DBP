@@ -58,7 +58,7 @@
 	<div class="container">
         	<h5><span>로그인</span> 페이지입니다.</h5>
         <hr/>
-        <form method="post" action="<c:url value='/user/login' />">
+        <form method="POST" action="<c:url value='/user/login' />">
             <input type="text" placeholder="아이디" name="id" required style="height:30px; width: 380px" /><br />
             <input type="password" placeholder="비밀번호" name="pw" required style="height:30px; width: 380px" /><br />
             <input type="submit" value="로그인" class="login" />

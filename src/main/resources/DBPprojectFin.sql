@@ -72,9 +72,9 @@ ALTER TABLE Reply
 CREATE TABLE User1
 (
 	user_Id              VARCHAR2(20) NOT NULL ,
+    name                 VARCHAR2(20) NULL ,
+    email                VARCHAR2(30) NULL ,
     password             VARCHAR2(20) NULL ,
-	name                 VARCHAR2(20) NULL ,
-	email                VARCHAR2(30) NULL ,
 	birth                DATE NULL ,
     phoneNumber          CHAR(13) NULL 
 );

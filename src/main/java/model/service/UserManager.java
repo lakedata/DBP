@@ -2,12 +2,17 @@ package model.service;
 
 import java.sql.SQLException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import controller.user.LoginController;
 import model.User;
 import model.dao.UserDAO;
 
 public class UserManager {
 	private static UserManager userMan = new UserManager();
 	private UserDAO userDAO;
+	private static final Logger logger = LoggerFactory.getLogger(UserManager.class);
 
 	private UserManager() {
 		try {
@@ -48,11 +53,20 @@ public class UserManager {
 
 	public boolean login(String userId, String password)
 		throws SQLException, UserNotFoundException, PasswordMismatchException {
+		
+		logger.debug("Usermanager login");
+		
 		User user = findUser(userId);
-
+		
+		logger.debug("Usermanager findUser " +user);
+		
 		if (!user.matchPassword(password)) {
 			throw new PasswordMismatchException("비밀번호가 일치하지 않습니다.");
+		
 		}
+		
+		logger.debug("Usermanager return ");
+		
 		return true;
 	}
 

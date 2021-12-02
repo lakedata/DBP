@@ -23,21 +23,27 @@ public class LoginController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	
-    	logger.debug("in LoginController1");
+    	logger.debug("in LoginController");
     	
     	String userId = request.getParameter("id");
 		String password = request.getParameter("pw");
 		
-		logger.debug("in LoginController1" +userId+ "," +password);
+		logger.debug("in LoginController " +userId+ "," +password);
 		
 		if(request.getMethod().equals("GET")) {
+			logger.debug("loginController GET");
 			return "/user/loginForm.jsp";
 		}
 		
+		logger.debug("not GET");
 		
 		try {
+			logger.debug("POST1");
 			UserManager manager = UserManager.getInstance();
+			logger.debug("POST2");
 			manager.login(userId, password);
+			
+			logger.debug("success!");
 			
 //			User user = userDAO.findUser(userId);
 //			if(user == null) {
