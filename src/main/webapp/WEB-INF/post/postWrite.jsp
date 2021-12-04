@@ -50,7 +50,7 @@
                 <td height=20 align= center bgcolor=#8080FF><font color=white> ±Û¾²±â</font></td>
                 </tr>
                 <tr>
-                <td bgcolor=white>3kon!
+                <td bgcolor=white>
                 
                 <table class = "table2">
                         <tr>
