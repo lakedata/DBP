@@ -3,16 +3,23 @@ package controller.post;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Date;
 import controller.Controller;
+import controller.user.RegisterUserController;
 import model.Post;
 import model.service.PostManager;
 
 public class AddPostController implements Controller {
+	private static final Logger log = LoggerFactory.getLogger(RegisterUserController.class);
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
+		
+		log.debug("in AddPostController");
 		
 		String userId = request.getParameter("userId");
 		
@@ -23,7 +30,9 @@ public class AddPostController implements Controller {
 //		}
 //		
 		//test
+		log.debug(request.getParameter("title"));
 		int policyId = Integer.parseInt(request.getParameter("policyId"));
+		
 		System.out.println("policyId:" + policyId);
 		
 		String uId = request.getParameter("userId");
