@@ -17,15 +17,17 @@ public class InsertPolicyController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		log.debug("in Controller");
+		log.debug("in InsertPolicyController");
+		
 		if (request.getMethod().equals("GET")) {	
 			log.debug("RegisterForm Request");
 			return "/policy/policyRegisterForm.jsp";   
 	    }	
 		
+		log.debug("in InsertPolicyController: GET");
 		
 		Policy pol = new Policy (
-				0, // sequence로 id 지정
+				0, // sequence로 policyId 지정
 				request.getParameter("name"),
 				request.getParameter("contents"),
 				request.getParameter("category"),
@@ -40,11 +42,15 @@ public class InsertPolicyController implements Controller {
 				Integer.parseInt(request.getParameter("income"))
 				);
 		
+		log.debug("pol in InsertPolicyController: " +pol);
+		
 		try {
 			PolicyManager polMan = PolicyManager.getInstance();
 			polMan.insert(pol);
+			
+			log.debug("find insert" +polMan);
 	
-			return "/policy/policySearch.jsp"; //성공 시 
+			return "redirection:/policy/view"; //성공 시 
 //			return "redirection:/policy/list"; // redirection -성공시 
 //			return "redirection:/policy/policySearch"; // redirection
 

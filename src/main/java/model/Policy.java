@@ -184,5 +184,16 @@ public class Policy implements Serializable {
 	public void setScrap(boolean scrap) {
 		this.scrap = scrap;
 	}
+
+	@Override
+	public String toString() {
+		return "Policy [policyId=" + policyId + ", name=" + name + ", contents=" + contents + ", category=" + category
+				+ ", startDate=" + startDate + ", endDate=" + endDate + "\n, policySummary=" + policySummary
+				+ ", qualificationForApplication=" + qualificationForApplication + ", howToApply=" + howToApply
+				+ ", local=" + local + ", startAge=" + startAge + ", endAge=" + endAge + ", income=" + income
+				+ ", scrap=" + scrap + "]";
+	}
+	
+	
 	
 }
