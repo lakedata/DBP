@@ -49,7 +49,8 @@ public class InsertPolicyController implements Controller {
 			polMan.insert(pol);
 			
 			log.debug("find insert " +polMan);
-	
+			
+			request.setAttribute("policy", pol);	
 			return "/policy/policyDetail.jsp";
 //			return "redirect:/policy/view"; //성공 시 
 //			return "redirection:/policy/list"; // redirection -성공시 
