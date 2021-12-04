@@ -13,10 +13,10 @@ public class PostDAO {
 	private JDBCUtil jdbcUtil = null;
 	
 	public PostDAO() {			
-		jdbcUtil = new JDBCUtil();	// JDBCUtil 占쏙옙체 占쏙옙占쏙옙
+		jdbcUtil = new JDBCUtil();	// JDBCUtil �뜝�룞�삕泥� �뜝�룞�삕�뜝�룞�삕
 	}
 	
-	/* 占쌉시깍옙 占쏙옙占� */
+	/* �뜝�뙃�떆源띿삕 �뜝�룞�삕�뜝占� */
 	public Post insertPost(Post po) throws SQLException {
 			
 		int generatedKey;
@@ -101,11 +101,11 @@ public class PostDAO {
                  + "FROM Post "
                  + "WHERE postNum=? ";   
         
-      jdbcUtil.setSqlAndParameters(sql, new Object[] {postNum});      // JDBCUtil�뜝�룞�삕 query�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
+      jdbcUtil.setSqlAndParameters(sql, new Object[] {postNum});      // JDBCUtil占쎈쐻占쎈짗占쎌굲 query占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
       Post post = null;
       
       try {
-         ResultSet rs = jdbcUtil.executeQuery();         // query �뜝�룞�삕�뜝�룞�삕         
+         ResultSet rs = jdbcUtil.executeQuery();         // query 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲         
   
          if (rs.next()) {
             post = new Post (
@@ -121,39 +121,39 @@ public class PostDAO {
       } catch (Exception ex) {
          ex.printStackTrace();
       } finally {
-         jdbcUtil.close();      // resource �뜝�룞�삕�솚
+         jdbcUtil.close();      // resource 占쎈쐻占쎈짗占쎌굲占쎌넎
       }
       return post;
    }
 	
-	/* 占쏙옙체 post 찾占쏙옙 */
+	/* �뜝�룞�삕泥� post 李얍뜝�룞�삕 */
 	public List<Post> findPostList() throws SQLException {
 		
         String sql = "SELECT postNum, policyId, userId, title, writeDate, content "
      		   + "FROM Post "
      		   + "ORDER BY postNum";   
         
-		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil占쏙옙 query占쏙옙 占쏙옙占쏙옙
+		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil�뜝�룞�삕 query�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
 					
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();			// query 占쏙옙占쏙옙			
-			List<Post> postList = new ArrayList<Post>();	// Community占쏙옙占쏙옙 占쏙옙占쏙옙트 占쏙옙占쏙옙
+			ResultSet rs = jdbcUtil.executeQuery();			// query �뜝�룞�삕�뜝�룞�삕			
+			List<Post> postList = new ArrayList<Post>();	// Community�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�듃 �뜝�룞�삕�뜝�룞�삕
 			while (rs.next()) {
-				Post po = new Post(			// Community 占쏙옙체占쏙옙 占쏙옙占쏙옙占싹울옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
+				Post po = new Post(			// Community �뜝�룞�삕泥닷뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�떦�슱�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
 						rs.getInt("postNum"),
 						rs.getInt("policyId"),
 						rs.getString("userId"),
 						rs.getString("title"),
 						rs.getString("writeDate"),
 						rs.getString("content"));
-				postList.add(po);				// List占쏙옙 Community 占쏙옙체 占쏙옙占쏙옙
+				postList.add(po);				// List�뜝�룞�삕 Community �뜝�룞�삕泥� �뜝�룞�삕�뜝�룞�삕
 			}		
 			return postList;					
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource 占쏙옙환
+			jdbcUtil.close();		// resource �뜝�룞�삕�솚
 		}
 		return null;
 	}

@@ -142,11 +142,11 @@
    <td id = textStyle>정책유형</td>
    <td>
     <select name="category" style="width: 300px; height: 30px;">
-              <option value="0" > 취업지원 </option>
-              <option value="1"> 창업지원 </option>
-              <option value="2" > 주거금융 </option>
-              <option value="3"> 생활복지 </option>
-              <option value="4" > 정책참여</option>
+              <option value="취업지원" > 취업지원 </option>
+              <option value="창업지원"> 창업지원 </option>
+              <option value="주거금융" > 주거금융 </option>
+              <option value="생활복지"> 생활복지 </option>
+              <option value="정책참여" > 정책참여</option>
            
         </select> 
      </td> 

@@ -1,52 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.*" %>
+<%@page import="model.*" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-</head>
 <meta charset="EUC-KR"> 
 <title>정책 찾기</title>
 <style type="text/css">
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #333;
-}
-ul:after{
-    content:'';
-    display: block;
-    clear:both;
-}
-li {
-    float: left;
-}
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-li a:hover:not(.active) {
-    background-color: #111;
-}
-.active {
-    background-color: #8080FF;
-}
-#board, #bList, #pageForm {
-    text-align :center;
-}
 
-.policySearch-div {
-	margin-top: 50px;
-	width: 80%;
-	margin-left: 120px;
+	table {
+			border: 1px solid lightgray;
+			border-collapse: collapse;
+			margin-top: 30px;
+			width: 100%; 
+			align: center;
+		}
+		 th, td {
+    		border: 1px solid #EDEDED;
 
-
-	
-	}
+  		}
+  		
+  		
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    background-color: #333;
+		}
+		ul:after{
+		    content:'';
+		    display: block;
+		    clear:both;
+		}
+		li {
+		    float: left;
+		}
+		li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		li a:hover:not(.active) {
+		    background-color: #111;
+		}
+		.active {
+		    background-color: #8080FF;
+		}
+		#board, #bList, #pageForm {
+		    text-align :center;
+		}
+		
+		.policySearch-div {
+			margin-top: 50px;
+			width: 80%;
+			margin-left: 120px;
+			
+			}
 
 </style>
 <script>
@@ -54,9 +68,10 @@ function uncheck(){
 	$(':checkbox:checked').prop('checked',false);
 };
 </script>
-
-<form action = "<%= request.getContextPath() %>/policySearch.jsp">
+</head>
 <body>
+<form action = "<%= request.getContextPath() %>/policySearch.jsp">
+
   	<!-- header -->
    <jsp:include page="/WEB-INF/home/header.jsp" />
    
@@ -100,7 +115,7 @@ function uncheck(){
 	<input type="submit" value="검색">
 	<br>
 	<br>
-	
+
 	<input type="button" value="페이지 새로고침" onClick="window.location.reload()">
 	
 	
@@ -108,26 +123,28 @@ function uncheck(){
   <!-- 정책 목록 부분 -->
     <br>
     <div id="board">
-        <table id="pList" width="800" border="3" bordercolor="lightgray">
-        <c:forEach var="policy" items="${polList}">
-            <tr height="30">
+        <table>
+         <tr>
                 <td>정책명</td>
                 <td>유형</td>
-                <td>요약</td>
-            </tr>
-       
+                <td style="width: 60%;">요약</td>
+         </tr>
+
+        <c:forEach var="policy" items="${polList}">
             <tr>
                 <td>
                     <a href="<c:url value='/policy/view'>
-                    <c:param name='policyId' value='${policy.policyId}'/>
+                    <c:param name='policy' value='${policy.policyId}'/>
                     </c:url>">
-                    ${policy.getPolicyId()}
+                    ${policy.name}
                     </a>
                 </td>
-                <td>${policy.getCategory()}</td>
-                <td>${policy.getPolicySummary()}</td>
-            </tr>
-        </c:forEach>
+                <td>${policy.category}</td>
+                <td>${policy.policySummary}</td>
+                
+            </tr>  
+		</c:forEach>
+	
         </table>
     </div>
     
@@ -152,8 +169,7 @@ function uncheck(){
         </c:if>
     </div>
     
-    
-    </div>
+	</div>
      <!-- footer -->
 	<jsp:include page="/WEB-INF/home/footer.jsp"/>
 

@@ -44,7 +44,7 @@
 			  <td style="width: 70%"><a href="<c:url value='/post/view'>
 						      <c:param name='postNum' value='${post.postNum}'/>
 						   </c:url>">
-				  ${post.title}</a>
+				  ${post.title} </a>
 			  </td>
 			  <td>${post.userId}</td>
 			  <td>${post.writeDate}</td>
