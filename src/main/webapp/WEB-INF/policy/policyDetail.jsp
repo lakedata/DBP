@@ -52,7 +52,7 @@ int arr[] = null;
 			%>
 			form.desc.focus();
 			return false;
-		}	
+		}	 
 		if (form.policy.name != null) {
 			${scrap.policyId} = ${policy.name}
 			form.name.focus();
