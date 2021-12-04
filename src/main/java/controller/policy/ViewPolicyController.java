@@ -18,11 +18,13 @@ public class ViewPolicyController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		logger.debug("ViewPolicyController");
+		logger.debug("in ViewPolicyController");
 		
 		Policy pol = null;
 		
 		PolicyManager polMan = PolicyManager.getInstance();
+		logger.debug("polMan in ViewPolicyController: " +polMan); //¿©±â±îÁö µÊ
+		
 		int policyId = Integer.parseInt(request.getParameter("policyId"));
 		logger.debug("policyId in ViewPolicyController: " +policyId);
 		

@@ -48,9 +48,10 @@ public class InsertPolicyController implements Controller {
 			PolicyManager polMan = PolicyManager.getInstance();
 			polMan.insert(pol);
 			
-			log.debug("find insert" +polMan);
+			log.debug("find insert " +polMan);
 	
-			return "redirection:/policy/view"; //성공 시 
+			return "/policy/policyDetail.jsp";
+//			return "redirect:/policy/view"; //성공 시 
 //			return "redirection:/policy/list"; // redirection -성공시 
 //			return "redirection:/policy/policySearch"; // redirection
 
