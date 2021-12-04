@@ -3,6 +3,7 @@ package controller.post;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.Date;
 import controller.Controller;
 import model.Post;
 import model.service.PostManager;
@@ -12,10 +13,31 @@ public class AddPostController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		if (request.getMethod().equals("GET")) {
-	
-			return "/post/postWrite.jsp";
-		}
+		
+		String userId = request.getParameter("userId");
+		
+		
+//		if (request.getMethod().equals("POST")) {
+//	
+//			return "/post/postWrite.jsp";
+//		}
+//		
+		//test
+		int policyId = Integer.parseInt(request.getParameter("policyId"));
+		System.out.println("policyId:" + policyId);
+		
+		String uId = request.getParameter("userId");
+		System.out.println("uId:" + uId);
+		
+		String title = request.getParameter("title");
+		System.out.println("title:" + title);
+		
+		String writeDate = request.getParameter("writeDate");
+		System.out.println("writeDate:" + writeDate);
+		
+		String content = request.getParameter("content");
+		System.out.println("content:" + content);
+		
 		
 		Post post = new Post(
 				0,
@@ -30,14 +52,15 @@ public class AddPostController implements Controller {
 			
 //			return "redirection:/post/view";
 //			return "redirection:/post/list";
-			return "/post/postList.jsp";
+			return "/post/postList.jsp"; 
+	//		return "redirect:/post/list?userId=" + userId;
 			
 		} catch (Exception e) {
 			request.setAttribute("insertFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("post", post);
-			
-			return "/post/postWrite.jsp";
+			System.out.print(e); //юс╫ц
+			return "/post/postWrite.jsp"; 
 		}
 
 	}

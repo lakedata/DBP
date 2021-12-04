@@ -7,7 +7,7 @@
 <meta charset="EUC-KR">
 <title>글 작성</title>
 
-<script>
+<script  type="text/Javascript">
 	function postWrite() {
 		if (form.title.value == "") {
 			alert("제목을 입력하세요.");
@@ -34,13 +34,17 @@
 
  <!--실패한 경우 exception 객체에 저장된 오류 메시지를 출력 -->
 	<div>
-		<c:if test="${creationFailed}">
+		<c:if test="${insertFailed}">
 			<h6><c:out value="${exception.getMessage()}"/></h6>
 		</c:if>
 	</div>	 
 	
+	<%
+	request.setAttribute("userId", request.getParameter("userId"));
+
+	%>
 	
-    <form class="form" name="form" method="POST" action="<c:url value='/post/add' />">
+    <form class="form" name="form" method="POST" enctype="multipart/form-data" action="<c:url value='/post/add' ></c:url>">
         <table style="margin-top: 100px;">
                 <tr>
                 <td height=20 align= center bgcolor=#8080FF><font color=white> 글쓰기</font></td>
@@ -50,7 +54,7 @@
                 <table class = "table2">
                         <tr>
                         <td>작성자</td>
-                        <td><input type="text" name="name" size=20> </td>
+                        <td><input type="text" name="name" size=20  value="${userId}"> </td>
                         </tr>
  
                         <tr>
@@ -63,8 +67,17 @@
                         <td>내용</td>
                         <td><textarea name="content" cols=85 rows=15></textarea></td>
                         </tr>
- 
-                      
+                        <!-- 임시/ test용  -->
+  						<tr>
+                        <td>writeDate</td>
+                        <td> <input type="text" name="writeDate" size=20 >
+	            				  </td>
+                        </tr>
+                        <tr>
+                        <td>policyId</td>
+                        <td> <input type="text" name="policyId" size=20>
+	            			  </td>
+                        </tr>
                         </table>
  
                 </td>

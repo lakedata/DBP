@@ -3,9 +3,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 
 <%
-   String userId = (String)request.getAttribute("userId");
-%>
-
+	request.setAttribute("userId", request.getParameter("userId"));
+	%>
 
 <!DOCTYPE html>
 <html>
@@ -54,6 +53,9 @@
 </style>
 </head>
 <body>
+<%
+	request.setAttribute("userId", request.getParameter("userId"));
+	%>
    <ul>
         <li><img style="padding-top: 14px; padding-left: 15px; padding-right: 15px;" class ="logo" src="<c:url value='/images/logo_checkkeu.png'/>" height="20px"></li>
          <li><a class="active" href="<%= request.getContextPath() %>/index.jsp">Home</a></li>
@@ -76,7 +78,7 @@
             
                <li class="nav-left"><a href="<c:url value="/user/logout"></c:url>">Logout</a></li>
                 <li class="nav-left"><a href="<c:url value="/mypage"><c:param name='userId' value='${user.userId}'/></c:url>">마이페이지</a></li>
-            <li class="nav-left" style="color: #8080FF; margin-top: 13px; margin-left: 3px;">${user.name }님  </li>  
+            <li class="nav-left" style="color: #8080FF; margin-top: 13px; margin-left: 3px;">${userId}님 환영합니다!  </li>  
          </c:when>
            </c:choose> 
       </div>

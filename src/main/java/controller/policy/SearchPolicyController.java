@@ -19,8 +19,6 @@ public class SearchPolicyController implements Controller {
 		if (request.getMethod().equals("GET")) {	
 			return "/policy/policySearch.jsp";   
 	    }
-
-
 		
 		PolicyManager polMan = PolicyManager.getInstance();
 		
