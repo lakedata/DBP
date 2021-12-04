@@ -10,7 +10,7 @@
 <title>정책등록</title>
 <style>
       .container {
-         width: 385px;
+         width: 450px;
          line-height: 50px;
          margin: 50px auto;
          margin-bottom: 100px;
@@ -56,6 +56,7 @@
       #textStyle{
          text-align: left;
          font-size: 15px;
+
       }
       #age, #date {
          width: 120px;
@@ -153,7 +154,10 @@
      </tr>
    
    <tr>
-   <td id = textStyle>지원기간</td><td> <input id="date" type="date" name="startDate"> - <input id="date" type="date" name="endDate"><br/></td>
+   <td id = textStyle>지원기간</td><td>
+   <!--  <input id="date" type="date" name="startDate"> - <input id="date" type="date" name="endDate"><br/></td> --> 
+   <input id="date" type="text" name="startDate"> - <input id="date" type="text" name="endDate"><br/></td>
+   
    </tr>
    <tr>
    <td id = textStyle>정책요약</td> 
