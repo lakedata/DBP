@@ -15,7 +15,7 @@ public class PolicyDAO {
 private JDBCUtil jdbcUtil = null;
 	
 	public PolicyDAO() {			
-		jdbcUtil = new JDBCUtil();	// JDBCUtil 占쎈쐻占쎈짗占쎌굲筌ｏ옙 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+		jdbcUtil = new JDBCUtil();	
 	}
 		
 	

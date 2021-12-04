@@ -27,7 +27,7 @@ public class InsertPolicyController implements Controller {
 		log.debug("in InsertPolicyController: GET");
 		
 		Policy pol = new Policy (
-				0, // sequence로 id 지정
+				0, // sequence로 policyId 지정
 				request.getParameter("name"),
 				request.getParameter("contents"),
 				request.getParameter("category"),

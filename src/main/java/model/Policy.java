@@ -188,7 +188,7 @@ public class Policy implements Serializable {
 	@Override
 	public String toString() {
 		return "Policy [policyId=" + policyId + ", name=" + name + ", contents=" + contents + ", category=" + category
-				+ ", startDate=" + startDate + ", endDate=" + endDate + ", policySummary=" + policySummary
+				+ ", startDate=" + startDate + ", endDate=" + endDate + "\n, policySummary=" + policySummary
 				+ ", qualificationForApplication=" + qualificationForApplication + ", howToApply=" + howToApply
 				+ ", local=" + local + ", startAge=" + startAge + ", endAge=" + endAge + ", income=" + income
 				+ ", scrap=" + scrap + "]";

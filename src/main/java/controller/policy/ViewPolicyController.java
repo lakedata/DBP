@@ -25,6 +25,7 @@ public class ViewPolicyController implements Controller {
 		PolicyManager polMan = PolicyManager.getInstance();
 		int policyId = Integer.parseInt(request.getParameter("policyId"));
 		logger.debug("policyId in ViewPolicyController: " +policyId);
+		
 		pol = polMan.findPolicy(policyId);
 		logger.debug("pol in ViewPolicyController: " +pol);
 		
