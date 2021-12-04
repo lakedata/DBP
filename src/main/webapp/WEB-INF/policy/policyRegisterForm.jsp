@@ -154,10 +154,7 @@
      </tr>
    
    <tr>
-   <td id = textStyle>지원기간</td><td>
-   <!--  <input id="date" type="date" name="startDate"> - <input id="date" type="date" name="endDate"><br/></td> --> 
-   <input id="date" type="text" name="startDate"> - <input id="date" type="text" name="endDate"><br/></td>
-   
+   <td id = textStyle>지원기간</td><td> <input id="date" type="date" name="startDate"> - <input id="date" type="date" name="endDate"><br/></td>
    </tr>
    <tr>
    <td id = textStyle>정책요약</td> 
