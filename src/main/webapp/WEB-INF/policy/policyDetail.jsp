@@ -66,8 +66,7 @@ int arr[] = null;
  <jsp:include page="/WEB-INF/home/header.jsp"/>
 
     <br/>
-	<input type="button" value="스크랩하기" onclick=" location='scrap.jsp'"/>
-	
+
 	<!-- 상세보기 -->
 	<div id="detail">
 	<h3>

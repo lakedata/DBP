@@ -109,24 +109,39 @@ function uncheck(){
     <br>
     <div id="board">
         <table id="pList" width="800" border="3" bordercolor="lightgray">
-        <c:forEach var="policy" items="${polList}">
-            <tr height="30">
+         <tr height="30">
                 <td>정책명</td>
                 <td>유형</td>
                 <td>요약</td>
             </tr>
-       
+            
+            
+        <c:forEach var="policy" items="${polList}">
+           
+       <!--  
             <tr>
                 <td>
                     <a href="<c:url value='/policy/view'>
-                    <c:param name='policyId' value='${policy.policyId}'/>
+                    <c:param name='policy' value='${policy.policyId}'/>
                     </c:url>">
-                    ${policy.getPolicyId()}
+                    ${policy.getPolicyId}
                     </a>
                 </td>
-                <td>${policy.getCategory()}</td>
-                <td>${policy.getPolicySummary()}</td>
+                <td>${policy.getCategory}</td>
+                <td>${policy.getPolicySummary}</td>
+                
             </tr>
+            
+       -->    
+            <c:forEach var="si" items="${polList}">
+		<tr>
+			<td align ="center"><font size="2px"> ${si.name} </td>
+			<td align ="center"><font size="2px"> ${si.category}</td>
+			<td align ="center"><font size="2px"> ${si.policySummary}</td>
+		</tr>
+		</c:forEach>
+		
+		
         </c:forEach>
         </table>
     </div>
