@@ -50,7 +50,7 @@ int arr[] = null;
 			${scrap.userId} = ${user.userId}
 			form.desc.focus();
 			return false;
-		}	
+		}	 
 		if (form.policy.name != null) {
 			${scrap.policyId} = ${policy.name}
 			form.name.focus();

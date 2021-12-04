@@ -31,7 +31,7 @@ private JDBCUtil jdbcUtil = null;
 				pol.getLocal(), pol.getStartAge(), pol.getEndAge(), pol.getIncome(), 'n'};	
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
-		String key[] = {"policyId"};
+		String key[] = {"policyId"}; 
 		
 		try {
 			jdbcUtil.executeUpdate();

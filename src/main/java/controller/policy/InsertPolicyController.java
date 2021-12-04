@@ -16,7 +16,7 @@ public class InsertPolicyController implements Controller {
 	    
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+		 
 		log.debug("in InsertPolicyController");
 		
 		if (request.getMethod().equals("GET")) {	

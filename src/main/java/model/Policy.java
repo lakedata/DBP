@@ -192,7 +192,7 @@ public class Policy implements Serializable {
 				+ ", qualificationForApplication=" + qualificationForApplication + ", howToApply=" + howToApply
 				+ ", local=" + local + ", startAge=" + startAge + ", endAge=" + endAge + ", income=" + income
 				+ ", scrap=" + scrap + "]";
-	}
+	} 
 	
 	
 	
