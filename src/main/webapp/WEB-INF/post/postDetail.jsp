@@ -1,11 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>±Û »ó¼¼º¸±â</title>
+<meta charset="UTF-8">
+<title>ê¸€ ìƒì„¸ë³´ê¸°</title>
+<script>
+function postRemove() {
+	return confirm("ì •ë§ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?");		
+}
+
+function countp(type)  {
+	  // ê²°ê³¼ë¥¼ í‘œì‹œí•  element
+	  const resultElement = document.getElementById('result_p');
+	  
+	  // í˜„ì¬ í™”ë©´ì— í‘œì‹œëœ ê°’
+	  let number = resultElement.innerText;
+	  
+	  // ë”í•˜ê¸°
+	  if(type === 'plus') {
+	    number = parseInt(number) + 1;
+	  }
+	  
+	  // ê²°ê³¼ ì¶œë ¥
+	  resultElement.innerText = number;
+	}
+function countm(type)  {
+	  // ê²°ê³¼ë¥¼ í‘œì‹œí•  element
+	  const resultElement = document.getElementById('result_m');
+	  
+	  // í˜„ì¬ í™”ë©´ì— í‘œì‹œëœ ê°’
+	  let number = resultElement.innerText;
+	  
+	  //ë¹¼ê¸°
+	  if(type === 'minus')  {
+		    number = parseInt(number) - 1;
+	  }
+	  
+	  // ê²°ê³¼ ì¶œë ¥
+	  resultElement.innerText = number;
+	}
+
+</script>
 <style>
 		.container {
 			width: 80%;
@@ -41,13 +78,41 @@
 		 	text-decoration:none
 		}
 
-
-</style>
-<script>
-function postRemove() {
-	return confirm("Á¤¸» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?");		
+/*ì¢…ì•„ìš” css*/
+.feeling_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.button-container {
+  margin-left: 20px;
 }
-</script>
+.feeling_a {
+  background-color: #fff;
+  border: 2px solid #2199e8;
+  padding: 10px 20px;
+  border-radius: 2px;
+  color: #2199e8;
+} 
+
+.feeling_a:active {
+  background-color: #2199e8;
+  color: #fff;
+} 
+
+.count {
+	color: #2199e8;
+	border: none;
+	background: none;
+}
+
+
+/*ëŒ“ê¸€ css*/
+.w-btn-green {
+    background-color: #77af9c;
+    color: #d7fff1;
+}
+</style>
 
 </head>
 <body>
@@ -55,56 +120,68 @@ function postRemove() {
 <!-- header -->
  <jsp:include page="/WEB-INF/home/header.jsp"/>
 	<div class="container">
-        	<h5><span>±Û »ó¼¼º¸±â</span></h5>
+        	<h5><span>ê¸€ ìƒì„¸ë³´ê¸°</span></h5>
 	<table>
     
 	  	  <tr>
-			<th>Á¦¸ñ</th>
+			<th>ì œëª©</th>
 			<td>${post.title}</td>
 		  </tr>
 		  <tr>
-			<th>ÀÛ¼ºÀÚ</th>
+			<th>ì‘ì„±ì</th>
 			<td>${post.userId}</td>
 		  </tr>
 		  <tr>
-			<th>³¯Â¥</th>
+			<th>ë‚ ì§œ</th>
 			<td>${post.writeDate}</td>
 		  </tr>
 		  <tr>
-			<th>³»¿ë</th>
+			<th>ë‚´ìš©</th>
 			<td>${post.content}</td>
 		  </tr>
 	
 	</table>
-	<!-- µ¿ÀÇ/ºñµ¿ÀÇ -->
 	
-	µ¿ÀÇ  ºñµ¿ÀÇ 
+	<!-- ë™ì˜/ë¹„ë™ì˜  likeê°€ ëˆŒë¦¬ë©´ dislike ì„ íƒì´ í•´ì²´ ë˜ëŠ” ë°©ì‹-->
+	<div class="feeling_div" >
+			<div class="button-container like-container">
+			    <button class="feeling_a" onclick='countp("plus")'/>
+			      <i>â™¥Like</i>
+			      <div id='result_p'>0</div>   
+			  </div>
+			  <div class="button-container dislike-container">
+			    <button class="feeling_a" onclick='countm("minus")'/>
+			      <i>â™¡Dislike</i>  <!--{ $like_sum }-->
+			      <div id='result_m'>0</div>
+			</div>
+		</div>
 	
+	<!-- ë™ì˜/ë¹„ë™ì˜  SQLë¬¸ ì‚½ì… í•„ìš”-->
 	
-	<!-- ´ñ±Û ¾²±â -->
+	<!-- ëŒ“ê¸€ ì“°ê¸° -->
 	<div style="margin-top: 50px;">
 	<form name="form" method="POST" action="<c:url value='/post/reply/add' />">
-		<input type="text" name="comment" placeholder="´ñ±ÛÀ»  ÀÛ¼ºÇÏ¼¼¿ä" style="width:85%; height: 50px; border-radius: 8px; border: none; background-color: #F5F5F5;">
-		<input type="submit" value="µî·Ï" style="border: none; height: 50px; width: 50px; border-radius: 8px; " />
+		<input type="text" name="comment" placeholder="ëŒ“ê¸€ì„  ì‘ì„±í•˜ì„¸ìš”" style="width:85%; height: 50px; border-radius: 8px; border: none; background-color: #F5F5F5;">
+		<input class="w-btn-green" type="submit" value="ë“±ë¡" style="border: none; height: 50px; width: 50px; border-radius: 8px; " />
 	</form>
 	</div>
 	
-	<!-- ´ñ±Û º¸±â  -->
+	<!-- ëŒ“ê¸€ ë³´ê¸°  -->
 	<div>
 	
 	
 	</div>
 	
 	
-	<!-- ¼öÁ¤, »èÁ¦, ¸ñ·Ï  -->
+	<!-- ìˆ˜ì •, ì‚­ì œ, ëª©ë¡  -->
 	<div style="text-align: center; padding: 50px;">
 		<a id="btn" href="<c:url value='/post/update'>
 		     		   <c:param name='commId' value='${post.post_id}'/>
-				  </c:url>">¼öÁ¤</a>		  
+				  </c:url>">ìˆ˜ì •</a>		  
 	    <a id="btn" href="<c:url value='/post/delete'>
 					   <c:param name='commId' value='${post.post_id}'/>
-				 </c:url>" onclick="return communityRemove();">»èÁ¦</a> 
-	    <a id="btn" href="<c:url value='/post/list' />">¸ñ·Ï</a> 
+				 </c:url>" onclick="return communityRemove();">ì‚­ì œ</a> 
+	    <a id="btn" href="<c:url value='/post/list' />">ëª©ë¡</a> 
     
     </div>
 
