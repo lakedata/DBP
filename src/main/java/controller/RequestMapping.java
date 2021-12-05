@@ -48,7 +48,7 @@ public class RequestMapping {
         //scrap
         mappings.put("/policy/scrap/add", new AddScrapController());
         mappings.put("/policy/scrap/cancel", new CancelScrapController());
-        mappings.put("/post/scrap/list", new ListScrapController());
+       // mappings.put("/post/scrap/list", new ListScrapController());
         
         //comment
         mappings.put("/post/reply/add", new createReplyController());
@@ -68,6 +68,8 @@ public class RequestMapping {
         mappings.put("/mypage", new ForwardController("/user/mypage.jsp"));
         mappings.put("/mypage/scrap/view", new ListScrapController());
         mappings.put("/user/view", new ViewUserController());
+        mappings.put("/mypage/calendar/view", new ForwardController("/user/calendar.jsp"));//캘린더.jsp 수정 필요
+        
         
         //내가 쓴 글로 링크연결
         mappings.put("/mypage/myPost", new ForwardController("/user/myPost.jsp"));
