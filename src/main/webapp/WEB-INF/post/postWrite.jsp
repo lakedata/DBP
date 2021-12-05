@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%
+	Date nowTime = new Date();
+	SimpleDateFormat sf = new SimpleDateFormat("yyMMdd");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,8 +61,8 @@
                 
                 <table class = "table2">
                         <tr>
-                        <td>작성자</td>
-                        <td><input type="text" name="userId" size=20  value="${userId}"> </td>
+                        <td></td>
+                        <td><input type="text" name="userId" size=20  value="${userId}" style="display: none;"> </td>
                         </tr>
  
                         <tr>
@@ -70,13 +77,13 @@
                         </tr>
                         <!-- 임시/ test용  -->
   						<tr>
-                        <td>writeDate</td>
-                        <td> <input type="text" name="writeDate" size=20 >
+                        <td></td>
+                        <td> <input type="text" name="writeDate" size=20 style="display: none;" value="<%= sf.format(nowTime) %>" >
 	            				  </td>
                         </tr>
                         <tr>
-                        <td>policyId</td>
-                        <td> <input type="text" name="policyId" size=20>
+                        <td></td>
+                        <td> <input type="text" name="policyId" size=20 value=1 style="display: none;">
 	            			  </td>
                         </tr>
                         </table>
