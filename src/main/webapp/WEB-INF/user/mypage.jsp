@@ -43,7 +43,7 @@ body {
 
 &>
 .barry {
-	display: none;
+	display: none; 
 }
 
 }
