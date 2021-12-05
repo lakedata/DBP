@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>글 작성</title>
 
 <script type="text/Javascript">
@@ -44,7 +44,7 @@
 
 	%>
 	
-    <form class="form" name="form" method="POST" enctype="multipart/form-data" action="<c:url value='/post/add' ></c:url>">
+    <form name="form" method="POST" action="<c:url value='/post/add' ></c:url>">
         <table style="margin-top: 100px;">
                 <tr>
                 <td height=20 align= center bgcolor=#8080FF><font color=white> 글쓰기</font></td>
@@ -55,7 +55,7 @@
                 <table class = "table2">
                         <tr>
                         <td>작성자</td>
-                        <td><input type="text" name="name" size=20  value="${userId}"> </td>
+                        <td><input type="text" name="userId" size=20  value="${userId}"> </td>
                         </tr>
  
                         <tr>
