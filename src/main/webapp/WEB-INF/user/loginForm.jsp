@@ -29,13 +29,7 @@
 			border: 0;
 			padding: 10px 172px;
 		}
-		
-		#signup {
-			background-color: white;
-			color: teal;
-			border: 0;
-			font-size: 17px;
-		}
+	
 		
 		p {
 			text-align: center;
@@ -61,11 +55,13 @@
         <form method="POST" action="<c:url value='/user/login' />">
             <input type="text" placeholder="아이디" name="id" required style="height:30px; width: 380px" /><br />
             <input type="password" placeholder="비밀번호" name="pw" required style="height:30px; width: 380px" /><br />
-            <input type="submit" value="로그인" class="login" />
-            <button onclick="location.href='../index.jsp';" class="login" >HOME</button>
+            <input type="submit" value="  로그인" class="login" style="width: 384px;" />
+            <a href="<c:url value='register'/>"><input type="button" value="회원가입 " class="login" style="width: 384px;" /></a>
         </form>
-        <hr />
-        <p><a href="<c:url value='register'/>"><input type="button" value="회원가입" id="signup" /></a></p>
+       
+       
+        
+         <hr />
     </div>
 
    <!-- footer -->

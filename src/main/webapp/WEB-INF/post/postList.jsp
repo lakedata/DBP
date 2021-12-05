@@ -27,9 +27,16 @@
 </style>
 </head>
 <body>
+	<%
+	request.setAttribute("userId", request.getParameter("userId"));
+	%>
 	
-	 <button style="border: none; width: 80px; height: 30px; margin-top: 50px; margin-left: 995px;"><a style="text-decoration : none;" href="<c:url value='/post/write'/>">글쓰기</a></button>
-	
+	  <c:choose>
+	  <c:when test="${userId!=NULL}">    
+             <button style="border: none; width: 80px; height: 30px; margin-top: 50px; margin-left: 995px; border-radius: 7px;"><a style="text-decoration : none;" href="<c:url value='/post/write'/>">글쓰기</a></button>
+      </c:when>
+      </c:choose>
+       
 	<table>
       <thead>
 		<tr>
