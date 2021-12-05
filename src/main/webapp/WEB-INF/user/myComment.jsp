@@ -16,9 +16,9 @@
         <c:when test="${message != null }">
             <tr>
                 <td>${message }</td>
-            </tr>
+            </tr>   
         </c:when>
-        <c:otherwise>
+        <c:otherwise> 
             <c:forEach var="list" items="${list }">
                 <tr>
                     <td><font size="1.5"><b>${list.cid }</b>
