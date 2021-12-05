@@ -39,7 +39,7 @@ body {
 	border: 3px solid$red;
 	height: 85px; &> ul { display : block;
 	opacity: 1;
-}
+} 
 
 &>
 .barry {
