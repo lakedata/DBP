@@ -33,12 +33,6 @@ body {
 		padding-left: 5%;
 		padding-right: 5%;
 		font-size: 14px;
-		display: inline-block;
-    position: relative;
-    width: 200px;
-    height: 200px;
-    background-color: #a88;
-    line-height: 200px;
 	}
 	#start_wrap, #reg_wrap, #serach_wrap, #mypage_wrap {
 		margin-top: 10%;
@@ -134,7 +128,6 @@ body {
 		margin-bottom: 5%;
 	}
 }
-
 </style>
 
 </head>
@@ -142,7 +135,7 @@ body {
 <!-- header -->
  <jsp:include page="/WEB-INF/home/header.jsp"/>
  
- <div style="background-color:white; opacity:0.8; margin: 50px;">
+ <div style="background-color:white; opacity:0.8;">
  <div id="head_wrap">
 		<div id="logo_wrap">
 			<img src="https://ifh.cc/g/eOQkpg.png" class="img-responsive"
@@ -170,14 +163,15 @@ body {
 				이용할 수 있습니다. 등록한 정보로 접속시 checkkeu에서 자동으로 고객님을 인식합니다.</div>
 	
 		<div id="serach_wrap">
-			<a id="serach_icon_wrap" href="<c:url value='policy/search'/>" style="cursor:pointer;">
-				<span>정책 관리</span></a>
+			<a id="serach_icon_wrap" href="<c:url value='/mypage/myComment'/>" style="cursor:pointer;">
+				<span>내가 쓴 댓글</span></a>
 			
 			<div id="serach_text_wrap">checkkeu에 고객님의 원하는 정책을 검색할 수 있습니다.</div>
 		</div>
 		<div id="mypage_wrap">
-				<a id="mypage_icon_wrap" href="<c:url value='/mypage'/>" style="cursor:pointer;">
-				<span>마이페이지</span>
+
+				<a id="mypage_icon_wrap" href="<c:url value='/mypage/myPost'/>" style="cursor:pointer;">
+				<span>내가쓴 글</span>
 			</a>
 			<div id="mypage_text_wrap">스크랩한 정책과 글, 댓글, 개인정보를 확인할 수 있습니다.</div>
 		

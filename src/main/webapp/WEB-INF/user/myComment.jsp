@@ -1,16 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/WEB-INF/home/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>내가 쓴 댓글</title>
+<style>
+
+
+	table {
+			border: 1px solid lightgray;
+			border-collapse: collapse;
+			padding: 10px;
+			margin-top: 80px;
+			margin: 100px auto;
+			width: 70%; 
+			align: center;
+		}
+	th, td {
+    		border: 1px solid #EDEDED;
+    		padding: 5px;
+ 
+  		}
+  		
+  		
+  		</style>
 </head>
 <body>
 <table>  
     <tr>   
-        <th colspan="2">댓글 목록</th>
+        <td style="width: 80%">댓글</td>
     </tr>
     <c:choose>
         <c:when test="${message != null }">
@@ -44,3 +65,4 @@
 <br>
 </body>
 </html>
+ <%@ include file="/WEB-INF/home/footer.jsp" %>
