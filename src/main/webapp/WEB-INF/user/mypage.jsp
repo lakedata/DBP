@@ -7,10 +7,7 @@
 <title>¸¶ÀÌÆäÀÌÁö</title>
 <style>
 $
-lred:#E57373 ;
- $red:#F44336 ;
-
- @mixin transition( $in) {
+lred:#E57373 ; $red:#F44336 ; @mixin transition( $in) {
 	transition: $in;
 	-webkit-transition: $in;
 	-moz-transition: $in;
@@ -96,7 +93,6 @@ ul {
 :target {
 	border-bottom-color: $red;
 }
-
 }
 }
 }
@@ -151,13 +147,12 @@ body {
 		</div>
 
 		<ul>
-			<li><a id='home' href="<%= request.getContextPath() %>/home.jsp">Home</a></li>
+			<li><a id='home' href="<%=request.getContextPath()%>/home.jsp">Home</a></li>
 			<li><a id='about'
-				href="<%= request.getContextPath() %>/policySearch.jsp">ÀÛ¼º±Û</a></li>
+				href="<%=request.getContextPath()%>/policySearch.jsp">ÀÛ¼º±Û</a></li>
 			<li><a id='contact'
-				href="<%= request.getContextPath() %>/postWrite.jsp">ÀÛ¼º´ñ±Û</a></li>
-			<li><a id='link'
-				href="<c:url value='post/scrap/list'/>">½ºÅ©·¦</a></li>
+				href="<%=request.getContextPath()%>/postWrite.jsp">ÀÛ¼º´ñ±Û</a></li>
+			<li><a id='link' href="<c:url value='post/scrap/list'/>">½ºÅ©·¦</a></li>
 		</ul>
 	</label>
 	<div class="flex-container"
