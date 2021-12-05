@@ -8,7 +8,7 @@
 <title>³»°¡ ¾´ ´ñ±Û</title>
 </head>
 <body>
-<table>
+<table>  
     <tr>
         <th colspan="2">´ñ±Û ¸ñ·Ï</th>
     </tr>
