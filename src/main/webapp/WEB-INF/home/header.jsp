@@ -66,7 +66,7 @@
          <c:choose>
          <c:when test="${userId=='dbpro0102'}">
             <li class="nav-left"><a href="<c:url value="/user/logout"></c:url>">Logout</a></li>
-            <li class="nav-left"><a href="<c:url value="/mypage"> <c:param name='user_id' value='${user.userId}'/></c:url>">마이페이지</a></li>
+            <li class="nav-left"><a href="<c:url value="/mypage"> <c:param name='user_id' value='${userId}'/></c:url>">마이페이지</a></li>
             <li class="nav-left"><a href="<c:url value="/policy/insert"></c:url>">정책등록</a></li>
             <li class="nav-left" style="color: red; margin-top: 14px; margin-right: 5px;">관리자계정<li>
          </c:when>    
@@ -77,7 +77,7 @@
          <c:when test="${userId!=NULL}">    
             
                <li class="nav-left"><a href="<c:url value="/user/logout"></c:url>">Logout</a></li>
-                <li class="nav-left"><a href="<c:url value="/mypage"><c:param name='userId' value='${user.userId}'/></c:url>">마이페이지</a></li>
+                <li class="nav-left"><a href="<c:url value="/mypage"><c:param name='userId' value='${userId}'/></c:url>">마이페이지</a></li>
             <li class="nav-left" style="color: #8080FF; margin-top: 13px; margin-left: 3px;">${userId}님 환영합니다!  </li>  
          </c:when>
            </c:choose> 

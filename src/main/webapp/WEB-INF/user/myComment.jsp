@@ -9,7 +9,7 @@
 </head>
 <body>
 <table>  
-    <tr>
+    <tr>   
         <th colspan="2">´ñ±Û ¸ñ·Ï</th>
     </tr>
     <c:choose>
