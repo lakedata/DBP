@@ -69,6 +69,9 @@ public class RequestMapping {
         mappings.put("/mypage/scrap/view", new ListScrapController());
         mappings.put("/user/view", new ViewUserController());
         
+        //내가 쓴 글로 링크연결
+        mappings.put("/mypage/myPost", new ForwardController("/user/myPost.jsp"));
+        
         
         //main page
         mappings.put("/main", new ForwardController("/home/main.jsp"));

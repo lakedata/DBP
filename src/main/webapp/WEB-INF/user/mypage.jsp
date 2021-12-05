@@ -128,6 +128,7 @@ body {
 		style="margin-left: 100px; margin-right: 100px">
 		<div class="flex">
 			<div class="flex fdc">
+			
 				<img class="travel" style="object-fit: fill;"
 					src="https://a0.muscache.com/im/pictures/a0316ecb-e49b-4b3a-b6b6-c2876b820e8c.jpg?im_w=720">
 				<span class="font_ml font_bold">작성한글</span>
