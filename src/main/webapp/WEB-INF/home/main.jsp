@@ -33,6 +33,12 @@ body {
 		padding-left: 5%;
 		padding-right: 5%;
 		font-size: 14px;
+		display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #a88;
+    line-height: 200px;
 	}
 	#start_wrap, #reg_wrap, #serach_wrap, #mypage_wrap {
 		margin-top: 10%;
@@ -128,6 +134,7 @@ body {
 		margin-bottom: 5%;
 	}
 }
+
 </style>
 
 </head>
@@ -169,8 +176,7 @@ body {
 			<div id="serach_text_wrap">checkkeu에 고객님의 원하는 정책을 검색할 수 있습니다.</div>
 		</div>
 		<div id="mypage_wrap">
-
-				<a id="mypage_icon_wrap" href="<c:url value='/user/view'/>" style="cursor:pointer;">
+				<a id="mypage_icon_wrap" href="<c:url value='/mypage'/>" style="cursor:pointer;">
 				<span>마이페이지</span>
 			</a>
 			<div id="mypage_text_wrap">스크랩한 정책과 글, 댓글, 개인정보를 확인할 수 있습니다.</div>

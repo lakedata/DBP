@@ -47,7 +47,9 @@ int arr[] = null;
 	
 	function scarpCreate() {
 		if (form.desc.value != null) {
-			${scrap.userId} = ${user.userId}
+			<%
+			request.setAttribute("${scrap.userId}", request.getParameter("userId"));
+			%>
 			form.desc.focus();
 			return false;
 		}	 
