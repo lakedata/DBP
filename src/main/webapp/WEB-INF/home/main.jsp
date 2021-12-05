@@ -135,7 +135,7 @@ body {
 <!-- header -->
  <jsp:include page="/WEB-INF/home/header.jsp"/>
  
- <div style="background-color:white; opacity:0.8;">
+ <div style="background-color:white; opacity:0.8; margin: 50px;">
  <div id="head_wrap">
 		<div id="logo_wrap">
 			<img src="https://ifh.cc/g/eOQkpg.png" class="img-responsive"

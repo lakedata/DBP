@@ -71,7 +71,8 @@ public class RequestMapping {
         
         //내가 쓴 글로 링크연결
         mappings.put("/mypage/myPost", new ForwardController("/user/myPost.jsp"));
-        
+        //내가 쓴 댓글로 링크연결
+        mappings.put("/mypage/myComment", new ForwardController("/user/myComment.jsp"));
         
         //main page
         mappings.put("/main", new ForwardController("/home/main.jsp"));
