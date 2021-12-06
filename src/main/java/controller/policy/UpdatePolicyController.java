@@ -52,10 +52,11 @@ public class UpdatePolicyController implements Controller{
 					Integer.parseInt(request.getParameter("income"))
 					
 					);
-			
+			//test
+			//System.out.println(request.getParameter("name"));
 			polMan.update(updatePol);
-
 			return "redirect:/policy/list";
+			
 	
 		}
 		

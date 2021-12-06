@@ -59,12 +59,18 @@ public class PolicyDAO {
 	public int updatePolicy(Policy pol) throws SQLException {
 
 		String sql = "UPDATE Policy "
-				   + "SET startAge=?, endAge=?, qualificationForApplication=?, startDate=?, endDate=?, income=? "
+				   + "SET name=?, contents=?, category=?, startDate=?, endDate=?, policySummary=?, qualificationForApplication=?, howToApply=?, local=?, startAge=?, endAge=?, income=? "
 				   + "WHERE policyId=?";
 
+		String name = pol.getName();
+		String contents = pol.getContents();
+		String category = pol.getCategory();
 		int startAge = pol.getStartAge();
 		int endAge = pol.getEndAge();
+		String policySummary = pol.getPolicySummary();
 		String qualApp = pol.getQualificationForApplication();
+		String howToApply = pol.getHowToApply();
+		String local = pol.getLocal();
 		String startDate = pol.getStartDate();
 		String endDate = pol.getEndDate();
 		int income = pol.getIncome();
@@ -76,8 +82,8 @@ public class PolicyDAO {
 		if (endDate.equals(""))
 			endDate = null;
 
-		Object[] param = new Object[] { pol.getStartAge(), pol.getEndAge(), 
-				pol.getQualificationForApplication(),
+		Object[] param = new Object[] { pol.getName(), pol.getContents(), pol.getCategory(), pol.getStartAge(), pol.getEndAge(), 
+				pol.getPolicySummary(), pol.getQualificationForApplication(), pol.getHowToApply(), pol.getLocal(), 
 				pol.getStartDate(), pol.getEndDate(), pol.getIncome() };
 		jdbcUtil.setSqlAndParameters(sql, param);
 

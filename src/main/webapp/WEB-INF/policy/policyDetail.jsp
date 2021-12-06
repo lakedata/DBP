@@ -118,7 +118,7 @@ int arr[] = null;
 	 <div> 
          <c:choose>
          	<c:when test="${userId=='dbpro0102'}">
-	            <a href="<c:url value="/policy/update/form">
+	            <a href="<c:url value="/policy/update">
 	            	<c:param name="policyId" value="${policy.policyId}" />
 	            </c:url>" style="text-decoration-line : none;">수정</a>
 	            <a href="<c:url value="/policy/delete">
