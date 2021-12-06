@@ -92,6 +92,7 @@ function uncheck(){
 	</select>
 	<hr/><b>거주지역 </b>
 	<!-- 지역 서울, 경기, 인천,  전라도, 경상도, 충청도, 제주도, 강원도 -->
+	<input type="checkbox" name="local" value="전국">전국
 	<input type="checkbox" name="local" value="서울">서울
 	<input type="checkbox" name="local" value="경기도">경기도
 	<input type="checkbox" name="local" value="인천">인천
