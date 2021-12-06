@@ -31,7 +31,7 @@ public class ViewPolicyController implements Controller {
 		pol = polMan.findPolicy(policyId);
 		logger.debug("pol in ViewPolicyController: " +pol);
 		
-		request.setAttribute("Policy", pol);
+		request.setAttribute("policy", pol);
 		
 		return "/policy/policyDetail.jsp";
 	}

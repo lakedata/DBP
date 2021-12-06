@@ -222,7 +222,8 @@ public class PolicyDAO {
 						rs.getString("local"), 
 						rs.getInt("startAge"), 
 						rs.getInt("endAge"),
-						rs.getInt("income"));
+						rs.getInt("income"),
+						false);
 
 				return pol;
 			}
