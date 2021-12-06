@@ -155,7 +155,7 @@ body {
 	<!-- header -->
 	<jsp:include page="/WEB-INF/home/header.jsp" />
 
-	<div style="background-color:white; opacity: 0.8;">
+	<div style="background-color:white; height:100%; opacity: 0.8;">
 		<div id="head_wrap">
 			<div id="logo_wrap">
 				<img src="https://ifh.cc/g/eOQkpg.png" class="img-responsive"
@@ -163,48 +163,21 @@ body {
 			</div>
 			<div id="introduce_wrap">
 				Checkkeu <br> 청년에게 꼭 필요한 사용자 맞춤 청년 정책 검색 웹사이트<br>
+				1. 정책 검색
+				나이, 거주지, 소득분위 등 검색 옵션을 부여하여 DB에서 해당 정책을 가져옴
+				회원가입 시에 입력한 본인 정보와 맞는 정책을 보여주는 기능 (필터링)
+	
+				2. 마이페이지 
+				아이콘을 클릭하여 자신의 관심 분야 정책을 스크랩할 수 있으며 ‘마이페이지’에서 캘린더 기능을 통해 확인 가능
+				게시판에 작성한 본인의 게시글 열람 가능
+				개인 정보 수정
+	
+				3. 게시판
+				사용자가 자유롭게 정책을 제안 및 문제 제기 가능
+				찬반, 댓글 기능으로 활발한 소통 가능
 			</div>
 		</div>
 		
-		<!-- head_wrap -->
-		<div id="main_wrap">
-			<div id="start_wrap">
-				<a id="start_icon_wrap" href="<c:url value='user/login'/>"
-					style="cursor: pointer;"> <span>로그인 시작</span></a>
-			</div>
-			<div id="start_text_wrap">
-				시작하기 버튼을 클릭하면 로그인을 할 수 있습니다.
-				<p>사용자 맞춤형 정책 공간에서 자신만의 정책을 찾고 나눠보세요.
-			</div>
-
-			<div id="reg_wrap">
-				<a id="reg_icon_wrap" href="<c:url value='user/register'/>"
-					style="cursor: pointer;"> <span>회원등록</span></a>
-			</div>
-			<div id="reg_text_wrap">
-				회원가입을 통해 checkkeu에 등록하여 제공되는 서비스를 무료로이용할 수 있습니다.
-				<p>등록한 정보로 접속시 checkkeu에서 자동으로 고객님을 인식합니다.
-			</div>
-
-			<div id="serach_wrap">
-				<a id="serach_icon_wrap" href="<c:url value='/policy/search'/>"
-					style="cursor: pointer;"> <span>정책검색</span></a>
-			</div>
-			<div id="serach_text_wrap">checkkeu에 고객님의 원하는 정책을 검색할 수 있습니다.
-				<p>정책 검색을 통해 자신에게 맞는 정책을 찾아보세요.
-			</div>
-
-			<c:if test="${userId!=NULL}">    
-			<div id="mypage_wrap">
-				<a id="mypage_icon_wrap" href="<c:url value='/mypage'/>"
-					style="cursor: pointer;"> <span>마이페이지</span>
-				</a>
-			</div>
-			<div id="mypage_text_wrap"> 스크랩한 정책과 글, 댓글, 개인정보를 확인할 수 있습니다.
-				<p>${userId}님만의 페이지를 구성하고 관리해보세요.
-			</div>
-        	</c:if>
-        </div>
 		<!-- footer -->
 		<jsp:include page="/WEB-INF/home/footer.jsp" />
 	</div>
