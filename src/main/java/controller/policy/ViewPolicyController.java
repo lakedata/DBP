@@ -19,7 +19,7 @@ public class ViewPolicyController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		logger.debug("in ViewPolicyController");
-		
+		 
 		Policy pol = null;
 		
 		PolicyManager polMan = PolicyManager.getInstance();

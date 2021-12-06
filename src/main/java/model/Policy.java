@@ -20,7 +20,6 @@ public class Policy implements Serializable {
 	private int income = 0; 
 	private boolean scrap = false; 
 	
-	
 	public Policy(int policyId, String name, String category, String policySummary) {
 		
 		this.policyId = policyId;

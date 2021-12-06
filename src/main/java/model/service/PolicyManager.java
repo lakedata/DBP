@@ -66,9 +66,7 @@ public class PolicyManager {
 	}
 	
 	/* 정책 찾기 */
-	public Policy findPolicy(int policyId) throws SQLException, NoExistingPolicyException {
-		logger.debug("in manager, findPolicy");
-		
+	public Policy findPolicy(int policyId) throws SQLException, NoExistingPolicyException {	
 		Policy pol = polDAO.findPolicy(policyId);
 		
 		logger.debug("in manager, findPolicy" +pol);
