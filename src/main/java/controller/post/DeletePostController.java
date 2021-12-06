@@ -11,14 +11,14 @@ public class DeletePostController  implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		int deletePostId = Integer.parseInt(request.getParameter("postId"));
+		int deletePostId = Integer.parseInt(request.getParameter("postNum"));
 		
 		try {
 			PostManager postMan = PostManager.getInstance();
 			
 			postMan.delete(deletePostId);
 			
-			return "redirection:/post/list";
+			return "redirect:/post/list";
 		} catch (Exception e) {
 			request.setAttribute("deleteFailed", true);
 			request.setAttribute("exception", e);

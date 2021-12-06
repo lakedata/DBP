@@ -21,7 +21,7 @@ public class UpdatePolicyController implements Controller{
 			
 			Policy pol = polMan.findPolicy(policyId);
 			
-			
+			//admin
 			HttpSession session = request.getSession();
 			if(UserSessionUtils.isLoginUser("dbpro0102", session)) {
 				request.setAttribute("policy", pol);

@@ -17,7 +17,7 @@ public class UpdatePostController implements Controller{
 		PostManager postMan = PostManager.getInstance();
 		
 		if(request.getMethod().equals("GET")) {
-			int postId = Integer.parseInt(request.getParameter("postId"));
+			int postId = Integer.parseInt(request.getParameter("postNum"));
 			
 			Post post = postMan.findPost(postId);
 			
@@ -25,7 +25,7 @@ public class UpdatePostController implements Controller{
 			if(UserSessionUtils.isLoginUser(request.getParameter("userId"), session)) {
 				request.setAttribute("post", post);
 				
-				return "/post/updatePost.jsp";
+				return "/post/postUpdateForm.jsp";
 			}
 			else {
 				request.setAttribute("updateFailed", true);

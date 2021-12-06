@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>글 상세보기</title>
 <script>
-function postRemove() {
+function postDelete() {
 	return confirm("정말 삭제하시겠습니까?");		
 }
 
@@ -171,16 +171,22 @@ function countm(type)  {
 	
 	
 	</div>
-	
-	
+	<%
+		request.setAttribute("userId", request.getParameter("userId"));
+	%>
 	<!-- 수정, 삭제, 목록  -->
 	<div style="text-align: center; padding: 50px;">
-		<a id="btn" href="<c:url value='/post/update'>
-		     		   <c:param name='commId' value='${post.postNum}'/>
+	<c:choose>
+         	<c:when test="${userId eq post.userId}">
+	          	<a id="btn" href="<c:url value="/post/update">
+		     		   <c:param name='postNum' value="${post.postNum}"/>
 				  </c:url>">수정</a>		  
-	    <a id="btn" href="<c:url value='/post/delete'>
-					   <c:param name='commId' value='${post.postNum}'/>
-				 </c:url>" onclick="return communityRemove();">삭제</a> 
+	    		<a id="btn" href="<c:url value="/post/delete">
+					   <c:param name='postNum' value="${post.postNum}"/>
+				 </c:url>" onclick="postDelete()">삭제</a> 
+         	</c:when>  
+         	
+    </c:choose>
 	    <a id="btn" href="<c:url value='/post/list' />">목록</a> 
     
     </div>
