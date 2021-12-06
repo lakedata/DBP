@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>       
 <%@ include file="/WEB-INF/home/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>¸¶ÀÌÆäÀÌÁö</title>
+<title>ë§ˆì´íŽ˜ì´ì§€</title>
 <style>
 @mixin transition( $in) {
    transition: $in;
@@ -119,7 +119,7 @@ body {
             <img class="mypage" style="object-fit: fill;"
                src="<c:url value='/images/write.jpg'/>">
             <a href="<c:url value='/mypage/myPost'/>">
-            	<span class="font_ml font_bold"> ÀÛ¼ºÇÑ±Û </span>
+            	<span class="font_ml font_bold"> ìž‘ì„±í•œê¸€ </span>
             </a>
          </div>
 
@@ -127,21 +127,21 @@ body {
             <img class="mypage" style="object-fit: fill;"
                 src="<c:url value='/images/comment.jpg'/>">
             <a href="<c:url value='/mypage/myComment'/>">
-            	<span class="font_ml font_bold">ÀÛ¼ºÇÑ´ñ±Û</span>
+            	<span class="font_ml font_bold">ìž‘ì„±í•œëŒ“ê¸€</span>
             </a>
          </div>
          <div class="flex fdc">
             <img class="mypage"
                 src="<c:url value='/images/scrap.jpg'/>">
             <a href="<c:url value='/mypage/scrap/view'/>">
-            	<span class="font_ml font_bold">Á¤Ã¥½ºÅ©·¦</span>
+            	<span class="font_ml font_bold">ì •ì±…ìŠ¤í¬ëž©</span>
             </a>
          </div>
          <div class="flex fdc">
             <img class="mypage" style="object-fit: fill;"
                src="<c:url value='/images/calendar.jpg'/>">
             <a href="<c:url value='/mypage/calendar/view'/>">
-            	<span class="font_ml font_bold">Á¤Ã¥ÀÏÁ¤</span>
+            	<span class="font_ml font_bold">ì •ì±…ì¼ì •</span>
             </a>
          </div>
       </div>
