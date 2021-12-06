@@ -43,8 +43,9 @@ public class RequestMapping {
         mappings.put("/policy/view", new ViewPolicyController());
         mappings.put("/policy/search", new SearchPolicyController());
         mappings.put("/policy/delete", new DeletePolicyController());
+        mappings.put("/policy/update/form", new UpdatePolicyController());
         mappings.put("/policy/update", new UpdatePolicyController());
-        
+       
         //scrap
         mappings.put("/policy/scrap/add", new AddScrapController());
         mappings.put("/policy/scrap/cancel", new CancelScrapController());

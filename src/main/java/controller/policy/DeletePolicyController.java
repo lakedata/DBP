@@ -13,6 +13,7 @@ public class DeletePolicyController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		int deletePolId = Integer.parseInt(request.getParameter("policyId"));
+		//int deletePolId = Integer.valueOf(request.getParameter("policyId"));
 		
 		try {
 			
@@ -21,7 +22,8 @@ public class DeletePolicyController implements Controller {
 			
 			polMan.delete(deletePolId);
 			
-			return "redirection:/policy/policyList";
+			//return "redirection:/policy/policyList";
+			return "redirect:/policy/list";
 			
 		} catch (Exception e) {
 			request.setAttribute("deleteFailed", true);

@@ -11,6 +11,7 @@ int arr[] = null;
 	<meta charset="UTF-8">
 	<title>정책 상세보기</title>
 	<style>
+	
 		#detail {
 			padding-left: 150px;
 			width: 80%;
@@ -68,6 +69,9 @@ int arr[] = null;
  <jsp:include page="/WEB-INF/home/header.jsp"/>
 
     <br/>
+<%
+	request.setAttribute("userId", request.getParameter("userId"));
+%>
 
 	<!-- 상세보기 -->
 	<div id="detail">
@@ -109,16 +113,31 @@ int arr[] = null;
 	${policy.howToApply} </td>
 	</table>
 	<br>
+
+	
+	 <div> 
+         <c:choose>
+         	<c:when test="${userId=='dbpro0102'}">
+	            <a href="<c:url value="/policy/update/form">
+	            	<c:param name="policyId" value="${policy.policyId}" />
+	            </c:url>" style="text-decoration-line : none;">수정</a>
+	            <a href="<c:url value="/policy/delete">
+	            	<c:param name="policyId" value="${policy.policyId}" />
+	            </c:url>" style="text-decoration-line : none;">삭제</a>
+         	</c:when>    
+			<c:when test="${userId!='dbpro0102'}">
+           	
+				<!-- 스크랩하기 -->
+				<!-- scrap 데이터에 넣기 -->
+				<input type="button" value="스크랩하기" onClick="scrapCreate()">
+				
+				<form name="form" method="POST" action="<c:url value='/policy/scrap/add' />">
+				
+				</form>
+         	</c:when>           
+         </c:choose>
+         </div>
 	</div>
-	
-	<!-- 스크랩하기 -->
-	<!-- scrap 데이터에 넣기 -->
-	<input type="button" value="스크랩하기" onClick="scrapCreate()">
-	
-	<form name="form" method="POST" action="<c:url value='/policy/scrap/add' />">
-	
-	
-	</form>
 	
 </body>
 </html>

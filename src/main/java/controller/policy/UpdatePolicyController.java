@@ -23,10 +23,10 @@ public class UpdatePolicyController implements Controller{
 			
 			
 			HttpSession session = request.getSession();
-			if(UserSessionUtils.isLoginUser("admin", session)) {
+			if(UserSessionUtils.isLoginUser("dbpro0102", session)) {
 				request.setAttribute("policy", pol);
 				
-				return "/policy/updatePolicyForm.jsp";
+				return "/policy/policyUpdateForm.jsp";
 				
 			}
 			else { // 관리자 아닐 경우
@@ -54,6 +54,7 @@ public class UpdatePolicyController implements Controller{
 					);
 			
 			polMan.update(updatePol);
+
 			return "redirect:/policy/list";
 	
 		}
