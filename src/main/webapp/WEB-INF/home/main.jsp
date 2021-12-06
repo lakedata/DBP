@@ -17,6 +17,18 @@ body {
 	object-fit: cover;
 }
 
+#main_wrap {text-align: center;}
+
+#start_wrap, #reg_wrap, #serach_wrap, #mypage_wrap {
+	margin:0 auto;
+}
+
+#start_text_wrap, #reg_text_wrap, #serach_text_wrap, #mypage_text_wrap {
+    background-color: #607b8b;
+    color: #d7fff1;
+    margin:0 auto;
+}
+
 @media ( max-width :420px) {
 	#head_wrap {
 		padding-left: 4%;
@@ -132,8 +144,8 @@ body {
 		margin-bottom: 5%;
 	}
 }
-</style>
 
+</style>
 </head>
 <body>
 	<!-- header -->
@@ -149,37 +161,44 @@ body {
 				Checkkeu <br> 청년에게 꼭 필요한 사용자 맞춤 청년 정책 검색 웹사이트<br>
 			</div>
 		</div>
+		
 		<!-- head_wrap -->
-
 		<div id="main_wrap">
 			<div id="start_wrap">
 				<a id="start_icon_wrap" href="<c:url value='user/login'/>"
 					style="cursor: pointer;"> <span>로그인 시작</span></a>
 			</div>
-			<div id="start_text_wrap">시작하기 버튼을 클릭하면 로그인을 할 수 있습니다. 사용자 맞춤형
-				정책 공간에서 자신만의 정책을 찾고 나눠보세요.</div>
-		</div>
-		<div id="reg_wrap">
-			<a id="reg_icon_wrap" href="<c:url value='user/register'/>"
-				style="cursor: pointer;"> <span>회원등록</span>
-			</a>
-		</div>
-		<div id="reg_text_wrap">회원가입을 통해 checkkeu에 등록하여 제공되는 서비스를 무료로
-			이용할 수 있습니다. 등록한 정보로 접속시 checkkeu에서 자동으로 고객님을 인식합니다.</div>
+			<div id="start_text_wrap">
+				시작하기 버튼을 클릭하면 로그인을 할 수 있습니다.
+				<p>사용자 맞춤형 정책 공간에서 자신만의 정책을 찾고 나눠보세요.
+			</div>
 
-		<div id="serach_wrap">
-			<a id="serach_icon_wrap" href="<c:url value='/policy/search'/>"
-				style="cursor: pointer;"> <span>정책검색</span></a>
+			<div id="reg_wrap">
+				<a id="reg_icon_wrap" href="<c:url value='user/register'/>"
+					style="cursor: pointer;"> <span>회원등록</span></a>
+			</div>
+			<div id="reg_text_wrap">
+				회원가입을 통해 checkkeu에 등록하여 제공되는 서비스를 무료로이용할 수 있습니다.
+				<p>등록한 정보로 접속시 checkkeu에서 자동으로 고객님을 인식합니다.
+			</div>
 
-			<div id="serach_text_wrap">checkkeu에 고객님의 원하는 정책을 검색할 수 있습니다.</div>
-		</div>
-		<div id="mypage_wrap">
+			<div id="serach_wrap">
+				<a id="serach_icon_wrap" href="<c:url value='/policy/search'/>"
+					style="cursor: pointer;"> <span>정책검색</span></a>
+			</div>
+			<div id="serach_text_wrap">checkkeu에 고객님의 원하는 정책을 검색할 수 있습니다.
+				<p>정책 검색을 통해 자신에게 맞는 정책을 찾아보세요.
+			</div>
 
-			<a id="mypage_icon_wrap" href="<c:url value='/mypage'/>"  
-				style="cursor: pointer;"> <span>마이페이지</span>
-			</a>
-			<div id="mypage_text_wrap">스크랩한 정책과 글, 댓글, 개인정보를 확인할 수 있습니다.</div>
 
+			<div id="mypage_wrap">
+				<a id="mypage_icon_wrap" href="<c:url value='/mypage'/>"
+					style="cursor: pointer;"> <span>마이페이지</span>
+				</a>
+			</div>
+			<div id="mypage_text_wrap">스크랩한 정책과 글, 댓글, 개인정보를 확인할 수 있습니다.
+				<p>나만의 페이지를 구성하고 관리해보세요.
+			</div>
 		</div>
 
 		<!-- footer -->
