@@ -8,7 +8,7 @@ int arr[] = null;
 	<!DOCTYPE html>
 	<html>
 	<head>
-	<meta charset="EUC-KR">
+	<meta charset="UTF-8">
 	<title>정책 상세보기</title>
 	<style>
 		#detail {

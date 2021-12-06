@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR"> 
+<meta charset="UTF-8"> 
 <title>정책 찾기</title>
 <style type="text/css">
 

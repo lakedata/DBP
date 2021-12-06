@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>scrap</title>
 <style type="text/css">
 button {
@@ -95,7 +95,7 @@ button:hover {
 		<a href="<c:url value='/main'/>"> home </a>
 	</div>
 
-	<!-- ½ºÅ©·¦ ¸ñ·Ï ºÎºÐ -->
+	<!-- ìŠ¤í¬ëž© ëª©ë¡ ë¶€ë¶„ -->
 	<br>
 	<c:choose>
 		<c:when test="${empty scrapList}">
@@ -103,8 +103,8 @@ button:hover {
 		<div id="wrapper">
 		<img src="https://ifh.cc/g/0CuWQr.jpg" class="img-responsive"
 				alt="scrapimg" style="width:500px; height:400px;">
-			<h2>½ºÅ©·¦À» Ãß°¡ÇØº¸¼¼¿ä.</h2>
-			<h4>½ºÅ©·¦Ç×¸ñÀÌ ¾ø½À´Ï´Ù.</h4>
+			<h2>ìŠ¤í¬ëž©ì„ ì¶”ê°€í•´ë³´ì„¸ìš”.</h2>
+			<h4>ìŠ¤í¬ëž©í•­ëª©ì´ ì—†ìŠµë‹ˆë‹¤.</h4>
 		</div>
 	</c:when>
 	</c:choose>
@@ -115,17 +115,17 @@ button:hover {
 				<table id="scrapList" width="800" border="3" bordercolor="lightgray">
 					<c:forEach var="scrap" items="${scrapList}">
 						<tr height="30">
-							<td>Á¤Ã¥¸í</td>
+							<td>ì •ì±…ëª…</td>
 						</tr>
 
 						<tr>
 							<td><a
-								href="<c:url value='policy/search'/>">  Á¤Ã¥»ó¼¼º¸±â
+								href="<c:url value='policy/search'/>">  ì •ì±…ìƒì„¸ë³´ê¸°
 									${scrap.policyId()} </a></td>
 						</tr>
 					</c:forEach>
 				</table>
-				<h4>½ºÅ©·¦À» ´õ Ãß°¡ÇØº¸¼¼¿ä.</h4>
+				<h4>ìŠ¤í¬ëž©ì„ ë” ì¶”ê°€í•´ë³´ì„¸ìš”.</h4>
 			</div>
 		</c:when>
 	</c:choose>

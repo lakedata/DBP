@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ include file="/WEB-INF/home/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>³»°¡ ¾´ ±Û</title>
+<meta charset="UTF-8">
+<title>ë‚´ê°€ ì“´ ê¸€</title>
 <style>
 
 	table {
@@ -30,8 +30,8 @@
 	<table>
       <thead>
 		<tr>
-		  <td style="width: 80%">Á¦¸ñ</td>
-		  <td>³¯Â¥</td>
+		  <td style="width: 80%">ì œëª©</td>
+		  <td>ë‚ ì§œ</td>
 		</tr>
       </thead>
       <tbody>  	 

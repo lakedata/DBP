@@ -64,8 +64,7 @@ public class RequestMapping {
         mappings.put("/post/update", new UpdatePostController());
         
         //mypage
-        //mappings.put("/mypage", new MyPageController());
-        mappings.put("/mypage", new ForwardController("/user/mypage.jsp"));
+        mappings.put("/mypage", new ForwardController("/user/mypage.jsp")); 
         mappings.put("/mypage/scrap/view", new ListScrapController());
         mappings.put("/user/view", new ViewUserController());
         mappings.put("/mypage/calendar/view", new ForwardController("/user/calendar.jsp"));//캘린더.jsp 수정 필요
