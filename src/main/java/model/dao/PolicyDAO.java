@@ -19,7 +19,6 @@ private JDBCUtil jdbcUtil = null;
 	}
 		
 	
-	/* Policy table�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉℡뜝�럩�뮲�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�(�뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯占썲뜝占� �뜝�럥�맶�뜝�럥�넰占썩벀�걠占쎄뎡), policyId(PK)�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� Sequence �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶占쎈쐻�뜝占� */
 	public Policy insertPolicy(Policy pol) throws SQLException {
 
 		int generatedKey;
@@ -133,9 +132,9 @@ private JDBCUtil jdbcUtil = null;
 	}
 	
 
-	/* �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럥�냷�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯占썲뜝占� �뜝�럥�맶�뜝�럥堉묈뜝�럡�븫�뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럩�뮲�뜝�럩援� List�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶 */
+	
 	public List<Policy> searchPolicyList(String category, int income, String local, int startAge, int endAge, int currentPage, int countPerPage) throws SQLException {
-        String sql = "SELECT policyId, name, category "
+        String sql = "SELECT policyId, name, category, policySummary "
         		   + "FROM Policy "
         		   + "WHERE category=?, income=?, local=?, startAge=?, endAge=? "
         		   + "ORDER BY policyId"; 
@@ -143,10 +142,10 @@ private JDBCUtil jdbcUtil = null;
         Object[] param = new Object[] {category, income, local, startAge, endAge};
 		jdbcUtil.setSqlAndParameters(sql, param, 
 									ResultSet.TYPE_SCROLL_INSENSITIVE, 
-									ResultSet.CONCUR_READ_ONLY);		// JDBCUtil�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� query�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+									ResultSet.CONCUR_READ_ONLY);		
 					
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();			// query �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�			
+			ResultSet rs = jdbcUtil.executeQuery();						
 			
 			int start = ((currentPage - 1) * countPerPage) + 1; 
 			
@@ -154,17 +153,16 @@ private JDBCUtil jdbcUtil = null;
 				List<Policy> polList = new ArrayList<Policy>();
 				
 				do {
-					Policy pol = new Policy (			// Policy �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯節뗫뼠占쎌맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럩�뮲�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+					Policy pol = new Policy (			
 							rs.getInt("policyId"),
 							rs.getString("name"),
-							rs.getString("category")
+							rs.getString("category"),
+							rs.getString("policySummary")
 							);
 					polList.add(pol);	
 				} while ((rs.next()) && (--countPerPage > 0));
 				return polList;
 			}
-						
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -173,56 +171,53 @@ private JDBCUtil jdbcUtil = null;
 		return null;
 	}
 	
-	/* �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯節륁삕 �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯占썲뜝占� List �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶 */
+	
 	public List<Policy> findPolicyList() throws SQLException {
-		String sql = "SELECT policyId, name, category "
+		String sql = "SELECT policyId, name, category, policySummary "
 				   + "FROM Policy "
 				   + "ORDER BY policyId";
 		
-		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� query�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+		jdbcUtil.setSqlAndParameters(sql, null);		
 		
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();			// query �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�			
-			List<Policy> polList = new ArrayList<Policy>();	// Community�뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥諭� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+			ResultSet rs = jdbcUtil.executeQuery();					
+			List<Policy> polList = new ArrayList<Policy>();	
 			while (rs.next()) {
-				Policy pol = new Policy(			// Community �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯節뗫뼠占쎌맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럩�뮲�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+				Policy pol = new Policy(			
 						rs.getInt("policyId"),
 						rs.getString("name"),
-						rs.getString("category")
-						);
-				polList.add(pol);				// List�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� Community �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯節륁삕 �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+						rs.getString("category"),
+						rs.getString("policySummary"));
+				polList.add(pol);				
 			}		
 			return polList;					
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶
+			jdbcUtil.close();		
 		}
 		return null;
 	}
 	
 	
-	 /* policyId�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� policy 嶺뚢돦堉껓옙�맶�뜝�럥堉껃뜝�럥�떚�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶 
-	  	�뜝�럥�맶�뜝�럥�냲�뜝�럥�꽔�뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�  ID�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥�냻�뜝�럥�냷�뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럥�냷�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯占썲뜝占� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉잞옙�눀占쎈튂占쎄뎡�뜝�럥�맶�뜝�럥堉볟뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� 嶺뚢돦堉껓옙�맶�뜝�럥吏쀥뜝�럩援� PolicyDetails �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럡源삣뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
-	  	�뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럩�뮲�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶.
-	   */
+	
 	   public Policy findPolicy(int policyId) throws SQLException {
-	        String sql = "SELECT name, contents, category, starDate, endDate, policySummary, qualificationForApplication, howToApply, local, startAge, endAge, income "
+	        String sql = "SELECT * "
 	                 + "FROM Policy "
 	                 + "WHERE policyId=? ";   
 	        
-	      jdbcUtil.setSqlAndParameters(sql, new Object[] {policyId});      // JDBCUtil�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� query�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+	      jdbcUtil.setSqlAndParameters(sql, new Object[] {policyId});   
 	      Policy pol = null;
 	      
 	      try {
-	         ResultSet rs = jdbcUtil.executeQuery();         // query �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�         
+	         ResultSet rs = jdbcUtil.executeQuery();         
 	  
 	         if (rs.next()) {
-	            pol = new Policy (   
-	                  // Community �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯節뗫뼠占쎌맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럩�뮲�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+	            pol = new Policy (    
+	            	  rs.getInt("policyId"),
 	                  rs.getString("name"),
-	                  rs.getString("conents"),
+	                  rs.getString("contents"),
 	                  rs.getString("category"),
 	                  rs.getString("startDate"),
 	                  rs.getString("endDate"),
@@ -233,14 +228,16 @@ private JDBCUtil jdbcUtil = null;
 	                  rs.getInt("startAge"),
 	                  rs.getInt("endAge"),
 	                  rs.getInt("income"));  
+	            
+	            return pol;
 	         }                    
 	         
 	      } catch (Exception ex) {
 	         ex.printStackTrace();
 	      } finally {
-	         jdbcUtil.close();      // resource �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶
+	         jdbcUtil.close();      
 	      }
-	      return pol;
+	      return null;
 	   }
 
 }

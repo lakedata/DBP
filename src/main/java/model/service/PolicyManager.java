@@ -3,10 +3,16 @@ package model.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import controller.user.LoginController;
 import model.dao.PolicyDAO;
 import model.Policy;
 
 public class PolicyManager {
+	
+	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	private static PolicyManager polMan = new PolicyManager();
 	private PolicyDAO polDAO;
@@ -61,10 +67,14 @@ public class PolicyManager {
 	
 	/* 정책 찾기 */
 	public Policy findPolicy(int policyId) throws SQLException, NoExistingPolicyException {
+		logger.debug("in manager, findPolicy");
+		
 		Policy pol = polDAO.findPolicy(policyId);
 		
+		logger.debug("in manager, findPolicy" +pol);
+		
 		if(pol == null) {
-			throw new NoExistingPolicyException(policyId + "정책이 존재하지 않습니다.");
+			throw new NoExistingPolicyException("ID가 " +policyId + "인 정책이 존재하지 않습니다.");
 		}
 		
 		return pol;

@@ -21,11 +21,12 @@ public class Policy implements Serializable {
 	private boolean scrap = false; 
 	
 	
-	public Policy(int policyId, String name, String category) {
+	public Policy(int policyId, String name, String category, String policySummary) {
 		
 		this.policyId = policyId;
 		this.name = name;
 		this.category = category;
+		this.policySummary = policySummary;
 	}
 	
 	public Policy(String name, String contents, String category, String startDate, String endDate, String policySummary, 
@@ -81,7 +82,7 @@ public class Policy implements Serializable {
 		this.scrap = scrap;
 	}
 	
-	
+
 	public int getPolicyId() {
 		return policyId;
 	}

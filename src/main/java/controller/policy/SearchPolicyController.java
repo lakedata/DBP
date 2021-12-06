@@ -16,9 +16,13 @@ public class SearchPolicyController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-//		if (request.getMethod().equals("GET")) {	
-//			return "/policy/policySearch.jsp";   
-//	    }
+		if (request.getMethod().equals("GET")) {	
+			PolicyManager polMan = PolicyManager.getInstance();
+			List<Policy> findPolList = polMan.findPolicyList();
+			
+			request.setAttribute("polList", findPolList);
+			return "/policy/policySearch.jsp";   
+	    }
 		
 		PolicyManager polMan = PolicyManager.getInstance();
 		

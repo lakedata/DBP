@@ -32,6 +32,7 @@ public class ViewPolicyController implements Controller {
 		logger.debug("pol in ViewPolicyController: " +pol);
 		
 		request.setAttribute("Policy", pol);
+		
 		return "/policy/policyDetail.jsp";
 	}
 
