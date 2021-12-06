@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-
-<%
-	request.setAttribute("userId", request.getParameter("userId"));
-	%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +50,7 @@
 <body>
 <%
 	request.setAttribute("userId", request.getParameter("userId"));
-	%>
+%>
    <ul>
         <li><img style="padding-top: 14px; padding-left: 15px; padding-right: 15px;" class ="logo" src="<c:url value='/images/logo_checkkeu.png'/>" height="20px"></li>
          <li><a class="active" href="<%= request.getContextPath() %>/index.jsp">Home</a></li>

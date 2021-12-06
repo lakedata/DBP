@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,8 +25,8 @@ body {
 }
 
 #start_text_wrap, #reg_text_wrap, #serach_text_wrap, #mypage_text_wrap {
-    background-color: #607b8b;
-    color: #d7fff1;
+    background-color: #c5c6d0;
+    color: #607b8b;;
     margin:0 auto;
 }
 
@@ -148,10 +149,13 @@ body {
 </style>
 </head>
 <body>
+<%
+	request.setAttribute("userId", request.getParameter("userId"));
+%>
 	<!-- header -->
 	<jsp:include page="/WEB-INF/home/header.jsp" />
 
-	<div style="background-color: white; opacity: 0.8;">
+	<div style="background-color:white; opacity: 0.8;">
 		<div id="head_wrap">
 			<div id="logo_wrap">
 				<img src="https://ifh.cc/g/eOQkpg.png" class="img-responsive"
@@ -190,17 +194,17 @@ body {
 				<p>정책 검색을 통해 자신에게 맞는 정책을 찾아보세요.
 			</div>
 
-
+			<c:if test="${userId!=NULL}">    
 			<div id="mypage_wrap">
 				<a id="mypage_icon_wrap" href="<c:url value='/mypage'/>"
 					style="cursor: pointer;"> <span>마이페이지</span>
 				</a>
 			</div>
-			<div id="mypage_text_wrap">스크랩한 정책과 글, 댓글, 개인정보를 확인할 수 있습니다.
-				<p>나만의 페이지를 구성하고 관리해보세요.
+			<div id="mypage_text_wrap"> 스크랩한 정책과 글, 댓글, 개인정보를 확인할 수 있습니다.
+				<p>${userId}님만의 페이지를 구성하고 관리해보세요.
 			</div>
-		</div>
-
+        	</c:if>
+        </div>
 		<!-- footer -->
 		<jsp:include page="/WEB-INF/home/footer.jsp" />
 	</div>
