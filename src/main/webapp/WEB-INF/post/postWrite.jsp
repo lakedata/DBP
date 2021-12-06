@@ -21,7 +21,7 @@
 			form.title.focus();
 			return false;
 		} 
-		else if (form.content.value == "") {
+		else if (form.content.value == "") { 
 			alert("내용을 입력하십시오.");
 			form.content.focus();
 			return false;
