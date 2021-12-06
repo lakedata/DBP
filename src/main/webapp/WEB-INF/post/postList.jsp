@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <%@ include file="/WEB-INF/home/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>°Ô½ÃÆÇ</title>
+<title>ê²Œì‹œíŒ</title>
 <style>
 
 		table {
@@ -33,16 +33,16 @@
 	
 	  <c:choose>
 	  <c:when test="${userId!=NULL}">    
-             <button style="border: none; width: 80px; height: 30px; margin-top: 50px; margin-left: 995px; border-radius: 7px;"><a style="text-decoration : none;" href="<c:url value='/post/write'/>">±Û¾²±â</a></button>
+             <button style="border: none; width: 80px; height: 30px; margin-top: 50px; margin-left: 995px; border-radius: 7px;"><a style="text-decoration : none;" href="<c:url value='/post/write'/>">ê¸€ì“°ê¸°</a></button>
       </c:when>
       </c:choose>
        
 	<table>
       <thead>
 		<tr>
-		  <td style="width: 70%">Á¦¸ñ</td>
-		  <td>ÀÛ¼ºÀÚ</td>
-		  <td>³¯Â¥</td>
+		  <td style="width: 70%">ì œëª©</td>
+		  <td>ìž‘ì„±ìž</td>
+		  <td>ë‚ ì§œ</td>
 		</tr>
       </thead>
       <tbody>  	 

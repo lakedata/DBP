@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 
-<%  // DAO¸¦ »ç¿ëÇÑ Æ®·£Á§¼Ç
+<%  // DAOë¥¼ ì‚¬ìš©í•œ íŠ¸ëœì ì…˜
 int arr[] = null;
 %>    
 	<!DOCTYPE html>
 	<html>
 	<head>
 	<meta charset="EUC-KR">
-	<title>Á¤Ã¥ »ó¼¼º¸±â</title>
+	<title>ì •ì±… ìƒì„¸ë³´ê¸°</title>
 	<style>
 		#detail {
 			padding-left: 150px;
@@ -37,8 +37,8 @@ int arr[] = null;
 	</head>
 	<script>
 	function chkDelete(id) {
-	//  »èÁ¦ ¿©ºÎ È®ÀÎ
-	   var r = confirm("»èÁ¦ÇÏ½Ã°Ú½À´Ï±î?");
+	//  ì‚­ì œ ì—¬ë¶€ í™•ì¸
+	   var r = confirm("ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
 	   
 	   if (r) {
 	      location.href = "deleteOk.jsp?uid=" + id;
@@ -69,51 +69,51 @@ int arr[] = null;
 
     <br/>
 
-	<!-- »ó¼¼º¸±â -->
+	<!-- ìƒì„¸ë³´ê¸° -->
 	<div id="detail">
 	<h3>
 	${policy.name} </h3>
 	${policy.contents} <br><br>
 	
-	<b>Áö¿ø´ë»ó</b><br><br>
+	<b>ì§€ì›ëŒ€ìƒ</b><br><br>
 	<table>
 	<tr>
-	<th>ÀÚ°İ ¿ä°Ç</th>  
+	<th>ìê²© ìš”ê±´</th>  
 	<td>${policy.qualificationForApplication}</td>
 	</tr>
 	<tr>
-	<th>Áö¿ª</th>
+	<th>ì§€ì—­</th>
 	<td>${policy.local} </td>
 	</tr>
 	<tr>
-	<th>³ªÀÌ</th>
+	<th>ë‚˜ì´</th>
 	<td>${policy.startAge} - ${policy.endAge}</td>
 	</tr>
 	<tr>
-	<th>¼ÒµæºĞÀ§</th>
+	<th>ì†Œë“ë¶„ìœ„</th>
 	<td>
-	${policy.income} ºĞÀ§ ÀÌÇÏ 
+	${policy.income} ë¶„ìœ„ ì´í•˜ 
 	</td>
 	</tr>
 	</table>
 	<br>
-	<b>½ÅÃ» ¹æ¹ı</b><br><br>
+	<b>ì‹ ì²­ ë°©ë²•</b><br><br>
 	<table>
 	<tr>
-	<th>Áö¿ø±â°£	</th>
+	<th>ì§€ì›ê¸°ê°„	</th>
 	<td>${policy.startDate} - ${policy.endDate} </td>
 	</tr>
 	<tr>
-	<th>Áö¿ø¹æ¹ı</th>
+	<th>ì§€ì›ë°©ë²•</th>
 	<td>
 	${policy.howToApply} </td>
 	</table>
 	<br>
 	</div>
 	
-	<!-- ½ºÅ©·¦ÇÏ±â -->
-	<!-- scrap µ¥ÀÌÅÍ¿¡ ³Ö±â -->
-	<input type="button" value="½ºÅ©·¦ÇÏ±â" onClick="scrapCreate()">
+	<!-- ìŠ¤í¬ë©í•˜ê¸° -->
+	<!-- scrap ë°ì´í„°ì— ë„£ê¸° -->
+	<input type="button" value="ìŠ¤í¬ë©í•˜ê¸°" onClick="scrapCreate()">
 	
 	<form name="form" method="POST" action="<c:url value='/policy/scrap/add' />">
 	

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.*" %>
 <%@page import="model.*" %>
@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="EUC-KR"> 
-<title>Á¤Ã¥ Ã£±â</title>
+<title>ì •ì±… ì°¾ê¸°</title>
 <style type="text/css">
 
 	table {
@@ -76,58 +76,58 @@ function uncheck(){
    <jsp:include page="/WEB-INF/home/header.jsp" />
    
 <div class="policySearch-div">
-	<b>Á¤Ã¥À¯Çü</b>
-	<input type="checkbox" name="contents" value="Ãë¾÷Áö¿ø">Ãë¾÷Áö¿ø
-	<input type="checkbox" name="contents" value="Ã¢¾÷Áö¿ø">Ã¢¾÷Áö¿ø
-	<input type="checkbox" name="contents" value="ÁÖ°Å±ÝÀ¶">ÁÖ°Å±ÝÀ¶
-	<input type="checkbox" name="contents" value="»ýÈ°º¹Áö">»ýÈ°º¹Áö
-	<input type="checkbox" name="contents" value="Á¤Ã¥Âü¿©">Á¤Ã¥Âü¿©
+	<b>ì •ì±…ìœ í˜•</b>
+	<input type="checkbox" name="contents" value="ì·¨ì—…ì§€ì›">ì·¨ì—…ì§€ì›
+	<input type="checkbox" name="contents" value="ì°½ì—…ì§€ì›">ì°½ì—…ì§€ì›
+	<input type="checkbox" name="contents" value="ì£¼ê±°ê¸ˆìœµ">ì£¼ê±°ê¸ˆìœµ
+	<input type="checkbox" name="contents" value="ìƒí™œë³µì§€">ìƒí™œë³µì§€
+	<input type="checkbox" name="contents" value="ì •ì±…ì°¸ì—¬">ì •ì±…ì°¸ì—¬
 
-	<hr/><b>¼ÒµæºÐÀ§ </b>
+	<hr/><b>ì†Œë“ë¶„ìœ„ </b>
 	<select id="income" name="income">
-		<option value="">ºÐÀ§</option>
+		<option value="">ë¶„ìœ„</option>
 		<c:forEach var="i" begin="1" end="10" step="1">
 			<option value="${i}">${i}</option>
 		</c:forEach>
 	</select>
-	<hr/><b>°ÅÁÖÁö¿ª </b>
-	<!-- Áö¿ª ¼­¿ï, °æ±â, ÀÎÃµ,  Àü¶óµµ, °æ»óµµ, ÃæÃ»µµ, Á¦ÁÖµµ, °­¿øµµ -->
-	<input type="checkbox" name="local" value="¼­¿ï">¼­¿ï
-	<input type="checkbox" name="local" value="°æ±âµµ">°æ±âµµ
-	<input type="checkbox" name="local" value="ÀÎÃµ">ÀÎÃµ
-	<input type="checkbox" name="local" value="Àü¶óµµ">Àü¶óµµ
-	<input type="checkbox" name="local" value="°æ»óµµ">°æ»óµµ
-	<input type="checkbox" name="local" value="°­¿øµµ">°­¿øµµ
-	<input type="checkbox" name="local" value="ÃæÃ»µµ">ÃæÃ»µµ
-	<input type="checkbox" name="local" value="Á¦ÁÖµµ">Á¦ÁÖµµ
+	<hr/><b>ê±°ì£¼ì§€ì—­ </b>
+	<!-- ì§€ì—­ ì„œìš¸, ê²½ê¸°, ì¸ì²œ,  ì „ë¼ë„, ê²½ìƒë„, ì¶©ì²­ë„, ì œì£¼ë„, ê°•ì›ë„ -->
+	<input type="checkbox" name="local" value="ì„œìš¸">ì„œìš¸
+	<input type="checkbox" name="local" value="ê²½ê¸°ë„">ê²½ê¸°ë„
+	<input type="checkbox" name="local" value="ì¸ì²œ">ì¸ì²œ
+	<input type="checkbox" name="local" value="ì „ë¼ë„">ì „ë¼ë„
+	<input type="checkbox" name="local" value="ê²½ìƒë„">ê²½ìƒë„
+	<input type="checkbox" name="local" value="ê°•ì›ë„">ê°•ì›ë„
+	<input type="checkbox" name="local" value="ì¶©ì²­ë„">ì¶©ì²­ë„
+	<input type="checkbox" name="local" value="ì œì£¼ë„">ì œì£¼ë„
 	
 	
 	
-	<hr/><b>³ªÀÌ </b>
+	<hr/><b>ë‚˜ì´ </b>
 	<select id="age" name="age">
-		<option value="">»ì</option>
+		<option value="">ì‚´</option>
 		<c:forEach var="i" begin="0" end="30">
 			<option value="${i}">${i}</option>
 		</c:forEach>
 	</select>
 	<br>
 	<br>
-	<input type="submit" value="°Ë»ö">
+	<input type="submit" value="ê²€ìƒ‰">
 	<br>
 	<br>
 
-	<input type="button" value="ÆäÀÌÁö »õ·Î°íÄ§" onClick="window.location.reload()">
+	<input type="button" value="íŽ˜ì´ì§€ ìƒˆë¡œê³ ì¹¨" onClick="window.location.reload()">
 	
 	
 </form>
-  <!-- Á¤Ã¥ ¸ñ·Ï ºÎºÐ -->
+  <!-- ì •ì±… ëª©ë¡ ë¶€ë¶„ -->
     <br>
     <div id="board">
         <table>
          <tr>
-                <td>Á¤Ã¥¸í</td>
-                <td>À¯Çü</td>
-                <td style="width: 60%;">¿ä¾à</td>
+                <td>ì •ì±…ëª…</td>
+                <td>ìœ í˜•</td>
+                <td style="width: 60%;">ìš”ì•½</td>
          </tr>
 
         <c:forEach var="policy" items="${polList}">
@@ -148,11 +148,11 @@ function uncheck(){
         </table>
     </div>
     
-    <!-- ÆäÀÌÁö ³Ñ¹ö ºÎºÐ -->
+    <!-- íŽ˜ì´ì§€ ë„˜ë²„ ë¶€ë¶„ -->
     <br>
     <div id="pageForm">
         <c:if test="${startPage != 1}">
-            <a href='BoardListAction.bo?page=${startPage-1}'>[ ÀÌÀü ]</a>
+            <a href='BoardListAction.bo?page=${startPage-1}'>[ ì´ì „ ]</a>
         </c:if>
         
         <c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
@@ -165,7 +165,7 @@ function uncheck(){
         </c:forEach>
         
         <c:if test="${endPage != maxPage }">
-            <a href='BoardListAction.bo?page=${endPage+1 }'>[´ÙÀ½]</a>
+            <a href='BoardListAction.bo?page=${endPage+1 }'>[ë‹¤ìŒ]</a>
         </c:if>
     </div>
     

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- COPYRIGHT ¨Ï AURORA ALL RIGHTS RESERVED -->
+	<!-- COPYRIGHT â“’ AURORA ALL RIGHTS RESERVED -->
 	<center>
 		<p style="padding: 20px; margin-top: 100px; color: lightgray;">
-			Copyright ¨Ï 2021 All rights reserved by Aurora</p>
+			Copyright â“’ 2021 All rights reserved by Aurora</p>
 	</center>
 </body>
 </html>
