@@ -97,7 +97,7 @@ public class PostDAO {
 	}
 	
 	public Post findPost(int postNum) throws SQLException {
-        String sql = "SELECT policyId, userId, title, writeDate, content "
+        String sql = "SELECT postNum, policyId, user_Id, title, writeDate, content "
                  + "FROM Post "
                  + "WHERE postNum=? ";   
         
@@ -111,7 +111,7 @@ public class PostDAO {
             post = new Post (
             		rs.getInt("postNum"),
             		rs.getInt("policyId"),
-            		rs.getString("userId"),
+            		rs.getString("user_Id"),
             		rs.getString("title"),
             		rs.getString("writeDate"),
             		rs.getString("content")

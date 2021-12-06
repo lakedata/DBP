@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
@@ -176,10 +176,10 @@ function countm(type)  {
 	<!-- 수정, 삭제, 목록  -->
 	<div style="text-align: center; padding: 50px;">
 		<a id="btn" href="<c:url value='/post/update'>
-		     		   <c:param name='commId' value='${post.post_id}'/>
+		     		   <c:param name='commId' value='${post.postNum}'/>
 				  </c:url>">수정</a>		  
 	    <a id="btn" href="<c:url value='/post/delete'>
-					   <c:param name='commId' value='${post.post_id}'/>
+					   <c:param name='commId' value='${post.postNum}'/>
 				 </c:url>" onclick="return communityRemove();">삭제</a> 
 	    <a id="btn" href="<c:url value='/post/list' />">목록</a> 
     

@@ -13,10 +13,10 @@ public class ViewPostController implements Controller{
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		
-		if (request.getMethod().equals("GET")) {	
-
-			return "/post/postDetail.jsp";  
-	    }
+//		if (request.getMethod().equals("GET")) {	
+//
+//			return "/post/postDetail.jsp";  
+//	    }
 		
 		
 		PostManager postMan = PostManager.getInstance();

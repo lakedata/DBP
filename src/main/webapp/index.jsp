@@ -1,1 +1,1 @@
-<% response.sendRedirect(request.getContextPath() + "/main"); %>
+d<% response.sendRedirect(request.getContextPath() + "/main"); %>
