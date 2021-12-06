@@ -18,7 +18,7 @@ public class ListPolicyController implements Controller {
 		List<Policy> polList = polMan.findPolicyList();
 		
 		request.setAttribute("polList", polList);
-		return "/policy/policyList";
+		return "/policy/policySearch.jsp"; // return "/policy/policyList";
 		
 	}
 

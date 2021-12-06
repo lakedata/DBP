@@ -124,27 +124,27 @@ function uncheck(){
     <br>
     <div id="board">
         <table>
+        <thead>
          <tr>
                 <td>정책명</td>
                 <td>유형</td>
                 <td style="width: 60%;">요약</td>
          </tr>
-
+		</thead>
+		<tbody>
         <c:forEach var="policy" items="${polList}">
             <tr>
                 <td>
                     <a href="<c:url value='/policy/view'>
-                    <c:param name='policy' value='${policy.policyId}'/>
+                    <c:param name='policyId' value='${policy.policyId}'/>
                     </c:url>">
-                    ${policy.name}
-                    </a>
+                    ${policy.name}</a>
                 </td>
                 <td>${policy.category}</td>
-                <td>${policy.policySummary}</td>
-                
+                <td>${policy.policySummary}</td>  
             </tr>  
 		</c:forEach>
-	
+		</tbody>
         </table>
     </div>
     
@@ -169,7 +169,6 @@ function uncheck(){
         </c:if>
     </div>
     
-	</div>
      <!-- footer -->
 	<jsp:include page="/WEB-INF/home/footer.jsp"/>
 

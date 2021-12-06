@@ -19,7 +19,7 @@ private JDBCUtil jdbcUtil = null;
 	}
 		
 	
-	/* Policy table占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼢占쎌뒻占쎌굲 占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲(占쎈쐻占쎈짗占쎌굲筌�占� 占쎈쐻占쎈솯�ⓦ끉�굲), policyId(PK)占쎈쐻占쎈짗占쎌굲 Sequence 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� */
+	/* Policy table�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉℡뜝�럩�뮲�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�(�뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯占썲뜝占� �뜝�럥�맶�뜝�럥�넰占썩벀�걠占쎄뎡), policyId(PK)�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� Sequence �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶占쎈쐻�뜝占� */
 	public Policy insertPolicy(Policy pol) throws SQLException {
 
 		int generatedKey;
@@ -54,7 +54,7 @@ private JDBCUtil jdbcUtil = null;
 		return null;
 	}
 	
-	/* 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 policy 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 */
+	/* �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� policy �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� */
 	public int updatePolicy(Policy pol) throws SQLException{
 	
 		String sql = "UPDATE Policy "
@@ -90,7 +90,7 @@ private JDBCUtil jdbcUtil = null;
 		
 	}
 	
-	/* policy 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 */
+	/* policy �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� */
 	public int deletePolicy(int policyId) throws SQLException {
 		
 		String sql = "DELETE FROM Policy "
@@ -111,7 +111,7 @@ private JDBCUtil jdbcUtil = null;
 		return 0;
 	}
 	
-	/* 占쎈쐻占쎈솂占쎈섣占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲筌�占� ID占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈솋占쎈솇占쎌굲占쎈쐻占쎈뼣占쎈솇占쎌굲 占쎈쐻占쎈짗占쎌굲筌��겭�쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼣占쎈솇占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈뼑占쎄땔占쎌굲 */
+	/* �뜝�럥�맶�뜝�럥�냲�뜝�럥�꽔�뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯占썲뜝占� ID�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥�냻�뜝�럥�냷�뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럥�냷�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯占쏙옙寃�占쎌맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럥�냷�뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥堉묈뜝�럡�븫�뜝�럩援� */
 	public boolean existingPolicy (int policyId) throws SQLException {
 		String sql = "SELECT count(*) "
 				   + "FROM Policy "
@@ -119,7 +119,7 @@ private JDBCUtil jdbcUtil = null;
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {policyId});
 		
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();		// query 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+			ResultSet rs = jdbcUtil.executeQuery();		// query �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
 			if (rs.next()) {
 				int count = rs.getInt(1);
 				return (count == 1 ? true : false);
@@ -127,13 +127,13 @@ private JDBCUtil jdbcUtil = null;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource 占쎈쐻占쎈짗占쎌굲占쎌넎
+			jdbcUtil.close();		// resource �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶
 		}
 		return false;
 	}
 	
 
-	/* 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼣占쎈솇占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲筌�占� 占쎈쐻占쎈뼑占쎄땔占쎌굲占쎈쐻占쎈뼣占쎌뒻占쎌굲 List占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎌넎 */
+	/* �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럥�냷�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯占썲뜝占� �뜝�럥�맶�뜝�럥堉묈뜝�럡�븫�뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럩�뮲�뜝�럩援� List�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶 */
 	public List<Policy> searchPolicyList(String category, int income, String local, int startAge, int endAge, int currentPage, int countPerPage) throws SQLException {
         String sql = "SELECT policyId, name, category "
         		   + "FROM Policy "
@@ -143,10 +143,10 @@ private JDBCUtil jdbcUtil = null;
         Object[] param = new Object[] {category, income, local, startAge, endAge};
 		jdbcUtil.setSqlAndParameters(sql, param, 
 									ResultSet.TYPE_SCROLL_INSENSITIVE, 
-									ResultSet.CONCUR_READ_ONLY);		// JDBCUtil占쎈쐻占쎈짗占쎌굲 query占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+									ResultSet.CONCUR_READ_ONLY);		// JDBCUtil�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� query�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
 					
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();			// query 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲			
+			ResultSet rs = jdbcUtil.executeQuery();			// query �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�			
 			
 			int start = ((currentPage - 1) * countPerPage) + 1; 
 			
@@ -154,7 +154,7 @@ private JDBCUtil jdbcUtil = null;
 				List<Policy> polList = new ArrayList<Policy>();
 				
 				do {
-					Policy pol = new Policy (			// Policy 占쎈쐻占쎈짗占쎌굲筌ｋ떣�쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼣占쎌뒻占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+					Policy pol = new Policy (			// Policy �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯節뗫뼠占쎌맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럩�뮲�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
 							rs.getInt("policyId"),
 							rs.getString("name"),
 							rs.getString("category")
@@ -168,59 +168,59 @@ private JDBCUtil jdbcUtil = null;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource 占쎈쐻占쎈짗占쎌굲占쎌넎
+			jdbcUtil.close();		// resource �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶
 		}
 		return null;
 	}
 	
-	/* 占쎈쐻占쎈짗占쎌굲筌ｏ옙 占쎈쐻占쎈짗占쎌굲筌�占� List 占쎈쐻占쎈짗占쎌굲占쎌넎 */
+	/* �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯節륁삕 �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯占썲뜝占� List �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶 */
 	public List<Policy> findPolicyList() throws SQLException {
 		String sql = "SELECT policyId, name, category "
 				   + "FROM Policy "
 				   + "ORDER BY policyId";
 		
-		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil占쎈쐻占쎈짗占쎌굲 query占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� query�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
 		
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();			// query 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲			
-			List<Policy> polList = new ArrayList<Policy>();	// Community占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈뱜 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+			ResultSet rs = jdbcUtil.executeQuery();			// query �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�			
+			List<Policy> polList = new ArrayList<Policy>();	// Community�뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥諭� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
 			while (rs.next()) {
-				Policy pol = new Policy(			// Community 占쎈쐻占쎈짗占쎌굲筌ｋ떣�쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼣占쎌뒻占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+				Policy pol = new Policy(			// Community �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯節뗫뼠占쎌맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럩�뮲�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
 						rs.getInt("policyId"),
 						rs.getString("name"),
 						rs.getString("category")
 						);
-				polList.add(pol);				// List占쎈쐻占쎈짗占쎌굲 Community 占쎈쐻占쎈짗占쎌굲筌ｏ옙 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+				polList.add(pol);				// List�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� Community �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯節륁삕 �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
 			}		
 			return polList;					
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource 占쎈쐻占쎈짗占쎌굲占쎌넎
+			jdbcUtil.close();		// resource �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶
 		}
 		return null;
 	}
 	
 	
-	 /* policyId占쎈쐻占쎈짗占쎌굲 policy 筌≪뼃�쐻占쎈뼃占쎈닰占쎌굲 占쎈쐻占쎈짗占쎌굲占쎌넎 
-	  	占쎈쐻占쎈솂占쎈섣占쎌굲占쎈쐻占쎈짗占쎌굲  ID占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈솋占쎈솇占쎌굲占쎈쐻占쎈뼣占쎈솇占쎌굲 占쎈쐻占쎈짗占쎌굲筌�占� 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼟�뇡�빘�굲占쎈쐻占쎈뼓占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 筌≪뼃�쐻占쎈짗占쎌굲 PolicyDetails 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎄깻占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
-	  	占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼣占쎌뒻占쎌굲 占쎈쐻占쎈짗占쎌굲占쎌넎.
+	 /* policyId�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� policy 嶺뚢돦堉껓옙�맶�뜝�럥堉껃뜝�럥�떚�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶 
+	  	�뜝�럥�맶�뜝�럥�냲�뜝�럥�꽔�뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�  ID�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥�냻�뜝�럥�냷�뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럥�냷�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯占썲뜝占� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉잞옙�눀占쎈튂占쎄뎡�뜝�럥�맶�뜝�럥堉볟뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� 嶺뚢돦堉껓옙�맶�뜝�럥吏쀥뜝�럩援� PolicyDetails �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럡源삣뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+	  	�뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럩�뮲�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶.
 	   */
 	   public Policy findPolicy(int policyId) throws SQLException {
 	        String sql = "SELECT name, contents, category, starDate, endDate, policySummary, qualificationForApplication, howToApply, local, startAge, endAge, income "
 	                 + "FROM Policy "
 	                 + "WHERE policyId=? ";   
 	        
-	      jdbcUtil.setSqlAndParameters(sql, new Object[] {policyId});      // JDBCUtil占쎈쐻占쎈짗占쎌굲 query占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+	      jdbcUtil.setSqlAndParameters(sql, new Object[] {policyId});      // JDBCUtil�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� query�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
 	      Policy pol = null;
 	      
 	      try {
-	         ResultSet rs = jdbcUtil.executeQuery();         // query 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲         
+	         ResultSet rs = jdbcUtil.executeQuery();         // query �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�         
 	  
 	         if (rs.next()) {
 	            pol = new Policy (   
-	                  // Community 占쎈쐻占쎈짗占쎌굲筌ｋ떣�쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼣占쎌뒻占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+	                  // Community �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯節뗫뼠占쎌맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉ｅ뜝�럩�뮲�뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
 	                  rs.getString("name"),
 	                  rs.getString("conents"),
 	                  rs.getString("category"),
@@ -238,7 +238,7 @@ private JDBCUtil jdbcUtil = null;
 	      } catch (Exception ex) {
 	         ex.printStackTrace();
 	      } finally {
-	         jdbcUtil.close();      // resource 占쎈쐻占쎈짗占쎌굲占쎌넎
+	         jdbcUtil.close();      // resource �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶
 	      }
 	      return pol;
 	   }
