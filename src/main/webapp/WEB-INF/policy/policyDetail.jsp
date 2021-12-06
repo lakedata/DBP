@@ -129,10 +129,9 @@ int arr[] = null;
            	
 				<!-- 스크랩하기 -->
 				<!-- scrap 데이터에 넣기 -->
-				<input type="button" value="스크랩하기" onClick="scrapCreate()">
 				
 				<form name="form" method="POST" action="<c:url value='/policy/scrap/add' />">
-				
+					<input type="button" value="스크랩하기" onClick="scrapCreate()">
 				</form>
          	</c:when>           
          </c:choose>
