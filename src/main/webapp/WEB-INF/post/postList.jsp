@@ -46,7 +46,7 @@
 		  <td>날짜</td>
 		</tr>
       </thead>
-      <tbody>  	 
+      <tbody>  	 <!-- post 최신 글을 상단으로 올리기  -->
 		<c:forEach var="post" items="${postList}">
 			<tr>
 			  <td style="width: 70%"><a href="<c:url value='/post/view'>

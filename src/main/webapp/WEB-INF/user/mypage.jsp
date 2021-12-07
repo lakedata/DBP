@@ -122,13 +122,20 @@ body {
             	<span class="font_ml font_bold"> 작성한글 </span>
             </a>
          </div>
+<%
+	request.setAttribute("userId", request.getParameter("userId"));
+%>
 
          <div class="flex fdc">
             <img class="mypage" style="object-fit: fill;"
                 src="<c:url value='/images/comment.jpg'/>">
-            <a href="<c:url value='/mypage/myComment'/>">
-            	<span class="font_ml font_bold">작성한댓글</span>
+            <a href="<c:url value='/user/update'>
+            <c:param name="userId" value='${userId}' />
+            </c:url>">
+            	<span class="font_ml font_bold">회원정보수정</span>
             </a>
+            
+           
          </div>
          <div class="flex fdc">
             <img class="mypage"
