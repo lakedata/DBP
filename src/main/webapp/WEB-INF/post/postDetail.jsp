@@ -160,8 +160,11 @@ function countm(type)  {
 	
 	<!-- 댓글 쓰기 -->
 	<div style="margin-top: 50px;">
-	<form name="form" method="POST" action="<c:url value='/post/reply/add' />">
-		<input type="text" name="comment" placeholder="댓글을  작성하세요" style="width:85%; height: 50px; border-radius: 8px; border: none; background-color: #F5F5F5;">
+	<form name="form" method="POST" action="<c:url value='/post/reply/add'>
+	<c:param name="postNum" value="${post.postNum}" /> </c:url>">
+		<input type="text" name="postNum" size=20  value="${postNum}" style="display: none;"> 
+		<!-- <input type="text" name="agree" size=20  value=0 style="display: none;">  -->
+		<input type="text" name="replyContent" placeholder="댓글을  작성하세요" style="width:85%; height: 50px; border-radius: 8px; border: none; background-color: #F5F5F5;">
 		<input class="w-btn-green" type="submit" value="등록" style="border: none; height: 50px; width: 50px; border-radius: 8px; " />
 	</form>
 	</div>
@@ -171,6 +174,7 @@ function countm(type)  {
 	
 	
 	</div>
+	
 	<%
 		request.setAttribute("userId", request.getParameter("userId"));
 	%>
