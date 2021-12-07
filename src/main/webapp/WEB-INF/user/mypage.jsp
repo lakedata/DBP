@@ -122,9 +122,9 @@ body {
             	<span class="font_ml font_bold"> 작성한글 </span>
             </a>
          </div>
-<%
-	request.setAttribute("userId", request.getParameter("userId"));
-%>
+	<%
+		request.setAttribute("userId", request.getParameter("userId"));
+	%>
 
          <div class="flex fdc">
             <img class="mypage" style="object-fit: fill;"

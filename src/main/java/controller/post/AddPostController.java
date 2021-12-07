@@ -59,10 +59,9 @@ public class AddPostController implements Controller {
 			PostManager postMan = PostManager.getInstance();
 			postMan.insert(post);
 			
-//			return "redirection:/post/view";
+			return "redirect:/post/list";
 //			return "redirection:/post/list";
-			return "/post/postList.jsp"; 
-	//		return "redirect:/post/list?userId=" + userId;
+
 			
 		} catch (Exception e) {
 			request.setAttribute("insertFailed", true);
