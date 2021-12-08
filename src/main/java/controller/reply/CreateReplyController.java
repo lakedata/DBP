@@ -7,7 +7,7 @@ import controller.Controller;
 import model.Reply;
 import model.service.ReplyManager;
 
-public class createReplyController implements Controller {
+public class CreateReplyController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
