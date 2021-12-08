@@ -14,7 +14,7 @@ import controller.reply.*;
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
     
-    // �� ��û uri�� ���� controller ��ü�� ������ HashMap ����
+    // 占쏙옙 占쏙옙청 uri占쏙옙 占쏙옙占쏙옙 controller 占쏙옙체占쏙옙 占쏙옙占쏙옙占쏙옙 HashMap 占쏙옙占쏙옙
     private Map<String, Controller> mappings = new HashMap<String, Controller>();
 
     public void initMapping() {
@@ -22,7 +22,7 @@ public class RequestMapping {
     	logger.debug("RequestMaaping");
     	mappings.put("/", null);
     	
-    	// �� uri�� �����Ǵ� controller ��ü�� ���� �� ����
+    	// 占쏙옙 uri占쏙옙 占쏙옙占쏙옙占실댐옙 controller 占쏙옙체占쏙옙 占쏙옙占쏙옙 占쏙옙 占쏙옙占쏙옙
         mappings.put("/", new ForwardController("index.jsp"));
     	
     	
@@ -60,7 +60,7 @@ public class RequestMapping {
         
         mappings.put("/post/add", new AddPostController());
         mappings.put("/post/list", new ListPostController());
-        mappings.put("/post/view", new ViewPostController()); //�̸� ���� �ʿ�
+        mappings.put("/post/view", new ViewPostController()); //占싱몌옙 占쏙옙占쏙옙 占십울옙
         mappings.put("/post/delete", new DeletePostController());
         mappings.put("/post/update", new UpdatePostController());
         
@@ -68,12 +68,12 @@ public class RequestMapping {
         mappings.put("/mypage", new ForwardController("/user/mypage.jsp")); 
         mappings.put("/mypage/scrap/view", new ListScrapController());
         mappings.put("/user/view", new ViewUserController());
-        mappings.put("/mypage/calendar/view", new ForwardController("/user/calendar.jsp"));//Ķ����.jsp ���� �ʿ�
+        mappings.put("/mypage/calendar/view", new ForwardController("/user/calendar.jsp"));//캘占쏙옙占쏙옙.jsp 占쏙옙占쏙옙 占십울옙
         
         
-        //���� �� �۷� ��ũ����
-        mappings.put("/mypage/myPost", new ForwardController("/user/myPost.jsp"));
-        //���� �� ��۷� ��ũ����
+        //占쏙옙占쏙옙 占쏙옙 占쌜뤄옙 占쏙옙크占쏙옙占쏙옙
+        mappings.put("/mypage/myPost", new UserPostListController());
+        //占쏙옙占쏙옙 占쏙옙 占쏙옙紡占� 占쏙옙크占쏙옙占쏙옙
         mappings.put("/mypage/myComment", new ForwardController("/user/myComment.jsp"));
         
         //main page
@@ -86,7 +86,7 @@ public class RequestMapping {
 
     public Controller findController(String uri) {
     	logger.debug("mappings.get" +mappings.get(uri));
-    	// �־��� uri�� �����Ǵ� controller ��ü�� ã�� ��ȯ
+    	// 占쌍억옙占쏙옙 uri占쏙옙 占쏙옙占쏙옙占실댐옙 controller 占쏙옙체占쏙옙 찾占쏙옙 占쏙옙환
         return mappings.get(uri);
     }
 }

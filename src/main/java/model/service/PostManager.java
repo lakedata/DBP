@@ -43,4 +43,9 @@ public class PostManager {
 		return postDAO.findPostList();
 	}
 	
+	/* myPost 내가 쓴 글 보기 */
+	public List<Post> findMyPostList(String userId) throws SQLException {
+		return postDAO.findMyPostList(userId);
+	}
+	
 }
