@@ -71,6 +71,7 @@ int arr[] = null;
     <br/>
 <%
 	request.setAttribute("userId", request.getParameter("userId"));
+	request.setAttribute("policyId", request.getParameter("policyId"));
 %>
 
 	<!-- 상세보기 -->
@@ -128,11 +129,14 @@ int arr[] = null;
 			<c:when test="${userId!='dbpro0102'}">
            	
 				<!-- 스크랩하기 -->
-				<!-- scrap 데이터에 넣기 -->
-				
+				<!-- scrap 데이터에 넣기 -->	
 				<form name="form" method="POST" action="<c:url value='/policy/scrap/add' />">
-					<input type="button" value="스크랩하기" onClick="scrapCreate()">
+					<input type="text" name="userId" size=20  value="${userId}" style="display: none;">
+					<input type="text" name="policyId" size=20  value="${policyId}" style="display: none;">
+					<input type="submit" value="스크랩하기" onClick="scrapCreate()"> 
+					<!--  button -->
 				</form>
+				
          	</c:when>           
          </c:choose>
          </div>
@@ -140,3 +144,5 @@ int arr[] = null;
 	
 </body>
 </html>
+
+ <%@ include file="/WEB-INF/home/footer.jsp" %>

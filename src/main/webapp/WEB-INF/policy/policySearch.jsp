@@ -61,6 +61,18 @@
 			margin-left: 120px;
 			
 			}
+			
+		.btnStyle {
+			border: none;
+			width: 90px;
+			height: 30px;
+			border-radius: 20px;
+		}
+		.btn-div{
+		 	display: flex;
+  			justify-content: center;
+  			margin: 30px;
+		}
 
 </style>
 <script>
@@ -70,57 +82,54 @@ function uncheck(){
 </script>
 </head>
 <body>
-<form action = "<%= request.getContextPath() %>/policySearch.jsp">
-
-  	<!-- header -->
-   <jsp:include page="/WEB-INF/home/header.jsp" />
-   
+ 	<!-- header -->
+<jsp:include page="/WEB-INF/home/header.jsp" />
+	
 <div class="policySearch-div">
-	<b>정책유형</b>
-	<input type="checkbox" name="contents" value="취업지원">취업지원
-	<input type="checkbox" name="contents" value="창업지원">창업지원
-	<input type="checkbox" name="contents" value="주거금융">주거금융
-	<input type="checkbox" name="contents" value="생활복지">생활복지
-	<input type="checkbox" name="contents" value="정책참여">정책참여
+	<form method="POST" action="<c:url value='/policy/search' />">
+	
+		<b>정책유형</b>
+		<input type="checkbox" name="contents" value="취업지원">취업지원
+		<input type="checkbox" name="contents" value="창업지원">창업지원
+		<input type="checkbox" name="contents" value="주거금융">주거금융
+		<input type="checkbox" name="contents" value="생활복지">생활복지
+		<input type="checkbox" name="contents" value="정책참여">정책참여
+	
+		<hr/><b>소득분위 </b>
+		<select id="income" name="income">
+			<option value="">분위</option>
+			<c:forEach var="i" begin="1" end="10" step="1">
+				<option value="${i}">${i}</option>
+			</c:forEach>
+		</select>
+		<hr/><b>거주지역 </b>
+		<!-- 지역 서울, 경기, 인천,  전라도, 경상도, 충청도, 제주도, 강원도 -->
+		<input type="checkbox" name="local" value="전국">전국
+		<input type="checkbox" name="local" value="서울">서울
+		<input type="checkbox" name="local" value="경기도">경기도
+		<input type="checkbox" name="local" value="인천">인천
+		<input type="checkbox" name="local" value="전라도">전라도
+		<input type="checkbox" name="local" value="경상도">경상도
+		<input type="checkbox" name="local" value="강원도">강원도
+		<input type="checkbox" name="local" value="충청도">충청도
+		<input type="checkbox" name="local" value="제주도">제주도
+		
+		<hr/><b>나이 </b>
+		<select id="age" name="age">
+			<option value="">살</option>
+			<c:forEach var="i" begin="0" end="30">
+				<option value="${i}">${i}</option>
+			</c:forEach>
+		</select>
+		<br>
+		<br>
+		<div class="btn-div">
+			<input class="btnStyle" type="submit" value="검색">&nbsp;
+			<input class="btnStyle" type="button" value="새로고침" onClick="window.location.reload()">
+		</div>
+		
+	</form>
 
-	<hr/><b>소득분위 </b>
-	<select id="income" name="income">
-		<option value="">분위</option>
-		<c:forEach var="i" begin="1" end="10" step="1">
-			<option value="${i}">${i}</option>
-		</c:forEach>
-	</select>
-	<hr/><b>거주지역 </b>
-	<!-- 지역 서울, 경기, 인천,  전라도, 경상도, 충청도, 제주도, 강원도 -->
-	<input type="checkbox" name="local" value="전국">전국
-	<input type="checkbox" name="local" value="서울">서울
-	<input type="checkbox" name="local" value="경기도">경기도
-	<input type="checkbox" name="local" value="인천">인천
-	<input type="checkbox" name="local" value="전라도">전라도
-	<input type="checkbox" name="local" value="경상도">경상도
-	<input type="checkbox" name="local" value="강원도">강원도
-	<input type="checkbox" name="local" value="충청도">충청도
-	<input type="checkbox" name="local" value="제주도">제주도
-	
-	
-	
-	<hr/><b>나이 </b>
-	<select id="age" name="age">
-		<option value="">살</option>
-		<c:forEach var="i" begin="0" end="30">
-			<option value="${i}">${i}</option>
-		</c:forEach>
-	</select>
-	<br>
-	<br>
-	<input type="submit" value="검색">
-	<br>
-	<br>
-
-	<input type="button" value="페이지 새로고침" onClick="window.location.reload()">
-	
-	
-</form>
   <!-- 정책 목록 부분 -->
     <br>
     <div id="board">
@@ -141,13 +150,65 @@ function uncheck(){
                     </c:url>">
                     ${policy.name}</a>
                 </td>
-                <td>${policy.category}</td>
+                <td>
+                 <!--${policy.category}  -->
+                  <c:choose>
+					<c:when test="${policy.category=='취업지원'}">
+					${policy.category}
+					</c:when>
+					<c:when test="${policy.category=='창업지원'}">
+					${policy.category}
+					</c:when>
+					<c:when test="${policy.category=='주거금융'}">
+					${policy.category}
+					</c:when>
+					<c:when test="${policy.category=='생활복지'}">
+					${policy.category}
+					</c:when>
+					<c:when test="${policy.category=='정책참여'}">
+					${policy.category}
+					</c:when>
+				</c:choose>
+               
+                
+                </td>
                 <td>${policy.policySummary}</td>  
             </tr>  
 		</c:forEach>
 		</tbody>
         </table>
     </div>
+    
+    <!-- 목록 검색 
+    <div>
+    	<c:choose>
+		<c:when test="${empty polList}">
+				결과없음</c:when>
+		</c:choose>
+		
+		<c:forEach var="policy" items="${polList}">   
+			<c:choose>
+				<c:when test="${policy.name=='취업지원'}">
+				<span>서울</span>
+				</c:when>
+				<c:when test="${policy.name=='창업지원'}">
+				<span>경기</span>
+				</c:when>
+				<c:when test="${policy.name=='주거금융'}">
+				<span>인천</span>
+				</c:when>
+				<c:when test="${policy.name=='생활복지'}">
+				<span>기타</span>
+				</c:when>
+				<c:when test="${policy.name=='정책참여'}">
+				<span>기타</span>
+				</c:when>
+			</c:choose>
+							
+		</c:forEach>
+			
+    </div>
+    -->
     
     <!-- 페이지 넘버 부분 -->
     <br>
@@ -169,7 +230,7 @@ function uncheck(){
             <a href='BoardListAction.bo?page=${endPage+1 }'>[다음]</a>
         </c:if>
     </div>
-    
+    </div>
      <!-- footer -->
 	<jsp:include page="/WEB-INF/home/footer.jsp"/>
 

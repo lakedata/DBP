@@ -7,7 +7,7 @@ import controller.Controller;
 import model.Reply;
 import model.service.ReplyManager;
 
-public class createReplyController implements Controller {
+public class CreateReplyController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -18,11 +18,15 @@ public class createReplyController implements Controller {
 				request.getParameter("replyContent")
 				);
 		
+		
 		try {
 			ReplyManager reMan = ReplyManager.getInstance();
 			reMan.create(re);		
 			
+			
 			return "redirection:/policy/view";
+			//return "post/postReply.jsp";
+			//return "post/postList.jsp";
 			
 		} catch (Exception e) {
 			request.setAttribute("createReplyFailed", true);
@@ -30,6 +34,7 @@ public class createReplyController implements Controller {
 			request.setAttribute("reply", re);
 			
 			return "/policy/view";
+
 		}
 		
 	}

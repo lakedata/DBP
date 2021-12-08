@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="/WEB-INF/home/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,20 +13,44 @@
 	href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 	
 <style>
+
+		.container {
+			width: 385px;
+			line-height: 50px;
+			margin: 50px auto;
+			margin-bottom: -100px;
+		}
+
+		h5 {
+			text-align: center;
+		}
+		
+		h5 span {
+			color: teal;
+		}
+		
 	table{
-		border: solid 1px black;
+		border: none;
 		border-collapse : collapse;
 	}
 	td{
 		width: 100px;
 		height: 50px;
-		border: solid 1px black;
+		border: solid 0.5px gray;
 		border-collapse : collapse;
 	}
 	th {
 		border: none;
 		height: 50px;
 	}
+	
+	.contents {
+		margin-top: 130px;
+		 display: flex;
+  		justify-content: center;
+	
+	}
+	
 </style>
 
 <script>
@@ -106,7 +131,7 @@
 			          if (today.getFullYear() == date.getFullYear()
 			             && today.getMonth() == date.getMonth()
 			             && i == date.getDate()) {
-			            cell.bgColor = "#D2D2FF";
+			            cell.bgColor = "#EBEBFF";
 			           }
 					 continue;
 					}
@@ -124,7 +149,7 @@
 	        }   
 	          
 	          if (cnt % 7 == 0){/*토요일 */
-					cell.innerHTML = "<font color=#3F72AF>" + i;	          
+					cell.innerHTML = "<font color=#0067a3>" + i;	          
 	               row = calendar.insertRow();
 	          }
 	          
@@ -140,9 +165,12 @@
 
 </head>
 <body>
-	<div class="contents">
 
+  		<div class="container">
+			<h5><span>내가 스크랩한 정책 일정</span></h5><hr/>
+		</div>
 		<div class="contents">
+		
 			<div class="contents-split">
 				<table id="calendar">
 					<tr>
@@ -167,8 +195,11 @@
 		    buildCalendar();
 			</script>
 			</div>
-		</div>
+
 	</div>
 </body>
 
+
 </html>
+
+ <%@ include file="/WEB-INF/home/footer.jsp" %>
