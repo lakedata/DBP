@@ -4,9 +4,7 @@
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com -->
 <!-- Last Published: Fri Nov 13 2020 00:19:47 GMT+0000 (Coordinated Universal Time) -->
-<html data-wf-domain="uncommon-template.webflow.io"
-	data-wf-page="5b2a8936920a795ded639904"
-	data-wf-site="5b2a8936920a797db4639905" data-wf-status="1">
+<html data-wf-page="5b2a8936920a795ded639904">
 <head>
 <meta charset="UTF-8" />
 <title>Checkkeu홈페이지</title>
@@ -37,10 +35,6 @@
 				&& (n.className += t + "touch")
 	}(window, document);
 </script>
-<link href="https://assets.website-files.com/img/favicon.ico"
-	rel="shortcut icon" type="image/x-icon" />
-<link href="https://assets.website-files.com/img/webclip.png"
-	rel="apple-touch-icon" />
 </head>
 <body>
 

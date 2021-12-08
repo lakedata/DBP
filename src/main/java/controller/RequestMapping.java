@@ -14,7 +14,7 @@ import controller.reply.*;
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
     
-    // °¢ ¿äÃ» uri¿¡ ´ëÇÑ controller °´Ã¼¸¦ ÀúÀåÇÒ HashMap »ý¼º
+    // ï¿½ï¿½ ï¿½ï¿½Ã» uriï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ controller ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ HashMap ï¿½ï¿½ï¿½ï¿½
     private Map<String, Controller> mappings = new HashMap<String, Controller>();
 
     public void initMapping() {
@@ -22,7 +22,7 @@ public class RequestMapping {
     	logger.debug("RequestMaaping");
     	mappings.put("/", null);
     	
-    	// °¢ uri¿¡ ´ëÀÀµÇ´Â controller °´Ã¼¸¦ »ý¼º ¹× ÀúÀå
+    	// ï¿½ï¿½ uriï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ controller ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         mappings.put("/", new ForwardController("index.jsp"));
     	
     	
@@ -52,15 +52,15 @@ public class RequestMapping {
        // mappings.put("/post/scrap/list", new ListScrapController());
         
         //comment
-//        mappings.put("/post/reply/add", new CreateReplyController());
-        
+
+//		mappings.put("/post/reply/add", new CreateReplyController());
         
         //post
         mappings.put("/post/write", new ForwardController("/post/postWrite.jsp"));
         
         mappings.put("/post/add", new AddPostController());
         mappings.put("/post/list", new ListPostController());
-        mappings.put("/post/view", new ViewPostController()); //ÀÌ¸§ º¯°æ ÇÊ¿ä
+        mappings.put("/post/view", new ViewPostController()); //ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
         mappings.put("/post/delete", new DeletePostController());
         mappings.put("/post/update", new UpdatePostController());
         
@@ -68,12 +68,12 @@ public class RequestMapping {
         mappings.put("/mypage", new ForwardController("/user/mypage.jsp")); 
         mappings.put("/mypage/scrap/view", new ListScrapController());
         mappings.put("/user/view", new ViewUserController());
-        mappings.put("/mypage/calendar/view", new ForwardController("/user/calendar.jsp"));//Ä¶¸°´õ.jsp ¼öÁ¤ ÇÊ¿ä
+        mappings.put("/mypage/calendar/view", new ForwardController("/user/calendar.jsp"));//Ä¶ï¿½ï¿½ï¿½ï¿½.jsp ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
         
         
-        //³»°¡ ¾´ ±Û·Î ¸µÅ©¿¬°á
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Û·ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½
         mappings.put("/mypage/myPost", new ForwardController("/user/myPost.jsp"));
-        //³»°¡ ¾´ ´ñ±Û·Î ¸µÅ©¿¬°á
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Û·ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½
         mappings.put("/mypage/myComment", new ForwardController("/user/myComment.jsp"));
         
         //main page
@@ -86,7 +86,7 @@ public class RequestMapping {
 
     public Controller findController(String uri) {
     	logger.debug("mappings.get" +mappings.get(uri));
-    	// ÁÖ¾îÁø uri¿¡ ´ëÀÀµÇ´Â controller °´Ã¼¸¦ Ã£¾Æ ¹ÝÈ¯
+    	// ï¿½Ö¾ï¿½ï¿½ï¿½ uriï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ controller ï¿½ï¿½Ã¼ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½È¯
         return mappings.get(uri);
     }
 }
