@@ -15,7 +15,8 @@ public class CreateReplyController implements Controller {
 		Reply re = new Reply (
 				Integer.parseInt(request.getParameter("postNum")),
 				(request.getParameter("agree")).charAt(0),
-				request.getParameter("replyContent")
+				request.getParameter("replyContent"),
+				Integer.parseInt(request.getParameter("replyNum"))
 				);
 		
 		

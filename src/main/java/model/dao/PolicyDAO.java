@@ -24,9 +24,10 @@ public class PolicyDAO {
 
 		String sql = "INSERT INTO Policy VALUES (policyIdSeq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-		Object[] param = new Object[] { pol.getName(), pol.getContents(), pol.getCategory(), pol.getStartDate(),
-				pol.getEndDate(), pol.getPolicySummary(), pol.getQualificationForApplication(), pol.getHowToApply(),
-				pol.getLocal(), pol.getStartAge(), pol.getEndAge(), pol.getIncome(), 'n' };
+		Object[] param = new Object[] { pol.getName(), pol.getStartAge(), pol.getContents(), pol.getCategory(),
+				pol.getLocal(), pol.getPolicySummary(), pol.getQualificationForApplication(),pol.getHowToApply(),
+				pol.getStartDate(), pol.getIncome(), pol.getEndAge(), pol.getEndDate(), 'n' };
+		
 		jdbcUtil.setSqlAndParameters(sql, param);
 
 		String key[] = { "policyId" };
