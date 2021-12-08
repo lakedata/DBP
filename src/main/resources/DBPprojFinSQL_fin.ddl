@@ -6,6 +6,10 @@ DROP SEQUENCE postNumSeq;
 
 CREATE SEQUENCE postNumSeq;
 
+DROP SEQUENCE replyNumSeq;
+
+CREATE SEQUENCE replyNumSeq;
+
 DROP TABLE Scrap CASCADE CONSTRAINTS PURGE;
 
 DROP TABLE Reply CASCADE CONSTRAINTS PURGE;
@@ -20,17 +24,17 @@ CREATE TABLE Policy
 (
 	policyId             INTEGER NOT NULL ,
 	name                 VARCHAR2(18) NULL ,
+	startAge             INTEGER NULL ,
 	contents             VARCHAR2(1000) NULL ,
 	category             VARCHAR2(18) NULL ,
-    startDate            DATE NULL ,
-    endDate              DATE NULL ,
-	policySummary        VARCHAR2(18) NULL ,
-	qualificationForApplication VARCHAR2(18) NULL ,
-	howToApply           VARCHAR2(18) NULL ,
-    local                VARCHAR2(18) NULL ,
-    startAge             INTEGER NULL ,
+	local                VARCHAR2(18) NULL ,
+	policySummary        VARCHAR2(200) NULL ,
+	qualificationForApplication VARCHAR2(200) NULL ,
+	howToApply           VARCHAR2(200) NULL ,
+	startDate            DATE NULL ,
+	income               INTEGER NULL ,
 	endAge               INTEGER NULL ,
-    income               INTEGER NULL ,
+	endDate              DATE NULL ,
 	scrap                CHAR(1) NULL 
 );
 
@@ -43,11 +47,11 @@ ALTER TABLE Policy
 CREATE TABLE Post
 (
 	postNum              INTEGER NOT NULL ,
-    policyId             INTEGER NOT NULL,
-    user_Id              VARCHAR2(20) NOT NULL ,
 	title                VARCHAR2(30) NULL ,
 	writeDate            DATE NULL ,
-	content              VARCHAR2(500) NULL
+	content              VARCHAR2(500) NULL ,
+	user_Id              VARCHAR2(20) NOT NULL ,
+	policyId             INTEGER NOT NULL 
 );
 
 CREATE UNIQUE INDEX XPKPost ON Post
@@ -58,9 +62,10 @@ ALTER TABLE Post
 
 CREATE TABLE Reply
 (
-    postNum              INTEGER NOT NULL ,
 	agree                CHAR(1) NULL ,
-	replyContent         VARCHAR2(100) NULL
+	replyContent         VARCHAR2(100) NULL ,
+	postNum              INTEGER NOT NULL ,
+	replyNum             INTEGER NULL 
 );
 
 CREATE UNIQUE INDEX XPKReply ON Reply
@@ -72,11 +77,11 @@ ALTER TABLE Reply
 CREATE TABLE User1
 (
 	user_Id              VARCHAR2(20) NOT NULL ,
-    name                 VARCHAR2(20) NULL ,
-    email                VARCHAR2(30) NULL ,
-    password             VARCHAR2(20) NULL ,
+	name                 VARCHAR2(20) NULL ,
+	email                VARCHAR2(30) NULL ,
+	password             VARCHAR2(20) NULL ,
 	birth                DATE NULL ,
-    phoneNumber          CHAR(13) NULL 
+	phoneNumber          CHAR(13) NULL 
 );
 
 CREATE UNIQUE INDEX XPKUser1 ON User1
@@ -87,8 +92,8 @@ ALTER TABLE User1
 
 CREATE TABLE Scrap
 (
-	user_Id              VARCHAR2(20) NOT NULL ,
-    policyId             INTEGER NOT NULL 
+	policyId             INTEGER NOT NULL ,
+	user_Id              VARCHAR2(20) NOT NULL 
 );
 
 CREATE UNIQUE INDEX XPKScrap ON Scrap
@@ -110,8 +115,8 @@ ALTER TABLE Scrap
 	ADD (CONSTRAINT R_4 FOREIGN KEY (policyId) REFERENCES Policy (policyId));
 
 ALTER TABLE Scrap
-	ADD (CONSTRAINT R_5 FOREIGN KEY (user_Id) REFERENCES User1 (user_Id));
-    
+	ADD (CONSTRAINT R_5 FOREIGN KEY (user_Id) REFERENCES User1 (user_Id)); 
 
-INSERT INTO User1 VALUES ('dbpro0102', 'dbpro0102', '包府磊', null, null, null);
+INSERT INTO User1 VALUES ('dbpro0102', '包府磊', null, 'dbpro0102', null, null);
+
 commit;

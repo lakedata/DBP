@@ -23,7 +23,7 @@ public class PostDAO {
 		
 		String sql = "INSERT INTO Post VALUES (postNumSeq.nextval, ?, ?, ?, ?, ?)";
 		
-		Object[] param = new Object[] { po.getPolicyId(), po.getUserId(), po.getTitle(), po.getWriteDate(), po.getContent()};	
+		Object[] param = new Object[] { po.getTitle(), po.getWriteDate(), po.getContent(), po.getUserId(), po.getPolicyId() };	
 		
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
