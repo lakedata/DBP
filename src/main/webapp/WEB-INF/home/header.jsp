@@ -66,7 +66,7 @@
             <li class="nav-left"><a href="<c:url value="/policy/insert"></c:url>">정책등록</a></li>
             <li class="nav-left" style="color: red; margin-top: 14px; margin-right: 5px;">관리자계정<li>
          </c:when>    
-         <c:when test="${userId==NULL}">
+         <c:when test="${userId==NULL}"> 
             <li class="nav-left"><a href="<c:url value="/user/login"></c:url>">Login</a></li>
                <li class="nav-left"><a href="<c:url value="/user/register"></c:url>">Sign up</a></li>
          </c:when>
