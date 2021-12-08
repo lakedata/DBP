@@ -52,7 +52,7 @@ public class RequestMapping {
        // mappings.put("/post/scrap/list", new ListScrapController());
         
         //comment
-        mappings.put("/post/reply/add", new CreateReplyController());
+//        mappings.put("/post/reply/add", new CreateReplyController());
         
         
         //post

@@ -1,6 +1,7 @@
 package model.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import model.Reply;
 import model.dao.ReplyDAO;
@@ -23,9 +24,12 @@ public class ReplyManager {
 		return reMan;
 	}
 	
-	public Reply create(Reply comm) throws SQLException {
-		return replyDAO.createReply(comm);
+	public Reply create(Reply re) throws SQLException {
+		return replyDAO.createReply(re);
 		
 	}
-
+	
+	public List<Reply> findReplyList() throws SQLException {
+		return replyDAO.findReplyList();
+	}
 }

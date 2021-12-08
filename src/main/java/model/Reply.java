@@ -7,15 +7,18 @@ public class Reply implements Serializable {
 	private int postNum;
 	private char agree; // 찬반
 	private String replyContent; // 댓글 내용
+	private int replyNum;
 	
 	public Reply() { }
 	
-	public Reply(int postNum, char agree, String replyContent) {
+	public Reply(int postNum, char agree, String replyContent, int replyNum) {
 		this.postNum = postNum;
 		this.agree = agree;
 		this.replyContent = replyContent;
+		this.replyNum = replyNum;
 	}
 	
+
 	public int getPostNum() {
 		return postNum;
 	}
@@ -36,5 +39,21 @@ public class Reply implements Serializable {
 	public void setReplyContent(String replyContent) {
 		this.replyContent = replyContent;
 	}
+	
+	public int getReplyNum() {
+		return replyNum;
+	}
+
+	public void setReplyNum(int replyNum) {
+		this.replyNum = replyNum;
+	}
+
+	@Override
+	public String toString() {
+		return "Reply [postNum=" + postNum + ", agree=" + agree + ", replyContent=" + replyContent + ", replyNum="
+				+ replyNum + "]";
+	}
+	
+	
 
 }
