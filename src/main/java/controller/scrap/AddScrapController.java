@@ -12,6 +12,7 @@ public class AddScrapController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		int policyId = Integer.parseInt(request.getParameter("policyId"));
 		Scrap scrap = new Scrap(
 				request.getParameter("userId"),
 				Integer.parseInt(request.getParameter("policyId"))
@@ -21,15 +22,15 @@ public class AddScrapController implements Controller {
 		
 			ScrapManager scMan = ScrapManager.getInstance();
 			scMan.add(scrap);
-			
-			return "policy/policyDetail.jsp";
+			return "redirect:/policy/view?policyId=" + policyId;
+			//return "/policy/policyDetail.jsp";
 			
 		} catch (Exception e) {
 			request.setAttribute("scrapFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("scrap", scrap);
-			
-			return "policy/policyDetail.jsp";
+			return "redirect:/policy/view?policyId=" + policyId;
+			//return "/policy/policyDetail.jsp";
 		}
 	}
 

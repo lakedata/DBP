@@ -133,7 +133,8 @@ int arr[] = null;
 				<form name="form" method="POST" action="<c:url value='/policy/scrap/add' />">
 					<input type="text" name="userId" size=20  value="${userId}" style="display: none;">
 					<input type="text" name="policyId" size=20  value="${policyId}" style="display: none;">
-					<input type="button" value="스크랩하기" onClick="scrapCreate()">
+					<input type="submit" value="스크랩하기" onClick="scrapCreate()"> 
+					<!--  button -->
 				</form>
 				
          	</c:when>           
@@ -143,3 +144,5 @@ int arr[] = null;
 	
 </body>
 </html>
+
+ <%@ include file="/WEB-INF/home/footer.jsp" %>
