@@ -14,7 +14,26 @@
 <head>
 <meta charset="UTF-8">
 <title>글 작성</title>
+<style>
+	.inputStyle {
+		border: none;
+		width: 90px;
+		height: 30px;
+		border-radius: 20px;
+	}
+	
+	.inputStyle:hover {
+		background: lightgray;
+		
+	}
+	
+	.btn-div{
+		 	display: flex;
+  			justify-content: center;
+  			margin: 30px;
+		}
 
+</style>
 <script type="text/Javascript">
 	function postWrite() {
 		if (form.title.value == "") {
@@ -53,10 +72,10 @@
 	%>
 	
     <form name="form" method="POST" action="<c:url value='/post/add' ></c:url>">
+    <h3 style="margin-top: 100px; margin-bottom: -70px;">정책제안하기 </h3>
+    
         <table style="margin-top: 100px;">
-                <tr>
-                <td height=20 align= center bgcolor=#8080FF><font color=white> 글쓰기</font></td>
-                </tr>
+              
                 <tr>
                 <td bgcolor=white>
                 
@@ -68,13 +87,13 @@
  
                         <tr>
                         <td>제목</td>
-                        <td> <input type="text" name="title" size=20
+                        <td> <input type="text" name="title" size=30 style="width: 568px; height: 20px; margin-left: 10px;"
 	            			<c:if test="${creationFailed}"> value="${post.title}"</c:if>>	  </td>
                         </tr>
  
                         <tr>
                         <td>내용</td>
-                        <td><textarea name="content" cols=85 rows=15></textarea></td>
+                        <td><textarea name="content" cols=85 rows=15 style="width: 570px; margin-left: 10px;"></textarea></td>
                         </tr>
                         <!-- 임시/ test용  -->
   						<tr>
@@ -93,9 +112,11 @@
                 </tr>
         </table>
         
-  
-		<input type="button" value="등록" onClick="postWrite()"> &nbsp;
-	    <input type="reset" value="초기화">
+  		<div class="btn-div">
+  			<input class="inputStyle" type="button" value="등록" onClick="postWrite()"> &nbsp;
+	   	 	<input class="inputStyle" type="reset" value="초기화">
+	    </div>
+		
     </form>
 </div>
 

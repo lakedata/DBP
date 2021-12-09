@@ -11,7 +11,8 @@
 <style>
 
 		table {
-			border: 1px solid lightgray;
+			//border: 1px solid lightgray;
+			border: none;
 			border-collapse: collapse;
 			padding: 10px;
 			margin-top: 80px;
@@ -20,9 +21,10 @@
 			align: center;
 		}
 		 th, td {
-    		border: 1px solid #EDEDED;
+    		//border: 1px solid #EDEDED;
+    		border-bottom: 1px solid #EDEDED;
     		padding: 5px;
- 
+ 			height: 40px;
   		}
   	
 </style>
@@ -34,22 +36,22 @@
 	
 	  <c:choose>
 	  <c:when test="${userId!=NULL}">    
-             <button style="border: none; width: 80px; height: 30px; margin-top: 50px; margin-left: 995px; border-radius: 7px;"><a style="text-decoration : none;" href="<c:url value='/post/write'/>">글쓰기</a></button>
+             <button style="border: none; width: 80px; height: 30px; margin-top: 50px; margin-left: 995px; border-radius: 20px;"><a style="text-decoration : none; color: black;" href="<c:url value='/post/write'/>">글쓰기</a></button>
       </c:when>
       </c:choose>
        
 	<table>
       <thead>
 		<tr>
-		  <td style="width: 70%">제목</td>
-		  <td>작성자</td>
-		  <td>날짜</td>
+		  <td class="titleStyle" style="width: 70%"><b>제목</b></td>
+		  <td class="titleStyle"><b>작성자</b></td>
+		  <td class="titleStyle"><b>날짜</b></td>
 		</tr>
       </thead>
       <tbody>  	 <!-- post 최신 글을 상단으로 올리기  -->
 		<c:forEach var="post" items="${postList}">
 			<tr>
-			  <td style="width: 70%"><a href="<c:url value='/post/view'>
+			  <td style="width: 70%"><a style="text-decoration: none;" href="<c:url value='/post/view'>
 						      <c:param name='postNum' value='${post.postNum}'/>
 						   </c:url>">
 				  ${post.title} </a>

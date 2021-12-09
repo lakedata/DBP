@@ -11,16 +11,18 @@
 <title>정책 찾기</title>
 <style type="text/css">
 
-	table {
-			border: 1px solid lightgray;
+		table {
+			border: none;
 			border-collapse: collapse;
 			margin-top: 30px;
 			width: 100%; 
 			align: center;
 		}
 		 th, td {
-    		border: 1px solid #EDEDED;
-
+    		//border: 1px solid #EDEDED;
+			border-bottom: 1px solid #EDEDED;
+    		padding: 5px;
+ 			height: 40px;
   		}
   		
   		
@@ -68,6 +70,13 @@
 			height: 30px;
 			border-radius: 20px;
 		}
+		
+		.btnStyle:hover {
+			background: lightgray;
+		
+		}
+	
+	
 		.btn-div{
 		 	display: flex;
   			justify-content: center;
@@ -88,41 +97,55 @@ function uncheck(){
 <div class="policySearch-div">
 	<form method="POST" action="<c:url value='/policy/search' />">
 	
-		<b>정책유형</b>
-		<input type="checkbox" name="contents" value="취업지원">취업지원
-		<input type="checkbox" name="contents" value="창업지원">창업지원
-		<input type="checkbox" name="contents" value="주거금융">주거금융
-		<input type="checkbox" name="contents" value="생활복지">생활복지
-		<input type="checkbox" name="contents" value="정책참여">정책참여
-	
-		<hr/><b>소득분위 </b>
-		<select id="income" name="income">
+		<table>
+		<tr>
+			<th><b>정책유형</b></th>
+			<td><input type="checkbox" name="contents" value="취업지원">취업지원
+			<input type="checkbox" name="contents" value="창업지원">창업지원
+			<input type="checkbox" name="contents" value="주거금융">주거금융
+			<input type="checkbox" name="contents" value="생활복지">생활복지
+			<input type="checkbox" name="contents" value="정책참여">정책참여</td>
+		</tr>
+		<tr>
+			<th><b>소득분위</b></th>
+			<td>
+			<select id="income" name="income">
 			<option value="">분위</option>
 			<c:forEach var="i" begin="1" end="10" step="1">
-				<option value="${i}">${i}</option>
+				<option value="${i}">${i}</option>>
 			</c:forEach>
-		</select>
-		<hr/><b>거주지역 </b>
-		<!-- 지역 서울, 경기, 인천,  전라도, 경상도, 충청도, 제주도, 강원도 -->
-		<input type="checkbox" name="local" value="전국">전국
-		<input type="checkbox" name="local" value="서울">서울
-		<input type="checkbox" name="local" value="경기도">경기도
-		<input type="checkbox" name="local" value="인천">인천
-		<input type="checkbox" name="local" value="전라도">전라도
-		<input type="checkbox" name="local" value="경상도">경상도
-		<input type="checkbox" name="local" value="강원도">강원도
-		<input type="checkbox" name="local" value="충청도">충청도
-		<input type="checkbox" name="local" value="제주도">제주도
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<th><b>거주지역</b></th>
+			<td>
+				<input type="checkbox" name="local" value="전국">전국
+				<input type="checkbox" name="local" value="서울">서울
+				<input type="checkbox" name="local" value="경기도">경기도
+				<input type="checkbox" name="local" value="인천">인천
+				<input type="checkbox" name="local" value="전라도">전라도
+				<input type="checkbox" name="local" value="경상도">경상도
+				<input type="checkbox" name="local" value="강원도">강원도
+				<input type="checkbox" name="local" value="충청도">충청도
+				<input type="checkbox" name="local" value="제주도">제주도
+			</td>
+		</tr>
 		
-		<hr/><b>나이 </b>
-		<select id="age" name="age">
-			<option value="">살</option>
-			<c:forEach var="i" begin="0" end="30">
-				<option value="${i}">${i}</option>
-			</c:forEach>
-		</select>
-		<br>
-		<br>
+		<tr>
+			<th><b>나이</b></th>
+			<td>
+				<select id="age" name="age">
+				<option value="">나이</option>
+				<c:forEach var="i" begin="0" end="30">
+					<option value="${i}">${i}</option>
+				</c:forEach>
+				</select>
+		
+			</td>
+		</tr>
+		</table>
+	
 		<div class="btn-div">
 			<input class="btnStyle" type="submit" value="검색">&nbsp;
 			<input class="btnStyle" type="button" value="새로고침" onClick="window.location.reload()">
@@ -136,16 +159,16 @@ function uncheck(){
         <table>
         <thead>
          <tr>
-                <td>정책명</td>
-                <td>유형</td>
-                <td style="width: 60%;">요약</td>
+                <td><b>정책명</b></td>
+                <td><b>유형</b></td>
+                <td style="width: 60%;"><b>요약</b></td>
          </tr>
 		</thead>
 		<tbody>
         <c:forEach var="policy" items="${polList}">
             <tr>
                 <td>
-                    <a href="<c:url value='/policy/view'>
+                    <a style="text-decoration: none;" href="<c:url value='/policy/view'>
                     <c:param name='policyId' value='${policy.policyId}'/>
                     </c:url>">
                     ${policy.name}</a>
