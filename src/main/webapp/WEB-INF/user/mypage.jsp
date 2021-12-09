@@ -140,15 +140,17 @@ body {
             </c:url>">
             	<span class="font_ml font_bold">회원정보수정</span>
             </a>
-            
            
          </div>
          <div class="flex fdc">
             <img class="mypage"
                 src="<c:url value='/images/scrap.jpg'/>">
-            <a href="<c:url value='/mypage/scrap/view'/>">
+            <a href="<c:url value='/mypage/scrap/view'>
+            <c:param name="userId" value="${userId}" />
+	            </c:url>">
             	<span class="font_ml font_bold">정책스크랩</span>
             </a>
+          
          </div>
          <div class="flex fdc">
             <img class="mypage" style="object-fit: fill;"
