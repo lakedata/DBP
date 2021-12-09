@@ -49,6 +49,7 @@
 	
 	<%
 	request.setAttribute("userId", request.getParameter("userId"));
+	request.setAttribute("postNum", request.getParameter("postNum"));
 
 	%>
 	
@@ -74,7 +75,7 @@
  
                         <tr>
                         <td>내용</td>
-                        <td><textarea name="content" cols=85 rows=15> value="${post.content}"</textarea></td>
+                        <td><textarea name="content" cols=85 rows=15 <%-- value="${post.content}" --%>>${post.content}</textarea></td>
                         </tr>
                         <!-- 임시/ test용  -->
   						<tr>
@@ -86,6 +87,8 @@
                         <td></td>
                         <td> <input type="text" name="policyId" size=20 value=1 style="display: none;">
 	            			  </td>
+	            		<td> <input type="text" name="postNum" size=20 style="display: none;" value="${postNum}" >
+	            			</td>
                         </tr>
                         </table>
  

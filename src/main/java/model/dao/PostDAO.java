@@ -13,10 +13,10 @@ public class PostDAO {
 	private JDBCUtil jdbcUtil = null;
 	
 	public PostDAO() {			
-		jdbcUtil = new JDBCUtil();	// JDBCUtil 占쎈쐻占쎈짗占쎌굲筌ｏ옙 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+		jdbcUtil = new JDBCUtil();	
 	}
 	
-	/* 占쎈쐻占쎈셾占쎈뻻繹먮씮�굲 占쎈쐻占쎈짗占쎌굲占쎈쐻�뜝占� */
+
 	public Post insertPost(Post po) throws SQLException {
 			
 		int generatedKey;
@@ -56,10 +56,11 @@ public class PostDAO {
 					+ "WHERE postNum=?";
 		
 		String content = po.getContent();
+		int postno = po.getPostNum();
 		
 		if (content.equals("")) content = null;
 		
-		Object[] param = new Object[] {content};
+		Object[] param = new Object[] {content, postno};
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
 		try {
@@ -101,11 +102,11 @@ public class PostDAO {
                  + "FROM Post "
                  + "WHERE postNum=? ";   
         
-      jdbcUtil.setSqlAndParameters(sql, new Object[] {postNum});      // JDBCUtil�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� query�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+      jdbcUtil.setSqlAndParameters(sql, new Object[] {postNum});    
       Post post = null;
       
       try {
-         ResultSet rs = jdbcUtil.executeQuery();         // query �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�         
+         ResultSet rs = jdbcUtil.executeQuery();                
   
          if (rs.next()) {
             post = new Post (
@@ -121,39 +122,39 @@ public class PostDAO {
       } catch (Exception ex) {
          ex.printStackTrace();
       } finally {
-         jdbcUtil.close();      // resource �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶
+         jdbcUtil.close();      // resource 
       }
       return post;
    }
 	
-	/* 占쎈쐻占쎈짗占쎌굲筌ｏ옙 post 筌≪뼃�쐻占쎈짗占쎌굲 */
+
 	public List<Post> findPostList() throws SQLException {
 		
         String sql = "SELECT postNum, policyId, user_Id, title, writeDate, content "
      		   + "FROM Post "
      		   + "ORDER BY postNum";   
         
-		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil占쎈쐻占쎈짗占쎌굲 query占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+		jdbcUtil.setSqlAndParameters(sql, null);	
 					
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();			// query 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲			
-			List<Post> postList = new ArrayList<Post>();	// Community占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈뱜 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+			ResultSet rs = jdbcUtil.executeQuery();					
+			List<Post> postList = new ArrayList<Post>();	
 			while (rs.next()) {
-				Post po = new Post(			// Community 占쎈쐻占쎈짗占쎌굲筌ｋ떣�쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼣占쎌뒻占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+				Post po = new Post(			
 						rs.getInt("postNum"),
 						rs.getInt("policyId"),
 						rs.getString("user_Id"),
 						rs.getString("title"),
 						rs.getString("writeDate"),
 						rs.getString("content"));
-				postList.add(po);				// List占쎈쐻占쎈짗占쎌굲 Community 占쎈쐻占쎈짗占쎌굲筌ｏ옙 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+				postList.add(po);				// 
 			}		
 			return postList;					
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource 占쎈쐻占쎈짗占쎌굲占쎌넎
+			jdbcUtil.close();		// 
 		}
 		return null;
 	}
