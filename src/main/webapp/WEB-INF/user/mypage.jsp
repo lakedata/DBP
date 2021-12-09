@@ -118,9 +118,15 @@ body {
          <div class="flex fdc">
             <img class="mypage" style="object-fit: fill;"
                src="<c:url value='/images/write.jpg'/>">
-            <a href="<c:url value='/mypage/myPost'/>">
+           <!-- <a href="<c:url value='/mypage/myPost'/>">
             	<span class="font_ml font_bold"> 작성한글 </span>
-            </a>
+            </a>-->
+            
+            <!-- test -->
+            <a href="<c:url value='/mypage/myPost'>
+         	<c:param name='order' value='my_post'/></c:url>"><span class="font_ml font_bold"> 작성한글</span></a>
+         
+         
          </div>
 	<%
 		request.setAttribute("userId", request.getParameter("userId"));

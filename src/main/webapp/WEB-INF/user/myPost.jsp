@@ -27,6 +27,10 @@
 </style>
 </head>
 <body>
+	<%
+		request.setAttribute("userId", request.getParameter("userId"));
+	%>
+	
 	<table>
       <thead>
 		<tr>
@@ -35,15 +39,16 @@
 		</tr>
       </thead>
       <tbody>  	 
-		<c:forEach var="post" items="${postList}">
-			<tr>
-			  <td style="width: 70%"><a href="<c:url value='/post/view'>
-						      <c:param name='postNum' value='${post.postNum}'/>
-						   </c:url>">
-				  ${post.title} </a>
-			  </td>
-			  <td>${post.writeDate}</td>
-			</tr>
+		<c:forEach var="post" items="${postList}">	
+				<tr>
+				  <td style="width: 70%"><a href="<c:url value='/post/view'>
+							      <c:param name='postNum' value='${post.postNum}'/>
+							   </c:url>">
+					  ${post.title} </a>
+				  </td>
+				  <td>${post.writeDate}</td>
+				</tr>
+			
 		</c:forEach>
 	  </tbody>
 	</table>

@@ -47,21 +47,12 @@ int arr[] = null;
 	}
 	
 	function scarpCreate() {
-		if (form.desc.value != null) {
-			<%
-			request.setAttribute("${scrap.userId}", request.getParameter("userId"));
-			%>
-			form.desc.focus();
-			return false;
-		}	 
-		if (form.policy.name != null) {
-			${scrap.policyId} = ${policy.name}
-			form.name.focus();
-			return false;
-		} 
 		
+		alert("스크랩되었습니다");
 		form.submit();	
+		
 	}
+
 	</script>
 	<body>
 	
@@ -133,9 +124,14 @@ int arr[] = null;
 				<form name="form" method="POST" action="<c:url value='/policy/scrap/add' />">
 					<input type="text" name="userId" size=20  value="${userId}" style="display: none;">
 					<input type="text" name="policyId" size=20  value="${policyId}" style="display: none;">
-					<input type="submit" value="스크랩하기" onClick="scrapCreate()"> 
-					<!--  button -->
+					<input type="button" value="스크랩하기" onClick="scarpCreate()"  > 
 				</form>
+				
+				<!-- 스크랩취소 -->
+				<a href="<c:url value="/policy/scrap/cancel">
+	            	<c:param name="policyId" value="${policy.policyId}" />
+	            </c:url>" style="text-decoration-line : none;">스크랩취소(안됨)</a>
+				
 				
          	</c:when>           
          </c:choose>

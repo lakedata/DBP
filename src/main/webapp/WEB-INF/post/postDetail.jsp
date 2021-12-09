@@ -11,6 +11,22 @@ function postDelete() {
 	return confirm("정말 삭제하시겠습니까?");		
 }
 
+//답변 등록
+function createReply(f) {
+	var userId = "${userId}";
+
+	if (userId == "null") {
+		alert("로그인이 필요합니다.");
+		return false;
+	}
+	if (f.replyContent.value == "") {
+		alert("내용을 입력하십시오.");
+		f.replyContent.focus();
+		return false;
+	}
+	f.submit();
+}
+
 function countp(type)  {
 	  // 결과를 표시할 element
 	  const resultElement = document.getElementById('result_p');
@@ -161,11 +177,12 @@ function countm(type)  {
 	<!-- 댓글 쓰기 -->
 	<div style="margin-top: 50px;">
 	<form name="form" method="POST" action="<c:url value='/post/reply/add'>
-	<c:param name="postNum" value="${post.postNum}" /> </c:url>">
+	</c:url>">
 		<input type="text" name="postNum" size=20  value="${postNum}" style="display: none;"> 
-		<!-- <input type="text" name="agree" size=20  value=0 style="display: none;">  -->
+		<input type="text" name="agree" size=20  value='n' style="display: none;">  
 		<input type="text" name="replyContent" placeholder="댓글을  작성하세요" style="width:85%; height: 50px; border-radius: 8px; border: none; background-color: #F5F5F5;">
-		<input class="w-btn-green" type="submit" value="등록" style="border: none; height: 50px; width: 50px; border-radius: 8px; " />
+
+		<button type="button" class="w-btn-green"  style="border: none; height: 50px; width: 50px; border-radius: 8px; " onClick="createReply(this.form)">등록</button> &nbsp;
 	</form>
 	</div><br/>
 
