@@ -34,8 +34,8 @@ import java.sql.SQLException;
 		
 		int generatedKey;
 		
-		String sql = "INSERT INTO Reply VALUES ( ?, ?, ?, replyNumSeq.nextval)";		
-		Object[] param = new Object[] {"n", re.getReplyContent(), re.getPostNum()};		
+		String sql = "INSERT INTO Reply VALUES ( ?, ?, ?, replyNumSeq.nextval, ?)";		
+		Object[] param = new Object[] {"n", re.getReplyContent(), re.getPostNum(), "n"};		
 	
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
@@ -78,6 +78,7 @@ import java.sql.SQLException;
 				Reply re = new Reply(			
 						rs.getInt("postNum"),
 						rs.getString("agree"),
+						rs.getString("disagree"),
 						rs.getString("replyContent"),
 						rs.getInt("replyNum"));
 				replyList.add(re);				
@@ -87,7 +88,7 @@ import java.sql.SQLException;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource �뜝�룞�삕�솚
+			jdbcUtil.close();		
 		}
 		
 		return null;

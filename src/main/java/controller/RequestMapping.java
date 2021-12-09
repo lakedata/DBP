@@ -53,6 +53,7 @@ public class RequestMapping {
         
         //comment
 		mappings.put("/post/reply/add", new CreateReplyController());
+		mappings.put("/post/reply/list", new ListReplyController());
         
         //post
         mappings.put("/post/write", new ForwardController("/post/postWrite.jsp"));

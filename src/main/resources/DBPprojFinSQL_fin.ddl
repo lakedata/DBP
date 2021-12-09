@@ -28,9 +28,9 @@ CREATE TABLE Policy
 	contents             VARCHAR2(1000) NULL ,
 	category             VARCHAR2(18) NULL ,
 	local                VARCHAR2(18) NULL ,
-	policySummary        VARCHAR2(200) NULL ,
-	qualificationForApplication VARCHAR2(200) NULL ,
-	howToApply           VARCHAR2(200) NULL ,
+	policySummary        VARCHAR2(18) NULL ,
+	qualificationForApplication VARCHAR2(18) NULL ,
+	howToApply           VARCHAR2(18) NULL ,
 	startDate            DATE NULL ,
 	income               INTEGER NULL ,
 	endAge               INTEGER NULL ,
@@ -65,7 +65,8 @@ CREATE TABLE Reply
 	agree                CHAR(1) NULL ,
 	replyContent         VARCHAR2(100) NULL ,
 	postNum              INTEGER NOT NULL ,
-	replyNum             INTEGER NULL 
+	replyNum             INTEGER NULL ,
+	disagree             CHAR(1) NULL 
 );
 
 CREATE UNIQUE INDEX XPKReply ON Reply
@@ -115,7 +116,8 @@ ALTER TABLE Scrap
 	ADD (CONSTRAINT R_4 FOREIGN KEY (policyId) REFERENCES Policy (policyId));
 
 ALTER TABLE Scrap
-	ADD (CONSTRAINT R_5 FOREIGN KEY (user_Id) REFERENCES User1 (user_Id)); 
+	ADD (CONSTRAINT R_5 FOREIGN KEY (user_Id) REFERENCES User1 (user_Id));
+
 
 INSERT INTO User1 VALUES ('dbpro0102', '°ü¸®ÀÚ', null, 'dbpro0102', null, null);
 

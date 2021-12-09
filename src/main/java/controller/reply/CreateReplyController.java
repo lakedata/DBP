@@ -25,6 +25,7 @@ public class CreateReplyController implements Controller {
 		Reply re = new Reply (
 				postNum,
 				request.getParameter("agree"),
+				request.getParameter("disagree"),
 				request.getParameter("replyContent"),
 				0); //replyNum => sequence
 		
@@ -39,7 +40,8 @@ public class CreateReplyController implements Controller {
 			request.setAttribute("postNum", postNum);
 			
 //			return "/post/postDetail.jsp";
-			return "redirect:/post/view?postNum=" + postNum;
+//			return "redirect:/post/view?postNum=" + postNum;
+			return "redirect:/post/reply/list";
 //			return "post/postReply.jsp";
 //			return "post/postList.jsp";
 			

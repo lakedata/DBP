@@ -19,13 +19,13 @@ public class ListReplyController  implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		logger.debug("in ViewReplyController");
+		logger.debug("in ListReplyController");
 		
 		ReplyManager reMan = ReplyManager.getInstance();
 		List<Reply> replyList = reMan.findReplyList();
 		
 		request.setAttribute("replyList", replyList);
-		return "/policy/poilcyDetail.jsp";
+		return "/post/postDetail.jsp";
 	}
 	
 	
