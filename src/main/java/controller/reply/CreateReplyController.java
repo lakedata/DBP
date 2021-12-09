@@ -38,8 +38,8 @@ public class CreateReplyController implements Controller {
 			
 			request.setAttribute("postNum", postNum);
 			
-			return "/post/postDetail.jsp";
-//			return "redirect:/post/view";
+//			return "/post/postDetail.jsp";
+			return "redirect:/post/view?postNum=" + postNum;
 //			return "post/postReply.jsp";
 //			return "post/postList.jsp";
 			
@@ -48,7 +48,7 @@ public class CreateReplyController implements Controller {
 			request.setAttribute("exception", e);
 			request.setAttribute("reply", re);
 			
-			return "/policy/view";
+			return "redirect:/post/view?postNum=" + postNum;
 
 		}
 		
