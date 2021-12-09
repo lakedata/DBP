@@ -5,6 +5,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import controller.reply.ListReplyController;
 import model.Post;
 import model.Reply;
 
@@ -16,6 +20,8 @@ import java.sql.SQLException;
 
 	public class ReplyDAO {
 		
+		private static final Logger logger = LoggerFactory.getLogger(ReplyDAO.class);
+		
 		private JDBCUtil jdbcUtil = null;
 	
 		public ReplyDAO() {	
@@ -24,24 +30,28 @@ import java.sql.SQLException;
 
 	public Reply createReply(Reply re) throws SQLException {
 		
+		logger.debug("in ReplyDAO");
+		
 		int generatedKey;
 		
-		String sql = "INSERT INTO Reply VALUES (postNumSeq.nextval, ?, ?, replyNumSeq.nextval)";		
-		Object[] param = new Object[] {re.getReplyContent(), re.getAgree()};		
+		String sql = "INSERT INTO Reply VALUES ( ?, ?, ?, replyNumSeq.nextval)";		
+		Object[] param = new Object[] {"n", re.getReplyContent(), re.getPostNum()};		
 	
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
-		String key[] = {"postNum"};
+		String key[] = {"replyNum"};
 					
 		try {				
 			jdbcUtil.executeUpdate();
 			
 			ResultSet rs = jdbcUtil.getGeneratedKeys();
 			if(rs.next()) {
-				generatedKey = rs.getInt(1);
-				re.setPostNum(generatedKey);
+				generatedKey = rs.getInt(4);
+				re.setReplyNum(generatedKey);
+				logger.debug("generatedKey: " +generatedKey);
 			}
 			
+			return re;
 		
 		} catch (Exception ex) {
 			jdbcUtil.rollback();
@@ -67,7 +77,7 @@ import java.sql.SQLException;
 			while (rs.next()) {
 				Reply re = new Reply(			
 						rs.getInt("postNum"),
-						rs.getString("agree").charAt(0),
+						rs.getString("agree"),
 						rs.getString("replyContent"),
 						rs.getInt("replyNum"));
 				replyList.add(re);				

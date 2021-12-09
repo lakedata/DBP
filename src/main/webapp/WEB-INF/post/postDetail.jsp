@@ -176,9 +176,9 @@ function countm(type)  {
 	
 	<!-- 댓글 쓰기 -->
 	<div style="margin-top: 50px;">
-	<form name="form" method="POST" action="<c:url value='/post/reply/add'>
+	<form name="form" method="POST" action="<c:url value='/post/reply/add"'>
 	</c:url>">
-		<input type="text" name="postNum" size=20  value="${postNum}" style="display: none;"> 
+		<input type="text" name="postNum" size=20  value="${post.postNum}" style="display: none;"> 
 		<input type="text" name="agree" size=20  value='n' style="display: none;">  
 		<input type="text" name="replyContent" placeholder="댓글을  작성하세요" style="width:85%; height: 50px; border-radius: 8px; border: none; background-color: #F5F5F5;">
 

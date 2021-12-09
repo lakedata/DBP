@@ -5,13 +5,13 @@ import java.io.Serializable;
 public class Reply implements Serializable { 
 	
 	private int postNum;
-	private char agree; // 찬반
+	private String agree; // 찬반
 	private String replyContent; // 댓글 내용
 	private int replyNum;
 	
 	public Reply() { }
 	
-	public Reply(int postNum, char agree, String replyContent, int replyNum) {
+	public Reply(int postNum, String agree, String replyContent, int replyNum) {
 		this.postNum = postNum;
 		this.agree = agree;
 		this.replyContent = replyContent;
@@ -26,10 +26,10 @@ public class Reply implements Serializable {
 		this.postNum = postNum;
 	}
 	
-	public char getAgree() {
+	public String getAgree() {
 		return agree;
 	}
-	public void setAgree(char agree) {
+	public void setAgree(String agree) {
 		this.agree = agree;
 	}
 	

@@ -15,7 +15,7 @@ import model.service.ReplyManager;
 
 public class ListReplyController  implements Controller {
 	
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ListReplyController.class);
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

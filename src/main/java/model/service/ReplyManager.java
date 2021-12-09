@@ -3,11 +3,17 @@ package model.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import model.Reply;
 import model.dao.ReplyDAO;
 import model.dao.PolicyDAO;
 
 public class ReplyManager {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ReplyManager.class);
+	
 	
 	private static ReplyManager reMan = new ReplyManager();
 	private ReplyDAO replyDAO;
@@ -25,6 +31,9 @@ public class ReplyManager {
 	}
 	
 	public Reply create(Reply re) throws SQLException {
+		
+		logger.debug("in ReplyManager: " +re);
+		
 		return replyDAO.createReply(re);
 		
 	}

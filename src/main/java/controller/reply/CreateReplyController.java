@@ -3,31 +3,45 @@ package controller.reply;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import controller.Controller;
+import controller.user.LoginController;
 import model.Reply;
 import model.service.ReplyManager;
 
 public class CreateReplyController implements Controller {
+	
+	private static final Logger logger = LoggerFactory.getLogger(CreateReplyController.class);
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		Reply re = new Reply (
-				Integer.parseInt(request.getParameter("postNum")),
-				(request.getParameter("agree")).charAt(0),
-				request.getParameter("replyContent"),
-				Integer.parseInt(request.getParameter("replyNum"))
-				);
+		logger.debug("in CreateReplyController");
 		
+		int postNum = Integer.parseInt(request.getParameter("postNum"));
+		
+		Reply re = new Reply (
+				postNum,
+				request.getParameter("agree"),
+				request.getParameter("replyContent"),
+				0); //replyNum => sequence
+		
+		logger.debug("Reply: " +re);
 		
 		try {
 			ReplyManager reMan = ReplyManager.getInstance();
 			reMan.create(re);		
 			
+			logger.debug("reMan create");
 			
-			return "redirection:/policy/view";
-			//return "post/postReply.jsp";
-			//return "post/postList.jsp";
+			request.setAttribute("postNum", postNum);
+			
+			return "/post/postDetail.jsp";
+//			return "redirect:/post/view";
+//			return "post/postReply.jsp";
+//			return "post/postList.jsp";
 			
 		} catch (Exception e) {
 			request.setAttribute("createReplyFailed", true);
