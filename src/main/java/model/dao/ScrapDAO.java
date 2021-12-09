@@ -24,10 +24,10 @@ public class ScrapDAO {
 		
 		String sql = "INSERT INTO Scrap VALUES (?, ?) ";
 
-		Object[] param = new Object[] {sc.getUserId(), sc.getPolicyId()};
+		Object[] param = new Object[] {sc.getPolicyId(), sc.getUserId()};
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
-		String key[] = {"userId", "policyId"};
+		String key[] = {"policyId", "userId"};
 		
 		try {
 			jdbcUtil.executeUpdate();

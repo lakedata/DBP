@@ -90,12 +90,12 @@ button:hover {
 </style>
 </head>
 <body>
-
+<!-- 
 	<div class="button-1">
 		<div class="eff-1"></div>
 		<a href="<c:url value='/main'/>"> home </a>
 	</div>
-
+ -->
 	<!-- 스크랩 목록 부분 -->
 	<br>
 	<c:choose>
@@ -114,15 +114,17 @@ button:hover {
 		<c:when test="${not empty scrap.policyId}">
 			<div id="wrapper">
 				<table id="scrapList" width="800" border="3" bordercolor="lightgray">
-					<c:forEach var="scrap" items="${scrapList}">
 						<tr height="30">
 							<td>정책명</td>
 						</tr>
-
+					<c:forEach var="scrap" items="${scrapList}">
 						<tr>
-							<td><a
-								href="<c:url value='policy/search'/>">  정책상세보기
-									${scrap.policyId()} </a></td>
+							<td>
+								<a style="text-decoration: none;" href="<c:url value='/policy/view'>
+	                    				<c:param name='policyId' value='${policy.policyId}'/>
+			                    </c:url>">
+			                    ${policy.policyId}</a>		
+							</td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -133,7 +135,7 @@ button:hover {
 	
 	<br><br>
 	<div>
-		<button onclick="location.href='/policy/view' ">+ Add</button>
+		<button onclick="location.href='/test2/policy/search' ">+ Add</button>
 	</div>
 </body>
 </html>

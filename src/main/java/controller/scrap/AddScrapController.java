@@ -19,7 +19,8 @@ public class AddScrapController implements Controller {
 				);
 		
 		try {
-		
+			System.out.println(request.getParameter("userId"));
+			System.out.println(Integer.parseInt(request.getParameter("policyId")));
 			ScrapManager scMan = ScrapManager.getInstance();
 			scMan.add(scrap);
 			return "redirect:/policy/view?policyId=" + policyId;
