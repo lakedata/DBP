@@ -27,7 +27,7 @@ public class ScrapDAO {
 		Object[] param = new Object[] {sc.getPolicyId(), sc.getUserId()};
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
-		String key[] = {"policyId", "userId"};
+		String key[] = {"policyId", "user_Id"};
 		
 		try {
 			jdbcUtil.executeUpdate();
@@ -49,12 +49,12 @@ public class ScrapDAO {
 		return null;
 	}
 	
-	public int cancelScrap(String userId) throws SQLException {
+	public int cancelScrap(String user_Id) throws SQLException {
 		
-		String sql = "DELETE FROM Scrap "
-				   + "WHERE userId=?";
+		String sql = "DELETE Scrap "
+				   + "WHERE user_Id=?";
 		
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {user_Id});
 		
 		try {
 			int result = jdbcUtil.executeUpdate();
@@ -71,13 +71,13 @@ public class ScrapDAO {
 	}
 	
 	/* 사용자가 스크랩한 정책 리스트 불러오기 */
-	public List<Scrap> getScrapList(String userId) throws SQLException {
+	public List<Scrap> getScrapList(String user_Id) throws SQLException {
 		
-		String sql = "SELECT * "
-				   + "FROM Scrap"
-				   + "WHERE userId=? ";
+		String sql = "SELECT policyId, user_id "
+				   + "FROM Scrap "
+				   + "WHERE user_Id = ? ";
 		
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {user_Id});
 		
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();					
@@ -85,7 +85,7 @@ public class ScrapDAO {
 			
 			while (rs.next()) {
 				Scrap scrap = new Scrap (	
-						rs.getString("userId"),
+						rs.getString("user_Id"),
 						rs.getInt("policyId")
 						);
 				scrapList.add(scrap);				

@@ -150,7 +150,10 @@ body {
 	            </c:url>">
             	<span class="font_ml font_bold">정책스크랩</span>
             </a>
-          
+     
+             
+            
+            
          </div>
          <div class="flex fdc">
             <img class="mypage" style="object-fit: fill;"

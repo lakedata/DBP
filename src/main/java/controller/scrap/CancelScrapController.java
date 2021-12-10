@@ -11,12 +11,13 @@ public class CancelScrapController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String userId = request.getParameter("userId");
+		
 		int policyId = Integer.parseInt(request.getParameter("policyId"));
+		HttpSession session = request.getSession();	
+		String userId = (String) session.getAttribute("userId");
 		
 		try {
 			ScrapManager scMan = ScrapManager.getInstance();
-			HttpSession session = request.getSession();	
 			
 			scMan.cancel(userId);
 			

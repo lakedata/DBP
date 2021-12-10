@@ -8,6 +8,18 @@
 <meta charset="UTF-8">
 <title>scrap</title>
 <style type="text/css">
+	table {
+			border: 1px solid #EDEDED;
+			border-collapse: collapse;
+			margin-top: 30px;
+			width: 100%; 
+			align: center;
+	}
+	th, td {
+			border-bottom: 1px solid #EDEDED;
+    		padding: 5px;
+ 			height: 40px;
+	}
 button {
 	width: 120px;
 	height: 40px;
@@ -87,16 +99,47 @@ button:hover {
 	border: solid 1px;
 	margin:auto;
  }
+ .scrap-div {
+	margin-top: 50px;
+	width: 80%;	
+	margin-left: 120px;
+}
 </style>
 </head>
 <body>
+
+<div class="scrap-div">
+
+	<table>
+      <thead>
+		<tr>
+
+	
+		  <td>policyId(test)</td>
+		</tr>
+      </thead>
+      <tbody>  
+		<c:forEach var="scrap" items="${scrapList}">
+			<tr>
+			  <td><a style="text-decoration: none;" href="<c:url value='/policy/view'>
+						      <c:param name='policyId' value='${scrap.policyId}'/>
+						   </c:url>">
+				  ${scrap.policyId} </a>
+			  </td>
+		
+			</tr>
+		</c:forEach>
+	  </tbody>
+	</table>		
+	
+</div>
 <!-- 
 	<div class="button-1">
 		<div class="eff-1"></div>
 		<a href="<c:url value='/main'/>"> home </a>
 	</div>
  -->
-	<!-- 스크랩 목록 부분 -->
+	<!-- 스크랩 목록 부분
 	<br>
 	<c:choose>
 		<c:when test="${empty scrapList}">
@@ -109,10 +152,10 @@ button:hover {
 		</div>
 	</c:when>
 	</c:choose>
-
-	<c:choose>
-		<c:when test="${not empty scrap.policyId}">
-			<div id="wrapper">
+ -->
+	<!--<c:choose>
+		<c:when test="${not empty scrap.policyId}"> 
+			<div id="wrapper"> 
 				<table id="scrapList" width="800" border="3" bordercolor="lightgray">
 						<tr height="30">
 							<td>정책명</td>
@@ -121,18 +164,18 @@ button:hover {
 						<tr>
 							<td>
 								<a style="text-decoration: none;" href="<c:url value='/policy/view'>
-	                    				<c:param name='policyId' value='${policy.policyId}'/>
+	                    				<c:param name='userId' value='${userId}'/>
 			                    </c:url>">
-			                    ${policy.policyId}</a>		
+			                    ${scrap.policyId}</a>	
 							</td>
 						</tr>
 					</c:forEach>
 				</table>
 				<h4>스크랩을 더 추가해보세요.</h4>
 			</div>
-		</c:when>
+	 	</c:when>
 	</c:choose>
-	
+	 -->
 	<br><br>
 	<div>
 		<button onclick="location.href='/test2/policy/search' ">+ Add</button>

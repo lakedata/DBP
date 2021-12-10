@@ -130,9 +130,10 @@ int arr[] = null;
 				<!-- 스크랩취소 -->
 				<a href="<c:url value="/policy/scrap/cancel">
 	            	<c:param name="policyId" value="${policy.policyId}" />
-	            </c:url>" style="text-decoration-line : none;">스크랩취소(안됨)</a>
-				
-				
+	            </c:url>" style="text-decoration-line : none;">스크랩취소</a> 
+	
+				 
+				 
          	</c:when>           
          </c:choose>
          </div>
