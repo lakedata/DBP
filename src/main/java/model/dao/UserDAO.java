@@ -9,7 +9,7 @@ public class UserDAO {
 	private JDBCUtil jdbcUtil = null;
 	
 	public UserDAO() {			
-		jdbcUtil = new JDBCUtil();	// JDBCUtil °´Ã¼ »ý¼º
+		jdbcUtil = new JDBCUtil();	// JDBCUtil ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 	}
 		
 	public int create(User user) throws SQLException {
@@ -30,11 +30,11 @@ public class UserDAO {
 		}		
 		return 0;			
 	}
-
+	//TO_DATE(
 	
 	public int update(User user) throws SQLException {
 		String sql = "UPDATE USER1 "
-					+ "SET password=?, name=?, email=?, birth=?, phoneNumber=? "
+					+ "SET password=?, name=?, email=?, birth=TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'), phoneNumber=? "
 					+ "WHERE user_Id=?";
 		Object[] param = new Object[] {user.getPassword(), user.getName(), user.getEmail(), 
 					user.getBirth(), user.getPhoneNumber(), 

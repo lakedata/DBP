@@ -130,7 +130,7 @@ function userCreate() {
 	  	 
 		    <tr>
 			<td align = "center"> <font size="2px">생년월일</td>
-			<td> <input type="text" style="width: 300" name="birth"> </td>
+			<td> <input type="text" style="width: 300" name="birth" > </td>
 		  </tr>
 		
 		  
