@@ -13,7 +13,7 @@ public class UserDAO {
 	}
 		
 	public int create(User user) throws SQLException {
-		String sql = "INSERT INTO USER1 VALUES (?, ?, ?, ?, ?, ?)";		
+		String sql = "INSERT INTO USER1 VALUES (?, ?, ?, ?, TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'), ?)";		
 		Object[] param = new Object[] {user.getUserId(), user.getName(), 
 				user.getEmail(), user.getPassword(), user.getBirth(), user.getPhoneNumber() };
 		jdbcUtil.setSqlAndParameters(sql, param);	

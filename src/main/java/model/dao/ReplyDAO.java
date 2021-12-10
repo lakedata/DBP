@@ -34,7 +34,7 @@ import java.sql.SQLException;
 		
 		int generatedKey;
 		
-		String sql = "INSERT INTO Reply VALUES ( ?, ?, ?, replyNumSeq.nextval, ?)";		
+		String sql = "INSERT INTO Reply VALUES ( ?, ?, ?, ?, replyNumSeq.nextval)";		
 		Object[] param = new Object[] {'n', re.getReplyContent(), re.getPostNum(), 'n'};		
 	
 		jdbcUtil.setSqlAndParameters(sql, param);
@@ -48,7 +48,7 @@ import java.sql.SQLException;
 			
 			ResultSet rs = jdbcUtil.getGeneratedKeys();
 			if(rs.next()) {
-				generatedKey = rs.getInt(4);
+				generatedKey = rs.getInt(5);
 				re.setReplyNum(generatedKey);
 				logger.debug("generatedKey: " +generatedKey);
 			}

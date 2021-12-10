@@ -65,15 +65,15 @@ CREATE TABLE Reply
 	agree                CHAR(1) NULL ,
 	replyContent         VARCHAR2(100) NULL ,
 	postNum              INTEGER NOT NULL ,
-	replyNum             INTEGER NULL ,
-	disagree             CHAR(1) NULL 
+	disagree             CHAR(1) NULL ,
+	replyNum             INTEGER NOT NULL 
 );
 
 CREATE UNIQUE INDEX XPKReply ON Reply
-(postNum   ASC);
+(replyNum   ASC);
 
 ALTER TABLE Reply
-	ADD CONSTRAINT  XPKReply PRIMARY KEY (postNum);
+	ADD CONSTRAINT  XPKReply PRIMARY KEY (replyNum);
 
 CREATE TABLE User1
 (
