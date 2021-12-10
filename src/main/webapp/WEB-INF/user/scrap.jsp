@@ -110,72 +110,51 @@ button:hover {
 
 <div class="scrap-div">
 
+
+<c:choose>
+		<c:when test="${empty scrapList}">
+		<br><br>
+		<div id="wrapper">
+		<img src="https://ifh.cc/g/eOQkpg.png" class="img-responsive"
+				alt="scrapimg" style="width:100px; height:100px;">
+			<h2>스크랩을 추가해보세요</h2>
+			<h4>스크랩항목이 없습니다</h4>
+		</div>
+	</c:when>
+	</c:choose>
+	
+		<c:choose>
+		<c:when test="${not empty scrapList}">  
+		 <h3 style="margin-top: 100px; margin-bottom: 20px;">스크랩한 정책 </h3>
 	<table>
       <thead>
-		<tr>
-
-	
-		  <td>policyId(test)</td>
+      	<tr>
+      	<td><b>정책유형</b></td>
+      	<td><b>정책명</b></td>
 		</tr>
       </thead>
       <tbody>  
 		<c:forEach var="scrap" items="${scrapList}">
 			<tr>
+			<td style="width: 15%;">
+				${scrap.category} 
+			</td>
 			  <td><a style="text-decoration: none;" href="<c:url value='/policy/view'>
 						      <c:param name='policyId' value='${scrap.policyId}'/>
 						   </c:url>">
-				  ${scrap.policyId} </a>
+				  ${scrap.name} </a>
 			  </td>
-		
+				
 			</tr>
 		</c:forEach>
 	  </tbody>
-	</table>		
+	</table>	
 	
-</div>
-<!-- 
-	<div class="button-1">
-		<div class="eff-1"></div>
-		<a href="<c:url value='/main'/>"> home </a>
-	</div>
- -->
-	<!-- 스크랩 목록 부분
-	<br>
-	<c:choose>
-		<c:when test="${empty scrapList}">
-		<br><br>
-		<div id="wrapper">
-		<img src="https://ifh.cc/g/0CuWQr.jpg" class="img-responsive"
-				alt="scrapimg" style="width:500px; height:400px;">
-			<h2>스크랩을 추가해보세요.</h2>
-			<h4>스크랩항목이 없습니다.</h4>
-		</div>
 	</c:when>
-	</c:choose>
- -->
-	<!--<c:choose>
-		<c:when test="${not empty scrap.policyId}"> 
-			<div id="wrapper"> 
-				<table id="scrapList" width="800" border="3" bordercolor="lightgray">
-						<tr height="30">
-							<td>정책명</td>
-						</tr>
-					<c:forEach var="scrap" items="${scrapList}">
-						<tr>
-							<td>
-								<a style="text-decoration: none;" href="<c:url value='/policy/view'>
-	                    				<c:param name='userId' value='${userId}'/>
-			                    </c:url>">
-			                    ${scrap.policyId}</a>	
-							</td>
-						</tr>
-					</c:forEach>
-				</table>
-				<h4>스크랩을 더 추가해보세요.</h4>
-			</div>
-	 	</c:when>
-	</c:choose>
-	 -->
+	</c:choose>	
+	 
+</div>
+
 	<br><br>
 	<div>
 		<button onclick="location.href='/test2/policy/search' ">+ Add</button>

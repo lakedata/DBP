@@ -73,9 +73,9 @@ public class ScrapDAO {
 	/* 사용자가 스크랩한 정책 리스트 불러오기 */
 	public List<Scrap> getScrapList(String user_Id) throws SQLException {
 		
-		String sql = "SELECT policyId, user_id "
-				   + "FROM Scrap "
-				   + "WHERE user_Id = ? ";
+		String sql = "SELECT s.policyId, s.user_id, p.name, p.category "
+				   + "FROM Scrap s, Policy p "
+				   + "WHERE s.policyId = p.policyId AND user_Id = ? ";
 		
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {user_Id});
 		
@@ -86,7 +86,9 @@ public class ScrapDAO {
 			while (rs.next()) {
 				Scrap scrap = new Scrap (	
 						rs.getString("user_Id"),
-						rs.getInt("policyId")
+						rs.getInt("policyId"),
+						rs.getString("name"), 
+						rs.getString("category")
 						);
 				scrapList.add(scrap);				
 			}		
