@@ -30,7 +30,6 @@ public class UserDAO {
 		}		
 		return 0;			
 	}
-	//TO_DATE(
 	
 	public int update(User user) throws SQLException {
 		String sql = "UPDATE USER1 "
