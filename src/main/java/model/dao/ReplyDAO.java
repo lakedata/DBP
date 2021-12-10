@@ -35,11 +35,13 @@ import java.sql.SQLException;
 		int generatedKey;
 		
 		String sql = "INSERT INTO Reply VALUES ( ?, ?, ?, replyNumSeq.nextval, ?)";		
-		Object[] param = new Object[] {"n", re.getReplyContent(), re.getPostNum(), "n"};		
+		Object[] param = new Object[] {'n', re.getReplyContent(), re.getPostNum(), 'n'};		
 	
 		jdbcUtil.setSqlAndParameters(sql, param);
 		
 		String key[] = {"replyNum"};
+		
+		logger.debug("ReplyDAO re: " +re);
 					
 		try {				
 			jdbcUtil.executeUpdate();
@@ -63,13 +65,18 @@ import java.sql.SQLException;
 		return null;			
 	}
 	
-	public List<Reply> findReplyList() throws SQLException {
+	public List<Reply> findReplyList(int postNum) throws SQLException {
+		
+		logger.debug("in ReplyDAO");
 		
 		String sql = "SELECT * "
 				+ "FROM Reply "
+				+ "WHERE postNum=?"
 				+ "ORDER BY replyNum";
 		
-		jdbcUtil.setSqlAndParameters(sql, null);
+		Object[] param = new Object[] {postNum};
+				
+		jdbcUtil.setSqlAndParameters(sql, param);
 		
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();				
@@ -78,11 +85,13 @@ import java.sql.SQLException;
 				Reply re = new Reply(			
 						rs.getInt("postNum"),
 						rs.getString("agree"),
-						rs.getString("disagree"),
 						rs.getString("replyContent"),
-						rs.getInt("replyNum"));
+						rs.getInt("replyNum"),
+						rs.getString("disagree"));
 				replyList.add(re);				
 			}		
+			logger.debug("in ReplyDAO, find ReplyList");
+			
 			return replyList;					
 			
 		} catch (Exception ex) {

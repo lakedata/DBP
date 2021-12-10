@@ -25,9 +25,9 @@ public class CreateReplyController implements Controller {
 		Reply re = new Reply (
 				postNum,
 				request.getParameter("agree"),
-				request.getParameter("disagree"),
 				request.getParameter("replyContent"),
-				0); //replyNum => sequence
+				0,
+				request.getParameter("disagree")); //replyNum => sequence
 		
 		logger.debug("Reply: " +re);
 		
@@ -41,7 +41,7 @@ public class CreateReplyController implements Controller {
 			
 //			return "/post/postDetail.jsp";
 //			return "redirect:/post/view?postNum=" + postNum;
-			return "redirect:/post/reply/list";
+			return "redirect:/post/reply/list?postNum=" +postNum;
 //			return "post/postReply.jsp";
 //			return "post/postList.jsp";
 			

@@ -180,6 +180,7 @@ function countm(type)  {
 	</c:url>">
 		<input type="text" name="postNum" size=20  value="${post.postNum}" style="display: none;"> 
 		<input type="text" name="agree" size=20  value='n' style="display: none;">  
+		<input type="text" name="disagree" size=20  value='n' style="display: none;"> 
 		<input type="text" name="replyContent" placeholder="댓글을  작성하세요" style="width:85%; height: 50px; border-radius: 8px; border: none; background-color: #F5F5F5;">
 
 		<button type="button" class="w-btn-green"  style="border: none; height: 50px; width: 50px; border-radius: 8px; " onClick="createReply(this.form)">등록</button> &nbsp;
@@ -189,7 +190,7 @@ function countm(type)  {
 	<!-- 댓글 보기 : replyList 추가해야함 -->
 	<div>
 	<c:forEach var="cm" items="${replyList}" varStatus="status" >
-	<div style="padding-left: 30px; padding-right: 30px; width:85%; height: 50px; border: solid #F5F5F5 1px; background-color: none;">${cm.content}</div>
+	<div style="padding-left: 30px; padding-right: 30px; width:85%; height: 50px; border: solid #F5F5F5 1px; background-color: none;">${cm.replyContent}</div>
 	</c:forEach>
 	</div>
 	
