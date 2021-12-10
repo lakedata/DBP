@@ -21,10 +21,20 @@ public class ListReplyController  implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		logger.debug("in ListReplyController");
 		
+		int postNum = Integer.parseInt(request.getParameter("postNum"));
+		logger.debug("ListReplyController postNum: " +postNum);
+		
+		
 		ReplyManager reMan = ReplyManager.getInstance();
-		List<Reply> replyList = reMan.findReplyList();
+		List<Reply> replyList = reMan.findReplyList(postNum);
+		
+		logger.debug("find replyList");
 		
 		request.setAttribute("replyList", replyList);
+		
+		
+		logger.debug("replyList:" +replyList+ "\nsetAttribute replyList");
+		
 		return "/post/postDetail.jsp";
 	}
 	

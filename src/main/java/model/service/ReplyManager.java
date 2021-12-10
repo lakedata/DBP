@@ -38,7 +38,10 @@ public class ReplyManager {
 		
 	}
 	
-	public List<Reply> findReplyList() throws SQLException {
-		return replyDAO.findReplyList();
+	public List<Reply> findReplyList(int postNum) throws SQLException {
+		
+		logger.debug("in ReplyManager, findReplyList " );
+		
+		return replyDAO.findReplyList(postNum);
 	}
 }

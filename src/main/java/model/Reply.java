@@ -12,7 +12,7 @@ public class Reply implements Serializable {
 	
 	public Reply() { }
 	
-	public Reply(int postNum, String agree, String disagree, String replyContent, int replyNum) {
+	public Reply(int postNum, String agree, String replyContent, int replyNum, String disagree) {
 		this.postNum = postNum;
 		this.agree = agree;
 		this.disagree = disagree;
