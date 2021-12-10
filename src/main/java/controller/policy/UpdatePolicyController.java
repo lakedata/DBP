@@ -26,7 +26,6 @@ public class UpdatePolicyController implements Controller{
 			int policyId = Integer.parseInt(request.getParameter("policyId"));
 			Policy policy = polMan.findPolicy(policyId);
 			
-			
 			//admin
 			HttpSession session = request.getSession();
 			if(UserSessionUtils.isLoginUser("dbpro0102", session)) {
@@ -44,6 +43,7 @@ public class UpdatePolicyController implements Controller{
 		}
 		else { // "POST" -> �Է�(����)�� ��å ���� parameter�� ����
 			logger.debug("update controller _ post");
+			
 			Policy updatePol = new Policy(
 					Integer.parseInt(request.getParameter("policyId")),
 					request.getParameter("name"),

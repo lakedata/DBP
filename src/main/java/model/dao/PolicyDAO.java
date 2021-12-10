@@ -83,9 +83,9 @@ public class PolicyDAO {
 		if (endDate.equals(""))
 			endDate = null;
 
-		Object[] param = new Object[] { pol.getName(), pol.getContents(), pol.getCategory(), pol.getStartAge(), pol.getEndAge(), 
-				pol.getPolicySummary(), pol.getQualificationForApplication(), pol.getHowToApply(), pol.getLocal(), 
-				pol.getStartDate(), pol.getEndDate(), pol.getIncome() };
+		Object[] param = new Object[] { pol.getName(), pol.getContents(), pol.getCategory(), pol.getStartDate(), pol.getEndDate(),  
+				pol.getPolicySummary(), pol.getQualificationForApplication(), pol.getHowToApply(), pol.getLocal(), pol.getStartAge(), pol.getEndAge(),
+				 pol.getIncome(), pol.getPolicyId() }; //수정함
 		jdbcUtil.setSqlAndParameters(sql, param);
 
 		try {
