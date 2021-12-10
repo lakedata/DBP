@@ -8,6 +8,18 @@
 <meta charset="UTF-8">
 <title>scrap</title>
 <style type="text/css">
+	table {
+			border: 1px solid #EDEDED;
+			border-collapse: collapse;
+			margin-top: 30px;
+			width: 100%; 
+			align: center;
+	}
+	th, td {
+			border-bottom: 1px solid #EDEDED;
+    		padding: 5px;
+ 			height: 40px;
+	}
 button {
 	width: 120px;
 	height: 40px;
@@ -87,52 +99,62 @@ button:hover {
 	border: solid 1px;
 	margin:auto;
  }
+ .scrap-div {
+	margin-top: 50px;
+	width: 80%;	
+	margin-left: 120px;
+}
 </style>
 </head>
 <body>
-<!-- 
-	<div class="button-1">
-		<div class="eff-1"></div>
-		<a href="<c:url value='/main'/>"> home </a>
-	</div>
- -->
-	<!-- 스크랩 목록 부분 -->
-	<br>
-	<c:choose>
+
+<div class="scrap-div">
+
+
+<c:choose>
 		<c:when test="${empty scrapList}">
 		<br><br>
 		<div id="wrapper">
-		<img src="https://ifh.cc/g/0CuWQr.jpg" class="img-responsive"
-				alt="scrapimg" style="width:500px; height:400px;">
-			<h2>스크랩을 추가해보세요.</h2>
-			<h4>스크랩항목이 없습니다.</h4>
+		<img src="https://ifh.cc/g/eOQkpg.png" class="img-responsive"
+				alt="scrapimg" style="width:100px; height:100px;">
+			<h2>스크랩을 추가해보세요</h2>
+			<h4>스크랩항목이 없습니다</h4>
 		</div>
 	</c:when>
 	</c:choose>
-
-	<c:choose>
-		<c:when test="${not empty scrap.policyId}">
-			<div id="wrapper">
-				<table id="scrapList" width="800" border="3" bordercolor="lightgray">
-						<tr height="30">
-							<td>정책명</td>
-						</tr>
-					<c:forEach var="scrap" items="${scrapList}">
-						<tr>
-							<td>
-								<a style="text-decoration: none;" href="<c:url value='/policy/view'>
-	                    				<c:param name='policyId' value='${policy.policyId}'/>
-			                    </c:url>">
-			                    ${policy.policyId}</a>		
-							</td>
-						</tr>
-					</c:forEach>
-				</table>
-				<h4>스크랩을 더 추가해보세요.</h4>
-			</div>
-		</c:when>
-	</c:choose>
 	
+		<c:choose>
+		<c:when test="${not empty scrapList}">  
+		 <h3 style="margin-top: 100px; margin-bottom: 20px;">스크랩한 정책 </h3>
+	<table>
+      <thead>
+      	<tr>
+      	<td><b>정책유형</b></td>
+      	<td><b>정책명</b></td>
+		</tr>
+      </thead>
+      <tbody>  
+		<c:forEach var="scrap" items="${scrapList}">
+			<tr>
+			<td style="width: 15%;">
+				${scrap.category} 
+			</td>
+			  <td><a style="text-decoration: none;" href="<c:url value='/policy/view'>
+						      <c:param name='policyId' value='${scrap.policyId}'/>
+						   </c:url>">
+				  ${scrap.name} </a>
+			  </td>
+				
+			</tr>
+		</c:forEach>
+	  </tbody>
+	</table>	
+	
+	</c:when>
+	</c:choose>	
+	 
+</div>
+
 	<br><br>
 	<div>
 		<button onclick="location.href='/test2/policy/search' ">+ Add</button>
