@@ -4,12 +4,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import controller.Controller;
+import controller.DispatcherServlet;
 import controller.user.UserSessionUtils;
 import model.Policy;
 import model.service.PolicyManager;
 
 public class UpdatePolicyController implements Controller{
+	private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -17,25 +22,28 @@ public class UpdatePolicyController implements Controller{
 		PolicyManager polMan = PolicyManager.getInstance();
 		
 		if(request.getMethod().equals("GET")) {
+			logger.debug("update controller _ get");
 			int policyId = Integer.parseInt(request.getParameter("policyId"));
+			Policy policy = polMan.findPolicy(policyId);
 			
-			Policy pol = polMan.findPolicy(policyId);
 			
 			//admin
 			HttpSession session = request.getSession();
 			if(UserSessionUtils.isLoginUser("dbpro0102", session)) {
-				request.setAttribute("policy", pol);
+				request.setAttribute("policy", policy);
 				
 				return "/policy/policyUpdateForm.jsp";
 				
 			}
-			else { // °ü¸®ÀÚ ¾Æ´Ò °æ¿ì
+			else { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½
+				logger.debug("update controller _ exce");
 				request.setAttribute("updateFailed", true);
-				request.setAttribute("exception", new IllegalStateException("°ü¸®ÀÚ ¿Ü ÀÏ¹Ý »ç¿ëÀÚ´Â Á¤Ã¥ ¼öÁ¤ÀÌ ºÒ°¡´É ÇÕ´Ï´Ù."));
+				request.setAttribute("exception", new IllegalStateException("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½."));
 				return "/policy/list";
 			}
 		}
-		else { // "POST" -> ÀÔ·Â(¼öÁ¤)ÇÑ Á¤Ã¥ Á¤º¸ parameter·Î Àü¼Û
+		else { // "POST" -> ï¿½Ô·ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½ parameterï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			logger.debug("update controller _ post");
 			Policy updatePol = new Policy(
 					Integer.parseInt(request.getParameter("policyId")),
 					request.getParameter("name"),
@@ -50,7 +58,6 @@ public class UpdatePolicyController implements Controller{
 					Integer.parseInt(request.getParameter("startAge")),
 					Integer.parseInt(request.getParameter("endAge")),
 					Integer.parseInt(request.getParameter("income"))
-					
 					);
 			//test
 			//System.out.println(request.getParameter("name"));
@@ -59,7 +66,6 @@ public class UpdatePolicyController implements Controller{
 			
 	
 		}
-		
 	}
 
 }
