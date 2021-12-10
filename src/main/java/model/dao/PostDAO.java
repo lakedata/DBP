@@ -159,7 +159,7 @@ public class PostDAO {
 		return null;
 	}
 	
-	/* myPost 내가 쓴글 보기  */
+	/* myPost  */
 	public List<Post> findMyPostList(String userId) throws SQLException {
 		
         String sql = "SELECT postNum, policyId, user_Id, title, writeDate, content "
@@ -167,27 +167,27 @@ public class PostDAO {
         	   + "WHERE user_Id = ? "
      		   + "ORDER BY postNum";   
         
-		jdbcUtil.setSqlAndParameters(sql, null);		// JDBCUtil占쎈쐻占쎈짗占쎌굲 query占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});	   
 					
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();			// query 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲			
-			List<Post> postList = new ArrayList<Post>();	// Community占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈뱜 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+			ResultSet rs = jdbcUtil.executeQuery();			
+			List<Post> postList = new ArrayList<Post>();	
 			while (rs.next()) {
-				Post po = new Post(			// Community 占쎈쐻占쎈짗占쎌굲筌ｋ떣�쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼣占쎌뒻占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+				Post po = new Post(		
 						rs.getInt("postNum"),
 						rs.getInt("policyId"),
 						rs.getString("user_Id"),
 						rs.getString("title"),
 						rs.getString("writeDate"),
 						rs.getString("content"));
-				postList.add(po);				// List占쎈쐻占쎈짗占쎌굲 Community 占쎈쐻占쎈짗占쎌굲筌ｏ옙 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
+				postList.add(po);				
 			}		
 			return postList;					
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close();		// resource 占쎈쐻占쎈짗占쎌굲占쎌넎
+			jdbcUtil.close();		// resource 
 		}
 		return null;
 	}
