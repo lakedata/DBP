@@ -10,7 +10,9 @@ import org.slf4j.LoggerFactory;
 
 import controller.Controller;
 import controller.user.LoginController;
+import model.Post;
 import model.Reply;
+import model.service.PostManager;
 import model.service.ReplyManager;
 
 public class ListReplyController  implements Controller {
@@ -30,8 +32,12 @@ public class ListReplyController  implements Controller {
 		
 		logger.debug("find replyList");
 		
-		request.setAttribute("replyList", replyList);
+		Post post = null;
+		PostManager postMan = PostManager.getInstance();
+		post = postMan.findPost(postNum);
 		
+		request.setAttribute("replyList", replyList);
+		request.setAttribute("post", post);
 		
 		logger.debug("replyList:" +replyList+ "\nsetAttribute replyList");
 		
