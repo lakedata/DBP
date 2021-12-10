@@ -14,7 +14,7 @@ import controller.reply.*;
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
     
-    // �뜝�룞�삕 �뜝�룞�삕泥� uri�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 controller �뜝�룞�삕泥닷뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕 HashMap �뜝�룞�삕�뜝�룞�삕
+    
     private Map<String, Controller> mappings = new HashMap<String, Controller>();
 
     public void initMapping() {
@@ -22,7 +22,7 @@ public class RequestMapping {
     	logger.debug("RequestMaaping");
     	mappings.put("/", null);
     	
-    	// �뜝�룞�삕 uri�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�떎�뙋�삕 controller �뜝�룞�삕泥닷뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
+    	
         mappings.put("/", new ForwardController("index.jsp"));
     	
     	
@@ -60,7 +60,7 @@ public class RequestMapping {
         
         mappings.put("/post/add", new AddPostController());
         mappings.put("/post/list", new ListPostController());
-        mappings.put("/post/view", new ViewPostController()); //�뜝�떛紐뚯삕 �뜝�룞�삕�뜝�룞�삕 �뜝�떗�슱�삕
+        mappings.put("/post/view", new ViewPostController()); 
         mappings.put("/post/delete", new DeletePostController());
         mappings.put("/post/update", new UpdatePostController());
         
@@ -68,12 +68,10 @@ public class RequestMapping {
         mappings.put("/mypage", new ForwardController("/user/mypage.jsp")); 
         mappings.put("/mypage/scrap/view", new ListScrapController());
         mappings.put("/user/view", new ViewUserController());
-        mappings.put("/mypage/calendar/view", new ForwardController("/user/calendar.jsp"));//罹섇뜝�룞�삕�뜝�룞�삕.jsp �뜝�룞�삕�뜝�룞�삕 �뜝�떗�슱�삕
+        mappings.put("/mypage/calendar/view", new ForwardController("/user/calendar.jsp"));        
         
-        
-        //�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�뙗琉꾩삕 �뜝�룞�삕�겕�뜝�룞�삕�뜝�룞�삕
         mappings.put("/mypage/myPost", new UserPostListController());
-        //�뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕榮▼뜝占� �뜝�룞�삕�겕�뜝�룞�삕�뜝�룞�삕
+        
         mappings.put("/mypage/myComment", new ForwardController("/user/myComment.jsp"));
         
         //main page
@@ -86,7 +84,7 @@ public class RequestMapping {
 
     public Controller findController(String uri) {
     	logger.debug("mappings.get" +mappings.get(uri));
-    	// �뜝�뙇�뼲�삕�뜝�룞�삕 uri�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�떎�뙋�삕 controller �뜝�룞�삕泥닷뜝�룞�삕 李얍뜝�룞�삕 �뜝�룞�삕�솚
+    	// 占쎈쐻占쎈솂占쎈섣占쎌굲占쎈쐻占쎈짗占쎌굲 uri占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼄占쎈솇占쎌굲 controller 占쎈쐻占쎈짗占쎌굲筌ｋ떣�쐻占쎈짗占쎌굲 筌≪뼃�쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎌넎
         return mappings.get(uri);
     }
 }
