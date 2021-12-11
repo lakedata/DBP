@@ -19,7 +19,7 @@
 			align: center;
 		}
 		 th, td {
-    		//border: 1px solid #EDEDED;
+    		border: 1px solid #EDEDED;
 			border-bottom: 1px solid #EDEDED;
     		padding: 5px;
  			height: 40px;

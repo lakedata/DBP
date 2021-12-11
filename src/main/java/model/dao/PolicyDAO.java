@@ -206,7 +206,7 @@ public class PolicyDAO {
 	}
 
 	public Policy findPolicy(int policyId) throws SQLException {
-		String sql = "SELECT * " 
+		String sql = "SELECT name, contents, category, to_char(startDate, 'YYYY-MM-DD') as startDate, to_char(endDate, 'YYYY-MM-DD') as endDate, policySummary, qualificationForApplication, howToApply, local, startAge, endAge, income, scrap "
 				   + "FROM Policy " 
 				   + "WHERE policyId=? ";
 
@@ -217,7 +217,7 @@ public class PolicyDAO {
 			ResultSet rs = jdbcUtil.executeQuery();
 
 			if (rs.next()) {
-				pol = new Policy(rs.getInt("policyId"), 
+				pol = new Policy(policyId, 
 						rs.getString("name"), 
 						rs.getString("contents"),
 						rs.getString("category"), 

@@ -27,7 +27,7 @@ public class InsertPolicyController implements Controller {
 		log.debug("in InsertPolicyController: GET");
 		
 		Policy pol = new Policy (
-				0, // sequence·Î policyId ÁöÁ¤
+				0, // sequenceï¿½ï¿½ policyId ï¿½ï¿½ï¿½ï¿½
 				request.getParameter("name"),
 				request.getParameter("contents"),
 				request.getParameter("category"),
@@ -52,17 +52,17 @@ public class InsertPolicyController implements Controller {
 			
 			request.setAttribute("policy", pol);	
 			return "/policy/policyDetail.jsp";
-//			return "redirect:/policy/view"; //¼º°ø ½Ã 
-//			return "redirection:/policy/list"; // redirection -¼º°ø½Ã 
+//			return "redirect:/policy/view"; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+//			return "redirection:/policy/list"; // redirection -ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 //			return "redirection:/policy/policySearch"; // redirection
 
 			
-		} catch (Exception e) {  // ¿¹¿Ü ¹ß»ý ½Ã forwarding
+		} catch (Exception e) {  // ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½ forwarding
 			request.setAttribute("insertFailed", true);
 			request.setAttribute("exception", e);
 			request.setAttribute("pol", pol);
 			
-			return "/policy/policyRegister.jsp";
+			return "/policy/policyRegisterForm.jsp";
 		}
 		
 	}
