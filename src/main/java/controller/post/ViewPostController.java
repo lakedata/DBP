@@ -24,17 +24,18 @@ public class ViewPostController implements Controller{
 		
 		
 		PostManager postMan = PostManager.getInstance();
+		ReplyManager reMan = ReplyManager.getInstance();
+		
 		int postNum = Integer.parseInt(request.getParameter("postNum"));
 		
 		Post post = null;
 		
 		post = postMan.findPost(postNum);
-		
-		ReplyManager reMan = ReplyManager.getInstance();
 		List<Reply> replyList = reMan.findReplyList(postNum);
-		request.setAttribute("replyList", replyList);
 		
+		request.setAttribute("replyList", replyList);
 		request.setAttribute("post", post);
+		
 		return "/post/postDetail.jsp";
 		
 	}
