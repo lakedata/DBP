@@ -23,7 +23,7 @@ public class PolicyDAO {
 		int generatedKey;
 
 		String sql = "INSERT INTO Policy VALUES (policyIdSeq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
+		
 		Object[] param = new Object[] { pol.getName(), pol.getStartAge(), pol.getContents(), pol.getCategory(),
 				pol.getLocal(), pol.getPolicySummary(), pol.getQualificationForApplication(),pol.getHowToApply(),
 				pol.getStartDate(), pol.getIncome(), pol.getEndAge(), pol.getEndDate(), 'n' };
@@ -104,7 +104,6 @@ public class PolicyDAO {
 
 	/* policy �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� */
 	public int deletePolicy(int policyId) throws SQLException {
-
 		String sql = "DELETE FROM Policy " 
 				   + "WHERE policyId=?";
 
@@ -127,6 +126,7 @@ public class PolicyDAO {
 		String sql = "SELECT count(*) " 
 				   + "FROM Policy " 
 				   + "WHERE policyId=?";
+		
 		jdbcUtil.setSqlAndParameters(sql, new Object[] { policyId });
 
 		try {
@@ -144,7 +144,7 @@ public class PolicyDAO {
 	}
 
 	public List<Policy> searchPolicyList(String category, int income, String local, int startAge, int endAge,
-			int currentPage, int countPerPage) throws SQLException {
+		int currentPage, int countPerPage) throws SQLException {
 		String sql = "SELECT policyId, name, category, policySummary " 
 			       + "FROM Policy "
 				   + "WHERE category=?, income=?, local=?, startAge=?, endAge=? " 

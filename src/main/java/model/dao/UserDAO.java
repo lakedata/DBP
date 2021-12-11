@@ -75,7 +75,7 @@ public class UserDAO {
 	public User findUser(String userId) throws SQLException {
         String sql = "SELECT password, name, email, to_char(birth, 'YYYY-MM-DD') as birth, phoneNumber "
         			+ "FROM User1 "
-        			+ "WHERE user_Id=? ";              
+        			+ "WHERE user_Id=? ";        
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});
 
 		try {
