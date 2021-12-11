@@ -41,7 +41,7 @@ public class CreateReplyController implements Controller {
 			
 //			return "/post/postDetail.jsp";
 //			return "redirect:/post/view?postNum=" + postNum;
-			return "redirect:/post/reply/list?postNum=" +postNum;
+			return "redirect:/post/view?postNum=" +postNum;
 //			return "post/postReply.jsp";
 //			return "post/postList.jsp";
 			

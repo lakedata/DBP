@@ -53,7 +53,7 @@ public class RequestMapping {
         
         //comment
 		mappings.put("/post/reply/add", new CreateReplyController());
-		mappings.put("/post/reply/list", new ListReplyController());
+//		mappings.put("/post/reply/list", new ListReplyController());
         
         //post
         mappings.put("/post/write", new ForwardController("/post/postWrite.jsp"));
@@ -76,8 +76,6 @@ public class RequestMapping {
         
         //main page
         mappings.put("/main", new ForwardController("/home/main.jsp"));
-        
-        
         
         logger.info("Initialized Request Mapping!");
     }
