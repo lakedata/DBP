@@ -157,7 +157,7 @@ button:hover {
 
 	<br><br>
 	<div>
-		<button onclick="location.href='/test2/policy/search' ">+ Add</button>
+		<button onclick="location.href='/policy/search' ">+ Add</button>
 	</div>
 </body>
 </html>

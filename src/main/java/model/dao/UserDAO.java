@@ -13,7 +13,7 @@ public class UserDAO {
 	}
 		
 	public int create(User user) throws SQLException {
-		String sql = "INSERT INTO USER1 VALUES (?, ?, ?, ?, TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'), ?)";		
+		String sql = "INSERT INTO USER1 VALUES (?, ?, ?, ?, ?, ?)";		
 		Object[] param = new Object[] {user.getUserId(), user.getName(), 
 				user.getEmail(), user.getPassword(), user.getBirth(), user.getPhoneNumber() };
 		jdbcUtil.setSqlAndParameters(sql, param);	
@@ -73,9 +73,9 @@ public class UserDAO {
 	}
 
 	public User findUser(String userId) throws SQLException {
-        String sql = "SELECT password, name, email, birth, phoneNumber "
+        String sql = "SELECT password, name, email, to_char(birth, 'YYYY-MM-DD') as birth, phoneNumber "
         			+ "FROM User1 "
-        			+ "WHERE user_Id=? ";              
+        			+ "WHERE user_Id=? ";        
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});
 
 		try {

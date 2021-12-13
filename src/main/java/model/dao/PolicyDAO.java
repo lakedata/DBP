@@ -29,7 +29,7 @@ public class PolicyDAO {
 		int generatedKey;
 
 		String sql = "INSERT INTO Policy VALUES (policyIdSeq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
+		
 		Object[] param = new Object[] { pol.getName(), pol.getStartAge(), pol.getContents(), pol.getCategory(),
 				pol.getLocal(), pol.getPolicySummary(), pol.getQualificationForApplication(),pol.getHowToApply(),
 				pol.getStartDate(), pol.getIncome(), pol.getEndAge(), pol.getEndDate(), 'n' };
@@ -110,7 +110,6 @@ public class PolicyDAO {
 
 	/* policy �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� */
 	public int deletePolicy(int policyId) throws SQLException {
-
 		String sql = "DELETE FROM Policy " 
 				   + "WHERE policyId=?";
 
@@ -133,6 +132,7 @@ public class PolicyDAO {
 		String sql = "SELECT count(*) " 
 				   + "FROM Policy " 
 				   + "WHERE policyId=?";
+		
 		jdbcUtil.setSqlAndParameters(sql, new Object[] { policyId });
 
 		try {
@@ -152,7 +152,7 @@ public class PolicyDAO {
 	public List<Policy> searchPolicyList(String category, int income, String local, int startAge, int endAge,int currentPage, int countPerPage) throws SQLException {
 	
 		logger.debug("in PolicyDAO, searchPolicyList");
-		
+
 		String sql = "SELECT policyId, name, category, policySummary " 
 			       + "FROM Policy "
 				   + "WHERE category=? AND income=? AND local=? AND startAge=? AND endAge=? " 
@@ -218,7 +218,7 @@ public class PolicyDAO {
 	}
 
 	public Policy findPolicy(int policyId) throws SQLException {
-		String sql = "SELECT * " 
+		String sql = "SELECT name, contents, category, to_char(startDate, 'YYYY-MM-DD') as startDate, to_char(endDate, 'YYYY-MM-DD') as endDate, policySummary, qualificationForApplication, howToApply, local, startAge, endAge, income, scrap "
 				   + "FROM Policy " 
 				   + "WHERE policyId=? ";
 
@@ -229,7 +229,7 @@ public class PolicyDAO {
 			ResultSet rs = jdbcUtil.executeQuery();
 
 			if (rs.next()) {
-				pol = new Policy(rs.getInt("policyId"), 
+				pol = new Policy(policyId, 
 						rs.getString("name"), 
 						rs.getString("contents"),
 						rs.getString("category"), 
