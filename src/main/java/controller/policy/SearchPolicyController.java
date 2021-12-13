@@ -16,6 +16,8 @@ public class SearchPolicyController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		System.out.println("in SearchPolicyController\n");
+		
 		if (request.getMethod().equals("GET")) {	
 			PolicyManager polMan = PolicyManager.getInstance();
 			List<Policy> findPolList = polMan.findPolicyList();
@@ -24,13 +26,19 @@ public class SearchPolicyController implements Controller {
 			return "/policy/policySearch.jsp";   
 	    }
 		
+		System.out.println("POST\n");
 		PolicyManager polMan = PolicyManager.getInstance();
+		System.out.println("get PolicyManager\n");
 		
-		String category = request.getParameter("category");
+		
+		String category = request.getParameter("contents");
 		int income = Integer.parseInt(request.getParameter("income"));
 		String local = request.getParameter("local");
-		int startAge = Integer.parseInt(request.getParameter("startAge"));
-		int endAge = Integer.parseInt(request.getParameter("endAge"));
+		int startAge = Integer.parseInt(request.getParameter("age"));
+//		int endAge = Integer.parseInt(request.getParameter("endAge"));
+		int endAge = 100;
+		
+		System.out.println("정책유형: " +category+ "\n소득분위: " +income+ "\n거주지역: " +local+ "\n나이: " +startAge+ "\n");
 		
     	String currentPageStr = request.getParameter("currentPage");	
 		int currentPage = 1;
@@ -38,9 +46,11 @@ public class SearchPolicyController implements Controller {
 			currentPage = Integer.parseInt(currentPageStr);
 		}		
 		
+		System.out.println("page setting\n");
+		
 		List<Policy> searchPolList = polMan.searchPolicyList(category, income, local, startAge, endAge, currentPage, countPerPage);
 		
-		System.out.println("-----test-----\n " + category); //test
+		System.out.println("find list: " +searchPolList+ "\n");
 		
 		request.setAttribute("searchPolList", searchPolList);
 		//return "/policy/policySearch.jsp";

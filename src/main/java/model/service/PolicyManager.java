@@ -12,7 +12,7 @@ import model.Policy;
 
 public class PolicyManager {
 	
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	private static final Logger logger = LoggerFactory.getLogger(PolicyManager.class);
 	
 	private static PolicyManager polMan = new PolicyManager();
 	private PolicyDAO polDAO;
@@ -61,7 +61,7 @@ public class PolicyManager {
 	
 	/* 정책 조건 검색 */
 	public List<Policy> searchPolicyList(String category, int income, String local, int startAge, int endAge, int currentPage, int countPerPage) throws SQLException {
-		
+		logger.debug("in manager, searchPolicyList- " +category+ ", " +endAge);
 		return polDAO.searchPolicyList(category, income, local, startAge, endAge, currentPage, countPerPage);
 	}
 	

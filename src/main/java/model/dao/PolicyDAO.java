@@ -8,9 +8,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import controller.user.LoginController;
 import model.Policy;
 
 public class PolicyDAO {
+	
+	private static final Logger logger = LoggerFactory.getLogger(PolicyDAO.class);
 
 	private JDBCUtil jdbcUtil = null;
 
@@ -143,11 +149,13 @@ public class PolicyDAO {
 		return false;
 	}
 
-	public List<Policy> searchPolicyList(String category, int income, String local, int startAge, int endAge,
-			int currentPage, int countPerPage) throws SQLException {
+	public List<Policy> searchPolicyList(String category, int income, String local, int startAge, int endAge,int currentPage, int countPerPage) throws SQLException {
+	
+		logger.debug("in PolicyDAO, searchPolicyList");
+		
 		String sql = "SELECT policyId, name, category, policySummary " 
 			       + "FROM Policy "
-				   + "WHERE category=?, income=?, local=?, startAge=?, endAge=? " 
+				   + "WHERE category=? AND income=? AND local=? AND startAge=? AND endAge=? " 
 			       + "ORDER BY policyId";
 
 		Object[] param = new Object[] { category, income, local, startAge, endAge };
@@ -155,6 +163,7 @@ public class PolicyDAO {
 
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();
+			logger.debug("executeQuery");
 
 			int start = ((currentPage - 1) * countPerPage) + 1;
 
@@ -166,6 +175,9 @@ public class PolicyDAO {
 							rs.getString("name"), 
 							rs.getString("category"),
 							rs.getString("policySummary"));
+					
+					logger.debug("name: "+ rs.getString("name"));
+					
 					polList.add(pol);
 				} while ((rs.next()) && (--countPerPage > 0));
 				return polList;
