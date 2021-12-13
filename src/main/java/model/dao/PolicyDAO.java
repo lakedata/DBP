@@ -152,7 +152,8 @@ public class PolicyDAO {
 	public List<Policy> searchPolicyList(String category, int income, String local, int startAge, int endAge,int currentPage, int countPerPage) throws SQLException {
 	
 		logger.debug("in PolicyDAO, searchPolicyList");
-
+		logger.debug(category+ "," +income+ ", " +local+ ", " +startAge+ ", " + endAge+ ", " + currentPage+ ", " + countPerPage);
+		
 		String sql = "SELECT policyId, name, category, policySummary " 
 			       + "FROM Policy "
 				   + "WHERE category=? AND income=? AND local=? AND startAge=? AND endAge=? " 
@@ -160,26 +161,30 @@ public class PolicyDAO {
 
 		Object[] param = new Object[] { category, income, local, startAge, endAge };
 		jdbcUtil.setSqlAndParameters(sql, param, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-
+		
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();
-			logger.debug("executeQuery");
-
+			
 			int start = ((currentPage - 1) * countPerPage) + 1;
-
-			if ((start >= 0) && rs.absolute(start)) {
+			
+//			if ((start >= 0) && rs.absolute(start)) {
+			if ((start >= 0)) {
+				logger.debug("in if");
 				List<Policy> polList = new ArrayList<Policy>();
+				
+//				logger.debug("start: " +start+ ", rs: " +rs);
 
-				do {
+				 while ((rs.next()) && (--countPerPage > 0)) {
+					logger.debug("name: "+ rs.getString("name"));
+					
 					Policy pol = new Policy(rs.getInt("policyId"), 
 							rs.getString("name"), 
 							rs.getString("category"),
 							rs.getString("policySummary"));
 					
-					logger.debug("name: "+ rs.getString("name"));
-					
 					polList.add(pol);
-				} while ((rs.next()) && (--countPerPage > 0));
+				}
+				
 				return polList;
 			}
 		} catch (Exception e) {

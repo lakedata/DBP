@@ -26,9 +26,9 @@ public class SearchPolicyController implements Controller {
 			return "/policy/policySearch.jsp";   
 	    }
 		
-		System.out.println("POST\n");
+		System.out.println("POST");
 		PolicyManager polMan = PolicyManager.getInstance();
-		System.out.println("get PolicyManager\n");
+		System.out.println("get PolicyManager");
 		
 		
 		String category = request.getParameter("contents");
@@ -36,7 +36,7 @@ public class SearchPolicyController implements Controller {
 		String local = request.getParameter("local");
 		int startAge = Integer.parseInt(request.getParameter("age"));
 //		int endAge = Integer.parseInt(request.getParameter("endAge"));
-		int endAge = 100;
+		int endAge = 30;
 		
 		System.out.println("정책유형: " +category+ "\n소득분위: " +income+ "\n거주지역: " +local+ "\n나이: " +startAge+ "\n");
 		
@@ -45,8 +45,6 @@ public class SearchPolicyController implements Controller {
 		if (currentPageStr != null && !currentPageStr.equals("")) {
 			currentPage = Integer.parseInt(currentPageStr);
 		}		
-		
-		System.out.println("page setting\n");
 		
 		List<Policy> searchPolList = polMan.searchPolicyList(category, income, local, startAge, endAge, currentPage, countPerPage);
 		
