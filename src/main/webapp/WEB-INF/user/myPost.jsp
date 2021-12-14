@@ -7,24 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>내가 쓴 글</title>
-<style>
-
-	table {
-			border: 1px solid lightgray;
-			border-collapse: collapse;
-			padding: 10px;
-			margin-top: 80px;
-			margin: 100px auto;
-			width: 70%; 
-			align: center;
-		}
-	th, td {
-    		border: 1px solid #EDEDED;
-    		padding: 5px;
- 
-  		}
-  		
-</style>
+<!--  userTable 스타일시트 -->
+<link rel="stylesheet"
+	href="<c:url value='/css/user/userTable.css' />" type="text/css">
 </head>
 <body>
 	<%

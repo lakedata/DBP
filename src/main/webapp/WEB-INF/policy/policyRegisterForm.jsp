@@ -8,61 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <title>정책등록</title>
-<style>
-      .container {
-         width: 450px;
-         line-height: 50px;
-         margin: 50px auto;
-         margin-bottom: 100px;
-      }
-
-      h5 {
-         text-align: center;
-      }
-      
-      h5 span {
-         color: teal;
-      }
-      
-      
-       input {
-          width: 300px;
-          height: 30px;
-          border-radius: 5px;
-          border: 1px solid lightgray;
-       }    
-       button {
-          width: 100px;
-          height: 90x;
-          padding: 10px;
-         border: none;
-         border-radius: 25px;
-       }
-       button:hover {
-          background-color: #8080FF;
-          color: white;
-       }
-   
-   
-      #tableStyle {
-         margin: auto;
-         text-align: center;
-      }
-      td {
-         height: 50px;
-         width: 100px;
-      }
-      
-      #textStyle{
-         text-align: left;
-         font-size: 15px;
-
-      }
-      #age, #date {
-         width: 120px;
-      }
-
-</style>
+<!-- policyForm 스타일시트 -->
+<link rel="stylesheet"
+	href="<c:url value='/css/policy/policyForm.css' />" type="text/css">
 <script>
 
    function policyCreate(targetUri) {

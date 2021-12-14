@@ -6,32 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style>
-
-		.container {
-			width: 385px;
-			line-height: 50px;
-			margin: 50px auto;
-			margin-bottom: 100px;
-		}
-
-		h5 {
-			text-align: center;
-		}
-		
-		h5 span {
-			color: teal;
-		}
-		input {
-			border: 1px solid lightgray;
-			border-radius: 3px;
-			
-			width: 250px;
-			height: 30px;
-		}
-		
-
-</style>
+<!--  userForm 스타일시트 -->
+<link rel="stylesheet"
+	href="<c:url value='/css/user/userForm.css' />" type="text/css">
 <script>
 function userCreate(targetUri) {
 	form.action = targetUri;

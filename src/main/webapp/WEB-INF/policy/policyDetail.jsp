@@ -10,30 +10,9 @@ int arr[] = null;
 <head>
 <meta charset="UTF-8">
 <title>정책 상세보기</title>
-<style>
-#detail {
-	padding-left: 150px;
-	width: 80%;
-}
-
-table {
-	border: 1px solid lightgray;
-	border-collapse: collapse;
-	padding: 10px;
-	width: 90%;
-}
-
-th, td {
-	border: 1px solid #EDEDED;
-	padding: 5px;
-}
-
-th {
-	background-color: #F5F5F5;
-	width: 90px;
-	font-weight: normal;
-}
-</style>
+<!--  policyDetail 스타일시트 -->
+<link rel="stylesheet"
+	href="<c:url value='/css/policy/policyDetail.css' />" type="text/css">
 </head>
 <script>
 	function scarpCreate() {
@@ -67,9 +46,7 @@ th {
 	<!-- 상세보기 -->
 	<div id="detail">
 		<h3>${policy.name}</h3>
-		${policy.contents} <br>
-		<br> <b>지원대상</b><br>
-		<br>
+		${policy.contents} <br> <br> <b>지원대상</b><br> <br>
 		<table>
 			<tr>
 				<th>자격 요건</th>
@@ -81,19 +58,18 @@ th {
 			</tr>
 			<tr>
 				<th>나이</th>
-				<td>${policy.startAge}- ${policy.endAge}</td>
+				<td>${policy.startAge}-${policy.endAge}</td>
 			</tr>
 			<tr>
 				<th>소득분위</th>
-				<td>${policy.income} 분위 이하</td>
+				<td>${policy.income}분위 이하</td>
 			</tr>
 		</table>
-		<br> <b>신청 방법</b><br>
-		<br>
+		<br> <b>신청 방법</b><br> <br>
 		<table>
 			<tr>
 				<th>지원기간</th>
-				<td>${policy.startDate}- ${policy.endDate}</td>
+				<td>${policy.startDate}-${policy.endDate}</td>
 			</tr>
 			<tr>
 				<th>지원방법</th>
