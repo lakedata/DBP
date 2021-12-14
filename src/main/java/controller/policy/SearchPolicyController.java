@@ -11,7 +11,7 @@ import model.service.PolicyManager;
 
 public class SearchPolicyController implements Controller {
 	
-	private static final int countPerPage = 10;	// 한 화면에 출력할 사용자 수
+	private static final int countPerPage = 10;	// 한 화면에 출력할 정책 수
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -36,7 +36,7 @@ public class SearchPolicyController implements Controller {
 		String local = request.getParameter("local");
 		int startAge = Integer.parseInt(request.getParameter("age"));
 //		int endAge = Integer.parseInt(request.getParameter("endAge"));
-		int endAge = 30;
+		int endAge = startAge;
 		
 		System.out.println("정책유형: " +category+ "\n소득분위: " +income+ "\n거주지역: " +local+ "\n나이: " +startAge+ "\n");
 		

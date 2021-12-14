@@ -154,12 +154,25 @@ public class PolicyDAO {
 		logger.debug("in PolicyDAO, searchPolicyList");
 		logger.debug(category+ "," +income+ ", " +local+ ", " +startAge+ ", " + endAge+ ", " + currentPage+ ", " + countPerPage);
 		
-		String sql = "SELECT policyId, name, category, policySummary " 
-			       + "FROM Policy "
-				   + "WHERE category=? AND income=? AND local=? AND startAge=? AND endAge=? " 
-			       + "ORDER BY policyId";
+		String sql = null;
+		Object[] param;
+		String q = "SELECT policyId, name, category, policySummary " 
+			       + "FROM Policy ";
+		
+		if(local.equals("전국")) {
+			sql = q + "WHERE category=? AND income<=? AND startAge<=? AND endAge>=? " 
+						   + "ORDER BY policyId";
 
-		Object[] param = new Object[] { category, income, local, startAge, endAge };
+			param = new Object[] { category, income, startAge, endAge };
+		}
+		else {
+			sql = q + "WHERE category=? AND income<=? AND local=? AND startAge<=? AND endAge>=? " 
+			       	   + "ORDER BY policyId";
+
+			param = new Object[] { category, income, local, startAge, endAge };
+		
+		}
+		
 		jdbcUtil.setSqlAndParameters(sql, param, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		
 		try {
