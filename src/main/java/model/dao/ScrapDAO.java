@@ -17,7 +17,7 @@ public class ScrapDAO {
 		jdbcUtil = new JDBCUtil();	
 	}
 	
-	/* Á¤Ã¥ ½ºÅ©·¦ÇÏ±â */
+	/* ï¿½ï¿½Ã¥ ï¿½ï¿½Å©ï¿½ï¿½ï¿½Ï±ï¿½ */
 	public Scrap addScrap(Scrap sc) {
 		int generatedKey;
 		Scrap scrap = null;
@@ -49,12 +49,12 @@ public class ScrapDAO {
 		return null;
 	}
 	
-	public int cancelScrap(String user_Id) throws SQLException {
+	public int cancelScrap(String user_Id, int policyId) throws SQLException {
 		
 		String sql = "DELETE Scrap "
-				   + "WHERE user_Id=?";
+				   + "WHERE user_Id=? AND policyId=?";
 		
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {user_Id});
+		jdbcUtil.setSqlAndParameters(sql, new Object[] {user_Id, policyId});
 		
 		try {
 			int result = jdbcUtil.executeUpdate();
@@ -70,7 +70,7 @@ public class ScrapDAO {
 		return 0;
 	}
 	
-	/* »ç¿ëÀÚ°¡ ½ºÅ©·¦ÇÑ Á¤Ã¥ ¸®½ºÆ® ºÒ·¯¿À±â */
+	/* ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	public List<Scrap> getScrapList(String user_Id) throws SQLException {
 		
 		String sql = "SELECT s.policyId, s.user_id, p.name, p.category "

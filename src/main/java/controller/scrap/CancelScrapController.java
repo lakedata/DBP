@@ -19,7 +19,7 @@ public class CancelScrapController implements Controller {
 		try {
 			ScrapManager scMan = ScrapManager.getInstance();
 			
-			scMan.cancel(userId);
+			scMan.cancel(userId, policyId);
 			
 			//return "redirection:/policy/view"; //mypage?
 			return "redirect:/policy/view?policyId=" + policyId;

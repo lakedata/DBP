@@ -37,22 +37,22 @@ int arr[] = null;
 	</style>
 	</head>
 	<script>
-	function chkDelete(id) {
-	//  삭제 여부 확인
-	   var r = confirm("삭제하시겠습니까?");
-	   
-	   if (r) {
-	      location.href = "deleteOk.jsp?uid=" + id;
-	   }
-	}
-	
 	function scarpCreate() {
 		
 		alert("스크랩되었습니다");
 		form.submit();	
 		
 	}
-
+	
+	function scarpCancel() {
+		//  삭제 여부 확인
+		   var r = confirm("삭제하시겠습니까?");
+		   
+		   if (r) {
+			   alert("스크랩 취소되었습니다");
+				form.submit();	
+		   }
+		}
 	</script>
 	<body>
 	
@@ -130,10 +130,15 @@ int arr[] = null;
 				<!-- 스크랩취소 -->
 				<a href="<c:url value="/policy/scrap/cancel">
 	            	<c:param name="policyId" value="${policy.policyId}" />
-	            </c:url>" style="text-decoration-line : none;">스크랩취소</a> 
+	            </c:url>" >
+	            	<input type="button"  value="스크랩취소" onClick="scarpCancel()" > 
+	            </a> 
+				
+				<!-- 스크랩취소 
+				<form name="form" method="POST" action="<c:url value="/policy/scrap/cancel" > <c:param name="policyId" value="${policy.policyId}" />  </c:url>">
+	            	<input type="button"  value="스크랩취소" onClick="scarpCancel()"  > 
+	            </form>-->
 	
-				 
-				 
          	</c:when>           
          </c:choose>
          </div>
