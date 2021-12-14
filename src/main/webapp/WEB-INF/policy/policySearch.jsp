@@ -100,11 +100,11 @@ function uncheck(){
 		<table>
 		<tr>
 			<th><b>정책유형</b></th>
-			<td><input type="checkbox" name="contents" value="취업지원">취업지원
-			<input type="checkbox" name="contents" value="창업지원">창업지원
-			<input type="checkbox" name="contents" value="주거금융">주거금융
-			<input type="checkbox" name="contents" value="생활복지">생활복지
-			<input type="checkbox" name="contents" value="정책참여">정책참여</td>
+			<td><input type="radio" name="contents" value="취업지원">취업지원
+			<input type=radio name="contents" value="창업지원">창업지원
+			<input type="radio" name="contents" value="주거금융">주거금융
+			<input type="radio" name="contents" value="생활복지">생활복지
+			<input type="radio" name="contents" value="정책참여">정책참여</td>
 		</tr>
 		<tr>
 			<th><b>소득분위</b></th>
@@ -120,15 +120,15 @@ function uncheck(){
 		<tr>
 			<th><b>거주지역</b></th>
 			<td>
-				<input type="checkbox" name="local" value="전국">전국
-				<input type="checkbox" name="local" value="서울">서울
-				<input type="checkbox" name="local" value="경기도">경기도
-				<input type="checkbox" name="local" value="인천">인천
-				<input type="checkbox" name="local" value="전라도">전라도
-				<input type="checkbox" name="local" value="경상도">경상도
-				<input type="checkbox" name="local" value="강원도">강원도
-				<input type="checkbox" name="local" value="충청도">충청도
-				<input type="checkbox" name="local" value="제주도">제주도
+				<input type="radio" name="local" value="전국">전국
+				<input type="radio" name="local" value="서울">서울
+				<input type="radio" name="local" value="경기도">경기도
+				<input type="radio" name="local" value="인천">인천
+				<input type="radio" name="local" value="전라도">전라도
+				<input type="radio" name="local" value="경상도">경상도
+				<input type="radio" name="local" value="강원도">강원도
+				<input type="radio" name="local" value="충청도">충청도
+				<input type="radio" name="local" value="제주도">제주도
 			</td>
 		</tr>
 		
