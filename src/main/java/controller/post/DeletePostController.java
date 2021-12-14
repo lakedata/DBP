@@ -7,6 +7,7 @@ import controller.Controller;
 import model.service.PostManager;
 
 public class DeletePostController  implements Controller {
+	//a
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
