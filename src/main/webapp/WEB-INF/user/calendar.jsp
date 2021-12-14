@@ -159,6 +159,10 @@
 	             && i == date.getDate()) {
 	            cell.bgColor = "#D2D2FF";
 	           }
+	          
+	          /* 정책 일정 */
+	          
+	          
          }
     }
 </script>

@@ -104,4 +104,25 @@ import java.sql.SQLException;
 		
 	}
 
+	/* ¥Ò±€ ªË¡¶  */
+	public int deleteReply(int replyNum) throws SQLException {
+		String sql = "DELETE FROM Reply " 
+				   + "WHERE replyNum=?";
+
+		jdbcUtil.setSqlAndParameters(sql, new Object[] { replyNum });
+
+		try {
+			int result = jdbcUtil.executeUpdate();
+			return result;
+		} catch (Exception e) {
+			jdbcUtil.rollback();
+			e.printStackTrace();
+		} finally {
+			jdbcUtil.commit();
+			jdbcUtil.close();
+		}
+		return 0;
+	}
+	
+	
 }

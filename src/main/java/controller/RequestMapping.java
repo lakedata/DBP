@@ -54,15 +54,16 @@ public class RequestMapping {
         //comment
 		mappings.put("/post/reply/add", new CreateReplyController());
 //		mappings.put("/post/reply/list", new ListReplyController());
-        
+		mappings.put("/post/reply/delete", new DeleteReplyController());
+		
         //post
         mappings.put("/post/write", new ForwardController("/post/postWrite.jsp"));
         
         mappings.put("/post/add", new AddPostController());
         mappings.put("/post/list", new ListPostController());
         mappings.put("/post/view", new ViewPostController()); 
-        mappings.put("/post/delete", new DeletePostController());
-        mappings.put("/post/update", new UpdatePostController());
+        mappings.put("/post/delete", new DeletePostController()); 
+        mappings.put("/post/update", new UpdatePostController()); 
         
         //mypage
         mappings.put("/mypage", new ForwardController("/user/mypage.jsp")); 

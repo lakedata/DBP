@@ -38,6 +38,10 @@ public class ReplyManager {
 		
 	}
 	
+	public int delete (int replyNum) throws SQLException {
+		return replyDAO.deleteReply(replyNum);
+	}
+	
 	public List<Reply> findReplyList(int postNum) throws SQLException {
 		
 		logger.debug("in ReplyManager, findReplyList " );
