@@ -23,14 +23,14 @@ DROP TABLE User1 CASCADE CONSTRAINTS PURGE;
 CREATE TABLE Policy
 (
 	policyId             INTEGER NOT NULL ,
-	name                 VARCHAR2(18) NULL ,
+	name                 VARCHAR2(50) NULL ,
 	startAge             INTEGER NULL ,
 	contents             VARCHAR2(1000) NULL ,
 	category             VARCHAR2(18) NULL ,
 	local                VARCHAR2(18) NULL ,
-	policySummary        VARCHAR2(18) NULL ,
-	qualificationForApplication VARCHAR2(18) NULL ,
-	howToApply           VARCHAR2(18) NULL ,
+	policySummary        VARCHAR2(100) NULL ,
+	qualificationForApplication VARCHAR2(100) NULL ,
+	howToApply           VARCHAR2(100) NULL ,
 	startDate            DATE NULL ,
 	income               INTEGER NULL ,
 	endAge               INTEGER NULL ,
@@ -62,10 +62,10 @@ ALTER TABLE Post
 
 CREATE TABLE Reply
 (
-	agree                CHAR(1) NULL ,
+	agree                INTEGER NULL ,
 	replyContent         VARCHAR2(100) NULL ,
 	postNum              INTEGER NOT NULL ,
-	disagree             CHAR(1) NULL ,
+	disagree             INTEGER NULL ,
 	replyNum             INTEGER NOT NULL 
 );
 
@@ -117,7 +117,6 @@ ALTER TABLE Scrap
 
 ALTER TABLE Scrap
 	ADD (CONSTRAINT R_5 FOREIGN KEY (user_Id) REFERENCES User1 (user_Id));
-
 
 INSERT INTO User1 VALUES ('dbpro0102', '°ü¸®ÀÚ', null, 'dbpro0102', null, null);
 
