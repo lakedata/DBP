@@ -94,8 +94,8 @@ int arr[] = null;
 				</c:when>
 				<c:when test="${userId!='dbpro0102'}">
 
+
 					<!-- 스크랩하기 -->
-					<!-- scrap 데이터에 넣기 -->
 					<form name="form" method="POST"
 						action="<c:url value='/policy/scrap/add' />">
 						<input type="text" name="userId" size=20 value="${userId}"
