@@ -10,10 +10,10 @@ import model.dao.PolicyDAO;
 import model.dao.ScrapDAO;
 
 public class ScrapManager {
-	
+
 	private static ScrapManager scMan = new ScrapManager();
 	private ScrapDAO scrapDAO;
-	
+
 	private ScrapManager() {
 		try {
 			scrapDAO = new ScrapDAO();
@@ -21,20 +21,31 @@ public class ScrapManager {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static ScrapManager getInstance() {
 		return scMan;
 	}
 
-	// ½ºÅ©·¦ Ãß°¡
+	// ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ß°ï¿½
 	public Scrap add(Scrap scrap) throws SQLException {
 		return scrapDAO.addScrap(scrap);
 	}
-	
-	// ½ºÅ©·¦ Ãë¼Ò
-	public int cancel(String userId) throws SQLException {
-		return scrapDAO.cancelScrap(userId);
+
+	// ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½
+	public int cancel(String userId, int policyId) throws SQLException {
+		return scrapDAO.cancelScrap(userId, policyId);
+	}
+
+	// ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public List<Scrap> getScrapList(String userId) throws SQLException {
+		return scrapDAO.getScrapList(userId);
 	}
 	
-
+	   // ì‚¬ìš©ìê°€ ìŠ¤í¬ë©í•œ ë¦¬ìŠ¤íŠ¸ ê°€ì ¸ì˜¤ê¸°
+	   public List<Scrap> getScrapDateList(String userId) throws SQLException {
+	      return scrapDAO.getScrapDateList(userId);
+	   }
+	   
+	   
+	   
 }

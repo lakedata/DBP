@@ -6,44 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-    <style>
-		.container {
-			width: 385px;
-			line-height: 50px;
-			margin: 100px auto;
-			margin-bottom: 100px;
-		}
-		
-		h5 {
-			text-align: center;
-		}
-		
-		h5 span {
-			color: teal;
-		}
-		
-		.login {
-			background-color: #BBDEFB;
-			color: white;
-			border-radius: 5px;
-			border: 0;
-			padding: 10px 172px;
-		}
-	
-		
-		p {
-			text-align: center;
-		}
-		 
-		i {
-			color: lightgray;
-		}
-		  
-		input {
-			border: 1px solid lightgray;
-			border-radius: 3px;
-		}
-</style>
+<!--  loginForm 스타일시트 -->
+<link rel="stylesheet"
+	href="<c:url value='/css/user/loginForm.css' />" type="text/css">
 </head>
 <body>
 <!-- header -->

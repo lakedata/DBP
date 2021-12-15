@@ -14,26 +14,9 @@
 <head>
 <meta charset="UTF-8">
 <title>글 작성</title>
-<style>
-	.inputStyle {
-		border: none;
-		width: 90px;
-		height: 30px;
-		border-radius: 20px;
-	}
-	
-	.inputStyle:hover {
-		background: lightgray;
-		
-	}
-	
-	.btn-div{
-		 	display: flex;
-  			justify-content: center;
-  			margin: 30px;
-		}
-
-</style>
+<!--  postWrite 스타일시트 -->
+<link rel="stylesheet"
+	href="<c:url value='/css/post/postWrite.css' />" type="text/css">
 <script type="text/Javascript">
 	function postWrite() {
 		if (form.title.value == "") {
