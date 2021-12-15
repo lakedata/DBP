@@ -160,13 +160,13 @@ public class PolicyDAO {
 			       + "FROM Policy ";
 		
 		if(local.equals("전국")) {
-			sql = q + "WHERE category=? AND income<=? AND startAge<=? AND endAge>=? " 
+			sql = q + "WHERE category=? AND income>=? AND startAge<=? AND endAge>=? " 
 						   + "ORDER BY policyId";
 
 			param = new Object[] { category, income, startAge, endAge };
 		}
 		else {
-			sql = q + "WHERE category=? AND income<=? AND local=? AND startAge<=? AND endAge>=? " 
+			sql = q + "WHERE category=? AND income>=? AND local=? AND startAge<=? AND endAge>=? " 
 			       	   + "ORDER BY policyId";
 
 			param = new Object[] { category, income, local, startAge, endAge };
