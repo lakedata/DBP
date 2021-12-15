@@ -14,7 +14,7 @@ import controller.DispatcherServlet;
 import model.Scrap;
 import model.service.ScrapManager;
 
-public class ListScrapController implements Controller {
+public class CalendarController implements Controller {
 	 private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
 
 	@Override
@@ -31,12 +31,9 @@ public class ListScrapController implements Controller {
 		scrapDateList = scMan.getScrapDateList(userId);
 		
 		request.setAttribute("scrapDateList", scrapDateList);
-		return "/user/scrap.jsp"; // scrap/list
+		return "/user/calendar.jsp"; // scrap/list
 		
-	//	return "/mypage/scrap/view?userId=" +userId;
-	//	return "redirect:/mypage/scrap/view";
-		
+
 	}
-	
 
 }

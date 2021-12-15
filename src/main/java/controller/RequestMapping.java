@@ -69,7 +69,7 @@ public class RequestMapping {
         mappings.put("/mypage", new ForwardController("/user/mypage.jsp")); 
         mappings.put("/mypage/scrap/view", new ListScrapController());
         mappings.put("/user/view", new ViewUserController());
-        mappings.put("/mypage/calendar/view", new ForwardController("/user/calendar.jsp"));        
+        mappings.put("/mypage/calendar/view", new CalendarController());     
         
         mappings.put("/mypage/myPost", new UserPostListController());
         

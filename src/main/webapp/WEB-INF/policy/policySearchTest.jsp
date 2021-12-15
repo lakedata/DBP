@@ -163,7 +163,7 @@
         <c:forEach var="policy" items="${searchPolList}">
             <tr>
                 <td>
-                    <a href="<c:url value='/policy/view'>
+                    <a style="text-decoration: none;" href="<c:url value='/policy/view'>
                     <c:param name='policyId' value='${policy.policyId}'/>
                     </c:url>">
                     ${policy.name}</a>

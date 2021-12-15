@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="/WEB-INF/home/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,10 +44,57 @@
 	}
 	
 	.contents {
-		margin-top: 130px;
-		 display: flex;
+		margin-bottom: 100px;
+		display: flex;
   		justify-content: center;
 	
+	}
+	/* 툴팁 기본 스타일 설정 시작 */
+	
+	.tooltip {
+	  position: relative;
+	  display: block;
+	}
+	
+	.tooltip .tooltiptext {
+	  visibility: hidden;
+	  width: 120px;
+	  background-color: black;
+	  opacity: 0.5;
+	  color: #fff;
+	  text-align: center;
+	  border-radius: 6px;
+	  padding: 5px 0;
+	
+	  position: absolute;
+	  z-index: 1;
+	}
+	
+	.tooltip:hover .tooltiptext {
+	  visibility: visible;
+	}
+	
+	/* 툴팁 기본 스타일 설정 끝 */
+
+	/* 위쪽 툴팁 시작 */
+
+	.tooltip .tooltip-top {
+	  width: 120px;
+	  bottom: 150%;
+	  left: 50%;
+	  margin-left: -60px;
+	}
+	.tooltip .tooltiptext::after {
+  content: " ";             /* 정사각형 영역 사용 */
+  position: absolute;       /* 절대 위치 사용 */
+  border-style: solid;
+  border-width: 5px;        /* 테두리 넓이를 5px 로 설정 */
+}
+	.tooltip .tooltip-top::after {
+	  top: 100%;
+	  left: 50%;
+	  margin-left: -5px;
+	  border-color: black transparent transparent transparent;
 	}
 	
 </style>
@@ -115,16 +161,17 @@
    			
            <c:forEach var="scrap" items="${scrapDateList}">
 				if(policyDate2 == "${scrap.endDate}"){
-					
-					cell.innerHTML = i + "⭐*";
+					var str = i + "<br>" + "<p style='color: #f29886; font-size: 5px;'>${scrap.name}지원 마감일</p>"
+	
+					cell.innerHTML = str;
 					cnt++;
 					
 					if (cnt % 7 == 0){/*토요일 */
-						cell.innerHTML = "<font color=#0067a3>" + i + "⭐*";
+						cell.innerHTML = "<font color=#0067a3>" + i + " ✔";
 			            row = calendar.insertRow();
 			          }
 					if (cnt % 7 == 1){/*일요일 */
-						cell.innerHTML = "<font color=#FD5E53>" + i + "⭐*";
+						cell.innerHTML = "<font color=#FD5E53>" + i + " ✔";
 			          }
 					
 					 /*오늘 날짜*/
@@ -135,6 +182,31 @@
 			           }
 					 continue;
 					}
+				if(policyDate2 == "${scrap.startDate}"){
+					
+					
+					var str = i + "<br>" + "<p style='color: #0096c6; font-size: 5px;'>${scrap.name}지원 시작일</p>"
+
+					cell.innerHTML = str;
+					cnt++;
+					
+					if (cnt % 7 == 0){/*토요일 */
+						cell.innerHTML = "<font color=#0067a3>" + i + " ✔";
+			            row = calendar.insertRow();
+			          }
+					if (cnt % 7 == 1){/*일요일 */
+						cell.innerHTML = "<font color=#FD5E53>" + i + " ✔";
+			          }
+					
+					 /*오늘 날짜*/
+			          if (today.getFullYear() == date.getFullYear()
+			             && today.getMonth() == date.getMonth()
+			             && i == date.getDate()) {
+			            cell.bgColor = "#ffff00";
+			           }
+					 continue;
+					}
+					
 				else{
 	            	cell.innerHTML = i;            	
 				}
@@ -157,15 +229,10 @@
 	          if (today.getFullYear() == date.getFullYear()
 	             && today.getMonth() == date.getMonth()
 	             && i == date.getDate()) {
-	            cell.bgColor = "#D2D2FF";
+	            cell.bgColor = "#ffff00";
 	            
 	           }
-	          /*test
-	          if(policyDate2 == "2021/12/30"){
-					cell.innerHTML = i + "⭐*";
-	          }
-	          */
-	          
+
          }
     }
 </script>
@@ -173,9 +240,6 @@
 </head>
 <body>
 
-  		<div class="container">
-			<h5><span>내가 스크랩한 정책 일정</span></h5><hr/>
-		</div>
 		<div class="contents">
 		
 			<div class="contents-split">
@@ -208,5 +272,3 @@
 
 
 </html>
-
- <%@ include file="/WEB-INF/home/footer.jsp" %>

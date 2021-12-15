@@ -69,7 +69,9 @@
          <div class="flex fdc">
             <img class="mypage" style="object-fit: fill;"
                src="<c:url value='/images/calendar.jpg'/>">
-            <a href="<c:url value='/mypage/calendar/view'/>">
+             <a href="<c:url value='/mypage/calendar/view'>
+            <c:param name="userId" value="${userId}" />
+	            </c:url>">
             	<span class="font_ml font_bold">정책일정</span>
             </a>
          </div>

@@ -14,10 +14,10 @@
 <body>
 
 <div class="scrap-div">
-
+ <h3 style="margin-top: 100px; margin-bottom: 20px;">스크랩한 정책 </h3>
 
 <c:choose>
-		<c:when test="${empty scrapList}">
+		<c:when test="${empty scrapDateList}">
 		<br><br>
 		<div id="wrapper">
 		<img src="https://ifh.cc/g/eOQkpg.png" class="img-responsive"
@@ -29,8 +29,8 @@
 	</c:choose>
 	
 		<c:choose>
-		<c:when test="${not empty scrapList}">  
-		 <h3 style="margin-top: 100px; margin-bottom: 20px;">스크랩한 정책 </h3>
+		<c:when test="${not empty scrapDateList}">  
+		<jsp:include page="/WEB-INF/user/calendar.jsp" />
 	<table>
       <thead>
       	<tr>
@@ -39,7 +39,7 @@
 		</tr>
       </thead>
       <tbody>  
-		<c:forEach var="scrap" items="${scrapList}">
+		<c:forEach var="scrap" items="${scrapDateList}">
 			<tr>
 			<td style="width: 15%;">
 				${scrap.category} 
