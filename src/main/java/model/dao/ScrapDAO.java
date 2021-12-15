@@ -12,53 +12,52 @@ import model.User;
 public class ScrapDAO {
 
 	private JDBCUtil jdbcUtil = null;
-	
-	public ScrapDAO() {			
-		jdbcUtil = new JDBCUtil();	
+
+	public ScrapDAO() {
+		jdbcUtil = new JDBCUtil();
 	}
-	
-	/* Á¤Ã¥ ½ºÅ©·¦ÇÏ±â */
+
+	/* ï¿½ï¿½Ã¥ ï¿½ï¿½Å©ï¿½ï¿½ï¿½Ï±ï¿½ */
 	public Scrap addScrap(Scrap sc) {
 		int generatedKey;
 		Scrap scrap = null;
-		
+
 		String sql = "INSERT INTO Scrap VALUES (?, ?) ";
 
-		Object[] param = new Object[] {sc.getPolicyId(), sc.getUserId()};
+		Object[] param = new Object[] { sc.getPolicyId(), sc.getUserId() };
 		jdbcUtil.setSqlAndParameters(sql, param);
-		
-		String key[] = {"policyId", "user_Id"};
-		
+
+		String key[] = { "policyId", "user_Id" };
+
 		try {
 			jdbcUtil.executeUpdate();
-			
+
 			ResultSet rs = jdbcUtil.getGeneratedKeys();
-			if(rs.next()) {
+			if (rs.next()) {
 				generatedKey = rs.getInt(1);
 				scrap.setPolicyId(generatedKey);
 			}
-			return scrap;				
-			
+			return scrap;
+
 		} catch (Exception e) {
 			jdbcUtil.rollback();
 			e.printStackTrace();
 		} finally {
 			jdbcUtil.commit();
-			jdbcUtil.close();		
+			jdbcUtil.close();
 		}
 		return null;
 	}
-	
-	public int cancelScrap(String user_Id) throws SQLException {
-		
-		String sql = "DELETE Scrap "
-				   + "WHERE user_Id=?";
-		
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {user_Id});
-		
+
+	public int cancelScrap(String user_Id, int policyId) throws SQLException {
+
+		String sql = "DELETE Scrap " + "WHERE user_Id=? AND policyId=?";
+
+		jdbcUtil.setSqlAndParameters(sql, new Object[] { user_Id, policyId });
+
 		try {
 			int result = jdbcUtil.executeUpdate();
-			
+
 			return result;
 		} catch (Exception e) {
 			jdbcUtil.rollback();
@@ -69,39 +68,33 @@ public class ScrapDAO {
 		}
 		return 0;
 	}
-	
-	/* »ç¿ëÀÚ°¡ ½ºÅ©·¦ÇÑ Á¤Ã¥ ¸®½ºÆ® ºÒ·¯¿À±â */
+
+	/* ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¥ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	public List<Scrap> getScrapList(String user_Id) throws SQLException {
-		
-		String sql = "SELECT s.policyId, s.user_id, p.name, p.category "
-				   + "FROM Scrap s, Policy p "
-				   + "WHERE s.policyId = p.policyId AND user_Id = ? ";
-		
-		jdbcUtil.setSqlAndParameters(sql, new Object[] {user_Id});
-		
+
+		String sql = "SELECT s.policyId, s.user_id, p.name, p.category " + "FROM Scrap s, Policy p "
+				+ "WHERE s.policyId = p.policyId AND user_Id = ? ";
+
+		jdbcUtil.setSqlAndParameters(sql, new Object[] { user_Id });
+
 		try {
-			ResultSet rs = jdbcUtil.executeQuery();					
+			ResultSet rs = jdbcUtil.executeQuery();
 			List<Scrap> scrapList = new ArrayList<Scrap>();
-			
+
 			while (rs.next()) {
-				Scrap scrap = new Scrap (	
-						rs.getString("user_Id"),
-						rs.getInt("policyId"),
-						rs.getString("name"), 
-						rs.getString("category")
-						);
-				scrapList.add(scrap);				
-			}		
-			return scrapList;		
-			
-		} catch (Exception e){
+				Scrap scrap = new Scrap(rs.getString("user_Id"), rs.getInt("policyId"), rs.getString("name"),
+						rs.getString("category"));
+				scrapList.add(scrap);
+			}
+			return scrapList;
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			jdbcUtil.close();		
+			jdbcUtil.close();
 		}
-		
+
 		return null;
 	}
 
-	
 }

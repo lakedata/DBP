@@ -98,7 +98,7 @@ public class PostDAO {
 	}
 	
 	public Post findPost(int postNum) throws SQLException {
-        String sql = "SELECT postNum, policyId, user_Id, title, writeDate, content "
+        String sql = "SELECT postNum, policyId, user_Id, title, to_char(writeDate, 'YYYY-MM-DD') as writeDate, content "
                  + "FROM Post "
                  + "WHERE postNum=? ";   
         
@@ -130,7 +130,7 @@ public class PostDAO {
 
 	public List<Post> findPostList() throws SQLException {
 		
-        String sql = "SELECT postNum, policyId, user_Id, title, writeDate, content "
+        String sql = "SELECT postNum, policyId, user_Id, title, to_char(writeDate, 'YYYY-MM-DD') as writeDate, content "
      		   + "FROM Post "
      		   + "ORDER BY postNum";   
         
@@ -162,7 +162,7 @@ public class PostDAO {
 	/* myPost  */
 	public List<Post> findMyPostList(String userId) throws SQLException {
 		
-        String sql = "SELECT postNum, policyId, user_Id, title, writeDate, content "
+        String sql = "SELECT postNum, policyId, user_Id, title, to_char(writeDate, 'YYYY-MM-DD') as writeDate, content "
      		   + "FROM Post "
         	   + "WHERE user_Id = ? "
      		   + "ORDER BY postNum";   

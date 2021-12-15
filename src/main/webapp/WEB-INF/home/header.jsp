@@ -6,46 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
-<style>
 
-   ul {
-       list-style-type: none;
-       margin: 0;
-       padding: 0;
-       background-color: #333;
-   }
-   ul:after{
-       content:'';
-       display: block;
-       clear:both;
-   }
-   li {
-       float: left;
-   }
-   li a {
-       display: block;
-       color: white;
-       text-align: center;
-       padding: 14px 16px;
-       text-decoration: none;
-   }
-   li a:hover:not(.active) {
-       background-color: #111;
-   }
-   .active {
-       background-color: #8080FF;
-   }
-   #board, #bList, #pageForm {
-               text-align :center;
-   }
-   
-   .nav-left {
-       background-color: #333;
-      float: right;
-      
-   }
-
-</style>
+<!--  header 스타일시트 -->
+<link rel="stylesheet" href="<c:url value='/css/home/header.css' />"
+	type="text/css">
+	
 </head>
 <body>
 <%
