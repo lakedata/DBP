@@ -1,17 +1,30 @@
 @charset "UTF-8";
 
-table {
+
+ .aStyle:link { color: red; text-decoration: none;}
+ .aStyle:visited { color: black; text-decoration: none;}
+ .aStyle:hover { color: #8080FF; text-decoration: underline;}
+
+
+.container {
+	display: inline-flex;
+	align-items: flex-start;
+	margin-left: 100px;
+
+}
+.scrapTable {
 	border: 1px solid #EDEDED;
 	border-collapse: collapse;
-	margin-top: 30px;
-	width: 100%;
+	width: 300px;
 	align: center;
+	margin-top: 60px;
 }
 
-th, td {
+th, .scrapTd {
 	border-bottom: 1px solid #EDEDED;
 	padding: 5px;
-	height: 40px;
+	height: 30px;
+	
 }
 
 button {
@@ -25,9 +38,10 @@ button {
 	box-shadow: 0 4px 16px rgba(0, 79, 255, 0.3);
 	transition: 0.3s;
 	position: relative;
-	left: 50%;
+	left: 33%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	margin-top: 20px;
 }
 
 button:focus {
@@ -84,18 +98,13 @@ button:hover {
 }
 
 #wrapper {
-	position: absoulute;
+	//position: absoulute;
 	height: 75%;
-	width: 75%;
-	padding: 100px 100px;
+	width: 180px;
+	padding: 70px 70px;
 	text-align: center;
 	vertical-align: middle;
-	border: solid 1px;
+	border: solid gray 1px;
 	margin: auto;
 }
 
-.scrap-div {
-	margin-top: 50px;
-	width: 80%;
-	margin-left: 120px;
-}

@@ -14,10 +14,12 @@
 <style>
 
 		.container {
-			width: 385px;
-			line-height: 50px;
-			margin: 50px auto;
-			margin-bottom: -100px;
+		//	width: 385px;
+		//	line-height: 50px;
+		//	margin: 50px auto;
+		//	margin-bottom: -100px;
+			
+			display: flex;
 		}
 
 		h5 {
@@ -28,14 +30,18 @@
 			color: teal;
 		}
 		
-	table{
+	#calendar {
+		width: 700px;
 		border: none;
 		border-collapse : collapse;
+		
+		margin-right: 20px;
+
 	}
 	td{
 		width: 100px;
 		height: 50px;
-		border: solid 0.5px gray;
+		border: solid 0.5px #EDEDED;
 		border-collapse : collapse;
 	}
 	th {
@@ -49,53 +55,7 @@
   		justify-content: center;
 	
 	}
-	/* 툴팁 기본 스타일 설정 시작 */
-	
-	.tooltip {
-	  position: relative;
-	  display: block;
-	}
-	
-	.tooltip .tooltiptext {
-	  visibility: hidden;
-	  width: 120px;
-	  background-color: black;
-	  opacity: 0.5;
-	  color: #fff;
-	  text-align: center;
-	  border-radius: 6px;
-	  padding: 5px 0;
-	
-	  position: absolute;
-	  z-index: 1;
-	}
-	
-	.tooltip:hover .tooltiptext {
-	  visibility: visible;
-	}
-	
-	/* 툴팁 기본 스타일 설정 끝 */
 
-	/* 위쪽 툴팁 시작 */
-
-	.tooltip .tooltip-top {
-	  width: 120px;
-	  bottom: 150%;
-	  left: 50%;
-	  margin-left: -60px;
-	}
-	.tooltip .tooltiptext::after {
-  content: " ";             /* 정사각형 영역 사용 */
-  position: absolute;       /* 절대 위치 사용 */
-  border-style: solid;
-  border-width: 5px;        /* 테두리 넓이를 5px 로 설정 */
-}
-	.tooltip .tooltip-top::after {
-	  top: 100%;
-	  left: 50%;
-	  margin-left: -5px;
-	  border-color: black transparent transparent transparent;
-	}
 	
 </style>
 
@@ -161,7 +121,7 @@
    			
            <c:forEach var="scrap" items="${scrapDateList}">
 				if(policyDate2 == "${scrap.endDate}"){
-					var str = i + "<br>" + "<p style='color: #f29886; font-size: 5px;'>${scrap.name}지원 마감일</p>"
+					var str = i + "<br>" + "<p style='color: #f29886; font-size: 5px;'>${scrap.name}지원 마감</p>"
 	
 					cell.innerHTML = str;
 					cnt++;
@@ -178,14 +138,14 @@
 			          if (today.getFullYear() == date.getFullYear()
 			             && today.getMonth() == date.getMonth()
 			             && i == date.getDate()) {
-			            cell.bgColor = "#D2D2FF";
+			            cell.bgColor = "#fff6bc";
 			           }
 					 continue;
 					}
 				if(policyDate2 == "${scrap.startDate}"){
 					
 					
-					var str = i + "<br>" + "<p style='color: #0096c6; font-size: 5px;'>${scrap.name}지원 시작일</p>"
+					var str = i + "<br>" + "<p style='color: #0096c6; font-size: 5px;'>${scrap.name}지원 시작</p>"
 
 					cell.innerHTML = str;
 					cnt++;
@@ -202,7 +162,7 @@
 			          if (today.getFullYear() == date.getFullYear()
 			             && today.getMonth() == date.getMonth()
 			             && i == date.getDate()) {
-			            cell.bgColor = "#ffff00";
+			            cell.bgColor = "#fff6bc";
 			           }
 					 continue;
 					}
@@ -229,7 +189,7 @@
 	          if (today.getFullYear() == date.getFullYear()
 	             && today.getMonth() == date.getMonth()
 	             && i == date.getDate()) {
-	            cell.bgColor = "#ffff00";
+	            cell.bgColor = "#fff6bc";
 	            
 	           }
 

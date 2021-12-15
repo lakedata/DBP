@@ -29,12 +29,8 @@
          <div class="flex fdc">
             <img class="mypage" style="object-fit: fill;"
                src="<c:url value='/images/write.jpg'/>">
-           <!-- <a href="<c:url value='/mypage/myPost'/>">
-            	<span class="font_ml font_bold"> 작성한글 </span>
-            </a>-->
-            
-            <!-- test -->
-            <a href="<c:url value='/mypage/myPost'>
+    
+            <a  style="text-decoration: none; margin-left: 112px; margin-top: 5px;" href="<c:url value='/mypage/myPost'>
          	<c:param name='order' value='my_post'/></c:url>"><span class="font_ml font_bold"> 작성한글</span></a>
          
          
@@ -46,7 +42,7 @@
          <div class="flex fdc">
             <img class="mypage" style="object-fit: fill;"
                 src="<c:url value='/images/comment.jpg'/>">
-            <a href="<c:url value='/user/update'>
+            <a style="text-decoration: none; margin-left: 112px; margin-top: 5px;" href="<c:url value='/user/update'>
             <c:param name="userId" value='${userId}' />
             </c:url>">
             	<span class="font_ml font_bold">회원정보수정</span>
@@ -56,7 +52,7 @@
          <div class="flex fdc">
             <img class="mypage"
                 src="<c:url value='/images/scrap.jpg'/>">
-            <a href="<c:url value='/mypage/scrap/view'>
+            <a style="text-decoration: none; margin-left: 112px; margin-top: 5px;" href="<c:url value='/mypage/scrap/view'>
             <c:param name="userId" value="${userId}" />
 	            </c:url>">
             	<span class="font_ml font_bold">정책스크랩</span>
