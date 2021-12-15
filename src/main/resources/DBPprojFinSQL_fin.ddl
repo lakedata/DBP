@@ -135,6 +135,7 @@ ALTER TABLE Scrap
 
 ALTER TABLE Scrap
 	ADD (CONSTRAINT R_5 FOREIGN KEY (user_Id) REFERENCES User1 (user_Id));
+	
 
 INSERT INTO User1 VALUES ('dbpro0102', '°ü¸®ÀÚ', null, 'dbpro0102', null, null);
 
