@@ -13,7 +13,7 @@
 </head>
 <body>
 
- <h3 style="margin-top: 100px; margin-bottom: 30px; margin-left: 100px;">스크랩한 정책 </h3>
+ <h3 style="margin-top: 100px; margin-bottom: 50px; margin-left: 100px;">스크랩한 정책 </h3>
  <div class="container">
 	<div>
 		<jsp:include page="/WEB-INF/user/calendar.jsp" />
