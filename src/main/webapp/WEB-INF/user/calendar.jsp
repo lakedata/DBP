@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/home/header.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -55,21 +55,21 @@
 
 <script>
 
-	var todoDate = "";
+	var policyDate = "";
 	var today = new Date(); //오늘 날짜
     var date = new Date();//today의 Date를 세어주는 역할
     function prevCalendar() {//이전 달
-    	todoDate = "";
+    	policyDate = "";
      today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
      buildCalendar(); //달력 cell 만들어 출력 
     }
     function nextCalendar() {//다음 달
-    	 todoDate = "";
+    	policyDate = "";
          today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
          buildCalendar();//달력 cell 만들어 출력
     }
     function buildCalendar(){//현재 달 달력 만들기
-    	todoDate="";
+    	policyDate="";
         var doMonth = new Date(today.getFullYear(),today.getMonth(),1);
         //이번 달의 첫째 날
         
@@ -82,9 +82,9 @@
         var tbCalendarYM = document.getElementById("tbCalendarYM");
         //테이블에 정확한 날짜 찍는 변수
         
-         tbCalendarYM.innerHTML = today.getFullYear() + " " + (today.getMonth() + 1) + " "; 
-         todoDate += today.getFullYear() + "/";
-         todoDate += today.getMonth() + 1 + "/";
+         tbCalendarYM.innerHTML = today.getFullYear() + "년 " + (today.getMonth() + 1) + "월 "; 
+         policyDate += today.getFullYear() + "/";
+         policyDate += today.getMonth() + 1 + "/";
          /*while은 이번달이 끝나면 다음달로 넘겨주는 역할*/
         while (tbCalendar.rows.length > 2) {
         //열을 지워줌
@@ -101,37 +101,37 @@
               cnt = cnt + 1;
          }
         /*달력 출력*/
-        var todoDate2 = "";
+        var policyDate2 = "";
 		for (i = 1; i <= lastDate.getDate(); i++) {
-			todoDate2 = todoDate; // yyyy/mm/ 까지만
+			policyDate2 = policyDate; // yyyy/mm/ 까지만
 			if(i < 10)
-				todoDate2 += "0" + i;
+				policyDate2 += "0" + i;
 			else
-   				todoDate2 += i; //yyyy/mm/ + i -> yyyy/mm/dd
+				policyDate2 += i; //yyyy/mm/ + i -> yyyy/mm/dd
    			
          	//1일부터 마지막 일까지 돌림
             cell = row.insertCell();
    			//foreach문 안에서는 break, continue 사용불가능
    			
-           <c:forEach items="${isTodo}" var="isTodo">
-				if(todoDate2 == "${isTodo}"){
+           <c:forEach var="scrap" items="${scrapDateList}">
+				if(policyDate2 == "${scrap.endDate}"){
 					
-					cell.innerHTML = i + "⭐";
+					cell.innerHTML = i + "⭐*";
 					cnt++;
 					
 					if (cnt % 7 == 0){/*토요일 */
-						cell.innerHTML = "<font color=#3F72AF>" + i + "⭐";
+						cell.innerHTML = "<font color=#0067a3>" + i + "⭐*";
 			            row = calendar.insertRow();
 			          }
 					if (cnt % 7 == 1){/*일요일 */
-						cell.innerHTML = "<font color=#FD5E53>" + i + "⭐";
+						cell.innerHTML = "<font color=#FD5E53>" + i + "⭐*";
 			          }
 					
 					 /*오늘 날짜*/
 			          if (today.getFullYear() == date.getFullYear()
 			             && today.getMonth() == date.getMonth()
 			             && i == date.getDate()) {
-			            cell.bgColor = "#EBEBFF";
+			            cell.bgColor = "#D2D2FF";
 			           }
 					 continue;
 					}
@@ -158,10 +158,13 @@
 	             && today.getMonth() == date.getMonth()
 	             && i == date.getDate()) {
 	            cell.bgColor = "#D2D2FF";
+	            
 	           }
-	          
-	          /* 정책 일정 */
-	          
+	          /*test
+	          if(policyDate2 == "2021/12/30"){
+					cell.innerHTML = i + "⭐*";
+	          }
+	          */
 	          
          }
     }

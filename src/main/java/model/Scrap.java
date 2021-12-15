@@ -8,6 +8,8 @@ public class Scrap implements Serializable {
 	private int policyId;
 	private String name;
 	private String category;
+	private String startDate;
+	private String endDate;
 	
 	public Scrap() {
 	
@@ -25,6 +27,16 @@ public class Scrap implements Serializable {
 		this.name = name;
 		this.category = category;
 	}
+	
+	//스크랩 목록 보기 추가 (+ 날짜)
+		public Scrap(String userId, int policyId, String name, String category, String startDate, String endDate) {
+			this.userId = userId;
+			this.policyId = policyId;
+			this.name = name;
+			this.category = category;
+			this.startDate = startDate;
+			this.endDate = endDate;
+		}
 	
 	
 	public String getUserId() {
@@ -54,5 +66,7 @@ public class Scrap implements Serializable {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+	
 	
 }
