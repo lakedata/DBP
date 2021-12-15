@@ -201,38 +201,7 @@ function uncheck(){
 		</tbody>
         </table>
     </div>
-    
-    <!-- 목록 검색 
-    <div>
-    	<c:choose>
-		<c:when test="${empty polList}">
-				결과없음</c:when>
-		</c:choose>
-		
-		<c:forEach var="policy" items="${polList}">   
-			<c:choose>
-				<c:when test="${policy.name=='취업지원'}">
-				<span>서울</span>
-				</c:when>
-				<c:when test="${policy.name=='창업지원'}">
-				<span>경기</span>
-				</c:when>
-				<c:when test="${policy.name=='주거금융'}">
-				<span>인천</span>
-				</c:when>
-				<c:when test="${policy.name=='생활복지'}">
-				<span>기타</span>
-				</c:when>
-				<c:when test="${policy.name=='정책참여'}">
-				<span>기타</span>
-				</c:when>
-			</c:choose>
-							
-		</c:forEach>
-			
-    </div>
-    -->
-    
+  
     <!-- 페이지 넘버 부분 -->
     <br>
     <div id="pageForm">

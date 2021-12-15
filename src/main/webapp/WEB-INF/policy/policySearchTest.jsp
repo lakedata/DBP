@@ -11,6 +11,48 @@
 
 <style type="text/css">
 
+	table {
+			border: none;
+			border-collapse: collapse;
+			margin-top: 30px;
+			width: 100%; 
+			align: center;
+		}
+		 th, td {
+    		border: 1px solid #EDEDED;
+			border-bottom: 1px solid #EDEDED;
+    		padding: 5px;
+ 			height: 40px;
+  		}
+  		
+  		
+		ul {
+		    list-style-type: none;
+		    margin: 0;
+		    padding: 0;
+		    background-color: #333;
+		}
+		ul:after{
+		    content:'';
+		    display: block;
+		    clear:both;
+		}
+		li {
+		    float: left;
+		}
+		li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		li a:hover:not(.active) {
+		    background-color: #111;
+		}
+		.active {
+		    background-color: #8080FF;
+		}
 		#board, #bList, #pageForm {
 		    text-align :center;
 		}
@@ -28,6 +70,13 @@
 			height: 30px;
 			border-radius: 20px;
 		}
+		
+		.btnStyle:hover {
+			background: lightgray;
+		
+		}
+	
+	
 		.btn-div{
 		 	display: flex;
   			justify-content: center;
@@ -40,7 +89,65 @@
 <body>
  	<!-- header -->
 <jsp:include page="/WEB-INF/home/header.jsp" />
-	<h1>test</h1>
+	
+<div class="policySearch-div">
+	<form method="POST" action="<c:url value='/policy/search' />">
+	
+		<table>
+		<tr>
+			<th><b>정책유형</b></th>
+			<td><input type="radio" name="contents" value="취업지원">취업지원
+			<input type=radio name="contents" value="창업지원">창업지원
+			<input type="radio" name="contents" value="주거금융">주거금융
+			<input type="radio" name="contents" value="생활복지">생활복지
+			<input type="radio" name="contents" value="정책참여">정책참여</td>
+		</tr>
+		<tr>
+			<th><b>소득분위</b></th>
+			<td>
+			<select id="income" name="income">
+			<option value="">분위</option>
+			<c:forEach var="i" begin="1" end="10" step="1">
+				<option value="${i}">${i}</option>>
+			</c:forEach>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<th><b>거주지역</b></th>
+			<td>
+				<input type="radio" name="local" value="전국">전국
+				<input type="radio" name="local" value="서울">서울
+				<input type="radio" name="local" value="경기도">경기도
+				<input type="radio" name="local" value="인천">인천
+				<input type="radio" name="local" value="전라도">전라도
+				<input type="radio" name="local" value="경상도">경상도
+				<input type="radio" name="local" value="강원도">강원도
+				<input type="radio" name="local" value="충청도">충청도
+				<input type="radio" name="local" value="제주도">제주도
+			</td>
+		</tr>
+		
+		<tr>
+			<th><b>나이</b></th>
+			<td>
+				<select id="age" name="age">
+				<option value="">나이</option>
+				<c:forEach var="i" begin="0" end="30">
+					<option value="${i}">${i}</option>
+				</c:forEach>
+				</select>
+		
+			</td>
+		</tr>
+		</table>
+	
+		<div class="btn-div">
+			<input class="btnStyle" type="submit" value="검색">&nbsp;
+			<input class="btnStyle" type="button" value="새로고침" onClick="window.location.reload()">
+		</div>
+		
+	</form>
   <!-- 정책 검색 목록  -->
     <br>
     <div id="board">
@@ -72,37 +179,7 @@
         </table>
     </div>
     
-    <!-- 목록 검색 
-    <div>
-    	<c:choose>
-		<c:when test="${empty polList}">
-				결과없음</c:when>
-		</c:choose>
-		
-		<c:forEach var="policy" items="${polList}">   
-			<c:choose>
-				<c:when test="${policy.name=='취업지원'}">
-				<span>서울</span>
-				</c:when>
-				<c:when test="${policy.name=='창업지원'}">
-				<span>경기</span>
-				</c:when>
-				<c:when test="${policy.name=='주거금융'}">
-				<span>인천</span>
-				</c:when>
-				<c:when test="${policy.name=='생활복지'}">
-				<span>기타</span>
-				</c:when>
-				<c:when test="${policy.name=='정책참여'}">
-				<span>기타</span>
-				</c:when>
-			</c:choose>
-							
-		</c:forEach>
-			
-    </div>
-    -->
-    
+
     <!-- 페이지 넘버 부분 -->
     <br>
     <div id="pageForm">
