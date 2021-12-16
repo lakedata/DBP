@@ -55,8 +55,9 @@ public class RequestMapping {
 		mappings.put("/post/reply/add", new CreateReplyController());
 //		mappings.put("/post/reply/list", new ListReplyController());
 		mappings.put("/post/reply/delete", new DeleteReplyController());
+
 		mappings.put("/post/agree", new AddAgreeController());
-		
+
         //post
         mappings.put("/post/write", new ForwardController("/post/postWrite.jsp"));
         
@@ -84,7 +85,7 @@ public class RequestMapping {
 
     public Controller findController(String uri) {
     	logger.debug("mappings.get" +mappings.get(uri));
-    	// 占쎈쐻占쎈솂占쎈섣占쎌굲占쎈쐻占쎈짗占쎌굲 uri占쎈쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈뼄占쎈솇占쎌굲 controller 占쎈쐻占쎈짗占쎌굲筌ｋ떣�쐻占쎈짗占쎌굲 筌≪뼃�쐻占쎈짗占쎌굲 占쎈쐻占쎈짗占쎌굲占쎌넎
+    	// �뜝�럥�맶�뜝�럥�냲�뜝�럥�꽔�뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� uri�뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥堉꾢뜝�럥�냷�뜝�럩援� controller �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿰춯節뗫뼠占쎌맶�뜝�럥吏쀥뜝�럩援� 嶺뚢돦堉껓옙�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶
         return mappings.get(uri);
     }
 }

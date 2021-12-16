@@ -170,6 +170,7 @@ function uncheck(){
                 <td>
                     <a style="text-decoration: none;" href="<c:url value='/policy/view'>
                     <c:param name='policyId' value='${policy.policyId}'/>
+                    <c:param name="userId" value="${userId}" />
                     </c:url>">
                     ${policy.name}</a>
                 </td>
@@ -206,20 +207,20 @@ function uncheck(){
     <br>
     <div id="pageForm">
         <c:if test="${startPage != 1}">
-            <a href='BoardListAction.bo?page=${startPage-1}'>[ 이전 ]</a>
+            <a href='BoardListAction.bo?page=${startPage-1}'>[이전]</a>
         </c:if>
         
         <c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
             <c:if test="${pageNum == spage}">
-                ${pageNum}&nbsp;
+                ${currentPage}&nbsp;
             </c:if>
-            <c:if test="${pageNum != spage}">
-                <a href='BoardListAction.bo?page=${pageNum}'>${pageNum}&nbsp;</a>
+            <c:if test="${currentPage != spage}">
+                <a href='BoardListAction.bo?page=${currentPage}'>${currentPage}&nbsp;</a>
             </c:if>
         </c:forEach>
         
-        <c:if test="${endPage != maxPage }">
-            <a href='BoardListAction.bo?page=${endPage+1 }'>[다음]</a>
+        <c:if test="${endPage != maxPage}">
+            <a href='BoardListAction.bo?page=${endPage+1}'>[다음]</a>
         </c:if>
     </div>
     </div>

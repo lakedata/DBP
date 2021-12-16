@@ -47,10 +47,11 @@ public class SearchPolicyController implements Controller {
 		}		
 		
 		List<Policy> searchPolList = polMan.searchPolicyList(category, income, local, startAge, endAge, currentPage, countPerPage);
-		
+		int totalPage = polMan.findPolicyList().size() / (countPerPage + 1);
 		System.out.println("find list: " +searchPolList+ "\n");
 		
 		request.setAttribute("searchPolList", searchPolList);
+		request.setAttribute("currentPage", currentPage);
 		//return "/policy/policySearch.jsp";
 		return "/policy/policySearchTest.jsp";
 	}

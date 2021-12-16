@@ -13,18 +13,38 @@ int arr[] = null;
 <!--  policyDetail 스타일시트 -->
 <link rel="stylesheet"
 	href="<c:url value='/css/policy/policyDetail.css' />" type="text/css">
+<style>
+
+	input {
+		border: solid 1px lightgray;
+		height: 35px;
+		width: 90px;
+		background:none;
+		border-radius: 5px;
+		
+	}
+	#scrapButton{
+		display: flex;
+	  	justify-content: center;
+	  	margin: 30px;
+		
+	}
+	input:hover {
+	//	background: lightgray;	
+	}
+
+</style>
 </head>
 <script>
 	function scarpCreate() {
 		
 		alert("스크랩되었습니다");
 		form.submit();	
-		
 	}
 	
 	function scarpCancel() {
 		//  삭제 여부 확인
-		   var r = confirm("삭제하시겠습니까?");
+		   var r = confirm("스크랩을 취소 하시겠습니까?");
 		   
 		   if (r) {
 			   alert("스크랩 취소되었습니다");
@@ -78,7 +98,6 @@ int arr[] = null;
 		</table>
 		<br>
 
-
 		<div>
 			<c:choose>
 				<c:when test="${userId=='dbpro0102'}">
@@ -95,26 +114,39 @@ int arr[] = null;
 				</c:when>
 				<c:when test="${userId!='dbpro0102'}">
 					<!-- 스크랩하기 -->
-					<form name="form" method="POST"
-						action="<c:url value='/policy/scrap/add' />">
-						<input type="text" name="userId" size=20 value="${userId}"
-							style="display: none;"> <input type="text"
-							name="policyId" size=20 value="${policyId}"
-							style="display: none;"> <input type="button"
-							value="스크랩하기" onClick="scarpCreate()">
-					</form>
-					<!-- 스크랩취소 -->
-					<a
-						href="<c:url value="/policy/scrap/cancel">
-	            	<c:param name="policyId" value="${policy.policyId}" />
-	            </c:url>">
-						<input type="button" value="스크랩취소" onClick="scarpCancel()">
-					</a>
-
-					<!-- 스크랩취소 
-				<form name="form" method="POST" action="<c:url value="/policy/scrap/cancel" > <c:param name="policyId" value="${policy.policyId}" />  </c:url>">
-	            	<input type="button"  value="스크랩취소" onClick="scarpCancel()"  > 
-	            </form>-->
+					<div id="scrapButton">
+						    
+				    	<c:set var="flag" value="0"/>
+				    	<!-- scrapDateLisit가 비어있지 않을 때  -->
+				    	<c:if test="${not empty scrapDateList}">
+						   <c:forEach var="scrap" items="${scrapDateList}">
+						   	<!-- 스크랩된 상태일때 > flag 값 1로 변경  -->
+						      <c:if test="${policyId == scrap.policyId && userId == scrap.userId }">
+						      	<c:set var="flag" value="1"/>			      
+						      </c:if>	      
+						   </c:forEach>
+						</c:if>
+						
+						<c:if test="${flag == 1}">
+						   <a style="margin-left: -10px;"
+						                  href="<c:url value="/policy/scrap/cancel">
+						                  <c:param name="policyId" value="${policy.policyId}" />
+						               </c:url>">
+						                  <input type="button" value="스크랩 취소" onClick="scarpCancel()">
+						         </a>
+						</c:if>
+						<c:if test="${flag ne 1 }">
+							<form name="form" method="POST"
+										action="<c:url value='/policy/scrap/add' />">
+										<input type="text" name="userId" size=20 value="${userId}"
+											style="display: none;"> <input type="text"
+											name="policyId" size=20 value="${policyId}"
+											style="display: none;"> <input type="button"
+											value="스크랩" onClick="scarpCreate()">
+									</form>
+						</c:if>
+					</div>
+				
 
 				</c:when>
 			</c:choose>
