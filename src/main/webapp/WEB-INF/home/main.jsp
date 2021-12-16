@@ -42,9 +42,8 @@
    }
    
    .nav-left {
-       background-color: #333;
+      background-color: #333;
       float: right;
-      
    }
  
 </style>

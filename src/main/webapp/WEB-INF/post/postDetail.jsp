@@ -92,7 +92,16 @@ function countm(type)  {
 		  </tr>
 	
 	</table>
-	
+	<div style="margin-left: 40px;">
+	<form name="agreeForm" method="POST" action="<c:url value='/post/agree'></c:url>">
+		<div style="text-align:center;">
+		<input type="radio" name="agree" value="agree" checked="checked" class="feeling_a">동의
+		<input type="radio" name="agree" value="disagree" class="feeling_a">비동의
+		<input type="text" name="postNum" size=20  value="${post.postNum}" style="display: none;"> 
+		<button type="submit" >Sure?</button>
+		</div>
+			</form>
+	</div>
 	<!-- 동의/비동의  like가 눌리면 dislike 선택이 해체 되는 방식-->
 	<div class="feeling_div" >
 			<div class="button-container like-container">
@@ -113,14 +122,8 @@ function countm(type)  {
 	
 	<!-- 댓글 쓰기 -->
 	<div style="margin-top: 50px;">
-	<form name="agreeForm" method="POST" action="<c:url value='/post/agree'></c:url>">
-		<div style="text-align:center;">
-		<input type="radio" name="agree" value="agree" checked="checked" class="feeling_a">AGREE
-		<input type="radio" name="agree" value="disagree" class="feeling_a">DISAGREE
-		<input type="text" name="postNum" size=20  value="${post.postNum}" style="display: none;"> 
-		<button type="submit" >Sure?</button>
-		</div>
-	</form>
+	
+
 	<form name="form" method="POST" action="<c:url value='/post/reply/add'>
 	</c:url>">
 		<input type="text" name="postNum" size=20  value="${post.postNum}" style="display: none;"> 
@@ -139,7 +142,7 @@ function countm(type)  {
 	<div>
 	<c:forEach var="cm" items="${replyList}" varStatus="status" >
 	<div style="padding-left: 30px; padding-right: 30px; width:85%; height: 50px; border: solid #F5F5F5 1px; background-color: none;">${cm.replyContent}
-		<!-- reply에 userId필요 :추후 수정 -->
+		
 		<c:choose>
 			<c:when test="${userId=='dbpro0102'}">
 				<a style=" float: right;padding-right: 10px; font-size: 10px;" id="btn" href="<c:url value="/post/reply/delete">
