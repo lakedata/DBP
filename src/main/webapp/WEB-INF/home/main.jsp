@@ -8,6 +8,45 @@
 <head>
 <meta charset="UTF-8" />
 <title>Checkkeu홈페이지</title>
+<style>
+ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+       background-color: #333;
+   }
+   ul:after{
+       content:'';
+       display: block;
+       clear:both;
+   }
+   li {
+       float: left;
+   }
+   li a {
+       display: block;
+       color: white;
+       text-align: center;
+       padding: 14px 16px;
+       text-decoration: none;
+   }
+   li a:hover:not(.active) {
+       background-color: #111;
+   }
+   .active {
+       background-color: #8080FF;
+   }
+   #board, #bList, #pageForm {
+               text-align :center;
+   }
+   
+   .nav-left {
+       background-color: #333;
+      float: right;
+      
+   }
+ 
+</style>
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <meta content="Webflow" name="generator" />
 <link
@@ -37,9 +76,38 @@
 </script>
 </head>
 <body>
+<%
+	request.setAttribute("userId", request.getParameter("userId"));
+%>
+   <ul>
+        <li><img style="padding-top: 14px; padding-left: 0px; padding-right: 15px;" class ="logo" src="<c:url value='/images/logo_checkkeu.png'/>" height="35px"></li>
+         <li><a class="active" href="<%= request.getContextPath() %>/index.jsp">Home</a></li>
+         <li><a href="<c:url value="/policy/search"></c:url>">정책찾기</a></li>  
+         <!-- /policy/list -->
+         <li><a href="<c:url value='/post/list'/>">정책제안게시판</a></li>
 
-	<jsp:include page="/WEB-INF/home/header.jsp" />
-
+      <div style="margin-right: 50px;"> 
+         <c:choose>
+         <c:when test="${userId=='dbpro0102'}">
+            <li class="nav-left"><a href="<c:url value="/user/logout"></c:url>">Logout</a></li>
+            <li class="nav-left"><a href="<c:url value="/mypage"> <c:param name='user_id' value='${userId}'/></c:url>">마이페이지</a></li>
+            <li class="nav-left"><a href="<c:url value="/policy/insert"></c:url>">정책등록</a></li>
+            <li class="nav-left" style="color: red; margin-top: 14px; margin-right: 5px;">관리자계정<li>
+         </c:when>    
+         <c:when test="${userId==NULL}"> 
+            <li class="nav-left"><a href="<c:url value="/user/login"></c:url>">Login</a></li>
+               <li class="nav-left"><a href="<c:url value="/user/register"></c:url>">Sign up</a></li>
+         </c:when>
+         <c:when test="${userId!=NULL}">    
+            
+               <li class="nav-left"><a href="<c:url value="/user/logout"></c:url>">Logout</a></li>
+                <li class="nav-left"><a href="<c:url value="/mypage"><c:param name='userId' value='${userId}'/></c:url>">마이페이지</a></li>
+            <li class="nav-left" style="color: #8080FF; margin-top: 13px; margin-right: 10px;">${userId}님   </li>  
+         </c:when>
+           </c:choose> 
+      </div>
+         
+        </ul>
 	<div data-collapse="none" data-animation="default" data-duration="400"
 		data-easing="ease" data-easing2="ease" role="banner"
 		class="navbar w-nav">

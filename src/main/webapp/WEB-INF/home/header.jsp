@@ -10,7 +10,6 @@
 <!--  header 스타일시트 -->
 <link rel="stylesheet" href="<c:url value='/css/home/header.css' />"
 	type="text/css">
-	
 </head>
 <body>
 <%

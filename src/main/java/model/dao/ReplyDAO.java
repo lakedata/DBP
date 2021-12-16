@@ -72,7 +72,7 @@ import java.sql.SQLException;
       String sql = "SELECT * "
             + "FROM Reply "
             + "WHERE postNum=?"
-            + "ORDER BY replyNum";
+            + "ORDER BY replyNum DESC";
       
       Object[] param = new Object[] {postNum};
             

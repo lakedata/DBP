@@ -21,10 +21,14 @@ public class AddAgreeController implements Controller{
 		int postNum = Integer.parseInt(request.getParameter("postNum"));
 		String agree = request.getParameter("agree");
 		
-		Agree a = aMan.findAgree(postNum);
+		Agree a = null;
 		
 		try {
-		
+			
+			if(aMan.findAgree(postNum) == null) {
+				a = aMan.create(postNum);
+			}		
+			
 			if (agree.equals("agree")) {
 				logger.debug("agree!!");
 				aMan.addAgree(postNum);
