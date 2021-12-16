@@ -17,7 +17,7 @@
    <ul>
         <li><img style="padding-top: 14px; padding-left: 15px; padding-right: 15px;" class ="logo" src="<c:url value='/images/logo_checkkeu.png'/>" height="20px"></li>
          <li><a class="active" href="<%= request.getContextPath() %>/index.jsp">Home</a></li>
-         <li><a href="<c:url value="/policy/search"></c:url>">정책찾기</a></li>  
+         <li><a href="<c:url value="/policy/search"></c:url>">청년정책찾기</a></li>  
          <!-- /policy/list -->
          <li><a href="<c:url value='/post/list'/>">정책제안게시판</a></li>
 
