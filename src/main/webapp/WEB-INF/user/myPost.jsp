@@ -9,7 +9,13 @@
 <title>내가 쓴 글</title>
 <!--  userTable 스타일시트 -->
 <link rel="stylesheet"
-	href="<c:url value='/css/user/userTable.css' />" type="text/css">
+	href="<c:url value='/css/user/userTable.css?after' />" type="text/css">
+	<style>
+	 .aStyle:link { color: black; text-decoration: none;}
+	 .aStyle:visited { color: black; text-decoration: none;}
+	 .aStyle:hover { color: #8080FF; text-decoration: underline;}
+
+	</style>
 </head>
 <body>
 	<%
@@ -19,14 +25,14 @@
 	<table>
       <thead>
 		<tr>
-		  <td style="width: 80%">제목</td>
-		  <td>날짜</td>
+		  <td style="width: 80%"><b>제목</b></td>
+		  <td><b>날짜</b></td>
 		</tr>
       </thead>
       <tbody>  	 
 		<c:forEach var="post" items="${postList}">	
 				<tr>
-				  <td style="width: 70%"><a href="<c:url value='/post/view'>
+				  <td style="width: 70%"><a class="aStyle" href="<c:url value='/post/view'>
 							      <c:param name='postNum' value='${post.postNum}'/>
 							   </c:url>">
 					  ${post.title} </a>

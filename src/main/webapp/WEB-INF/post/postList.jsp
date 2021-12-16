@@ -10,7 +10,7 @@
 <title>게시판</title>
 <!--  postList 스타일시트 -->
 <link rel="stylesheet"
-	href="<c:url value='/css/post/postList.css' />" type="text/css">
+	href="<c:url value='/css/post/postList.css?after' />" type="text/css">
 </head>
 <body>
 	<%
@@ -34,7 +34,7 @@
       <tbody>  	 <!-- post 최신 글을 상단으로 올리기  -->
 		<c:forEach var="post" items="${postList}">
 			<tr>
-			  <td style="width: 70%"><a style="text-decoration: none;" href="<c:url value='/post/view'>
+			  <td style="width: 70%"><a class="aStyle" style="text-decoration: none;" href="<c:url value='/post/view'>
 						      <c:param name='postNum' value='${post.postNum}'/>
 						   </c:url>">
 				  ${post.title} </a>

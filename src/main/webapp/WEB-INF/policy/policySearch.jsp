@@ -11,6 +11,10 @@
 <title>정책 찾기</title>
 <style type="text/css">
 
+ .aStyle:link { color: black; text-decoration: none;}
+ .aStyle:visited { color: black; text-decoration: none;}
+ .aStyle:hover { color: #8080FF; text-decoration: underline;}
+ 
 		table {
 			border: none;
 			border-collapse: collapse;
@@ -19,7 +23,8 @@
 			align: center;
 		}
 		 th, td {
-    		border: 1px solid #EDEDED;
+    		//border: 1px solid #EDEDED;
+    		border:none;
 			border-bottom: 1px solid #EDEDED;
     		padding: 5px;
  			height: 40px;
@@ -168,7 +173,7 @@ function uncheck(){
         <c:forEach var="policy" items="${polList}">
             <tr>
                 <td>
-                    <a style="text-decoration: none;" href="<c:url value='/policy/view'>
+                    <a class="aStyle" style="text-decoration: none;" href="<c:url value='/policy/view'>
                     <c:param name='policyId' value='${policy.policyId}'/>
                     <c:param name="userId" value="${userId}" />
                     </c:url>">

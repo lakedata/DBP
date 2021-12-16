@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
+ .aStyle:link { color: black; text-decoration: none;}
+ .aStyle:visited { color: black; text-decoration: none;}
+ .aStyle:hover { color: #8080FF; text-decoration: underline;}
+ 
 table { 
-	border: 1px solid lightgray;
+	//border: 1px solid lightgray;
 	border: none;
 	border-collapse: collapse;
 	padding: 10px;
@@ -12,7 +16,8 @@ table {
 }
 
 th, td { 
-	border: 1px solid #EDEDED;
+	//border: 1px solid #EDEDED;
+	border: none;
 	border-bottom: 1px solid #EDEDED;
 	padding: 5px;
 	height: 40px;

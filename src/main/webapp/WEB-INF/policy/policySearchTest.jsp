@@ -11,7 +11,11 @@
 
 <style type="text/css">
 
-	table {
+.aStyle:link { color: black; text-decoration: none;}
+ .aStyle:visited { color: black; text-decoration: none;}
+ .aStyle:hover { color: #8080FF; text-decoration: underline;}
+ 
+		table {
 			border: none;
 			border-collapse: collapse;
 			margin-top: 30px;
@@ -19,12 +23,12 @@
 			align: center;
 		}
 		 th, td {
-    		border: 1px solid #EDEDED;
+    		//border: 1px solid #EDEDED;
+    		border:none;
 			border-bottom: 1px solid #EDEDED;
     		padding: 5px;
  			height: 40px;
   		}
-  		
   		
 		ul {
 		    list-style-type: none;
@@ -163,7 +167,7 @@
         <c:forEach var="policy" items="${searchPolList}">
             <tr>
                 <td>
-                    <a style="text-decoration: none;" href="<c:url value='/policy/view'>
+                    <a class="aStyle" style="text-decoration: none;" href="<c:url value='/policy/view'>
                     <c:param name='policyId' value='${policy.policyId}'/>
                     </c:url>">
                     ${policy.name}</a>
@@ -177,28 +181,6 @@
 		</c:forEach>
 		</tbody>
         </table>
-    </div>
-    
-
-    <!-- 페이지 넘버 부분 -->
-    <br>
-    <div id="pageForm">
-        <c:if test="${startPage != 1}">
-            <a href='BoardListAction.bo?page=${startPage-1}'>[ 이전 ]</a>
-        </c:if>
-        
-        <c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
-            <c:if test="${pageNum == spage}">
-                ${pageNum}&nbsp;
-            </c:if>
-            <c:if test="${pageNum != spage}">
-                <a href='BoardListAction.bo?page=${pageNum}'>${pageNum}&nbsp;</a>
-            </c:if>
-        </c:forEach>
-        
-        <c:if test="${endPage != maxPage }">
-            <a href='BoardListAction.bo?page=${endPage+1 }'>[다음]</a>
-        </c:if>
     </div>
     
      <!-- footer -->
