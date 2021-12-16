@@ -219,8 +219,8 @@ function uncheck(){
             </c:if>
         </c:forEach>
         
-        <c:if test="${endPage != maxPage }">
-            <a href='BoardListAction.bo?page=${endPage+1 }'>[다음]</a>
+        <c:if test="${endPage != maxPage}">
+            <a href='BoardListAction.bo?page=${endPage+1}'>[다음]</a>
         </c:if>
     </div>
     </div>
