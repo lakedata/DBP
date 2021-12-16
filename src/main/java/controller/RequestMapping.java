@@ -55,8 +55,9 @@ public class RequestMapping {
 		mappings.put("/post/reply/add", new CreateReplyController());
 //		mappings.put("/post/reply/list", new ListReplyController());
 		mappings.put("/post/reply/delete", new DeleteReplyController());
-//		mappings.put("post/agree", new AddAgreeController());
-		
+
+		mappings.put("/post/agree", new AddAgreeController());
+
         //post
         mappings.put("/post/write", new ForwardController("/post/postWrite.jsp"));
         
