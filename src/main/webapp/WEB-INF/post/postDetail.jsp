@@ -128,23 +128,27 @@ function countm(type)  {
 	</form>
 	</div><br/>
 
+	<%
+		request.setAttribute("userId", request.getParameter("userId"));
+	%>
+	
 	<div>
 	<c:forEach var="cm" items="${replyList}" varStatus="status" >
 	<div style="padding-left: 30px; padding-right: 30px; width:85%; height: 50px; border: solid #F5F5F5 1px; background-color: none;">${cm.replyContent}
 		<!-- reply에 userId필요 :추후 수정 -->
-		<!-- 
-		<a style="text-align:right; font-size: 6px;" id="btn" href="<c:url value="/post/reply/delete">
+		<c:choose>
+			<c:when test="${userId=='dbpro0102'}">
+				<a style="text-align: right; padding-right: 10px; font-size: 10px;" id="btn" href="<c:url value="/post/reply/delete">
 					   <c:param name='replyNum' value="${cm.replyNum}"/>
-				 </c:url>" onclick="replyDelete()">삭제</a> 
-		 -->
+					   <c:param name='postNum' value="${post.postNum}"/>
+				 </c:url>" onclick="replyDelete()">  삭제</a> 
+			</c:when>  
+		</c:choose>
 	</div>
 				 
 	</c:forEach>			 
 	</div>
-	
-	<%
-		request.setAttribute("userId", request.getParameter("userId"));
-	%>
+
 	<!-- 수정, 삭제, 목록  -->
 	<div style="text-align: center; padding: 50px;">
 	<c:choose>
