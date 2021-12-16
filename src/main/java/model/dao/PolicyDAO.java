@@ -149,10 +149,10 @@ public class PolicyDAO {
 		return false;
 	}
 
-	public List<Policy> searchPolicyList(String category, int income, String local, int startAge, int endAge,int currentPage, int countPerPage) throws SQLException {
+	public List<Policy> searchPolicyList(String category, int income, String local, int startAge, int endAge) throws SQLException {
 	
 		logger.debug("in PolicyDAO, searchPolicyList");
-		logger.debug(category+ "," +income+ ", " +local+ ", " +startAge+ ", " + endAge+ ", " + currentPage+ ", " + countPerPage);
+		logger.debug(category+ "," +income+ ", " +local+ ", " +startAge+ ", " + endAge);
 		
 		String sql = null;
 		Object[] param;
@@ -178,28 +178,24 @@ public class PolicyDAO {
 		try {
 			ResultSet rs = jdbcUtil.executeQuery();
 			
-			int start = ((currentPage - 1) * countPerPage) + 1;
-			
-//			if ((start >= 0) && rs.absolute(start)) {
-			if ((start >= 0)) {
-				logger.debug("in if");
-				List<Policy> polList = new ArrayList<Policy>();
+			logger.debug("in if");
+			List<Policy> polList = new ArrayList<Policy>();
 				
-//				logger.debug("start: " +start+ ", rs: " +rs);
+//			logger.debug("start: " +start+ ", rs: " +rs);
 
-				 while ((rs.next()) && (--countPerPage > 0)) {
-					logger.debug("name: "+ rs.getString("name"));
+			while (rs.next()) {
+				logger.debug("name: "+ rs.getString("name"));
 					
-					Policy pol = new Policy(rs.getInt("policyId"), 
-							rs.getString("name"), 
-							rs.getString("category"),
-							rs.getString("policySummary"));
+				Policy pol = new Policy(rs.getInt("policyId"), 
+						rs.getString("name"), 
+						rs.getString("category"),
+						rs.getString("policySummary"));
 					
-					polList.add(pol);
-				}
-				
-				return polList;
+				polList.add(pol);
 			}
+				
+			return polList;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
