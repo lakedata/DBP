@@ -16,11 +16,12 @@ int arr[] = null;
 <style>
 
 	input {
-		border: solid 1px lightgray;
+		border-radius: 2px;
+		border: 2px solid #2199e8;
 		height: 35px;
 		width: 90px;
-		background:none;
-		border-radius: 5px;
+		background-color: #fff;
+		color: #2199e8;
 		
 	}
 	#scrapButton{

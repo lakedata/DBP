@@ -142,7 +142,7 @@ function countm(type)  {
 		<!-- reply에 userId필요 :추후 수정 -->
 		<c:choose>
 			<c:when test="${userId=='dbpro0102'}">
-				<a style="text-align: right; padding-right: 10px; font-size: 10px;" id="btn" href="<c:url value="/post/reply/delete">
+				<a style=" float: right;padding-right: 10px; font-size: 10px;" id="btn" href="<c:url value="/post/reply/delete">
 					  	<c:param name='replyNum' value="${cm.replyNum}"/>
 						<c:param name='postNum' value="${post.postNum}"/>
 				 </c:url>" onclick="replyDelete()">  삭제</a> 
