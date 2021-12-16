@@ -11,7 +11,7 @@ import model.User;
 
 public class ScrapDAO {
 
-	private JDBCUtil jdbcUtil = null;
+	private static JDBCUtil jdbcUtil = null;
 
 	public ScrapDAO() {
 		jdbcUtil = new JDBCUtil();
@@ -133,6 +133,22 @@ public class ScrapDAO {
 	      return null;
 	   }
 	   
-	   
+	// user_id의 모든 Scrap 삭제 (그룹 탈퇴)
+	public static int deleteUserAllScrap(String user_id) throws SQLException {
+		String sql = "DELETE FROM Scrap WHERE user_id=?";
+		jdbcUtil.setSqlAndParameters(sql, new Object[] { user_id });
+
+		try {
+			int result = jdbcUtil.executeUpdate();
+			return result;
+		} catch (Exception ex) {
+			jdbcUtil.rollback();
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.commit();
+			jdbcUtil.close();
+		}
+		return 0;
+	}
 
 }

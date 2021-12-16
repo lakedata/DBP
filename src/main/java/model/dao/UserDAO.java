@@ -54,6 +54,7 @@ public class UserDAO {
 		return 0;
 	}
 
+	//회원탈퇴 + post/scrap삭제
 	public int remove(String userId) throws SQLException {
 		String sql = "DELETE FROM USER1 WHERE user_Id=? ";		
 		jdbcUtil.setSqlAndParameters(sql, new Object[] {userId});

@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import controller.user.LoginController;
 import model.User;
+import model.dao.PostDAO;
+import model.dao.ScrapDAO;
 import model.dao.UserDAO;
 
 public class UserManager {
@@ -28,7 +30,7 @@ public class UserManager {
 	
 	public int create(User user) throws SQLException, ExistingUserException {
 		if (userDAO.existingUser(user.getUserId()) == true) {
-			throw new ExistingUserException(user.getUserId() + "´Â Á¸ÀçÇÏ´Â ¾ÆÀÌµğÀÔ´Ï´Ù.");
+			throw new ExistingUserException(user.getUserId() + "ë‹˜ì€ ì´ë¯¸ ì¡´ì¬í•©ë‹ˆë‹¤.");
 		}
 		return userDAO.create(user);
 	}
@@ -37,7 +39,10 @@ public class UserManager {
 		return userDAO.update(user);
 	}	
 
-	public int remove(String userId) throws SQLException, UserNotFoundException {
+	public int remove(String userId) throws SQLException, UserNotFoundException { //íšŒì›íƒˆí‡´ +POST/SCRAP
+		PostDAO.deleteUserAllPost(userId);
+		ScrapDAO.deleteUserAllScrap(userId);
+		
 		return userDAO.remove(userId);
 	}
 
@@ -46,7 +51,7 @@ public class UserManager {
 		User user = userDAO.findUser(userId);
 		
 		if (user == null) {
-			throw new UserNotFoundException(userId + "´Â Á¸ÀçÇÏÁö ¾Ê´Â ¾ÆÀÌµğÀÔ´Ï´Ù.");
+			throw new UserNotFoundException(userId + "ë‹˜ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 		}		
 		return user;
 	}
@@ -61,7 +66,7 @@ public class UserManager {
 		logger.debug("Usermanager findUser " +user);
 		
 		if (!user.matchPassword(password)) {
-			throw new PasswordMismatchException("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+			throw new PasswordMismatchException("ï¿½ï¿½Ğ¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.");
 		
 		}
 		

@@ -43,9 +43,14 @@ public class PostManager {
 		return postDAO.findPostList();
 	}
 	
-	/* myPost ³»°¡ ¾´ ±Û º¸±â */
+	/* myPost ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 	public List<Post> findMyPostList(String userId) throws SQLException {
 		return postDAO.findMyPostList(userId);
+	}
+	
+	//íšŒì›íƒˆí‡´
+	public int deleteUserAllPost(String user_id) throws SQLException {
+		return postDAO.deleteUserAllPost(user_id);
 	}
 	
 }

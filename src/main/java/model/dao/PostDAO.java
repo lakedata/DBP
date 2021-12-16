@@ -10,7 +10,7 @@ import model.Post;
 
 public class PostDAO {
 
-	private JDBCUtil jdbcUtil = null;
+	private static JDBCUtil jdbcUtil = null;
 	
 	public PostDAO() {			
 		jdbcUtil = new JDBCUtil();	
@@ -191,4 +191,22 @@ public class PostDAO {
 		}
 		return null;
 	}
+	
+	// user_id의 모든 포스트 삭제 (그룹 탈퇴)
+		public static int deleteUserAllPost(String user_id) throws SQLException {
+			String sql = "DELETE FROM Post WHERE user_id=? ";
+			jdbcUtil.setSqlAndParameters(sql, new Object[] { user_id }); 
+
+			try {
+				int result = jdbcUtil.executeUpdate(); 
+				return result;
+			} catch (Exception ex) {
+				jdbcUtil.rollback();
+				ex.printStackTrace();
+			} finally {
+				jdbcUtil.commit();
+				jdbcUtil.close();
+			}
+			return 0;
+		}
 }

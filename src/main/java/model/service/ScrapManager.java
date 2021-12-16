@@ -46,6 +46,9 @@ public class ScrapManager {
 	      return scrapDAO.getScrapDateList(userId);
 	   }
 	   
-	   
+	   //회원탈퇴
+	   public int deleteUserAllScrap(String user_id) throws SQLException {
+		   return scrapDAO.deleteUserAllScrap(user_id);
+	   }
 	   
 }
