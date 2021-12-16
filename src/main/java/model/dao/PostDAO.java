@@ -51,15 +51,16 @@ public class PostDAO {
 
 	public int updatePost(Post po) throws SQLException {
 
-		String sql = "UPDATE Post " + "SET content=? " + "WHERE postNum=?";
+		String sql = "UPDATE Post " + "SET title=?, content=? " + "WHERE postNum=? ";
 
+		String title = po.getTitle();
 		String content = po.getContent();
 		int postno = po.getPostNum();
 
 		if (content.equals(""))
 			content = null;
 
-		Object[] param = new Object[] { content, postno };
+		Object[] param = new Object[] { title, content, postno };
 		jdbcUtil.setSqlAndParameters(sql, param);
 
 		try {
