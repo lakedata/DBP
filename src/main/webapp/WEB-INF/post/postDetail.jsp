@@ -96,14 +96,16 @@ function countm(type)  {
 	<!-- 동의/비동의  like가 눌리면 dislike 선택이 해체 되는 방식-->
 	<div class="feeling_div" >
 			<div class="button-container like-container">
-			    <button class="feeling_a"/>
-			      <i>♥Like</i>
-			      <div id='result_p'>${a.agree}</div>   
+			    <button class="feeling_a">
+			      <i>♥YES</i>
+			      <div id='result_p'>${agr}</div> 
+			      </button>  
 			  </div>
 			  <div class="button-container dislike-container">
-			    <button class="feeling_a" onclick='countm("minus")'/>
-			      <i>♡Dislike</i>  <!--{ $like_sum }-->
-			      <div id='result_m'>0</div>
+			    <button class="feeling_a">
+			      <i>♡NO</i>  <!--{ $like_sum }-->
+			      <div id='result_m'>${disagr}</div>
+			      </button>
 			</div>
 	</div>
 	

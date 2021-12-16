@@ -36,7 +36,14 @@ public class AddAgreeController implements Controller{
 			}
 			
 			a = aMan.findAgree(postNum);
-			request.setAttribute("agree", a);
+			request.setAttribute("agree", request.getParameter("agree"));
+			
+			request.setAttribute("agr", a.getAgree());
+			request.setAttribute("disagr", a.getDisagree());
+			
+			System.out.println("agree " + a.getAgree());
+			System.out.println("disagree " + a.getDisagree());
+			
 			return "redirect:/post/view?postNum=" +postNum;
 		
 		} catch (Exception e) {

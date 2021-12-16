@@ -79,7 +79,7 @@ public class AgreeDAO {
 		return 0;
 	}
     public Agree findAgree(int postNum) throws SQLException{
-    	String sql = "SELECT agree, disagree, postnum"
+    	String sql = "SELECT agree, disagree, postnum "
                 + "FROM agree "
                 + "WHERE postnum=? ";
     	
