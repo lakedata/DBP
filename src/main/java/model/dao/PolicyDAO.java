@@ -60,8 +60,8 @@ public class PolicyDAO {
 	}
 
 	/*
-	 * �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� policy �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
-	 * �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+	 * 占쎈쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃轅⑤쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃占� policy 占쎈쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃轅⑤쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃占�
+	 * 占쎈쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃轅⑤쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃占�
 	 */
 	public int updatePolicy(Policy pol) throws SQLException {
 
@@ -91,7 +91,7 @@ public class PolicyDAO {
 
 		Object[] param = new Object[] { pol.getName(), pol.getContents(), pol.getCategory(), pol.getStartDate(), pol.getEndDate(),  
 				pol.getPolicySummary(), pol.getQualificationForApplication(), pol.getHowToApply(), pol.getLocal(), pol.getStartAge(), pol.getEndAge(),
-				 pol.getIncome(), pol.getPolicyId() }; //수정함
+				 pol.getIncome(), pol.getPolicyId() }; //�닔�젙�븿
 		jdbcUtil.setSqlAndParameters(sql, param);
 
 		try {
@@ -108,7 +108,7 @@ public class PolicyDAO {
 
 	}
 
-	/* policy �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援� */
+	/* policy 占쎈쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃轅⑤쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃占� 占쎈쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃轅⑤쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃占� */
 	public int deletePolicy(int policyId) throws SQLException {
 		String sql = "DELETE FROM Policy " 
 				   + "WHERE policyId=?";
@@ -136,7 +136,7 @@ public class PolicyDAO {
 		jdbcUtil.setSqlAndParameters(sql, new Object[] { policyId });
 
 		try {
-			ResultSet rs = jdbcUtil.executeQuery(); // query �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+			ResultSet rs = jdbcUtil.executeQuery(); // query 占쎈쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃轅⑤쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃占�
 			if (rs.next()) {
 				int count = rs.getInt(1);
 				return (count == 1 ? true : false);
@@ -144,7 +144,7 @@ public class PolicyDAO {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			jdbcUtil.close(); // resource �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶
+			jdbcUtil.close(); // resource 占쎈쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃轅⑤쐻占쎈윪占쎄섬
 		}
 		return false;
 	}
@@ -203,7 +203,7 @@ public class PolicyDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			jdbcUtil.close(); // resource �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럩�꼶
+			jdbcUtil.close(); // resource 占쎈쐻占쎈윥占쎈㎍占쎈쐻占쎈윥筌욎�λ쐻占쎈윪�뤃轅⑤쐻占쎈윪占쎄섬
 		}
 		return null;
 	}
