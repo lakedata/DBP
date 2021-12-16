@@ -207,7 +207,7 @@ function uncheck(){
     <br>
     <div id="pageForm">
         <c:if test="${startPage != 1}">
-            <a href='BoardListAction.bo?page=${startPage-1}'>[ 이전 ]</a>
+            <a href='BoardListAction.bo?page=${startPage-1}'>[이전]</a>
         </c:if>
         
         <c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
