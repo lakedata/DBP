@@ -96,9 +96,9 @@ function countm(type)  {
 	<!-- 동의/비동의  like가 눌리면 dislike 선택이 해체 되는 방식-->
 	<div class="feeling_div" >
 			<div class="button-container like-container">
-			    <button class="feeling_a" onclick='countp("plus")'/>
+			    <button class="feeling_a"/>
 			      <i>♥Like</i>
-			      <div id='result_p'>0</div>   
+			      <div id='result_p'>${a.agree}</div>   
 			  </div>
 			  <div class="button-container dislike-container">
 			    <button class="feeling_a" onclick='countm("minus")'/>
@@ -115,9 +115,11 @@ function countm(type)  {
 		<div style="text-align:center;">
 		<input type="radio" name="agree" value="agree" checked="checked" class="feeling_a">AGREE
 		<input type="radio" name="agree" value="disagree" class="feeling_a">DISAGREE
+		<input type="text" name="postNum" size=20  value="${post.postNum}" style="display: none;"> 
+		<button type="submit" >Sure?</button>
 		</div>
 	</form>
-	<form name="form" method="POST" action="<c:url value='/post/reply/add"'>
+	<form name="form" method="POST" action="<c:url value='/post/reply/add'>
 	</c:url>">
 		<input type="text" name="postNum" size=20  value="${post.postNum}" style="display: none;"> 
 		<input type="text" name="agree" size=20  value='n' style="display: none;">  

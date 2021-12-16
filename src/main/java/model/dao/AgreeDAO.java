@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import model.Agree;
+import model.Post;
 
 public class AgreeDAO {
 	
@@ -39,11 +40,12 @@ public class AgreeDAO {
 		return null;			   
     	
     }
-    public int addAgree (Agree agree) throws SQLException{
+    public int addAgree (int postNum) throws SQLException{
+    	logger.debug("in addAgree");
 		String sql = "UPDATE AGREE "
-				+ "SET AGREE=? "
+				+ "SET AGREE = AGREE + 1 "
 				+ "WHERE POSTNUM=? ";
-		Object[] param = new Object[] {agree.getAgree(), agree.getPostNum()};
+		Object[] param = new Object[] {postNum};
 		jdbcUtil.setSqlAndParameters(sql, param);
 		try {
 			int result = jdbcUtil.executeUpdate();
@@ -57,11 +59,12 @@ public class AgreeDAO {
 		}
 		return 0;
 	}
-    public int addDisagree (Agree agree) throws SQLException{
+    public int addDisagree (int postNum) throws SQLException{
+    	logger.debug("in disagree");
 		String sql = "UPDATE AGREE "
-				+ "SET DISAGREE=? "
+				+ "SET DISAGREE = DISAGREE + 1 "
 				+ "WHERE POSTNUM=? ";
-		Object[] param = new Object[] {agree.getDisagree(), agree.getPostNum()};
+		Object[] param = new Object[] {postNum};
 		jdbcUtil.setSqlAndParameters(sql, param);
 		try {
 			int result = jdbcUtil.executeUpdate();
@@ -75,4 +78,31 @@ public class AgreeDAO {
 		}
 		return 0;
 	}
+    public Agree findAgree(int postNum) throws SQLException{
+    	String sql = "SELECT agree, disagree, postnum"
+                + "FROM agree "
+                + "WHERE postnum=? ";
+    	
+    	jdbcUtil.setSqlAndParameters(sql, new Object[] {postNum});
+    	Agree agree = null; 
+    	
+    	try {
+            ResultSet rs = jdbcUtil.executeQuery();                
+     
+            if (rs.next()) {
+               agree = new Agree (
+               		rs.getInt("agree"),
+               		rs.getInt("disagree"),
+               		rs.getInt("postnum")
+               		);  
+            }                    
+            
+         } catch (Exception ex) {
+            ex.printStackTrace();
+         } finally {
+            jdbcUtil.close();      // resource 
+         }
+         return agree;
+    }
+    
 }
