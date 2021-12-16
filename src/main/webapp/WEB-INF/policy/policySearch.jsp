@@ -203,27 +203,7 @@ function uncheck(){
         </table>
     </div>
   
-    <!-- 페이지 넘버 부분 -->
-    <br>
-    <div id="pageForm">
-        <c:if test="${startPage != 1}">
-            <a href='BoardListAction.bo?page=${startPage-1}'>[이전]</a>
-        </c:if>
-        
-        <c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
-            <c:if test="${pageNum == spage}">
-                ${currentPage}&nbsp;
-            </c:if>
-            <c:if test="${currentPage != spage}">
-                <a href='BoardListAction.bo?page=${currentPage}'>${currentPage}&nbsp;</a>
-            </c:if>
-        </c:forEach>
-        
-        <c:if test="${endPage != maxPage}">
-            <a href='BoardListAction.bo?page=${endPage+1}'>[다음]</a>
-        </c:if>
-    </div>
-    </div>
+
      <!-- footer -->
 	<jsp:include page="/WEB-INF/home/footer.jsp"/>
 

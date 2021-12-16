@@ -40,18 +40,20 @@ public class SearchPolicyController implements Controller {
 		
 		System.out.println("정책유형: " +category+ "\n소득분위: " +income+ "\n거주지역: " +local+ "\n나이: " +startAge+ "\n");
 		
+		/*
     	String currentPageStr = request.getParameter("currentPage");	
 		int currentPage = 1;
 		if (currentPageStr != null && !currentPageStr.equals("")) {
 			currentPage = Integer.parseInt(currentPageStr);
 		}		
+		*/
 		
-		List<Policy> searchPolList = polMan.searchPolicyList(category, income, local, startAge, endAge, currentPage, countPerPage);
+		List<Policy> searchPolList = polMan.searchPolicyList(category, income, local, startAge, endAge);
 		int totalPage = polMan.findPolicyList().size() / (countPerPage + 1);
 		System.out.println("find list: " +searchPolList+ "\n");
 		
 		request.setAttribute("searchPolList", searchPolList);
-		request.setAttribute("currentPage", currentPage);
+//		request.setAttribute("currentPage", currentPage);
 		//return "/policy/policySearch.jsp";
 		return "/policy/policySearchTest.jsp";
 	}
