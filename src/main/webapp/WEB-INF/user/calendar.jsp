@@ -127,11 +127,11 @@
 					cnt++;
 					
 					if (cnt % 7 == 0){/*토요일 */
-						cell.innerHTML = "<font color=#0067a3>" + i + " ✔";
+						cell.innerHTML = "<font color=#0067a3>" + str;
 			            row = calendar.insertRow();
 			          }
 					if (cnt % 7 == 1){/*일요일 */
-						cell.innerHTML = "<font color=#FD5E53>" + i + " ✔";
+						cell.innerHTML = "<font color=#FD5E53>" + str;
 			          }
 					
 					 /*오늘 날짜*/
@@ -151,11 +151,11 @@
 					cnt++;
 					
 					if (cnt % 7 == 0){/*토요일 */
-						cell.innerHTML = "<font color=#0067a3>" + i + " ✔";
+						cell.innerHTML = "<font color=#0067a3>" + str;
 			            row = calendar.insertRow();
 			          }
 					if (cnt % 7 == 1){/*일요일 */
-						cell.innerHTML = "<font color=#FD5E53>" + i + " ✔";
+						cell.innerHTML = "<font color=#FD5E53>" + str;
 			          }
 					
 					 /*오늘 날짜*/

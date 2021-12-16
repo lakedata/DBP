@@ -111,6 +111,12 @@ function countm(type)  {
 	
 	<!-- 댓글 쓰기 -->
 	<div style="margin-top: 50px;">
+	<form name="agreeForm" method="POST" action="<c:url value='/post/agree'></c:url>">
+		<div style="text-align:center;">
+		<input type="radio" name="agree" value="agree" checked="checked" class="feeling_a">AGREE
+		<input type="radio" name="agree" value="disagree" class="feeling_a">DISAGREE
+		</div>
+	</form>
 	<form name="form" method="POST" action="<c:url value='/post/reply/add"'>
 	</c:url>">
 		<input type="text" name="postNum" size=20  value="${post.postNum}" style="display: none;"> 
