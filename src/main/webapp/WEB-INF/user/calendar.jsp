@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="/WEB-INF/home/header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +14,12 @@
 <style>
 
 		.container {
-			width: 385px;
-			line-height: 50px;
-			margin: 50px auto;
-			margin-bottom: -100px;
+		//	width: 385px;
+		//	line-height: 50px;
+		//	margin: 50px auto;
+		//	margin-bottom: -100px;
+			
+			display: flex;
 		}
 
 		h5 {
@@ -29,14 +30,18 @@
 			color: teal;
 		}
 		
-	table{
+	#calendar {
+		width: 700px;
 		border: none;
 		border-collapse : collapse;
+		
+		margin-right: 20px;
+
 	}
 	td{
 		width: 100px;
 		height: 50px;
-		border: solid 0.5px gray;
+		border: solid 0.5px #EDEDED;
 		border-collapse : collapse;
 	}
 	th {
@@ -45,11 +50,12 @@
 	}
 	
 	.contents {
-		margin-top: 130px;
-		 display: flex;
+		margin-bottom: 100px;
+		display: flex;
   		justify-content: center;
 	
 	}
+
 	
 </style>
 
@@ -115,26 +121,52 @@
    			
            <c:forEach var="scrap" items="${scrapDateList}">
 				if(policyDate2 == "${scrap.endDate}"){
-					
-					cell.innerHTML = i + "⭐*";
+					var str = i + "<br>" + "<p style='color: #f29886; font-size: 5px;'>${scrap.name}지원 마감</p>"
+	
+					cell.innerHTML = str;
 					cnt++;
 					
 					if (cnt % 7 == 0){/*토요일 */
-						cell.innerHTML = "<font color=#0067a3>" + i + "⭐*";
+						cell.innerHTML = "<font color=#0067a3>" + str;
 			            row = calendar.insertRow();
 			          }
 					if (cnt % 7 == 1){/*일요일 */
-						cell.innerHTML = "<font color=#FD5E53>" + i + "⭐*";
+						cell.innerHTML = "<font color=#FD5E53>" + str;
 			          }
 					
 					 /*오늘 날짜*/
 			          if (today.getFullYear() == date.getFullYear()
 			             && today.getMonth() == date.getMonth()
 			             && i == date.getDate()) {
-			            cell.bgColor = "#D2D2FF";
+			            cell.bgColor = "#fff6bc";
 			           }
 					 continue;
 					}
+				if(policyDate2 == "${scrap.startDate}"){
+					
+					
+					var str = i + "<br>" + "<p style='color: #0096c6; font-size: 5px;'>${scrap.name}지원 시작</p>"
+
+					cell.innerHTML = str;
+					cnt++;
+					
+					if (cnt % 7 == 0){/*토요일 */
+						cell.innerHTML = "<font color=#0067a3>" + str;
+			            row = calendar.insertRow();
+			          }
+					if (cnt % 7 == 1){/*일요일 */
+						cell.innerHTML = "<font color=#FD5E53>" + str;
+			          }
+					
+					 /*오늘 날짜*/
+			          if (today.getFullYear() == date.getFullYear()
+			             && today.getMonth() == date.getMonth()
+			             && i == date.getDate()) {
+			            cell.bgColor = "#fff6bc";
+			           }
+					 continue;
+					}
+					
 				else{
 	            	cell.innerHTML = i;            	
 				}
@@ -157,15 +189,10 @@
 	          if (today.getFullYear() == date.getFullYear()
 	             && today.getMonth() == date.getMonth()
 	             && i == date.getDate()) {
-	            cell.bgColor = "#D2D2FF";
+	            cell.bgColor = "#fff6bc";
 	            
 	           }
-	          /*test
-	          if(policyDate2 == "2021/12/30"){
-					cell.innerHTML = i + "⭐*";
-	          }
-	          */
-	          
+
          }
     }
 </script>
@@ -173,9 +200,6 @@
 </head>
 <body>
 
-  		<div class="container">
-			<h5><span>내가 스크랩한 정책 일정</span></h5><hr/>
-		</div>
 		<div class="contents">
 		
 			<div class="contents-split">
@@ -208,5 +232,3 @@
 
 
 </html>
-
- <%@ include file="/WEB-INF/home/footer.jsp" %>

@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import model.Reply;
 import model.dao.ReplyDAO;
-import model.dao.PolicyDAO;
 
 public class ReplyManager {
 	

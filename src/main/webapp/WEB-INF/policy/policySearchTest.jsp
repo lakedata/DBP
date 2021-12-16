@@ -154,16 +154,16 @@
         <table>
         <thead>
          <tr>
-                <td>정책명</td>
-                <td>유형</td>
-                <td style="width: 60%;">요약</td>
+                <td><b>정책명</b></td>
+                <td><b>유형</b></td>
+                <td style="width: 60%;"><b>요약</b></td>
          </tr>
 		</thead>
 		<tbody>
         <c:forEach var="policy" items="${searchPolList}">
             <tr>
                 <td>
-                    <a href="<c:url value='/policy/view'>
+                    <a style="text-decoration: none;" href="<c:url value='/policy/view'>
                     <c:param name='policyId' value='${policy.policyId}'/>
                     </c:url>">
                     ${policy.name}</a>

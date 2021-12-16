@@ -132,7 +132,7 @@ public class PostDAO {
 		
         String sql = "SELECT postNum, policyId, user_Id, title, to_char(writeDate, 'YYYY-MM-DD') as writeDate, content "
      		   + "FROM Post "
-     		   + "ORDER BY postNum";   
+     		   + "ORDER BY postNum DESC";   
         
 		jdbcUtil.setSqlAndParameters(sql, null);	
 					

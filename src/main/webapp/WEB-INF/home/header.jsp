@@ -39,7 +39,7 @@
             
                <li class="nav-left"><a href="<c:url value="/user/logout"></c:url>">Logout</a></li>
                 <li class="nav-left"><a href="<c:url value="/mypage"><c:param name='userId' value='${userId}'/></c:url>">마이페이지</a></li>
-            <li class="nav-left" style="color: #8080FF; margin-top: 13px; margin-left: 3px;">${userId}님   </li>  
+            <li class="nav-left" style="color: #8080FF; margin-top: 13px; margin-right: 10px;">${userId}님   </li>  
          </c:when>
            </c:choose> 
       </div>

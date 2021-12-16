@@ -51,6 +51,7 @@ public class SearchPolicyController implements Controller {
 		System.out.println("find list: " +searchPolList+ "\n");
 		
 		request.setAttribute("searchPolList", searchPolList);
+		request.setAttribute("currentPage", currentPage);
 		//return "/policy/policySearch.jsp";
 		return "/policy/policySearchTest.jsp";
 	}

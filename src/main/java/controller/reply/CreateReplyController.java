@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.Controller;
-import controller.user.LoginController;
 import model.Reply;
 import model.service.ReplyManager;
 
@@ -22,12 +21,13 @@ public class CreateReplyController implements Controller {
 		
 		int postNum = Integer.parseInt(request.getParameter("postNum"));
 		
-		Reply re = new Reply (
+		
+		Reply re = new Reply ();
+		
+		re = new Reply (
 				postNum,
-				request.getParameter("agree"),
 				request.getParameter("replyContent"),
-				0,
-				request.getParameter("disagree")); //replyNum => sequence
+				0); //replyNum => sequence
 		
 		logger.debug("Reply: " +re);
 		
