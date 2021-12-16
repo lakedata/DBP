@@ -170,6 +170,7 @@ function uncheck(){
                 <td>
                     <a style="text-decoration: none;" href="<c:url value='/policy/view'>
                     <c:param name='policyId' value='${policy.policyId}'/>
+                    <c:param name="userId" value="${userId}" />
                     </c:url>">
                     ${policy.name}</a>
                 </td>
@@ -211,10 +212,10 @@ function uncheck(){
         
         <c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
             <c:if test="${pageNum == spage}">
-                ${pageNum}&nbsp;
+                ${currentPage}&nbsp;
             </c:if>
-            <c:if test="${pageNum != spage}">
-                <a href='BoardListAction.bo?page=${pageNum}'>${pageNum}&nbsp;</a>
+            <c:if test="${currentPage != spage}">
+                <a href='BoardListAction.bo?page=${currentPage}'>${currentPage}&nbsp;</a>
             </c:if>
         </c:forEach>
         
