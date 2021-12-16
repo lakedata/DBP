@@ -65,7 +65,7 @@ public class UserManager {
 		logger.debug("Usermanager findUser " + user);
 
 		if (!user.matchPassword(password)) {
-			throw new PasswordMismatchException("��й�ȣ�� ��ġ���� �ʽ��ϴ�.");
+			throw new PasswordMismatchException("비밀번호가 일치 하지 않습니다.");
 
 		}
 
