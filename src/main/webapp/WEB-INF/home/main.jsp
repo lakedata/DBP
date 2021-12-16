@@ -9,7 +9,7 @@
 <meta charset="UTF-8" />
 <title>Checkkeu홈페이지</title>
 <style>
-ul {
+	ul {
        list-style-type: none;
        margin: 0;
        padding: 0;
@@ -32,6 +32,7 @@ ul {
    }
    li a:hover:not(.active) {
        background-color: #111;
+       color: white;
    }
    .active {
        background-color: #8080FF;
@@ -102,7 +103,7 @@ ul {
             
                <li class="nav-left"><a href="<c:url value="/user/logout"></c:url>">Logout</a></li>
                 <li class="nav-left"><a href="<c:url value="/mypage"><c:param name='userId' value='${userId}'/></c:url>">마이페이지</a></li>
-            <li class="nav-left" style="color: #8080FF; margin-top: 13px; margin-right: 10px;">${userId}님   </li>  
+            <li class="nav-left" style="color: #8080FF; margin-top: 13px; margin-right: 10px; font-size: 16px;">${userId}님   </li>  
          </c:when>
            </c:choose> 
       </div>
