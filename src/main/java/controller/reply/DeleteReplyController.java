@@ -17,6 +17,7 @@ public class DeleteReplyController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		logger.debug("in DeleteReplyController");
+		
 		// TODO Auto-generated method stub
 		int deleteReplyNum = Integer.parseInt(request.getParameter("replyNum"));
 		int postNum = Integer.parseInt(request.getParameter("postNum"));
