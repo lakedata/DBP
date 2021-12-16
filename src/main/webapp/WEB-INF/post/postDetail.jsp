@@ -98,13 +98,13 @@ function countm(type)  {
 			<div class="button-container like-container">
 			    <button class="feeling_a">
 			      <i>♥YES</i>
-			      <div id='result_p'>${agr}</div> 
+			      <div id='result_p'>${agree.agree}</div> 
 			      </button>  
 			  </div>
 			  <div class="button-container dislike-container">
 			    <button class="feeling_a">
 			      <i>♡NO</i>  <!--{ $like_sum }-->
-			      <div id='result_m'>${disagr}</div>
+			      <div id='result_m'>${agree.disagree}</div>
 			      </button>
 			</div>
 	</div>

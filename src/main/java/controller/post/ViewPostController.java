@@ -37,6 +37,7 @@ public class ViewPostController implements Controller{
 		Post post = null;
 		Agree agree = null;
 		post = postMan.findPost(postNum);
+		agree = aMan.findAgree(postNum);
 //		agree = aMan.create(postNum);
 		List<Reply> replyList = reMan.findReplyList(postNum);
 		
