@@ -40,15 +40,15 @@ public class ScrapManager {
 	public List<Scrap> getScrapList(String userId) throws SQLException {
 		return scrapDAO.getScrapList(userId);
 	}
-	
-	   // 사용자가 스크랩한 리스트 가져오기
-	   public List<Scrap> getScrapDateList(String userId) throws SQLException {
-	      return scrapDAO.getScrapDateList(userId);
-	   }
-	   
-	   //회원탈퇴
-	   public int deleteUserAllScrap(String user_id) throws SQLException {
-		   return scrapDAO.deleteUserAllScrap(user_id);
-	   }
-	   
+
+	// 사용자가 스크랩한 리스트 가져오기
+	public List<Scrap> getScrapDateList(String userId) throws SQLException {
+		return scrapDAO.getScrapDateList(userId);
+	}
+
+	// 회원탈퇴
+	public int deleteUserAllScrap(String user_id) throws SQLException {
+		return scrapDAO.deleteUserAllScrap(user_id);
+	}
+
 }

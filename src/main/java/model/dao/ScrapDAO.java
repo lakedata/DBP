@@ -96,43 +96,35 @@ public class ScrapDAO {
 
 		return null;
 	}
-	
-	   
-	   /* 사용자가 스크랩한 정책 날짜 불러오기 */
-	   public List<Scrap> getScrapDateList(String user_Id) throws SQLException {
-	      
-	      String sql = "SELECT s.policyId, s.user_id, p.name, p.category, to_char(startDate, 'YYYY/MM/DD') as startDate, to_char(endDate, 'YYYY/MM/DD') as endDate "
-	               + "FROM Scrap s, Policy p "
-	               + "WHERE s.policyId = p.policyId AND user_Id = ? ";
-	      
-	      jdbcUtil.setSqlAndParameters(sql, new Object[] {user_Id});
-	      
-	      try {
-	         ResultSet rs = jdbcUtil.executeQuery();               
-	         List<Scrap> scrapDateList = new ArrayList<Scrap>();
-	         
-	         while (rs.next()) {
-	            Scrap scrap = new Scrap (   
-	                  rs.getString("user_Id"),
-	                  rs.getInt("policyId"),
-	                  rs.getString("name"), 
-	                  rs.getString("category"),
-	                  rs.getString("startDate"), 
-	                  rs.getString("endDate")
-	                  );
-	            scrapDateList.add(scrap);            
-	         }      
-	         return scrapDateList;      
-	         
-	      } catch (Exception e){
-	         e.printStackTrace();
-	      } finally {
-	         jdbcUtil.close();      
-	      }
-	      
-	      return null;
-	   }
-	   
+
+	/* 사용자가 스크랩한 정책 날짜 불러오기 */
+	public List<Scrap> getScrapDateList(String user_Id) throws SQLException {
+
+		String sql = "SELECT s.policyId, s.user_id, p.name, p.category, to_char(startDate, 'YYYY/MM/DD') as startDate, to_char(endDate, 'YYYY/MM/DD') as endDate "
+				+ "FROM Scrap s, Policy p " + "WHERE s.policyId = p.policyId AND user_Id = ? ";
+
+		jdbcUtil.setSqlAndParameters(sql, new Object[] { user_Id });
+
+		try {
+			ResultSet rs = jdbcUtil.executeQuery();
+			List<Scrap> scrapDateList = new ArrayList<Scrap>();
+
+			while (rs.next()) {
+				Scrap scrap = new Scrap(rs.getString("user_Id"), rs.getInt("policyId"), rs.getString("name"),
+						rs.getString("category"), rs.getString("startDate"), rs.getString("endDate"));
+				scrapDateList.add(scrap);
+			}
+			return scrapDateList;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			jdbcUtil.close();
+		}
+
+		return null;
+	}
+
 	// user_id의 모든 Scrap 삭제 (그룹 탈퇴)
 	public static int deleteUserAllScrap(String user_id) throws SQLException {
 		String sql = "DELETE FROM Scrap WHERE user_id=?";
