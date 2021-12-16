@@ -115,12 +115,7 @@ int arr[] = null;
 				<c:when test="${userId!='dbpro0102'}">
 					<!-- 스크랩하기 -->
 					<div id="scrapButton">
-					
-					<c:forEach var="scrap" items="${scrapDateList}">
-					 <c:if test="${policyId == scrap.policyId && userId == scrap.userId }">
-						
-					</c:if>
-					</c:forEach>		    
+						    
 				    	<c:set var="flag" value="0"/>
 				    	<!-- scrapDateLisit가 비어있지 않을 때  -->
 				    	<c:if test="${not empty scrapDateList}">
