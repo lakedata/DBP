@@ -46,6 +46,7 @@ int arr[] = null;
 	<!-- 상세보기 -->
 	<div id="detail">
 		<h3>${policy.name}</h3>
+	
 		${policy.contents} <br> <br> <b>지원대상</b><br> <br>
 		<table>
 			<tr>
@@ -93,8 +94,6 @@ int arr[] = null;
 						style="text-decoration-line: none;">삭제</a>
 				</c:when>
 				<c:when test="${userId!='dbpro0102'}">
-
-
 					<!-- 스크랩하기 -->
 					<form name="form" method="POST"
 						action="<c:url value='/policy/scrap/add' />">
@@ -104,7 +103,6 @@ int arr[] = null;
 							style="display: none;"> <input type="button"
 							value="스크랩하기" onClick="scarpCreate()">
 					</form>
-
 					<!-- 스크랩취소 -->
 					<a
 						href="<c:url value="/policy/scrap/cancel">
