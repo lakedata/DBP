@@ -157,7 +157,7 @@
 								<p class="project-description">나이, 거주지, 소득분위 등 검색 옵션을 부여하여
 									DB에서 해당 정책을 가져옴 회원가입 시에 입력한 본인 정보와 맞는 정책을 보여주는 기능</p>
 								<a class="project-link" href="<c:url value='/policy/list'/>">사용자
-									맟춤형</a>
+									맞춤형</a>
 							</div>
 						</div>
 					</div>
