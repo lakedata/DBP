@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>header</title>
+<title>Checkkeu홈페이지</title>
 
 <!--  header 스타일시트 -->
 <link rel="stylesheet" href="<c:url value='/css/home/header.css' />"
