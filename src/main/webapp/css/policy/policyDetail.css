@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+ .aStyle:link { color: red; text-decoration: none;}
+ .aStyle:visited { color: red; text-decoration: none;}
+ .aStyle:hover { color: red; text-decoration: underline;}
+ .divCenter {
+ 		display: flex;
+	  	justify-content: center;
+	  	text-align: center;
+	  	justify-content: center;
+ }
+ 
 #detail {
 	padding-left: 150px;
 	width: 80%;

@@ -63,7 +63,7 @@ function countm(type)  {
 </script>
 <!--  postDetail 스타일시트 -->
 <link rel="stylesheet"
-	href="<c:url value='/css/post/postDetail.css' />" type="text/css">
+	href="<c:url value='/css/post/postDetail.css?after' />" type="text/css">
 
 </head>
 <body>
