@@ -12,7 +12,7 @@ int arr[] = null;
 <title>정책 상세보기</title>
 <!--  policyDetail 스타일시트 -->
 <link rel="stylesheet"
-	href="<c:url value='/css/policy/policyDetail.css?after' />" type="text/css">
+	href="<c:url value='/css/policy/policyDetail.css' />" type="text/css">
 <style>
 
 	input {
@@ -101,23 +101,19 @@ int arr[] = null;
 
 		<div>
 			<c:choose>
-				<div class="divCenter">
 				<c:when test="${userId=='dbpro0102'}">
-					<a class="aStyle" 
+					<a
 						href="<c:url value="/policy/update">
 	            	<c:param name="policyId" value="${policy.policyId}" />
 	            </c:url>"
 						style="text-decoration-line: none;">수정</a>
-					<a class="aStyle" 
+					<a
 						href="<c:url value="/policy/delete">
 	            	<c:param name="policyId" value="${policy.policyId}" />
 	            </c:url>"
 						style="text-decoration-line: none;">삭제</a>
 				</c:when>
-					</div>
-					
 				<c:when test="${userId!='dbpro0102'}">
-			
 					<!-- 스크랩하기 -->
 					<div id="scrapButton">
 						    
