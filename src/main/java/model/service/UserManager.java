@@ -12,6 +12,7 @@ import model.dao.ScrapDAO;
 import model.dao.UserDAO;
 
 public class UserManager {
+	
 	private static UserManager userMan = new UserManager();
 	private UserDAO userDAO;
 	private static final Logger logger = LoggerFactory.getLogger(UserManager.class);
