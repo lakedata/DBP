@@ -31,7 +31,7 @@ public class UserManager {
 
 	public int create(User user) throws SQLException, ExistingUserException {
 		if (userDAO.existingUser(user.getUserId()) == true) {
-			throw new ExistingUserException(user.getUserId() + "님은 이미 존재합니다.");
+			throw new ExistingUserException(user.getUserId() + "�떂�� �씠誘� 議댁옱�빀�땲�떎.");
 		}
 		return userDAO.create(user);
 	}
@@ -40,7 +40,7 @@ public class UserManager {
 		return userDAO.update(user);
 	}
 
-	public int remove(String userId) throws SQLException, UserNotFoundException { // 회원탈퇴 +POST/SCRAP
+	public int remove(String userId) throws SQLException, UserNotFoundException { // �쉶�썝�깉�눜 +POST/SCRAP
 		PostDAO.deleteUserAllPost(userId);
 		ScrapDAO.deleteUserAllScrap(userId);
 
@@ -51,12 +51,12 @@ public class UserManager {
 		User user = userDAO.findUser(userId);
 
 		if (user == null) {
-			throw new UserNotFoundException(userId + "님을 찾을 수 없습니다.");
+			throw new UserNotFoundException(userId + " 사용자를 찾을 수 없습니다.");
 		}
 		return user;
 	}
 
-	public boolean login(String userId, String password)
+	public String login(String userId, String password)
 			throws SQLException, UserNotFoundException, PasswordMismatchException {
 
 		logger.debug("Usermanager login");
@@ -66,11 +66,11 @@ public class UserManager {
 		logger.debug("Usermanager findUser " + user);
 
 		if (!user.matchPassword(password)) {
-			throw new PasswordMismatchException("비밀번호가 일치 하지 않습니다.");
+			throw new PasswordMismatchException("비밀번호가 일치하지않습니다.");
 		}
 		logger.debug("Usermanager return ");
 
-		return true;
+		return user.getName();
 	}
 
 	public UserDAO getUserDAO() {

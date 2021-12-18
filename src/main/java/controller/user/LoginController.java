@@ -27,6 +27,7 @@ public class LoginController implements Controller {
     	
     	String userId = request.getParameter("id");
 		String password = request.getParameter("pw");
+		String userName;
 		
 		logger.debug("in LoginController " +userId+ "," +password);
 		
@@ -41,9 +42,9 @@ public class LoginController implements Controller {
 			logger.debug("POST1");
 			UserManager manager = UserManager.getInstance();
 			logger.debug("POST2");
-			manager.login(userId, password);
+			userName = manager.login(userId, password);
 			
-			logger.debug("success!");
+			logger.debug(userName+ "success!");
 			
 //			User user = userDAO.findUser(userId);
 //			if(user == null) {
@@ -56,6 +57,7 @@ public class LoginController implements Controller {
 			// save user ID in session
 			HttpSession session = request.getSession();
             session.setAttribute(UserSessionUtils.USER_SESSION_KEY, userId);
+            session.setAttribute("userName", userName);
             
             return "redirect:/";			
 		} catch (Exception e) {
